@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useRef, useState } from "react";
 import { ModelCard } from "@/components/ModelCard";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
@@ -17,22 +17,41 @@ const categories = Object.entries(models.categories);
 export default function Home() {
   const [query, setQuery] = useState("");
   const [categoryKey, setCategoryKey] = useState<string | null>(null);
-  const [noMatch, setNoMatch] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const requestId = useRef(0);
 
   function showCategory(key: string) {
+    requestId.current += 1;
+    setLoading(false);
     setCategoryKey(key);
-    setNoMatch(false);
   }
 
-  function onSubmit(event: FormEvent<HTMLFormElement>) {
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (!query.trim()) return;
+
     const key = matchCategory(query);
     if (key) {
       showCategory(key);
       return;
     }
+
+    const id = ++requestId.current;
     setCategoryKey(null);
-    setNoMatch(true);
+    setLoading(true);
+    let next = "general";
+    try {
+      const res = await fetch("/api/classify", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query }),
+      });
+      const data = await res.json();
+      if (data?.category in models.categories) next = data.category;
+    } catch {}
+    if (id !== requestId.current) return;
+    setLoading(false);
+    setCategoryKey(next);
   }
 
   const category = categoryKey
@@ -86,12 +105,6 @@ export default function Home() {
           </button>
         </form>
 
-        {noMatch && (
-          <p className="mt-6 text-sm text-amber-200">
-            Not sure which category fits. Pick one:
-          </p>
-        )}
-
         <div className="mt-4 flex flex-wrap gap-2">
           {categories.map(([key, item]) => {
             const selected = key === categoryKey;
@@ -103,9 +116,7 @@ export default function Home() {
                 className={
                   selected
                     ? "rounded-full border border-emerald-500 bg-emerald-500/15 px-4 py-2 text-sm text-white"
-                    : noMatch
-                      ? "rounded-full border border-amber-400/80 bg-zinc-900 px-4 py-2 text-sm text-zinc-100"
-                      : "rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200 hover:border-emerald-500"
+                    : "rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200 hover:border-emerald-500"
                 }
               >
                 {item.emoji} {item.display_name}
@@ -113,6 +124,10 @@ export default function Home() {
             );
           })}
         </div>
+
+        {loading && (
+          <p className="mt-10 text-sm text-zinc-400">Finding the best fit…</p>
+        )}
 
         {category && (
           <section

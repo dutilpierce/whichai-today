@@ -4,7 +4,7 @@
     "coding": {
       "display_name": "Coding & Software",
       "emoji": "💻",
-      "keywords": ["code", "coding", "program", "python", "javascript", "typescript", "react", "next", "sql", "debug", "bug", "refactor", "api", "app", "website", "script", "function", "devops", "deploy", "backend", "frontend", "build"],
+      "keywords": ["code", "coding", "program", "python", "javascript", "typescript", "react", "next", "sql", "debug", "bug", "refactor", "api", "app", "website", "script", "function", "devops", "deploy", "backend", "frontend", "build", "html", "css", "java", "rust", "git", "docker", "terminal", "database", "component", "regex"],
       "leader": {
         "name": "Claude Opus 5.5",
         "provider": "Anthropic",
@@ -33,7 +33,7 @@
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
       "emoji": "⚖️",
-      "keywords": ["legal", "law", "lawyer", "contract", "lease", "clause", "compliance", "policy", "regulation", "statute", "court", "brief", "deposition", "nda", "terms", "pdf", "document", "audit"],
+      "keywords": ["legal", "law", "lawyer", "contract", "lease", "clause", "compliance", "policy", "regulation", "statute", "court", "brief", "deposition", "nda", "terms", "pdf", "document", "audit", "summarize", "summary", "transcript", "meeting", "notes", "earnings", "filing", "report", "tldr", "tl;dr", "recap", "minutes", "podcast", "paper", "chapter", "whitepaper", "memo", "briefing", "disclosure", "prospectus", "quarterly", "invoice", "extract"],
       "leader": {
         "name": "Claude Fable 5.1",
         "provider": "Anthropic",
@@ -62,7 +62,7 @@
     "writing_creative": {
       "display_name": "Writing & Marketing",
       "emoji": "✍️",
-      "keywords": ["write", "writing", "copy", "email", "blog", "post", "linkedin", "story", "fiction", "poem", "marketing", "ad", "tone", "edit", "rewrite", "essay", "caption", "seo", "newsletter"],
+      "keywords": ["write", "writing", "copy", "email", "blog", "post", "linkedin", "story", "fiction", "poem", "marketing", "ad", "tone", "edit", "rewrite", "essay", "caption", "seo", "newsletter", "translate", "proofread", "resume", "brainstorm", "outline", "draft", "grammar", "headline", "slogan", "tagline", "speech", "slides", "deck", "proposal", "bio", "tweet", "thread", "paraphrase", "rephrase", "letter", "video", "announcement", "cover letter"],
       "leader": {
         "name": "Gemini 4 Argon",
         "provider": "Google",
@@ -91,7 +91,7 @@
     "reasoning_math": {
       "display_name": "Reasoning, Math & Science",
       "emoji": "🧮",
-      "keywords": ["math", "calculus", "algebra", "equation", "proof", "logic", "puzzle", "reason", "physics", "chemistry", "science", "statistics", "financial model", "algorithm", "research", "solve"],
+      "keywords": ["math", "calculus", "algebra", "equation", "proof", "logic", "puzzle", "reason", "physics", "chemistry", "science", "statistics", "financial model", "algorithm", "research", "solve", "explain", "study", "homework", "tutor", "learn", "teach", "lesson", "quiz", "concept", "biology", "economics", "formula", "calculate", "probability", "textbook", "theorem", "dataset", "spreadsheet", "excel", "csv", "chart", "analyze"],
       "leader": {
         "name": "Claude Opus 5.5",
         "provider": "Anthropic",
@@ -120,7 +120,7 @@
     "low_latency": {
       "display_name": "Speed & High Volume",
       "emoji": "⚡",
-      "keywords": ["fast", "speed", "quick", "real-time", "realtime", "latency", "chatbot", "bulk", "volume", "classify", "classification", "cheap", "budget", "autocomplete", "pipeline", "support bot"],
+      "keywords": ["fast", "speed", "quick", "real-time", "realtime", "latency", "chatbot", "bulk", "volume", "classify", "classification", "cheap", "autocomplete", "pipeline", "support bot", "batch", "throughput", "embedding", "tokens"],
       "leader": {
         "name": "Gemini 3.5 Flash-Lite",
         "provider": "Google",
@@ -144,6 +144,35 @@
         "why": "Fast, extremely cheap, MIT-licensed, and the smartest model in the budget tier.",
         "benchmark_context": "~210 tokens/sec; AA Intelligence Index 45.",
         "direct_link": "https://chat.deepseek.com"
+      }
+    },
+    "general": {
+      "display_name": "General & Everyday",
+      "emoji": "✨",
+      "keywords": ["plan", "trip", "travel", "vacation", "itinerary", "recipe", "cook", "meal", "advice", "gift", "workout", "fitness", "diet", "health", "shopping", "budgeting", "idea", "recommend", "logo", "image", "picture", "design", "help me", "how do i", "what should"],
+      "leader": {
+        "name": "Gemini 4 Argon",
+        "provider": "Google",
+        "badge": "Best All-Rounder",
+        "why": "The highest-rated model overall in blind votes from millions of real users, across every kind of question.",
+        "benchmark_context": "#1 LMArena Text overall (1526, preliminary).",
+        "direct_link": "https://gemini.google.com"
+      },
+      "runner_up": {
+        "name": "GPT-6.1 Sol",
+        "provider": "OpenAI",
+        "badge": "Best Everyday Value",
+        "why": "Near-flagship quality at a lower price, with the largest context window of the top models.",
+        "benchmark_context": "BenchLM best near-frontier value; 1.05M token context.",
+        "direct_link": "https://chatgpt.com"
+      },
+      "open_source_pick": {
+        "name": "MiMo-V2.6-Pro",
+        "provider": "Xiaomi",
+        "badge": "Top Open All-Rounder",
+        "why": "The smartest open-weights model overall, free to download under the MIT license.",
+        "benchmark_context": "#1 open model on Artificial Analysis Intelligence Index (46).",
+        "direct_link": "https://huggingface.co/models?search=mimo-v2.6"
       }
     }
   }
