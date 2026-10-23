@@ -52,8 +52,24 @@ export default function Home() {
         </p>
       </header>
 
-      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-12">
-        <form onSubmit={onSubmit} className="flex flex-col gap-3 sm:flex-row">
+      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-12 pt-10">
+        <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+          The best AI changes depending on the job.
+        </h1>
+        <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300">
+          Models leapfrog each other all the time, and not in the same category.
+          The leader for coding is often not the leader for writing, legal work,
+          math, or speed.
+        </p>
+        <p className="mt-2 max-w-2xl text-base leading-7 text-zinc-400">
+          Describe what you are working on. You will get today&apos;s top pick, a
+          strong alternative, and the best open option.
+        </p>
+
+        <form
+          onSubmit={onSubmit}
+          className="mt-8 flex flex-col gap-3 sm:flex-row"
+        >
           <input
             autoFocus
             value={query}
@@ -103,9 +119,9 @@ export default function Home() {
             className="mt-10 flex flex-col gap-4"
             style={{ animation: "whichai-fade 0.35s ease" }}
           >
-            <h1 className="text-sm font-medium text-zinc-400">
+            <p className="text-sm font-medium text-zinc-400">
               {category.emoji} {category.display_name}
-            </h1>
+            </p>
             <ModelCard model={category.leader} label="#1 Champion" featured />
             <div className="grid gap-4 md:grid-cols-2">
               <ModelCard model={category.runner_up} label="Top Alternative" />
