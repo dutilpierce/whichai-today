@@ -3,6 +3,7 @@
 import { FormEvent, useRef, useState } from "react";
 import { ModelCard } from "@/components/ModelCard";
 import { StageCard } from "@/components/StageCard";
+import { Thinking } from "@/components/Thinking";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
 
@@ -26,6 +27,12 @@ const updatedLabel = new Date(models.last_updated).toLocaleDateString("en-US", {
 });
 
 const categories = Object.entries(models.categories);
+
+const pillRest =
+  "rounded-full border border-zinc-700/80 bg-linear-to-b from-zinc-800 to-zinc-900 px-4 py-2 text-sm text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_4px_12px_rgba(0,0,0,0.45)] transition hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_18px_rgba(0,0,0,0.55)] active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_2px_6px_rgba(0,0,0,0.4)]";
+
+const pillSelected =
+  "rounded-full border border-emerald-300/80 bg-linear-to-b from-emerald-400 to-emerald-600 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(16,185,129,0.6),0_6px_20px_rgba(16,185,129,0.25)]";
 
 export default function Home() {
   const [mode, setMode] = useState<"quick" | "plan">("quick");
@@ -106,8 +113,11 @@ export default function Home() {
     <div className="flex min-h-full flex-1 flex-col bg-zinc-950 text-zinc-50">
       <style>{`@keyframes whichai-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}`}</style>
       <header className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 pt-8">
-        <p className="text-lg font-semibold tracking-tight text-white">
+        <p className="flex items-center gap-4 text-lg font-semibold tracking-tight text-white">
           WhichAI.today
+          <a href="/about" className="text-sm font-medium text-zinc-400 hover:text-white">
+            About
+          </a>
         </p>
         <p className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
@@ -130,7 +140,7 @@ export default function Home() {
           project and get the right model for each stage.
         </p>
 
-        <div className="mt-8 flex gap-2">
+        <div className="mt-8 inline-flex gap-1 self-start rounded-full bg-zinc-900 p-1 shadow-[inset_0_2px_6px_rgba(0,0,0,0.55)]">
           {(
             [
               ["quick", "Quick pick"],
@@ -145,11 +155,7 @@ export default function Home() {
                 setLoading(false);
                 setMode(value);
               }}
-              className={
-                mode === value
-                  ? "rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-950"
-                  : "rounded-full border border-zinc-700 px-4 py-2 text-sm text-zinc-300 hover:border-zinc-500"
-              }
+              className={mode === value ? pillSelected : pillRest}
             >
               {label}
             </button>
@@ -171,9 +177,10 @@ export default function Home() {
           />
           <button
             type="submit"
-            className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200"
+            disabled={loading}
+            className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 disabled:cursor-wait disabled:bg-zinc-300"
           >
-            Find
+            {loading ? "Finding…" : "Find"}
           </button>
         </form>
         ) : (
@@ -188,9 +195,10 @@ export default function Home() {
           />
           <button
             type="submit"
-            className="self-start rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200"
+            disabled={loading}
+            className="self-start rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 disabled:cursor-wait disabled:bg-zinc-300"
           >
-            Plan it
+            {loading ? "Planning…" : "Plan it"}
           </button>
         </form>
         )}
@@ -204,11 +212,7 @@ export default function Home() {
                 key={key}
                 type="button"
                 onClick={() => showCategory(key)}
-                className={
-                  selected
-                    ? "rounded-full border border-emerald-500 bg-emerald-500/15 px-4 py-2 text-sm text-white"
-                    : "rounded-full border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-zinc-200 hover:border-emerald-500"
-                }
+                className={selected ? pillSelected : pillRest}
               >
                 {item.emoji} {item.display_name}
               </button>
@@ -217,11 +221,7 @@ export default function Home() {
         </div>
         )}
 
-        {loading && (
-          <p className="mt-10 text-sm text-zinc-400">
-            {mode === "plan" ? "Mapping out your project…" : "Finding the best fit…"}
-          </p>
-        )}
+        {loading && <Thinking mode={mode} />}
 
         {mode === "plan" && planError && (
           <p className="mt-10 text-sm text-amber-200">
@@ -271,9 +271,14 @@ export default function Home() {
         )}
       </main>
 
-      <footer className="mx-auto w-full max-w-3xl px-4 pb-8 text-xs text-zinc-500">
-        Rankings compiled from LMArena, Artificial Analysis, Vals AI, and
-        SWE-bench, last reviewed {updatedLabel}.
+      <footer className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-between gap-3 px-4 pb-8 text-xs text-zinc-500">
+        <p>
+          Rankings compiled from LMArena, Artificial Analysis, Vals AI, and
+          SWE-bench, last reviewed {updatedLabel}.
+        </p>
+        <a href="/about" className="text-zinc-400 hover:text-white">
+          About
+        </a>
       </footer>
     </div>
   );
