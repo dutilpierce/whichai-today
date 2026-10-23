@@ -127,7 +127,7 @@ export default function Home() {
 
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-12 pt-10">
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          The best AI changes depending on the job.
+          The best AI models change depending on the job.
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300">
           Models leapfrog each other all the time, and not in the same category.

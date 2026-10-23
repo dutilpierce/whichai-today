@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import models from "@/lib/models.json";
 
 export const alt =
-  "WhichAI.today: the best AI changes depending on the job.";
+  "WhichAI.today: the best AI models change depending on the job.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -32,7 +32,7 @@ export default function OpenGraphImage() {
             maxWidth: 980,
           }}
         >
-          The best AI changes depending on the job.
+          The best AI models change depending on the job.
         </div>
         <div
           style={{
