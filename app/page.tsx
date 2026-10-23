@@ -151,7 +151,7 @@ export default function Home() {
 
       <footer className="mx-auto w-full max-w-3xl px-4 pb-8 text-xs text-zinc-500">
         Rankings compiled from LMArena, Artificial Analysis, Vals AI, and
-        SWE-bench. Updated manually.
+        SWE-bench, last reviewed {updatedLabel}.
       </footer>
     </div>
   );
