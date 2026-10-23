@@ -2,8 +2,21 @@
 
 import { FormEvent, useRef, useState } from "react";
 import { ModelCard } from "@/components/ModelCard";
+import { StageCard } from "@/components/StageCard";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
+
+type PlanStage = {
+  name: string;
+  goal: string;
+  action: string;
+  category: string;
+};
+
+type Plan = {
+  summary: string;
+  stages: PlanStage[];
+};
 
 const updatedLabel = new Date(models.last_updated).toLocaleDateString("en-US", {
   month: "short",
@@ -15,8 +28,12 @@ const updatedLabel = new Date(models.last_updated).toLocaleDateString("en-US", {
 const categories = Object.entries(models.categories);
 
 export default function Home() {
+  const [mode, setMode] = useState<"quick" | "plan">("quick");
   const [query, setQuery] = useState("");
+  const [description, setDescription] = useState("");
   const [categoryKey, setCategoryKey] = useState<string | null>(null);
+  const [plan, setPlan] = useState<Plan | null>(null);
+  const [planError, setPlanError] = useState(false);
   const [loading, setLoading] = useState(false);
   const requestId = useRef(0);
 
@@ -54,6 +71,33 @@ export default function Home() {
     setCategoryKey(next);
   }
 
+  async function onPlan(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!description.trim()) return;
+
+    const id = ++requestId.current;
+    setPlan(null);
+    setPlanError(false);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/plan", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ description }),
+      });
+      const data = await res.json();
+      if (!res.ok || !data?.summary || !Array.isArray(data.stages)) {
+        throw new Error("plan failed");
+      }
+      if (id !== requestId.current) return;
+      setPlan(data);
+    } catch {
+      if (id !== requestId.current) return;
+      setPlanError(true);
+    }
+    if (id === requestId.current) setLoading(false);
+  }
+
   const category = categoryKey
     ? models.categories[categoryKey as keyof typeof models.categories]
     : null;
@@ -82,12 +126,40 @@ export default function Home() {
         </p>
         <p className="mt-2 max-w-2xl text-base leading-7 text-zinc-400">
           Describe what you are working on. You will get today&apos;s top pick, a
-          strong alternative, and the best open option.
+          strong alternative, and the best open option. Or describe a whole
+          project and get the right model for each stage.
         </p>
 
+        <div className="mt-8 flex gap-2">
+          {(
+            [
+              ["quick", "Quick pick"],
+              ["plan", "Plan a project"],
+            ] as const
+          ).map(([value, label]) => (
+            <button
+              key={value}
+              type="button"
+              onClick={() => {
+                requestId.current += 1;
+                setLoading(false);
+                setMode(value);
+              }}
+              className={
+                mode === value
+                  ? "rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-950"
+                  : "rounded-full border border-zinc-700 px-4 py-2 text-sm text-zinc-300 hover:border-zinc-500"
+              }
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {mode === "quick" ? (
         <form
           onSubmit={onSubmit}
-          className="mt-8 flex flex-col gap-3 sm:flex-row"
+          className="mt-4 flex flex-col gap-3 sm:flex-row"
         >
           <input
             autoFocus
@@ -104,7 +176,26 @@ export default function Home() {
             Find
           </button>
         </form>
+        ) : (
+        <form onSubmit={onPlan} className="mt-4 flex flex-col gap-3">
+          <textarea
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            placeholder="Describe your project: what you're building, the main parts, timeline, team size, and scale. Example: a mobile app for local dog walkers with booking, payments, and a marketing launch, solo founder, 3 months."
+            aria-label="Describe your project"
+            rows={5}
+            className="w-full resize-y rounded-2xl border border-zinc-800 bg-zinc-900 px-5 py-4 text-base text-white outline-none placeholder:text-zinc-500 focus:border-emerald-500"
+          />
+          <button
+            type="submit"
+            className="self-start rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200"
+          >
+            Plan it
+          </button>
+        </form>
+        )}
 
+        {mode === "quick" && (
         <div className="mt-4 flex flex-wrap gap-2">
           {categories.map(([key, item]) => {
             const selected = key === categoryKey;
@@ -124,12 +215,21 @@ export default function Home() {
             );
           })}
         </div>
-
-        {loading && (
-          <p className="mt-10 text-sm text-zinc-400">Finding the best fit…</p>
         )}
 
-        {category && (
+        {loading && (
+          <p className="mt-10 text-sm text-zinc-400">
+            {mode === "plan" ? "Mapping out your project…" : "Finding the best fit…"}
+          </p>
+        )}
+
+        {mode === "plan" && planError && (
+          <p className="mt-10 text-sm text-amber-200">
+            Couldn&apos;t plan this right now. Try Quick pick or try again.
+          </p>
+        )}
+
+        {mode === "quick" && category && (
           <section
             className="mt-10 flex flex-col gap-4"
             style={{ animation: "whichai-fade 0.35s ease" }}
@@ -145,6 +245,28 @@ export default function Home() {
                 label="Best Open Source"
               />
             </div>
+          </section>
+        )}
+
+        {mode === "plan" && plan && (
+          <section
+            className="mt-10 flex flex-col gap-4"
+            style={{ animation: "whichai-fade 0.35s ease" }}
+          >
+            <p className="text-base leading-7 text-zinc-200">{plan.summary}</p>
+            {plan.stages.map((stage, index) => {
+              const stageCategory =
+                models.categories[stage.category as keyof typeof models.categories];
+              if (!stageCategory) return null;
+              return (
+                <StageCard
+                  key={`${stage.category}-${index}`}
+                  index={index + 1}
+                  stage={stage}
+                  category={stageCategory}
+                />
+              );
+            })}
           </section>
         )}
       </main>
