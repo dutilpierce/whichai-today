@@ -127,12 +127,12 @@ export default function Home() {
 
       <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-12 pt-10">
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          The best AI models change depending on the job.
+          Find the best AI model for the job.
         </h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300">
-          Models leapfrog each other all the time, and not in the same category.
-          The leader for coding is often not the leader for writing, legal work,
-          math, or speed.
+          Today&apos;s best AI model may not be tomorrow&apos;s. Models leapfrog
+          each other constantly, and the leader for coding is rarely the leader
+          for writing, legal work, math, or speed.
         </p>
         <p className="mt-2 max-w-2xl text-base leading-7 text-zinc-400">
           Describe what you are working on. You will get today&apos;s top pick, a

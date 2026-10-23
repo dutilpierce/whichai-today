@@ -5,7 +5,7 @@ import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 const description =
-  "Find which AI model is best right now for coding, writing, legal work, math, or speed. WhichAI.today compares today's leaders, alternatives, and open-source options from live public benchmarks.";
+  "Today's best AI model may not be tomorrow's. Find the top model right now for coding, writing, legal work, math, or speed, plus an alternative and an open-source pick, based on public benchmarks.";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,13 +20,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://whichai.today"),
   title: {
-    default: "Which AI Model Is Best Right Now? | WhichAI.today",
+    default: "Find the Best AI Model for the Job | WhichAI.today",
     template: "%s | WhichAI.today",
   },
   description,
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Which AI Model Is Best Right Now?",
+    title: "Find the best AI model for the job",
     description,
     url: "https://whichai.today",
     siteName: "WhichAI.today",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Which AI Model Is Best Right Now?",
+    title: "Find the best AI model for the job",
     description,
   },
 };
