@@ -1,0 +1,150 @@
+{
+  "last_updated": "2026-10-23T12:00:00Z",
+  "categories": {
+    "coding": {
+      "display_name": "Coding & Software",
+      "emoji": "💻",
+      "keywords": ["code", "coding", "program", "python", "javascript", "typescript", "react", "next", "sql", "debug", "bug", "refactor", "api", "app", "website", "script", "function", "devops", "deploy", "backend", "frontend", "build"],
+      "leader": {
+        "name": "Claude Opus 5.5",
+        "provider": "Anthropic",
+        "badge": "Undisputed #1",
+        "why": "Tops the combined coding index by a wide margin and leads WebDev Arena for building real apps.",
+        "benchmark_context": "#1 BenchLeader coding index (82.1); #1 LMArena WebDev.",
+        "direct_link": "https://claude.ai"
+      },
+      "runner_up": {
+        "name": "GPT-6 Astra",
+        "provider": "OpenAI",
+        "badge": "Strong Alternative",
+        "why": "Top-3 coder across SWE-bench and LiveCodeBench, deeply integrated with the ChatGPT ecosystem.",
+        "benchmark_context": "#3 BenchLeader coding index (74.0).",
+        "direct_link": "https://chatgpt.com"
+      },
+      "open_source_pick": {
+        "name": "Kimi K3",
+        "provider": "Moonshot AI",
+        "badge": "Top Open Weights",
+        "why": "Highest-scoring open-weights coder; you can self-host it and keep your code private.",
+        "benchmark_context": "97.7% SWE-Bench Pro V2; best open model on AA coding index.",
+        "direct_link": "https://www.kimi.com"
+      }
+    },
+    "legal_analysis": {
+      "display_name": "Legal & Long Documents",
+      "emoji": "⚖️",
+      "keywords": ["legal", "law", "lawyer", "contract", "lease", "clause", "compliance", "policy", "regulation", "statute", "court", "brief", "deposition", "nda", "terms", "pdf", "document", "audit"],
+      "leader": {
+        "name": "Claude Fable 5.1",
+        "provider": "Anthropic",
+        "badge": "Best Legal Reasoning",
+        "why": "Statistically tied for #1 on LegalBench with precise, well-grounded reading of dense documents.",
+        "benchmark_context": "88.5% Vals LegalBench (top 2 of 150+ models).",
+        "direct_link": "https://claude.ai"
+      },
+      "runner_up": {
+        "name": "Gemini 4 Argon",
+        "provider": "Google",
+        "badge": "Best Value Legal",
+        "why": "Within a fraction of a point of the leader at well under half the price.",
+        "benchmark_context": "88.3% Vals LegalBench (#3).",
+        "direct_link": "https://gemini.google.com"
+      },
+      "open_source_pick": {
+        "name": "Kimi K3",
+        "provider": "Moonshot AI",
+        "badge": "Private Deployment",
+        "why": "Strong legal accuracy and can run fully on your own servers for client confidentiality.",
+        "benchmark_context": "86.2% Vals LegalBench; top open-weights model on the board.",
+        "direct_link": "https://www.kimi.com"
+      }
+    },
+    "writing_creative": {
+      "display_name": "Writing & Marketing",
+      "emoji": "✍️",
+      "keywords": ["write", "writing", "copy", "email", "blog", "post", "linkedin", "story", "fiction", "poem", "marketing", "ad", "tone", "edit", "rewrite", "essay", "caption", "seo", "newsletter"],
+      "leader": {
+        "name": "Gemini 4 Argon",
+        "provider": "Google",
+        "badge": "Most Preferred by Humans",
+        "why": "Currently the highest-rated model in blind head-to-head votes from millions of real users.",
+        "benchmark_context": "#1 LMArena Text (1526, preliminary).",
+        "direct_link": "https://gemini.google.com"
+      },
+      "runner_up": {
+        "name": "Claude Opus 5.5",
+        "provider": "Anthropic",
+        "badge": "Most Natural Prose",
+        "why": "A close second in human preference, with a natural voice that avoids generic AI phrasing.",
+        "benchmark_context": "#2 LMArena Text (1516).",
+        "direct_link": "https://claude.ai"
+      },
+      "open_source_pick": {
+        "name": "MiMo-V2.6-Pro",
+        "provider": "Xiaomi",
+        "badge": "Top Open Writer",
+        "why": "The highest human-preference score of any open-weights model, under a permissive MIT license.",
+        "benchmark_context": "LMArena Text 1491; #1 open model on AA Intelligence Index.",
+        "direct_link": "https://huggingface.co/models?search=mimo-v2.6"
+      }
+    },
+    "reasoning_math": {
+      "display_name": "Reasoning, Math & Science",
+      "emoji": "🧮",
+      "keywords": ["math", "calculus", "algebra", "equation", "proof", "logic", "puzzle", "reason", "physics", "chemistry", "science", "statistics", "financial model", "algorithm", "research", "solve"],
+      "leader": {
+        "name": "Claude Opus 5.5",
+        "provider": "Anthropic",
+        "badge": "Reasoning Champion",
+        "why": "Leads the hardest expert-level exam across every academic field.",
+        "benchmark_context": "#1 Humanity's Last Exam (61.4%).",
+        "direct_link": "https://claude.ai"
+      },
+      "runner_up": {
+        "name": "GPT-6 Astra",
+        "provider": "OpenAI",
+        "badge": "Top Science Scorer",
+        "why": "Highest score on graduate-level science questions written by PhD experts.",
+        "benchmark_context": "#1 GPQA Diamond (96.1%).",
+        "direct_link": "https://chatgpt.com"
+      },
+      "open_source_pick": {
+        "name": "MiMo-V2.6-Pro",
+        "provider": "Xiaomi",
+        "badge": "Top Open Reasoner",
+        "why": "Matches some frontier proprietary models on hard reasoning at a fraction of the cost.",
+        "benchmark_context": "49.4% Humanity's Last Exam; #1 open model on AA Intelligence Index.",
+        "direct_link": "https://huggingface.co/models?search=mimo-v2.6"
+      }
+    },
+    "low_latency": {
+      "display_name": "Speed & High Volume",
+      "emoji": "⚡",
+      "keywords": ["fast", "speed", "quick", "real-time", "realtime", "latency", "chatbot", "bulk", "volume", "classify", "classification", "cheap", "budget", "autocomplete", "pipeline", "support bot"],
+      "leader": {
+        "name": "Gemini 3.5 Flash-Lite",
+        "provider": "Google",
+        "badge": "Fastest Measured",
+        "why": "The fastest output of any tracked model, with a free API tier for prototyping.",
+        "benchmark_context": "454 tokens/sec (Artificial Analysis, Oct 2026).",
+        "direct_link": "https://aistudio.google.com"
+      },
+      "runner_up": {
+        "name": "Claude Haiku 5.5",
+        "provider": "Anthropic",
+        "badge": "Fast and Smart",
+        "why": "Very fast while staying far smarter than most budget models, at a $0.10 per million token input price.",
+        "benchmark_context": "~234 tokens/sec; AA Intelligence Index 43.",
+        "direct_link": "https://claude.ai"
+      },
+      "open_source_pick": {
+        "name": "DeepSeek V4.1 Flash",
+        "provider": "DeepSeek",
+        "badge": "Fast Open Weights",
+        "why": "Fast, extremely cheap, MIT-licensed, and the smartest model in the budget tier.",
+        "benchmark_context": "~210 tokens/sec; AA Intelligence Index 45.",
+        "direct_link": "https://chat.deepseek.com"
+      }
+    }
+  }
+}
