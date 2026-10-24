@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
+import site from "@/lib/site.json";
 
 const reviewed = new Date(models.last_updated).toLocaleDateString("en-US", {
   month: "long",
@@ -231,15 +232,63 @@ export default function AboutPage() {
       </p>
 
       <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">
+        Who runs this
+      </h2>
+      <p className="mt-4 text-base leading-7 text-zinc-300">
+        Run by {site.owner_name}.{" "}
+        {site.contact_email ? (
+          <a href={`mailto:${site.contact_email}`} className="text-white hover:text-emerald-200">
+            {site.contact_email}
+          </a>
+        ) : (
+          <a href={`${site.github_url}/issues`} className="text-white hover:text-emerald-200">
+            Report an error on GitHub
+          </a>
+        )}
+        .
+      </p>
+      <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">
+        Independence
+      </h2>
+      <p className="mt-4 text-base leading-7 text-zinc-300">
+        No paid placement, no affiliate links in the picks, and no provider sponsorship. A model is listed because of the public board for that job.
+      </p>
+      <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">
+        Corrections
+      </h2>
+      <p className="mt-4 text-base leading-7 text-zinc-300">
+        {site.contact_email ? (
+          <>
+            Email{" "}
+            <a href={`mailto:${site.contact_email}`} className="text-white hover:text-emerald-200">
+              {site.contact_email}
+            </a>{" "}
+            to report an error.
+          </>
+        ) : (
+          <>
+            <a href={`${site.github_url}/issues`} className="text-white hover:text-emerald-200">
+              Open a GitHub issue
+            </a>{" "}
+            to report an error.
+          </>
+        )}{" "}
+        Corrections and changes to the ranking method are logged publicly on{" "}
+        <a href="/changes" className="text-white hover:text-emerald-200">
+          Changes
+        </a>
+        .
+      </p>
+
+      <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">
         Methodology and limits
       </h2>
       <p className="mt-4 text-base leading-7 text-zinc-300">
-        Benchmarks measure a public task, not your exact files. A leader on
-        SWE-bench can still be the wrong fit for a tiny script, and a legal
-        leader can still miss a clause in your contract. Treat the top two
-        picks as the shortlist and try both on a sample of your own work.
-        Rankings can also lag a launch by a day, because the refresh runs once
-        a day and only publishes answers that pass basic checks.
+        The boards, the two-check rule, and the fact-check gate are on the{" "}
+        <a href="/methodology" className="text-white hover:text-emerald-200">
+          methodology page
+        </a>
+        . Benchmarks measure a public task, not your exact files. Rankings can lag a launch by a day, because the refresh runs once a day and only publishes answers that pass the checks.
       </p>
 
       <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">

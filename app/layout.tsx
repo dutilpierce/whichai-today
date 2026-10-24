@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Aurora } from "@/components/Aurora";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
+import site from "@/lib/site.json";
 import "./globals.css";
 
 const description =
@@ -18,6 +19,8 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const sameAs = [site.bluesky_url, site.telegram_url, site.github_url].filter(Boolean);
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://whichai.today"),
@@ -79,6 +82,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
                   priceCurrency: "USD",
                 },
                 description,
+              },
+              {
+                "@type": "Organization",
+                name: "WhichAI.today",
+                url: "https://whichai.today",
+                logo: "https://whichai.today/icon-512.png",
+                ...(sameAs.length ? { sameAs } : {}),
               },
             ],
           }}
