@@ -3,10 +3,12 @@ import { notFound } from "next/navigation";
 import { ModelCard } from "@/components/ModelCard";
 import { EmailSignup } from "@/components/EmailSignup";
 import { EmbedBadge } from "@/components/EmbedBadge";
+import { CiteThis } from "@/components/CiteThis";
 import { FaqList } from "@/components/FaqList";
 import { Freshness } from "@/components/Freshness";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
+import { pageDates } from "@/lib/freshness";
 import { categoryFaqs, categoryItemList, faqNode, pageGraph } from "@/lib/schema";
 import { categoryBySlug, categoryEntries, categoryHeading, formatDay, historyBlurb, historyFor, latestChange, leaderLine, shortLabel } from "@/lib/picks";
 
@@ -132,6 +134,10 @@ export default async function CategoryPage({
           src={`/badge/${category.slug}`}
           alt={`Today's best ${shortLabel(category.slug).toLowerCase()} AI: ${category.leader.name}, via WhichAI.today`}
           href={`https://whichai.today/${category.slug}`}
+        />
+
+        <CiteThis
+          text={`Source: WhichAI.today, ${shortLabel(category.slug)} leader as of ${formatDay(pageDates(`/${slug}`).checked)}, whichai.today/${slug}`}
         />
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Questions</h2>

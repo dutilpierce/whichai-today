@@ -107,6 +107,10 @@
     "/alerts": {
       "changed": "2026-10-24",
       "hash": "30e36fb8affa26e1"
+    },
+    "/data": {
+      "changed": "2026-10-24",
+      "hash": "a3aa1bf63f138c2b"
     }
   }
 }
