@@ -42,3 +42,4 @@ next-env.d.ts
 
 # written by the refresh job for the social post step
 /changes-this-run.json
+/indexnow-urls.json

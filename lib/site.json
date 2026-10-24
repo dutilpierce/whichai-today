@@ -2,5 +2,6 @@
   "buttondown_username": "",
   "telegram_url": "",
   "bluesky_url": "",
-  "auto_publish": true
+  "auto_publish": true,
+  "indexnow_key": "dcf72dc27f8b3f4b1f4ffe47481b9c8d"
 }

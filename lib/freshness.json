@@ -1,0 +1,112 @@
+{
+  "pages": {
+    "/": {
+      "changed": "2026-10-24",
+      "hash": "31ccf09cb03c0699"
+    },
+    "/coding": {
+      "changed": "2026-10-24",
+      "hash": "3302da585f2109a4"
+    },
+    "/legal": {
+      "changed": "2026-10-24",
+      "hash": "7f6dbd12f50f9621"
+    },
+    "/writing": {
+      "changed": "2026-10-24",
+      "hash": "bd213de4308d05ff"
+    },
+    "/reasoning": {
+      "changed": "2026-10-24",
+      "hash": "5303f774afa221b0"
+    },
+    "/speed": {
+      "changed": "2026-10-24",
+      "hash": "ae1783f82c1b2c3d"
+    },
+    "/general": {
+      "changed": "2026-10-24",
+      "hash": "2134d357481c12d5"
+    },
+    "/models/claude-opus-5-5": {
+      "changed": "2026-10-24",
+      "hash": "3fdd7647171374a0"
+    },
+    "/models/gpt-6-astra": {
+      "changed": "2026-10-24",
+      "hash": "c6dbd1d773e75178"
+    },
+    "/models/kimi-k3": {
+      "changed": "2026-10-24",
+      "hash": "944fe3b5b85aca39"
+    },
+    "/models/claude-fable-5-1": {
+      "changed": "2026-10-24",
+      "hash": "615b36f865c87092"
+    },
+    "/models/gemini-4-argon": {
+      "changed": "2026-10-24",
+      "hash": "35e7590a11b3a62e"
+    },
+    "/models/mimo-v2-6-pro": {
+      "changed": "2026-10-24",
+      "hash": "f8f8e0ef99b89873"
+    },
+    "/models/gemini-3-5-flash-lite": {
+      "changed": "2026-10-24",
+      "hash": "76483610b240df66"
+    },
+    "/models/claude-haiku-5-5": {
+      "changed": "2026-10-24",
+      "hash": "1fe06bff48a1a23d"
+    },
+    "/models/deepseek-v4-1-flash": {
+      "changed": "2026-10-24",
+      "hash": "f304ebe0b52b7b4c"
+    },
+    "/models/gpt-6-1-sol": {
+      "changed": "2026-10-24",
+      "hash": "1a2cf4e411444f06"
+    },
+    "/compare/claude-opus-5-5-vs-gpt-6-astra": {
+      "changed": "2026-10-24",
+      "hash": "3999ad3fe371c51b"
+    },
+    "/compare/claude-fable-5-1-vs-gemini-4-argon": {
+      "changed": "2026-10-24",
+      "hash": "3764e9df2a5f8b25"
+    },
+    "/compare/claude-opus-5-5-vs-gemini-4-argon": {
+      "changed": "2026-10-24",
+      "hash": "46dde1304775de7b"
+    },
+    "/compare/gemini-3-5-flash-lite-vs-claude-haiku-5-5": {
+      "changed": "2026-10-24",
+      "hash": "130ad7d8d961f793"
+    },
+    "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
+      "changed": "2026-10-24",
+      "hash": "2d02f0fadefa11f6"
+    },
+    "/changes": {
+      "changed": "2026-10-24",
+      "hash": "2ed77223cc7ddba4"
+    },
+    "/changes/2026-10-24-writing": {
+      "changed": "2026-10-24",
+      "hash": "099db9e32f2b4daf"
+    },
+    "/about": {
+      "changed": "2026-10-24",
+      "hash": "d743de8d57145ab9"
+    },
+    "/privacy": {
+      "changed": "2026-10-24",
+      "hash": "448a6582f831857e"
+    },
+    "/alerts": {
+      "changed": "2026-10-24",
+      "hash": "30e36fb8affa26e1"
+    }
+  }
+}

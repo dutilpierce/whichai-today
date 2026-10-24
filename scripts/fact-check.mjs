@@ -1,4 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { buildPayloads } from "./freshness.mjs";
 
 const MODELS = new URL("../lib/models.json", import.meta.url);
 const HISTORY = new URL("../lib/history.json", import.meta.url);
@@ -13,6 +14,16 @@ export function numbersIn(value) {
 
 export function alertable(entry) {
   return entry?.type === "change" && Boolean(entry.previous);
+}
+
+export function checkFreshness(paths, freshness, today) {
+  const errors = [];
+  for (const path of paths) {
+    const changed = freshness?.pages?.[path]?.changed;
+    if (!changed || !/^\d{4}-\d{2}-\d{2}$/.test(changed)) errors.push(`${path} has no freshness date`);
+    else if (changed > today) errors.push(`${path} freshness date is in the future`);
+  }
+  return errors;
 }
 
 export function latestEntry(history, key) {
@@ -193,6 +204,12 @@ function selfCheck() {
   const counted = checkData(tooMany, history, providers, today);
   assert(counted.errors.some((error) => error.includes("source list")), "sources_checked cannot exceed the list");
 
+  assert(checkFreshness(["/coding"], { pages: {} }, "2026-10-24").some((error) => error.includes("no freshness")), "a missing freshness date should fail");
+  assert(
+    checkFreshness(["/coding"], { pages: { "/coding": { changed: "2026-12-01" } } }, "2026-10-24").some((error) => error.includes("future")),
+    "a future freshness date should fail",
+  );
+
   console.log("fact-check self-check ok");
 }
 
@@ -206,6 +223,37 @@ const models = JSON.parse(await readFile(MODELS, "utf8"));
 const history = JSON.parse(await readFile(HISTORY, "utf8"));
 const providers = JSON.parse(await readFile(PROVIDERS, "utf8"));
 const result = checkData(models, history, providers, today);
+
+try {
+  const freshness = JSON.parse(await readFile(new URL("../lib/freshness.json", import.meta.url), "utf8"));
+  const archive = JSON.parse(await readFile(new URL("../lib/archive.json", import.meta.url), "utf8"));
+  const held = JSON.parse(await readFile(HELD, "utf8"));
+  let tasks = null;
+  try {
+    tasks = JSON.parse(await readFile(new URL("../lib/tasks.json", import.meta.url), "utf8"));
+  } catch {
+    tasks = null;
+  }
+  const files = {};
+  for (const [path, relative] of Object.entries({
+    "/about": "../app/about/page.tsx",
+    "/privacy": "../app/privacy/page.tsx",
+    "/alerts": "../app/alerts/page.tsx",
+    "/methodology": "../app/methodology/page.tsx",
+    "/embed": "../app/embed/page.tsx",
+    "/data": "../app/data/page.tsx",
+  })) {
+    try {
+      files[path] = await readFile(new URL(relative, import.meta.url), "utf8");
+    } catch {
+      // The page does not exist yet.
+    }
+  }
+  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held });
+  result.errors.push(...checkFreshness(Object.keys(payloads), freshness, today));
+} catch (error) {
+  result.errors.push(error instanceof Error ? error.message : "freshness.json is missing");
+}
 
 try {
   const posted = JSON.parse(await readFile(new URL("../changes-this-run.json", import.meta.url), "utf8"));
