@@ -16,6 +16,30 @@ export function alertable(entry) {
   return entry?.type === "change" && Boolean(entry.previous);
 }
 
+export function checkTasks(tasks, models, providers) {
+  const errors = [];
+  const seen = new Set();
+  const slots = ["leader", "runner_up", "open_source_pick"];
+  for (const task of tasks?.tasks ?? []) {
+    if (seen.has(task.slug)) errors.push(`duplicate task ${task.slug}`);
+    seen.add(task.slug);
+    const category = Object.values(models.categories).find((item) => item.slug === task.category);
+    if (!category) errors.push(`${task.slug} does not match a category`);
+    for (const field of ["title", "tip", "starter_prompt", "caution", "measured"]) {
+      if (typeof task[field] !== "string" || !task[field].trim()) errors.push(`${task.slug} ${field} is empty`);
+      else if (numbersIn(task[field]).length) errors.push(`${task.slug} ${field} cites a number`);
+    }
+    if (category && /client|contract|confidential|paste/i.test(task.caution ?? "")) {
+      const trains = slots.some((slot) => {
+        const text = providers[category[slot].provider]?.trains_by_default ?? "";
+        return /by default|can be used|prompts and files|user input/i.test(text);
+      });
+      if (!trains) errors.push(`${task.slug} warns about private files, but no pick's provider trains by default`);
+    }
+  }
+  return errors;
+}
+
 export function checkFreshness(paths, freshness, today) {
   const errors = [];
   for (const path of paths) {
@@ -209,6 +233,14 @@ function selfCheck() {
     checkFreshness(["/coding"], { pages: { "/coding": { changed: "2026-12-01" } } }, "2026-10-24").some((error) => error.includes("future")),
     "a future freshness date should fail",
   );
+  assert(
+    checkTasks(
+      { tasks: [{ slug: "demo", title: "demo", category: "missing", tip: "Tip.", starter_prompt: "Prompt.", caution: "Careful.", measured: "Measured." }] },
+      models,
+      providers,
+    ).some((error) => error.includes("does not match")),
+    "a task must match a real category",
+  );
 
   console.log("fact-check self-check ok");
 }
@@ -251,6 +283,7 @@ try {
   }
   const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held });
   result.errors.push(...checkFreshness(Object.keys(payloads), freshness, today));
+  if (tasks) result.errors.push(...checkTasks(tasks, models, providers));
 } catch (error) {
   result.errors.push(error instanceof Error ? error.message : "freshness.json is missing");
 }

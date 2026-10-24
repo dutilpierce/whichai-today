@@ -8,6 +8,7 @@ import { Freshness } from "@/components/Freshness";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
 import { pageDates } from "@/lib/freshness";
+import tasksFile from "@/lib/tasks.json";
 import { categoryFaqs, categoryItemList, faqNode, pageGraph } from "@/lib/schema";
 import { categoryBySlug, categoryEntries, categoryHeading, formatDay, historyBlurb, historyFor, latestChange, leaderLine, shortLabel } from "@/lib/picks";
 
@@ -66,6 +67,7 @@ export default async function CategoryPage({
   const latest = latestChange(key);
   const log = historyFor(key);
   const others = categoryEntries().filter(([entryKey]) => entryKey !== key);
+  const related = tasksFile.tasks.filter((task) => task.category === slug);
   const faqs = categoryFaqs(category, latest);
 
   return (
@@ -147,6 +149,21 @@ export default async function CategoryPage({
             </section>
           ))}
         </div>
+
+        {related.length ? (
+          <>
+            <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Tasks</h2>
+            <ul className="mt-4 flex flex-col gap-2">
+              {related.map((task) => (
+                <li key={task.slug}>
+                  <a href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
+                    Best AI for {task.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Other jobs</h2>
         <ul className="mt-4 flex flex-col gap-2">

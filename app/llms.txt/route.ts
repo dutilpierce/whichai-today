@@ -1,4 +1,5 @@
 import models from "@/lib/models.json";
+import tasksFile from "@/lib/tasks.json";
 import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
 
 export function GET() {
@@ -19,6 +20,8 @@ export function GET() {
     ...methodologyUpdates().map((change) => `https://whichai.today/changes/${change.id}`),
     ...weekRecords().map((week) => `https://whichai.today/changes/week/${week.week}`),
     ...Object.values(models.categories).map((category) => `https://whichai.today/badge/${category.slug}`),
+    "https://whichai.today/tasks",
+    ...tasksFile.tasks.map((task) => `https://whichai.today/tasks/${task.slug}`),
   ].join("\n");
 
   const body = `# WhichAI.today
@@ -32,6 +35,7 @@ Picks come from public evaluations: LMArena, Artificial Analysis, Vals AI, SWE-b
 Canonical pages:
 https://whichai.today
 https://whichai.today/about
+https://whichai.today/methodology
 https://whichai.today/alerts
 https://whichai.today/privacy
 https://whichai.today/data

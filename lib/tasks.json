@@ -1,0 +1,184 @@
+{
+  "tasks": [
+    {
+      "slug": "debug-code",
+      "title": "debugging code",
+      "category": "coding",
+      "tip": "Paste the error and the function around it, and say what you expected instead. A shorter snippet is easier to check than a whole repo.",
+      "starter_prompt": "Here is the error and the function. Explain the cause, then show the smallest change that fixes it.",
+      "caution": "Do not paste private keys, customer data, or a private repository into a consumer chat that trains on chats by default.",
+      "measured": "This page uses the coding board. It measures coding preference and software benchmarks, not your private codebase."
+    },
+    {
+      "slug": "excel-formulas",
+      "title": "writing Excel formulas",
+      "category": "coding",
+      "tip": "Name the columns and one example row. Ask for the formula and a sentence on what it assumes.",
+      "starter_prompt": "Write an Excel formula for this table. Columns are named below. Explain the formula in one sentence.",
+      "caution": "Do not paste a workbook of client or employee data into a consumer chat that trains on chats by default.",
+      "measured": "The coding board is not an Excel exam. It is a proxy for formula and logic work, not spreadsheet layout."
+    },
+    {
+      "slug": "sql-queries",
+      "title": "writing SQL queries",
+      "category": "coding",
+      "tip": "Include the table names and the question in plain language. Ask the model to name any assumption about the schema.",
+      "starter_prompt": "Write a SQL query for this question. Use only the tables I listed, and say what the query assumes.",
+      "caution": "Do not paste production rows or customer records into a consumer chat that trains on chats by default.",
+      "measured": "The coding board measures code tasks, not your database or the correctness of a query against live data."
+    },
+    {
+      "slug": "build-a-website",
+      "title": "building a website",
+      "category": "coding",
+      "tip": "Describe one page, the content, and what a visitor should do. Ask for a first version you can open, not a whole product.",
+      "starter_prompt": "Build a single page for this purpose. Keep the copy short, and tell me how to open it locally.",
+      "caution": "Do not put API keys or private customer content in the prompt if the chat trains on chats by default.",
+      "measured": "The coding board measures coding tasks. It does not measure design taste or whether the page matches your brand."
+    },
+    {
+      "slug": "python-script",
+      "title": "writing a Python script",
+      "category": "coding",
+      "tip": "Say the input, the output, and one example. Ask for a script you can run, plus how to run it.",
+      "starter_prompt": "Write a Python script that does this job. Include a short example of how to run it.",
+      "caution": "Do not include secrets or private files in the prompt if the chat trains on chats by default.",
+      "measured": "The coding board measures coding work. It does not run the script on your machine."
+    },
+    {
+      "slug": "review-a-contract",
+      "title": "reviewing a contract",
+      "category": "legal",
+      "tip": "Ask for unusual clauses, missing terms, and questions to send back. It is a reading aid, not a lawyer.",
+      "starter_prompt": "Read this contract. List unusual clauses, missing protections, and questions I should ask before signing.",
+      "caution": "Do not paste a client contract into a consumer chat that trains on chats by default. Use a plan that does not train, or an open model you run yourself.",
+      "measured": "The legal board measures legal reading benchmarks, not your contract and not legal advice."
+    },
+    {
+      "slug": "summarize-a-pdf",
+      "title": "summarizing a PDF",
+      "category": "legal",
+      "tip": "Ask for the decision, the numbers that matter, and what the document does not say. Then check those points against the file.",
+      "starter_prompt": "Summarize this document. Give the main decision, the important figures, and anything it leaves out.",
+      "caution": "Do not upload a confidential PDF to a consumer chat that trains on chats by default.",
+      "measured": "The legal board measures long-document reading, not whether a summary kept every page of your file."
+    },
+    {
+      "slug": "summarize-a-paper",
+      "title": "summarizing a research paper",
+      "category": "legal",
+      "tip": "Ask for the claim, the method, and the limit of the evidence. Do not treat the summary as a citation you can quote.",
+      "starter_prompt": "Summarize this paper. State the claim, how it was tested, and the main limit of the evidence.",
+      "caution": "Do not upload an unpublished manuscript to a consumer chat that trains on chats by default.",
+      "measured": "The legal board measures long-document reading, not scientific correctness."
+    },
+    {
+      "slug": "review-a-lease",
+      "title": "reviewing a lease",
+      "category": "legal",
+      "tip": "Ask which clauses cost money, which restrict you, and which dates matter. Check the answers against the lease.",
+      "starter_prompt": "Read this lease. List the clauses that cost money, the restrictions, and the dates I should not miss.",
+      "caution": "Do not paste a signed lease with personal details into a consumer chat that trains on chats by default.",
+      "measured": "The legal board measures legal reading, not landlord-tenant law in your city and not legal advice."
+    },
+    {
+      "slug": "cover-letter",
+      "title": "writing a cover letter",
+      "category": "writing",
+      "tip": "Give the role, two pieces of your real experience, and the tone you want. Ask for a short letter, then edit the facts yourself.",
+      "starter_prompt": "Write a short cover letter for this role. Use only the experience I listed, and keep the tone direct.",
+      "caution": "Do not include a home address, phone number, or other private details you do not want stored in a chat that trains by default.",
+      "measured": "The writing board measures creative writing preference, not whether a letter gets you the job."
+    },
+    {
+      "slug": "linkedin-post",
+      "title": "writing a LinkedIn post",
+      "category": "writing",
+      "tip": "Say the point in one sentence and who it is for. Ask for a short post you would actually publish, not a slogan list.",
+      "starter_prompt": "Write a short LinkedIn post about this point, for this reader. No hashtag pile and no fake story.",
+      "caution": "Do not include a client's name or private company numbers if the chat trains on chats by default.",
+      "measured": "The writing board measures writing preference, not reach or engagement."
+    },
+    {
+      "slug": "blog-post",
+      "title": "writing a blog post",
+      "category": "writing",
+      "tip": "Give the reader, the point, and two facts you want kept. Ask for a draft you can edit, with the facts unchanged.",
+      "starter_prompt": "Draft a blog post for this reader. Keep these facts exactly, and mark any sentence you added.",
+      "caution": "Do not paste unpublished client work into a consumer chat that trains on chats by default.",
+      "measured": "The writing board measures writing preference, not accuracy of the facts you did not supply."
+    },
+    {
+      "slug": "product-description",
+      "title": "writing a product description",
+      "category": "writing",
+      "tip": "List what the product does and what it does not do. Ask for plain sentences a buyer can check.",
+      "starter_prompt": "Write a product description from these facts. Do not add features I did not list.",
+      "caution": "Do not include unreleased pricing or a partner's private brief if the chat trains on chats by default.",
+      "measured": "The writing board measures writing preference, not whether the description is legally accurate."
+    },
+    {
+      "slug": "analyze-a-spreadsheet",
+      "title": "analyzing a spreadsheet",
+      "category": "reasoning",
+      "tip": "Paste a small sample and the question, not the whole file. Ask what the sample cannot tell you.",
+      "starter_prompt": "Look at this sample table and answer the question. Say what you cannot tell from this sample.",
+      "caution": "Do not paste a full spreadsheet of customer or employee data into a consumer chat that trains on chats by default.",
+      "measured": "The reasoning board measures hard exams, not spreadsheet software and not a forecast of your business."
+    },
+    {
+      "slug": "math-homework",
+      "title": "solving math homework",
+      "category": "reasoning",
+      "tip": "Ask for the steps, then cover the answer and try the next problem yourself. A correct-looking step can still hide a mistake.",
+      "starter_prompt": "Solve this problem and show each step. After that, give me a similar problem to try.",
+      "caution": "A worked answer is not a grade. Check the steps before you submit it.",
+      "measured": "The reasoning board measures exam-style problems, not your assignment and not partial credit."
+    },
+    {
+      "slug": "sort-support-tickets",
+      "title": "sorting support tickets",
+      "category": "speed",
+      "tip": "Give the categories you already use and a few example tickets. Ask for a label and a one-line reason, then spot-check.",
+      "starter_prompt": "Label each ticket with one of these categories and a one-line reason. If it fits none, say so.",
+      "caution": "Do not paste tickets that contain customer personal details into a consumer chat that trains on chats by default.",
+      "measured": "The speed board measures how fast a model answers, not how well it sorts your tickets."
+    },
+    {
+      "slug": "extract-invoice-data",
+      "title": "extracting data from invoices",
+      "category": "speed",
+      "tip": "Ask for the fields you need, one invoice at a time, and check the amounts against the file.",
+      "starter_prompt": "Extract the supplier, date, and total from this invoice. If a field is missing, say missing.",
+      "caution": "Do not upload customer invoices to a consumer chat that trains on chats by default.",
+      "measured": "The speed board measures output speed, not extraction accuracy."
+    },
+    {
+      "slug": "meeting-notes",
+      "title": "summarizing meeting notes",
+      "category": "general",
+      "tip": "Paste notes or a transcript you already have. Ask for decisions, owners, and open questions. This does not listen to audio.",
+      "starter_prompt": "Turn these notes into decisions, owners, and open questions. Do not add anything that is not in the notes.",
+      "caution": "Do not paste a confidential meeting transcript into a consumer chat that trains on chats by default.",
+      "measured": "The general board measures everyday chat. It does not transcribe audio and it does not know who was in the room."
+    },
+    {
+      "slug": "explain-for-an-exam",
+      "title": "explaining a concept for an exam",
+      "category": "general",
+      "tip": "Name the concept and what you already understand. Ask for a plain explanation and one check question.",
+      "starter_prompt": "Explain this concept as if I have to use it on an exam tomorrow. Then ask me one question to check it.",
+      "caution": "An explanation can be tidy and still wrong. Check it against your course notes.",
+      "measured": "The general board measures everyday answers, not your syllabus."
+    },
+    {
+      "slug": "plan-a-trip",
+      "title": "planning a trip",
+      "category": "general",
+      "tip": "Give the city, the dates in words, and what you care about. Ask for a rough shape of the days, then check opening hours yourself.",
+      "starter_prompt": "Sketch a trip for this place and these interests. Keep each day loose, and list what I should confirm.",
+      "caution": "Do not treat hours, prices, or visa rules as current. Confirm them with the official source.",
+      "measured": "The general board measures everyday chat, not live travel availability."
+    }
+  ]
+}

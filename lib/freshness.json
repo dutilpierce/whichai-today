@@ -96,9 +96,93 @@
       "changed": "2026-10-24",
       "hash": "099db9e32f2b4daf"
     },
+    "/tasks/debug-code": {
+      "changed": "2026-10-24",
+      "hash": "2e86f7e4e334f138"
+    },
+    "/tasks/excel-formulas": {
+      "changed": "2026-10-24",
+      "hash": "7c1b6baa920706b6"
+    },
+    "/tasks/sql-queries": {
+      "changed": "2026-10-24",
+      "hash": "a45bc6c47de3302c"
+    },
+    "/tasks/build-a-website": {
+      "changed": "2026-10-24",
+      "hash": "62c678dd3abacd2b"
+    },
+    "/tasks/python-script": {
+      "changed": "2026-10-24",
+      "hash": "b37c6003d847cbfa"
+    },
+    "/tasks/review-a-contract": {
+      "changed": "2026-10-24",
+      "hash": "e32f248488551619"
+    },
+    "/tasks/summarize-a-pdf": {
+      "changed": "2026-10-24",
+      "hash": "71ab7d29dfa53a94"
+    },
+    "/tasks/summarize-a-paper": {
+      "changed": "2026-10-24",
+      "hash": "0268bf63ce385675"
+    },
+    "/tasks/review-a-lease": {
+      "changed": "2026-10-24",
+      "hash": "7ca9d9a12037e43f"
+    },
+    "/tasks/cover-letter": {
+      "changed": "2026-10-24",
+      "hash": "8527ae80139c4392"
+    },
+    "/tasks/linkedin-post": {
+      "changed": "2026-10-24",
+      "hash": "537eddafcf87b7d9"
+    },
+    "/tasks/blog-post": {
+      "changed": "2026-10-24",
+      "hash": "2b96f38fd01498cd"
+    },
+    "/tasks/product-description": {
+      "changed": "2026-10-24",
+      "hash": "0edd240e7828b86b"
+    },
+    "/tasks/analyze-a-spreadsheet": {
+      "changed": "2026-10-24",
+      "hash": "182c6bd8c108b3d9"
+    },
+    "/tasks/math-homework": {
+      "changed": "2026-10-24",
+      "hash": "8d917ff2d3ec9ac3"
+    },
+    "/tasks/sort-support-tickets": {
+      "changed": "2026-10-24",
+      "hash": "8c6315801c30e299"
+    },
+    "/tasks/extract-invoice-data": {
+      "changed": "2026-10-24",
+      "hash": "802ed39a9ea3d6d7"
+    },
+    "/tasks/meeting-notes": {
+      "changed": "2026-10-24",
+      "hash": "8631ceb86c108ef1"
+    },
+    "/tasks/explain-for-an-exam": {
+      "changed": "2026-10-24",
+      "hash": "6a09f6af50dd28fd"
+    },
+    "/tasks/plan-a-trip": {
+      "changed": "2026-10-24",
+      "hash": "4aed5980b34617ef"
+    },
+    "/tasks": {
+      "changed": "2026-10-24",
+      "hash": "a79cb575575a5826"
+    },
     "/about": {
       "changed": "2026-10-24",
-      "hash": "d743de8d57145ab9"
+      "hash": "6b45c8665a562aba"
     },
     "/privacy": {
       "changed": "2026-10-24",
@@ -107,6 +191,10 @@
     "/alerts": {
       "changed": "2026-10-24",
       "hash": "30e36fb8affa26e1"
+    },
+    "/methodology": {
+      "changed": "2026-10-24",
+      "hash": "1261551d582e208e"
     },
     "/embed": {
       "changed": "2026-10-24",
