@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/JsonLd";
 import { changeById, confirmedChanges, methodologyUpdates } from "@/lib/catalog";
 import { changeTitle, entryKind, formatDay } from "@/lib/picks";
+import { changeArticle, pageGraph } from "@/lib/schema";
 
 export function generateStaticParams() {
   return [...confirmedChanges(), ...methodologyUpdates()].map((change) => ({ id: change.id }));
@@ -36,9 +38,17 @@ export default async function ChangePage({
   const change = changeById(id);
   if (!change) notFound();
   const leader = change.category.leader;
+  const path = `/changes/${id}`;
+  const title = changeTitle(change, change.slug);
+  const crumbs = [
+    { name: "Home", path: "/" },
+    { name: "Changes", path: "/changes" },
+    { name: title, path },
+  ];
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+      <JsonLd data={pageGraph(path, crumbs, [changeArticle(change, change.slug, path)])} />
       <header>
         <a href="/changes" className="text-sm text-zinc-400 hover:text-white">
           All changes

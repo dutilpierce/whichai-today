@@ -1,8 +1,7 @@
 import type { ReactNode } from "react";
 import providers from "@/lib/providers.json";
-import models from "@/lib/models.json";
 import { held } from "@/lib/held";
-import { ACCESS_LABEL, formatDay, leaderBadge, modelSlug } from "@/lib/picks";
+import { ACCESS_LABEL, leaderBadge, modelSlug } from "@/lib/picks";
 import type { ModelProfile } from "@/lib/match";
 
 function Detail({ label, children }: { label: string; children: ReactNode }) {
@@ -36,7 +35,6 @@ export function ModelCard({
   const costHeld = held.facts.some(
     (fact) => fact.kind === "cost" && fact.model === model.name,
   );
-  const showChecked = model.checked.slice(0, 10) !== models.last_updated.slice(0, 10);
   const badge = featured && signal
     ? leaderBadge(model.sources_agreeing, model.sources_checked, signal, leaderScore, runnerScore)
     : null;
@@ -103,7 +101,7 @@ export function ModelCard({
             <a href={model.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
               Source
             </a>
-            {showChecked ? `. Checked ${formatDay(model.checked)}.` : "."}
+            .
           </Detail>
           <Detail label="Cost">
             {costHeld ? (

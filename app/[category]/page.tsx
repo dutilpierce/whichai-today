@@ -3,9 +3,12 @@ import { notFound } from "next/navigation";
 import { ModelCard } from "@/components/ModelCard";
 import { EmailSignup } from "@/components/EmailSignup";
 import { EmbedBadge } from "@/components/EmbedBadge";
+import { FaqList } from "@/components/FaqList";
+import { Freshness } from "@/components/Freshness";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
-import { categoryBySlug, categoryEntries, categoryHeading, entryKind, formatDay, historyBlurb, historyFor, latestChange, leaderLine, shortLabel } from "@/lib/picks";
+import { categoryFaqs, categoryItemList, faqNode, pageGraph } from "@/lib/schema";
+import { categoryBySlug, categoryEntries, categoryHeading, formatDay, historyBlurb, historyFor, latestChange, leaderLine, shortLabel } from "@/lib/picks";
 
 export function generateStaticParams() {
   return Object.values(models.categories).map((category) => ({
@@ -62,37 +65,15 @@ export default async function CategoryPage({
   const latest = latestChange(key);
   const log = historyFor(key);
   const others = categoryEntries().filter(([entryKey]) => entryKey !== key);
-  const faqs = [
-    {
-      question: `Which AI is best for ${category.display_name.toLowerCase()} right now?`,
-      answer: `${category.leader.name} from ${category.leader.provider} leads, as of ${formatDay(category.leader.checked)}. ${category.leader.why} The alternative is ${category.runner_up.name}, and the open-weights pick is ${category.open_source_pick.name}.`,
-    },
-    {
-      question: `Where do I get ${category.leader.name}?`,
-      answer: `${category.leader.where_to_get} ${category.leader.cost}`,
-    },
-    {
-      question: "Has this leader changed?",
-      answer: latest && entryKind(latest) === "methodology"
-        ? `Ranking method updated on ${formatDay(latest.date)}. ${latest.evidence}`
-        : latest?.previous
-        ? `${category.leader.name} took the lead on ${formatDay(latest.date)}, replacing ${latest.previous}. ${latest.evidence}`
-        : `Tracking for this category began on ${latest ? formatDay(latest.date) : "October 23, 2026"}, with ${category.leader.name} as the first recorded leader.`,
-    },
-  ];
+  const faqs = categoryFaqs(category, latest);
 
   return (
     <div className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 py-10">
       <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: faqs.map((faq) => ({
-            "@type": "Question",
-            name: faq.question,
-            acceptedAnswer: { "@type": "Answer", text: faq.answer },
-          })),
-        }}
+        data={pageGraph(`/${slug}`, [
+          { name: "Home", path: "/" },
+          { name: category.display_name, path: `/${slug}` },
+        ], [faqNode(faqs), categoryItemList(category)])}
       />
       <header className="flex items-center justify-between">
         <a href="/" className="text-lg font-semibold tracking-tight text-white">
@@ -106,6 +87,7 @@ export default async function CategoryPage({
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           {heading}
         </h1>
+        <Freshness path={`/${slug}`} />
         <p className="mt-4 text-base leading-7 text-zinc-300">{leaderLine(latest)}</p>
         <p className="mt-2 text-base leading-7 text-zinc-400">
           {category.leader.why} These picks are readable without an account, and the details behind each one are on the card.

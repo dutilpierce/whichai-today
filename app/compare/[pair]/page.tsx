@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { FaqList } from "@/components/FaqList";
+import { Freshness } from "@/components/Freshness";
+import { JsonLd } from "@/components/JsonLd";
 import { compareByPair, compareRecords } from "@/lib/catalog";
 import { ACCESS_LABEL, modelSlug } from "@/lib/picks";
+import { compareFaqs, faqNode, pageGraph } from "@/lib/schema";
 import providers from "@/lib/providers.json";
 import type { ModelProfile } from "@/lib/match";
 
@@ -76,9 +80,17 @@ export default async function ComparePage({
   const { pair } = await params;
   const found = compareByPair(pair);
   if (!found) notFound();
+  const faqs = compareFaqs(found, (provider) => providers[provider as keyof typeof providers]);
+  const category = found.categories[0];
+  const crumbs = [
+    { name: "Home", path: "/" },
+    { name: category.display_name, path: `/${category.slug}` },
+    { name: `${found.leader.name} vs ${found.runner.name}`, path: `/compare/${pair}` },
+  ];
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+      <JsonLd data={pageGraph(`/compare/${pair}`, crumbs, [faqNode(faqs)])} />
       <header>
         <a href="/" className="text-lg font-semibold tracking-tight text-white">
           WhichAI.today
@@ -88,6 +100,7 @@ export default async function ComparePage({
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           {found.leader.name} vs {found.runner.name}
         </h1>
+        <Freshness path={`/compare/${pair}`} />
         <p className="mt-4 text-base leading-7 text-zinc-300">
           These are the current #1 and the alternative
           {found.categories.length === 1 ? " for " : " for "}
@@ -105,6 +118,7 @@ export default async function ComparePage({
           <Column model={found.leader} label="#1" />
           <Column model={found.runner} label="Alternative" />
         </div>
+        <FaqList faqs={faqs} />
       </main>
     </div>
   );

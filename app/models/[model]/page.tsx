@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { FaqList } from "@/components/FaqList";
+import { Freshness } from "@/components/Freshness";
+import { JsonLd } from "@/components/JsonLd";
 import { modelBySlug, modelRecords, historyMentioning } from "@/lib/catalog";
 import { ACCESS_LABEL, formatDay, historyBlurb } from "@/lib/picks";
+import { faqNode, modelFaqs, pageGraph } from "@/lib/schema";
 import providers from "@/lib/providers.json";
 
 export function generateStaticParams() {
@@ -42,9 +46,19 @@ export default async function ModelPage({
   const privacy = providers[found.provider as keyof typeof providers];
   const log = historyMentioning(found.name);
   const access = "access" in found.profile ? found.profile.access : "";
+  const faqs = modelFaqs(found, privacy);
+  const category = found.roles[0];
+  const crumbs = [
+    { name: "Home", path: "/" },
+    ...(category
+      ? [{ name: category.display_name, path: `/${category.slug}` }]
+      : []),
+    { name: found.name, path: `/models/${slug}` },
+  ];
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+      <JsonLd data={pageGraph(`/models/${slug}`, crumbs, faqs.length ? [faqNode(faqs)] : [])} />
       <header>
         <a href="/" className="text-lg font-semibold tracking-tight text-white">
           WhichAI.today
@@ -52,6 +66,7 @@ export default async function ModelPage({
       </header>
       <main className="mt-10">
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{found.name}</h1>
+        <Freshness path={`/models/${slug}`} />
         <p className="mt-2 text-sm text-zinc-400">{found.provider}</p>
         {found.archived ? (
           <p className="mt-4 text-base text-amber-200">Not currently a pick.</p>
@@ -117,6 +132,7 @@ export default async function ModelPage({
         ) : (
           <p className="mt-4 text-sm text-zinc-400">No leader change mentions this model yet.</p>
         )}
+        <FaqList faqs={faqs} />
       </main>
     </div>
   );
