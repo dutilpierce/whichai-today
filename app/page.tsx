@@ -45,17 +45,23 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
   const requestId = useRef(0);
 
+  function utmSearch(extra?: Record<string, string>) {
+    const params = new URLSearchParams();
+    const current = new URLSearchParams(window.location.search);
+    for (const [key, value] of current) {
+      if (key.startsWith("utm_")) params.append(key, value);
+    }
+    for (const [key, value] of Object.entries(extra ?? {})) params.set(key, value);
+    const search = params.toString();
+    return search ? `?${search}` : "";
+  }
+
   function writeQuery(value: string) {
-    const url = new URL(window.location.href);
-    url.pathname = "/";
-    url.search = "";
-    url.hash = "";
-    url.searchParams.set("q", value.trim());
-    window.history.replaceState(null, "", `${url.pathname}${url.search}`);
+    window.history.replaceState(null, "", `/${utmSearch({ q: value.trim() })}`);
   }
 
   function clearQuery() {
-    window.history.replaceState(null, "", "/");
+    window.history.replaceState(null, "", `/${utmSearch()}`);
   }
 
   function showCategory(key: string) {
@@ -176,7 +182,7 @@ function encodePlan(value: Plan) {
       }
       if (id !== requestId.current) return;
       setPlan(data);
-      window.history.replaceState(null, "", `/#plan=${encodePlan(data)}`);
+      window.history.replaceState(null, "", `/${utmSearch()}#plan=${encodePlan(data)}`);
     } catch {
       if (id !== requestId.current) return;
       setPlanError(true);
