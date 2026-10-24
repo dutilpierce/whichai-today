@@ -23,19 +23,45 @@ jobs:
         with:
           node-version: 22
 
+      - name: Kill switch
+        id: kill
+        run: node scripts/kill-switch.mjs
+
       - name: Research current leaders
+        if: steps.kill.outputs.publish == 'true'
         run: node scripts/refresh-rankings.mjs
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
+      - name: Fact-check
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/fact-check.mjs
+
       - name: Publish if anything changed
+        if: steps.kill.outputs.publish == 'true'
         run: |
           if git diff --quiet -- lib/models.json lib/history.json; then
             echo "Rankings unchanged."
-            exit 0
+          else
+            git config user.name "whichai-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add lib/models.json lib/history.json
+            git commit -m "Refresh model rankings for $(date -u +%Y-%m-%d)."
+            git push
           fi
-          git config user.name "whichai-bot"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add lib/models.json lib/history.json
-          git commit -m "Refresh model rankings for $(date -u +%Y-%m-%d)."
-          git push
+
+      - name: Post confirmed changes
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/post-changes.mjs
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHANNEL: ${{ secrets.TELEGRAM_CHANNEL }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+
+      - name: Tell the owner
+        if: failure()
+        run: node scripts/notify-owner.mjs "The ranking refresh was held back. Check the Actions log."
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}

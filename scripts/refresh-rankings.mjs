@@ -262,6 +262,7 @@ if (!API_KEY) {
 const models = JSON.parse(await readFile(MODELS_FILE, "utf8"));
 const history = JSON.parse(await readFile(HISTORY_FILE, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
+const changes = [];
 let failures = 0;
 
 for (const [key, category] of Object.entries(models.categories)) {
@@ -278,7 +279,9 @@ for (const [key, category] of Object.entries(models.categories)) {
     console.error(`${key}: keeping existing picks`);
     continue;
   }
+  const before = history.entries.length;
   const switched = applyResearch(category, history, key, picks, today);
+  if (switched && history.entries.length > before) changes.push(history.entries.at(-1));
   const state = switched ? "switched" : category.pending_leader ? `pending ${category.pending_leader.name}` : "updated";
   console.log(`${key}: ${SLOTS.map((slot) => category[slot].name).join(" / ")} (${state})`);
 }
@@ -289,6 +292,7 @@ if (failures < Object.keys(models.categories).length) {
 
 await writeFile(MODELS_FILE, `${JSON.stringify(models, null, 2)}\n`);
 await writeFile(HISTORY_FILE, `${JSON.stringify(history, null, 2)}\n`);
+await writeFile(new URL("../changes-this-run.json", import.meta.url), `${JSON.stringify(changes, null, 2)}\n`);
 
 if (failures === Object.keys(models.categories).length) {
   console.error("Every category failed; nothing was refreshed.");

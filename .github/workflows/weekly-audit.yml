@@ -1,0 +1,49 @@
+name: Weekly fact-check
+
+on:
+  schedule:
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Kill switch
+        id: kill
+        run: node scripts/kill-switch.mjs
+
+      - name: Audit live data
+        id: audit
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/fact-check.mjs --links --hold
+
+      - name: Publish holds
+        if: steps.kill.outputs.publish == 'true' && (steps.audit.outcome == 'success' || steps.audit.outcome == 'failure')
+        run: |
+          if git diff --quiet -- lib/held.json; then
+            echo "Holds unchanged."
+          else
+            git config user.name "whichai-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add lib/held.json
+            git commit -m "Update fact-check holds."
+            git push
+          fi
+
+      - name: Tell the owner
+        if: failure()
+        run: node scripts/notify-owner.mjs "The weekly fact-check held something back."
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}
