@@ -51,11 +51,11 @@
         "when_not": "Skip it for simple edits and quick boilerplate where faster, cheaper models suffice.",
         "starter_prompt": "Find the bug in this function, explain the cause, and give the fixed version.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 1813,
+        "pick_if": "Pick this when the code has to be right the first time.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the code has to be right the first time."
+        "primary_score": 1813,
+        "checked": "2026-10-24"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -70,11 +70,11 @@
         "when_not": "Skip it if you want to run completely offline without sending source code to proprietary servers.",
         "starter_prompt": "Implement this feature in the repo, then list the files you changed and why.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 1786.1,
+        "pick_if": "Pick this if you already work in ChatGPT or Codex.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this if you already work in ChatGPT or Codex."
+        "primary_score": 1786.1,
+        "checked": "2026-10-24"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -89,15 +89,20 @@
         "when_not": "Skip self-hosting if you lack multi-GPU cluster infrastructure required to serve 2.8 trillion parameters.",
         "starter_prompt": "Refactor this module for clarity and add tests for the edge cases.",
         "source_url": "https://www.swebench.com/",
-        "checked": "2026-10-24",
-        "primary_score": null,
+        "pick_if": "Pick this when the code cannot leave your own machines.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the code cannot leave your own machines."
+        "primary_score": null,
+        "checked": "2026-10-24"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
-      "sources": ["LMArena Code", "SWE-bench Pro", "LiveCodeBench", "Artificial Analysis Coding Index"]
+      "sources": [
+        "LMArena Code",
+        "SWE-bench Pro",
+        "LiveCodeBench",
+        "Artificial Analysis Coding Index"
+      ]
     },
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
@@ -157,12 +162,12 @@
         "free_tier": "Not on the free plan. Fable needs Pro or higher.",
         "when_not": "Do not treat it as legal advice, or as a substitute for reading the clause yourself.",
         "starter_prompt": "Summarize the obligations, deadlines, and unusual clauses in this contract.",
-        "source_url": "https://www.vals.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 88.5,
+        "source_url": "https://www.vals.ai/benchmarks/legal_bench",
+        "pick_if": "Pick this when analyzing high-stakes contracts, filings, and long transcripts.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this for contracts, filings, and long transcripts."
+        "primary_score": 88.5,
+        "checked": "2026-10-24"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -176,35 +181,39 @@
         "free_tier": "Not on the free Gemini plan. Argon needs AI Pro or Ultra.",
         "when_not": "Skip it for privileged client files unless your Google account terms allow that use.",
         "starter_prompt": "Read this filing and list the risks, the numbers, and anything that changed.",
-        "source_url": "https://www.vals.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 88.3,
+        "source_url": "https://www.vals.ai/benchmarks/legal_bench",
+        "pick_if": "Pick this when you want a close legal score for less money.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when you want a close legal score for less money."
+        "primary_score": 88.3,
+        "checked": "2026-10-24"
       },
       "open_source_pick": {
         "name": "Kimi K3",
         "provider": "Moonshot AI",
         "why": "Strong legal accuracy and can run fully on your own servers for client confidentiality.",
-        "benchmark_context": "Vals LegalBench not cited. 86.2% Vals LegalBench; top open-weights model on the board",
-        "direct_link": "https://www.kimi.com",
-        "where_to_get": "Kimi app, free with limits, or run the weights on your own servers.",
+        "benchmark_context": "Vals LegalBench 86.2% (top open-weights model on the board)",
+        "direct_link": "https://huggingface.co/moonshotai/Kimi-K3",
+        "where_to_get": "Kimi app, free with limits, or download weights on Hugging Face to self-host.",
         "access": "free_limited",
         "cost": "Free with limits in the Kimi app. Self-hosting costs whatever hardware you use.",
         "free_tier": "Yes, in the Kimi app, with usage limits. Self-hosting has no per-message fee.",
         "when_not": "Skip the hosted Kimi app for client-confidential documents.",
         "starter_prompt": "Extract every date, party, and payment term from this document.",
-        "source_url": "https://www.vals.ai/",
-        "checked": "2026-10-24",
-        "primary_score": null,
+        "source_url": "https://www.vals.ai/benchmarks/legal_bench",
+        "pick_if": "Pick this when the document cannot be uploaded to a hosted chat.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the document cannot be uploaded to a hosted chat."
+        "primary_score": 86.2,
+        "checked": "2026-10-24"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
-      "sources": ["Vals LegalBench", "LegalBench", "BigLaw Bench"]
+      "sources": [
+        "Vals LegalBench",
+        "LegalBench",
+        "BigLaw Bench"
+      ]
     },
     "writing_creative": {
       "display_name": "Writing & Marketing",
@@ -266,11 +275,11 @@
         "when_not": "Skip it for high-volume captions. A faster model is enough and much cheaper.",
         "starter_prompt": "Rewrite this email so it is shorter, warmer, and still says the same thing.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 1520,
+        "pick_if": "Pick this when the writing itself has to sound like a person.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the writing itself has to sound like a person."
+        "primary_score": 1520,
+        "checked": "2026-10-24"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -285,11 +294,11 @@
         "when_not": "Skip it when the draft must sound like you. It still needs your edit and facts.",
         "starter_prompt": "Write a LinkedIn post about this launch in a plain, specific voice. No hype.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 1512,
+        "pick_if": "Pick this when you want a strong draft and already use Gemini.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when you want a strong draft and already use Gemini."
+        "primary_score": 1512,
+        "checked": "2026-10-24"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -304,15 +313,19 @@
         "when_not": "Skip a hosted demo if the draft includes unreleased product details.",
         "starter_prompt": "Draft three headline options and one short paragraph for this announcement.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24",
-        "primary_score": null,
+        "pick_if": "Pick this when the draft cannot leave your own machines.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the draft cannot leave your own machines."
+        "primary_score": null,
+        "checked": "2026-10-24"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
-      "sources": ["LMArena Creative Writing", "LMArena Text overall", "EQ-Bench Creative Writing"]
+      "sources": [
+        "LMArena Creative Writing",
+        "LMArena Text overall",
+        "EQ-Bench Creative Writing"
+      ]
     },
     "reasoning_math": {
       "display_name": "Reasoning, Math & Science",
@@ -370,11 +383,11 @@
         "when_not": "Do not trust a proof you have not checked. Ask it to show the steps.",
         "starter_prompt": "Solve this step by step, and mark any step you are not sure about.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 61.4,
+        "pick_if": "Pick this for hard math, proofs, and expert questions.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this for hard math, proofs, and expert questions."
+        "primary_score": 61.4,
+        "checked": "2026-10-24"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -389,11 +402,11 @@
         "when_not": "Skip it for a quick arithmetic check. A fast model is enough.",
         "starter_prompt": "Work this graduate-level question and cite the principle behind each step.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24",
-        "primary_score": null,
+        "pick_if": "Pick this for graduate-level science questions.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this for graduate-level science questions."
+        "primary_score": null,
+        "checked": "2026-10-24"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -408,15 +421,20 @@
         "when_not": "Skip it when you need the single highest exam score. The leader still leads that board.",
         "starter_prompt": "Explain this concept with one example, then give me a harder practice problem.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 49.4,
+        "pick_if": "Pick this when the problem cannot leave your own machines.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the problem cannot leave your own machines."
+        "primary_score": 49.4,
+        "checked": "2026-10-24"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
-      "sources": ["Humanity's Last Exam", "GPQA Diamond", "FrontierMath", "Artificial Analysis Intelligence Index"]
+      "sources": [
+        "Humanity's Last Exam",
+        "GPQA Diamond",
+        "FrontierMath",
+        "Artificial Analysis Intelligence Index"
+      ]
     },
     "low_latency": {
       "display_name": "Speed & High Volume",
@@ -501,7 +519,11 @@
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
-      "sources": ["Artificial Analysis output speed", "Artificial Analysis latency", "Artificial Analysis price"]
+      "sources": [
+        "Artificial Analysis output speed",
+        "Artificial Analysis latency",
+        "Artificial Analysis price"
+      ]
     },
     "general": {
       "display_name": "General & Everyday",
@@ -546,11 +568,11 @@
         "when_not": "Skip it for a narrow job another category already wins, such as code or contracts.",
         "starter_prompt": "Help me plan this. Ask one clarifying question, then give a short next step.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24",
-        "primary_score": 1517,
+        "pick_if": "Pick this for everyday questions that are not a specialist job.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this for everyday questions that are not a specialist job."
+        "primary_score": 1517,
+        "checked": "2026-10-24"
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
@@ -565,11 +587,11 @@
         "when_not": "Skip it if you only use the normal chat box. Sol is in Work and Codex for now.",
         "starter_prompt": "Turn this messy idea into a one-page plan with the first three tasks.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24",
-        "primary_score": null,
+        "pick_if": "Pick this for everyday work you already do in ChatGPT.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this for everyday work you already do in ChatGPT."
+        "primary_score": null,
+        "checked": "2026-10-24"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -584,15 +606,19 @@
         "when_not": "Skip a hosted demo for anything you would not want stored on someone else's account.",
         "starter_prompt": "Give me three options for this, with one downside for each.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24",
-        "primary_score": null,
+        "pick_if": "Pick this when the question cannot leave your own machines.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the question cannot leave your own machines."
+        "primary_score": null,
+        "checked": "2026-10-24"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
-      "sources": ["LMArena Text overall", "Artificial Analysis Intelligence Index", "LMArena Text hard prompts"]
+      "sources": [
+        "LMArena Text overall",
+        "Artificial Analysis Intelligence Index",
+        "LMArena Text hard prompts"
+      ]
     }
   }
 }
