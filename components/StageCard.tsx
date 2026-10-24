@@ -48,6 +48,7 @@ export function StageCard({
   index: number;
   stage: { name: string; goal: string; action: string };
   category: {
+    slug: string;
     emoji: string;
     display_name: string;
     leader: ModelProfile;
@@ -61,9 +62,12 @@ export function StageCard({
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
           Stage {index}
         </p>
-        <p className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300">
+        <a
+          href={`/${category.slug}`}
+          className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300 hover:bg-emerald-500/25"
+        >
           {category.emoji} {category.display_name}
-        </p>
+        </a>
       </div>
       <h2 className="mt-3 text-xl font-semibold tracking-tight text-white">
         {stage.name}

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { categoryEntries, categoryLastModified } from "@/lib/picks";
 import models from "@/lib/models.json";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -16,5 +17,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.8,
     },
+    ...categoryEntries().map(([key, category]) => ({
+      url: `https://whichai.today/${category.slug}`,
+      lastModified: categoryLastModified(key),
+      changeFrequency: "daily" as const,
+      priority: 0.7,
+    })),
   ];
 }

@@ -1,0 +1,46 @@
+{
+  "entries": [
+    {
+      "category": "coding",
+      "leader": "Claude Opus 5.5",
+      "previous": null,
+      "date": "2026-10-23",
+      "evidence": "#1 BenchLeader coding index (82.1); #1 LMArena WebDev."
+    },
+    {
+      "category": "legal_analysis",
+      "leader": "Claude Fable 5.1",
+      "previous": null,
+      "date": "2026-10-23",
+      "evidence": "88.5% Vals LegalBench (top 2 of 150+ models)."
+    },
+    {
+      "category": "writing_creative",
+      "leader": "Gemini 4 Argon",
+      "previous": null,
+      "date": "2026-10-23",
+      "evidence": "#1 LMArena Text (1526, preliminary)."
+    },
+    {
+      "category": "reasoning_math",
+      "leader": "Claude Opus 5.5",
+      "previous": null,
+      "date": "2026-10-23",
+      "evidence": "#1 Humanity's Last Exam (61.4%)."
+    },
+    {
+      "category": "low_latency",
+      "leader": "Gemini 3.5 Flash-Lite",
+      "previous": null,
+      "date": "2026-10-23",
+      "evidence": "454 tokens/sec (Artificial Analysis, Oct 2026)."
+    },
+    {
+      "category": "general",
+      "leader": "Gemini 4 Argon",
+      "previous": null,
+      "date": "2026-10-23",
+      "evidence": "#1 LMArena Text overall (1526, preliminary)."
+    }
+  ]
+}

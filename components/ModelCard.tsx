@@ -1,4 +1,16 @@
+import type { ReactNode } from "react";
+import providers from "@/lib/providers.json";
+import { ACCESS_LABEL, formatDay } from "@/lib/picks";
 import type { ModelProfile } from "@/lib/match";
+
+function Detail({ label, children }: { label: string; children: ReactNode }) {
+  return (
+    <div>
+      <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">{label}</dt>
+      <dd className="mt-1 text-sm leading-6 text-zinc-300">{children}</dd>
+    </div>
+  );
+}
 
 export function ModelCard({
   model,
@@ -9,6 +21,8 @@ export function ModelCard({
   label: string;
   featured?: boolean;
 }) {
+  const privacy = providers[model.provider as keyof typeof providers];
+
   return (
     <article
       className={
@@ -36,6 +50,10 @@ export function ModelCard({
         {model.name}
       </h2>
       <p className="mt-1 text-sm text-zinc-400">{model.provider}</p>
+      <p className="mt-3 text-sm leading-6 text-zinc-200">{model.where_to_get}</p>
+      <p className="mt-2 inline-block rounded-full border border-zinc-700 px-2.5 py-0.5 text-[0.7rem] font-medium text-zinc-300">
+        {ACCESS_LABEL[model.access as keyof typeof ACCESS_LABEL] ?? model.access}
+      </p>
       <p className="mt-4 inline-block rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300">
         {model.badge}
       </p>
@@ -53,6 +71,29 @@ export function ModelCard({
       >
         Open {model.provider}
       </a>
+      <details className="mt-6 border-t border-zinc-800 pt-4">
+        <summary className="cursor-pointer text-sm font-medium text-zinc-300 hover:text-white">
+          Details
+        </summary>
+        <dl className="mt-4 flex flex-col gap-4">
+          <Detail label="Why it leads">
+            {model.benchmark_context}{" "}
+            <a href={model.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+              Source
+            </a>
+            . Checked {formatDay(model.checked)}.
+          </Detail>
+          <Detail label="Cost">{model.cost}</Detail>
+          <Detail label="Free tier">{model.free_tier}</Detail>
+          <Detail label="Privacy default">
+            {privacy
+              ? `${privacy.trains_by_default} ${privacy.opt_out}`
+              : "Privacy default not checked for this provider yet."}
+          </Detail>
+          <Detail label="When not to use it">{model.when_not}</Detail>
+          <Detail label="Starter prompt">{model.starter_prompt}</Detail>
+        </dl>
+      </details>
     </article>
   );
 }

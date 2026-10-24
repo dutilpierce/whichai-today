@@ -1,5 +1,7 @@
 import models from "./models.json";
 
+export type Access = "free_limited" | "paid" | "api_only";
+
 export type ModelProfile = {
   name: string;
   provider: string;
@@ -7,6 +9,14 @@ export type ModelProfile = {
   why: string;
   benchmark_context: string;
   direct_link: string;
+  where_to_get: string;
+  access: string;
+  cost: string;
+  free_tier: string;
+  when_not: string;
+  starter_prompt: string;
+  source_url: string;
+  checked: string;
 };
 
 function escapeRegExp(value: string) {

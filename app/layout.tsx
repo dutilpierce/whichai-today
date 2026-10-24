@@ -24,7 +24,12 @@ export const metadata: Metadata = {
     template: "%s | WhichAI.today",
   },
   description,
-  alternates: { canonical: "/" },
+  alternates: {
+    canonical: "/",
+    types: {
+      "application/rss+xml": "https://whichai.today/feed.xml",
+    },
+  },
   openGraph: {
     title: "Find the best AI model for the job",
     description,

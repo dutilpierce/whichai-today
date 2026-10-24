@@ -24,7 +24,7 @@ const faqs = [
   {
     question: "How often do the rankings change?",
     answer:
-      "A scheduled job researches public leaderboards every day and publishes updates when the leaders actually move. Big launches usually reshuffle a category every few weeks, not every hour.",
+      "A scheduled job researches public leaderboards every day. A new number one has to come up on two checks in a row before it replaces the current leader, so a one-day blip does not flip the pick. Big launches usually reshuffle a category every few weeks, not every hour.",
   },
   {
     question: "Is WhichAI.today free?",
@@ -134,7 +134,9 @@ export default function AboutPage() {
             {categories.map(([key, category]) => (
               <tr key={key} className="border-t border-zinc-800">
                 <td className="px-4 py-3 text-zinc-200">
-                  {category.emoji} {category.display_name}
+                  <a href={`/${category.slug}`} className="hover:text-white">
+                    {category.emoji} {category.display_name}
+                  </a>
                 </td>
                 <td className="px-4 py-3 text-white">{category.leader.name}</td>
                 <td className="px-4 py-3 text-zinc-300">
@@ -189,15 +191,20 @@ export default function AboutPage() {
         How WhichAI.today works
       </h2>
       <p className="mt-4 text-base leading-7 text-zinc-300">
-        Every recommendation comes from one of six categories: coding, legal
-        and long documents, writing and marketing, reasoning and math, speed
-        and high volume, and a general catch-all for everyday tasks. Picks are
+        Every recommendation comes from one of six categories:{" "}
+        <a href="/coding" className="text-white hover:text-emerald-200">coding</a>,{" "}
+        <a href="/legal" className="text-white hover:text-emerald-200">legal and long documents</a>,{" "}
+        <a href="/writing" className="text-white hover:text-emerald-200">writing and marketing</a>,{" "}
+        <a href="/reasoning" className="text-white hover:text-emerald-200">reasoning and math</a>,{" "}
+        <a href="/speed" className="text-white hover:text-emerald-200">speed and high volume</a>, and a{" "}
+        <a href="/general" className="text-white hover:text-emerald-200">general catch-all</a>{" "}
+        for everyday tasks. Each has its own page with the current picks and the leader history. Picks are
         grounded in public evaluations from LMArena, Artificial Analysis, Vals
         AI, SWE-bench, GPQA, and Humanity&apos;s Last Exam.
       </p>
       <p className="mt-4 text-base leading-7 text-zinc-300">
-        A daily job re-checks those sources and publishes a new ranking when
-        the leaders move. When you search, common phrases match a category
+        A daily job re-checks those sources. A new number one has to show up on
+        two daily checks before it replaces the current leader. When you search, common phrases match a category
         instantly. Unusual wording goes to a fast classifier, and anything it
         cannot place lands in General, so a search always returns a
         recommendation. Plan a project does the same thing for a whole piece

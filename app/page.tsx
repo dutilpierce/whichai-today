@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { ModelCard } from "@/components/ModelCard";
 import { StageCard } from "@/components/StageCard";
 import { Thinking } from "@/components/Thinking";
@@ -42,7 +42,20 @@ export default function Home() {
   const [plan, setPlan] = useState<Plan | null>(null);
   const [planError, setPlanError] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [copied, setCopied] = useState(false);
   const requestId = useRef(0);
+
+  function writeQuery(value: string) {
+    const url = new URL(window.location.href);
+    url.pathname = "/";
+    url.search = "";
+    url.searchParams.set("q", value.trim());
+    window.history.replaceState(null, "", `${url.pathname}${url.search}`);
+  }
+
+  function clearQuery() {
+    window.history.replaceState(null, "", "/");
+  }
 
   function showCategory(key: string) {
     requestId.current += 1;
@@ -57,6 +70,7 @@ export default function Home() {
     const key = matchCategory(query);
     if (key) {
       showCategory(key);
+      writeQuery(query);
       return;
     }
 
@@ -76,7 +90,39 @@ export default function Home() {
     if (id !== requestId.current) return;
     setLoading(false);
     setCategoryKey(next);
+    writeQuery(query);
   }
+
+  useEffect(() => {
+    const q = new URLSearchParams(window.location.search).get("q");
+    if (!q?.trim()) return;
+    setQuery(q);
+    const key = matchCategory(q);
+    if (key) {
+      setCategoryKey(key);
+      return;
+    }
+
+    const id = ++requestId.current;
+    setLoading(true);
+    fetch("/api/classify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: q }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (id !== requestId.current) return;
+        setCategoryKey(data?.category in models.categories ? data.category : "general");
+      })
+      .catch(() => {
+        if (id !== requestId.current) return;
+        setCategoryKey("general");
+      })
+      .finally(() => {
+        if (id === requestId.current) setLoading(false);
+      });
+  }, []);
 
   async function onPlan(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -108,6 +154,20 @@ export default function Home() {
   const category = categoryKey
     ? models.categories[categoryKey as keyof typeof models.categories]
     : null;
+
+  async function copyLink() {
+    if (!category) return;
+    const url = query.trim()
+      ? `${window.location.origin}/?q=${encodeURIComponent(query.trim())}`
+      : `${window.location.origin}/${category.slug}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  }
 
   return (
     <div className="flex min-h-full flex-1 flex-col bg-zinc-950 text-zinc-50">
@@ -211,7 +271,10 @@ export default function Home() {
               <button
                 key={key}
                 type="button"
-                onClick={() => showCategory(key)}
+                onClick={() => {
+                  showCategory(key);
+                  clearQuery();
+                }}
                 className={selected ? pillSelected : pillRest}
               >
                 {item.emoji} {item.display_name}
@@ -234,9 +297,17 @@ export default function Home() {
             className="mt-10 flex flex-col gap-4"
             style={{ animation: "whichai-fade 0.35s ease" }}
           >
-            <p className="text-sm font-medium text-zinc-400">
-              {category.emoji} {category.display_name}
-            </p>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-zinc-400">
+              <p>
+                {category.emoji} {category.display_name}
+              </p>
+              <a href={`/${category.slug}`} className="text-zinc-300 hover:text-white">
+                More on {category.display_name}
+              </a>
+              <button type="button" onClick={copyLink} className="text-zinc-300 hover:text-white">
+                {copied ? "Copied" : "Copy link"}
+              </button>
+            </div>
             <ModelCard model={category.leader} label="#1 Champion" featured />
             <div className="grid gap-4 md:grid-cols-2">
               <ModelCard model={category.runner_up} label="Top Alternative" />
@@ -276,9 +347,14 @@ export default function Home() {
           Rankings compiled from LMArena, Artificial Analysis, Vals AI, and
           SWE-bench, last reviewed {updatedLabel}.
         </p>
-        <a href="/about" className="text-zinc-400 hover:text-white">
-          About
-        </a>
+        <div className="flex items-center gap-4">
+          <a href="/feed.xml" className="text-zinc-400 hover:text-white">
+            RSS
+          </a>
+          <a href="/about" className="text-zinc-400 hover:text-white">
+            About
+          </a>
+        </div>
       </footer>
     </div>
   );
