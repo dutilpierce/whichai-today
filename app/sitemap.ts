@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     item("/alerts", "weekly", 0.5),
     item("/privacy", "monthly", 0.3),
     item("/data", "daily", 0.5),
+    item("/embed", "weekly", 0.4),
     ...categoryEntries().map(([, category]) => item(`/${category.slug}`, "daily", 0.7)),
     item("/changes", "daily", 0.6),
     ...modelRecords().map((model) => item(`/models/${model.slug}`, "daily", 0.6)),

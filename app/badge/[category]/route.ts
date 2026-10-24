@@ -25,10 +25,11 @@ export async function GET(
 
   const job = shortLabel(found.category.slug).toLowerCase();
   const label = `Today's best ${job} AI: ${found.category.leader.name} · WhichAI.today`;
+  const width = Math.ceil(label.length * 8) + 36;
   const svg = `<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="480" height="40" viewBox="0 0 480 40" role="img" aria-label="${escapeXml(label)}">
-  <rect width="480" height="40" rx="8" fill="#09090b"/>
-  <rect x="0.5" y="0.5" width="479" height="39" rx="7.5" fill="none" stroke="#3f3f46"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="40" viewBox="0 0 ${width} 40" role="img" aria-label="${escapeXml(label)}">
+  <rect width="${width}" height="40" rx="8" fill="#09090b"/>
+  <rect x="0.5" y="0.5" width="${width - 1}" height="39" rx="7.5" fill="none" stroke="#3f3f46"/>
   <text x="16" y="25" fill="#fafafa" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="14">${escapeXml(label)}</text>
 </svg>`;
 

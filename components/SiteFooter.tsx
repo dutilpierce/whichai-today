@@ -32,6 +32,9 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
               Changes
             </a>
           ) : null}
+          <a href="/embed" className="text-zinc-400 hover:text-white">
+            Embed
+          </a>
           <a href="/data" className="text-zinc-400 hover:text-white">
             Data
           </a>

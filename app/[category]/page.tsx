@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ModelCard } from "@/components/ModelCard";
-import { EmailSignup } from "@/components/EmailSignup";
-import { EmbedBadge } from "@/components/EmbedBadge";
 import { CiteThis } from "@/components/CiteThis";
+import { EmailSignup } from "@/components/EmailSignup";
 import { FaqList } from "@/components/FaqList";
 import { Freshness } from "@/components/Freshness";
 import { JsonLd } from "@/components/JsonLd";
@@ -129,12 +128,11 @@ export default async function CategoryPage({
           </a>
           .
         </p>
-        <EmbedBadge
-          html={`<a href="https://whichai.today/${category.slug}"><img src="https://whichai.today/badge/${category.slug}" alt="Today's best ${shortLabel(category.slug).toLowerCase()} AI: ${category.leader.name}, via WhichAI.today" width="320" height="40"></a>`}
-          src={`/badge/${category.slug}`}
-          alt={`Today's best ${shortLabel(category.slug).toLowerCase()} AI: ${category.leader.name}, via WhichAI.today`}
-          href={`https://whichai.today/${category.slug}`}
-        />
+        <p className="mt-8 text-sm">
+          <a href={`/embed#${category.slug}`} className="text-zinc-200 hover:text-white">
+            Put this on your site
+          </a>
+        </p>
 
         <CiteThis
           text={`Source: WhichAI.today, ${shortLabel(category.slug)} leader as of ${formatDay(pageDates(`/${slug}`).checked)}, whichai.today/${slug}`}

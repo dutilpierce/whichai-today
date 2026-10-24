@@ -35,6 +35,7 @@ https://whichai.today/about
 https://whichai.today/alerts
 https://whichai.today/privacy
 https://whichai.today/data
+https://whichai.today/embed
 ${pages}
 
 Leader changes: https://whichai.today/feed.xml
