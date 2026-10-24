@@ -52,7 +52,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body
         className="min-h-full flex flex-col bg-zinc-950 font-sans text-zinc-50"
-        style={{ backgroundColor: "#09090b", color: "#fafafa" }}
+        style={{
+          backgroundColor: "#09090b",
+          backgroundImage:
+            "radial-gradient(ellipse 80% 45% at 50% -8%, rgba(16,185,129,0.14), transparent 70%)",
+          backgroundRepeat: "no-repeat",
+          color: "#fafafa",
+        }}
       >
         <JsonLd
           data={{

@@ -170,7 +170,7 @@ export default function Home() {
   }
 
   return (
-    <div className="flex min-h-full flex-1 flex-col bg-zinc-950 text-zinc-50">
+    <div className="flex min-h-full flex-1 flex-col text-zinc-50">
       <style>{`@keyframes whichai-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}`}</style>
       <header className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 pt-8">
         <p className="flex items-center gap-4 text-lg font-semibold tracking-tight text-white">
