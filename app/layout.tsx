@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Aurora } from "@/components/Aurora";
 import { JsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
@@ -51,15 +52,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body
-        className="min-h-full flex flex-col bg-zinc-950 font-sans text-zinc-50"
-        style={{
-          backgroundColor: "#09090b",
-          backgroundImage:
-            "radial-gradient(ellipse 80% 45% at 50% -8%, rgba(16,185,129,0.14), transparent 70%)",
-          backgroundRepeat: "no-repeat",
-          color: "#fafafa",
-        }}
+        className="isolate min-h-full flex flex-col bg-zinc-950 font-sans text-zinc-50"
+        style={{ backgroundColor: "#09090b", color: "#fafafa" }}
       >
+        <Aurora />
         <JsonLd
           data={{
             "@context": "https://schema.org",
