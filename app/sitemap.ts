@@ -17,6 +17,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 0.8,
     },
+    {
+      url: "https://whichai.today/alerts",
+      lastModified,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    },
+    {
+      url: "https://whichai.today/privacy",
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.3,
+    },
     ...categoryEntries().map(([key, category]) => ({
       url: `https://whichai.today/${category.slug}`,
       lastModified: categoryLastModified(key),

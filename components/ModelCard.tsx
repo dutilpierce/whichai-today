@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
 import providers from "@/lib/providers.json";
-import { ACCESS_LABEL, formatDay } from "@/lib/picks";
+import models from "@/lib/models.json";
+import { held } from "@/lib/held";
+import { ACCESS_LABEL, formatDay, leaderBadge } from "@/lib/picks";
 import type { ModelProfile } from "@/lib/match";
 
 function Detail({ label, children }: { label: string; children: ReactNode }) {
@@ -15,13 +17,23 @@ function Detail({ label, children }: { label: string; children: ReactNode }) {
 export function ModelCard({
   model,
   label,
+  signal,
   featured = false,
 }: {
   model: ModelProfile;
   label: string;
+  signal?: string;
   featured?: boolean;
 }) {
   const privacy = providers[model.provider as keyof typeof providers];
+  const privacyHeld = held.facts.some(
+    (fact) => fact.kind === "privacy" && fact.provider === model.provider,
+  );
+  const costHeld = held.facts.some(
+    (fact) => fact.kind === "cost" && fact.model === model.name,
+  );
+  const showChecked = model.checked.slice(0, 10) !== models.last_updated.slice(0, 10);
+  const badge = featured && signal ? leaderBadge(model.sources_agreeing, signal) : null;
 
   return (
     <article
@@ -54,9 +66,11 @@ export function ModelCard({
       <p className="mt-2 inline-block rounded-full border border-zinc-700 px-2.5 py-0.5 text-[0.7rem] font-medium text-zinc-300">
         {ACCESS_LABEL[model.access as keyof typeof ACCESS_LABEL] ?? model.access}
       </p>
-      <p className="mt-4 inline-block rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300">
-        {model.badge}
-      </p>
+      {badge ? (
+        <p className="mt-4 inline-block rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300">
+          {badge}
+        </p>
+      ) : null}
       <p className="mt-4 text-base leading-7 text-zinc-200">{model.why}</p>
       <p className="mt-3 text-xs text-zinc-500">{model.benchmark_context}</p>
       <a
@@ -81,14 +95,41 @@ export function ModelCard({
             <a href={model.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
               Source
             </a>
-            . Checked {formatDay(model.checked)}.
+            {showChecked ? `. Checked ${formatDay(model.checked)}.` : "."}
           </Detail>
-          <Detail label="Cost">{model.cost}</Detail>
-          <Detail label="Free tier">{model.free_tier}</Detail>
+          <Detail label="Cost">
+            {costHeld ? (
+              <>
+                Being re-checked.{" "}
+                <a href={model.direct_link} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                  Provider page
+                </a>
+              </>
+            ) : (
+              model.cost
+            )}
+          </Detail>
+          <Detail label="Free tier">{costHeld ? "Being re-checked." : model.free_tier}</Detail>
           <Detail label="Privacy default">
-            {privacy
-              ? `${privacy.trains_by_default} ${privacy.opt_out}`
-              : "Privacy default not checked for this provider yet."}
+            {privacyHeld ? (
+              <>
+                Being re-checked.{" "}
+                {privacy ? (
+                  <a href={privacy.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                    Provider page
+                  </a>
+                ) : null}
+              </>
+            ) : privacy ? (
+              <>
+                {privacy.trains_by_default} {privacy.opt_out}{" "}
+                <a href={privacy.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                  Source
+                </a>
+              </>
+            ) : (
+              "Privacy default not checked for this provider yet."
+            )}
           </Detail>
           <Detail label="When not to use it">{model.when_not}</Detail>
           <Detail label="Starter prompt">{model.starter_prompt}</Detail>

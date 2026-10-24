@@ -41,9 +41,8 @@
       "leader": {
         "name": "Claude Opus 5.5",
         "provider": "Anthropic",
-        "badge": "Undisputed #1",
         "why": "Tops major coding benchmarks and leads LMArena for building software and complex debugging.",
-        "benchmark_context": "#1 LMArena Code (1813 Elo); #1 SWE-bench Pro (89.9%)",
+        "benchmark_context": "LMArena Code 1813; #1 SWE-bench Pro (89.9%)",
         "direct_link": "https://claude.ai",
         "where_to_get": "Claude app, Pro plan ($20/month), choose Opus 5.5.",
         "access": "paid",
@@ -52,14 +51,17 @@
         "when_not": "Skip it for simple edits and quick boilerplate where faster, cheaper models suffice.",
         "starter_prompt": "Find the bug in this function, explain the cause, and give the fixed version.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 1813,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the code has to be right the first time."
       },
       "runner_up": {
         "name": "GPT-6 Astra",
         "provider": "OpenAI",
-        "badge": "Strong Alternative",
         "why": "Ranks near the frontier on SWE-bench and LMArena while integrating directly with OpenAI's Codex tooling.",
-        "benchmark_context": "#2 LMArena Code (1786.1 Elo); 90.2% on SWE-bench Pro V2 HARD",
+        "benchmark_context": "LMArena Code 1786.1; 90.2% on SWE-bench Pro V2 HARD",
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT Plus ($20/month), then select GPT-6 Astra in Work or Codex.",
         "access": "paid",
@@ -68,14 +70,17 @@
         "when_not": "Skip it if you want to run completely offline without sending source code to proprietary servers.",
         "starter_prompt": "Implement this feature in the repo, then list the files you changed and why.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 1786.1,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this if you already work in ChatGPT or Codex."
       },
       "open_source_pick": {
         "name": "Kimi K3",
         "provider": "Moonshot AI",
-        "badge": "Top Open Weights",
         "why": "A massive open-weight model delivering near-frontier coding performance that you can self-host for total privacy.",
-        "benchmark_context": "88.2% on SWE-bench Pro V2 HARD; 85.0 on Terminal-Bench v2.1",
+        "benchmark_context": "LMArena Code not cited; 88.2% on SWE-bench Pro V2 HARD.",
         "direct_link": "https://huggingface.co/moonshotai/Kimi-K3",
         "where_to_get": "Download weights on Hugging Face, or select Kimi K3 in the Kimi web app.",
         "access": "free_limited",
@@ -84,9 +89,14 @@
         "when_not": "Skip self-hosting if you lack multi-GPU cluster infrastructure required to serve 2.8 trillion parameters.",
         "starter_prompt": "Refactor this module for clarity and add tests for the edge cases.",
         "source_url": "https://www.swebench.com/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": null,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the code cannot leave your own machines."
       },
-      "slug": "coding"
+      "slug": "coding",
+      "primary_signal": "LMArena Code"
     },
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
@@ -137,9 +147,8 @@
       "leader": {
         "name": "Claude Fable 5.1",
         "provider": "Anthropic",
-        "badge": "Best Legal Reasoning",
-        "why": "Statistically tied for #1 on LegalBench with precise, well-grounded reading of dense documents.",
-        "benchmark_context": "88.5% Vals LegalBench (top 2 of 150+ models)",
+        "why": "Tied at the top of LegalBench, with precise reading of dense documents.",
+        "benchmark_context": "Vals LegalBench 88.5% (top 2 of 150+ models)",
         "direct_link": "https://claude.ai",
         "where_to_get": "Claude app, Pro plan, choose Fable 5.1.",
         "access": "paid",
@@ -148,14 +157,17 @@
         "when_not": "Do not treat it as legal advice, or as a substitute for reading the clause yourself.",
         "starter_prompt": "Summarize the obligations, deadlines, and unusual clauses in this contract.",
         "source_url": "https://www.vals.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 88.5,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this for contracts, filings, and long transcripts."
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
         "provider": "Google",
-        "badge": "Best Value Legal",
         "why": "Within a fraction of a point of the leader at well under half the price.",
-        "benchmark_context": "88.3% Vals LegalBench (#3)",
+        "benchmark_context": "Vals LegalBench 88.3%",
         "direct_link": "https://gemini.google.com",
         "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
         "access": "paid",
@@ -164,14 +176,17 @@
         "when_not": "Skip it for privileged client files unless your Google account terms allow that use.",
         "starter_prompt": "Read this filing and list the risks, the numbers, and anything that changed.",
         "source_url": "https://www.vals.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 88.3,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when you want a close legal score for less money."
       },
       "open_source_pick": {
         "name": "Kimi K3",
         "provider": "Moonshot AI",
-        "badge": "Private Deployment",
         "why": "Strong legal accuracy and can run fully on your own servers for client confidentiality.",
-        "benchmark_context": "86.2% Vals LegalBench; top open-weights model on the board",
+        "benchmark_context": "Vals LegalBench not cited. 86.2% Vals LegalBench; top open-weights model on the board",
         "direct_link": "https://www.kimi.com",
         "where_to_get": "Kimi app, free with limits, or run the weights on your own servers.",
         "access": "free_limited",
@@ -180,9 +195,14 @@
         "when_not": "Skip the hosted Kimi app for client-confidential documents.",
         "starter_prompt": "Extract every date, party, and payment term from this document.",
         "source_url": "https://www.vals.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": null,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the document cannot be uploaded to a hosted chat."
       },
-      "slug": "legal"
+      "slug": "legal",
+      "primary_signal": "Vals LegalBench"
     },
     "writing_creative": {
       "display_name": "Writing & Marketing",
@@ -232,27 +252,10 @@
         "cover letter"
       ],
       "leader": {
-        "name": "Gemini 4 Argon",
-        "provider": "Google",
-        "badge": "Most Preferred by Humans",
-        "why": "Currently the highest-rated model in blind head-to-head votes from millions of real users.",
-        "benchmark_context": "#1 LMArena Text (1517)",
-        "direct_link": "https://gemini.google.com",
-        "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
-        "access": "paid",
-        "cost": "Google AI Pro is $19.99/month. API is $2/M input and $10/M output tokens until Nov 30, 2026, then $4/$20.",
-        "free_tier": "Not on the free plan. The free Gemini app keeps Flash-Lite, not Argon.",
-        "when_not": "Skip it when the draft must sound like you. It still needs your edit and facts.",
-        "starter_prompt": "Write a LinkedIn post about this launch in a plain, specific voice. No hype.",
-        "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24"
-      },
-      "runner_up": {
         "name": "Claude Opus 5.5",
         "provider": "Anthropic",
-        "badge": "Most Natural Prose",
-        "why": "A close second in human preference, with a natural voice that avoids generic AI phrasing.",
-        "benchmark_context": "#1 LMArena Creative Writing (1520); #2 LMArena Text (1509)",
+        "why": "Leads the writing-specific board, with a natural voice that avoids generic AI phrasing.",
+        "benchmark_context": "LMArena Creative Writing 1520",
         "direct_link": "https://claude.ai",
         "where_to_get": "Claude app, Pro plan ($20/month), choose Opus 5.5.",
         "access": "paid",
@@ -261,14 +264,36 @@
         "when_not": "Skip it for high-volume captions. A faster model is enough and much cheaper.",
         "starter_prompt": "Rewrite this email so it is shorter, warmer, and still says the same thing.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 1520,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the writing itself has to sound like a person."
+      },
+      "runner_up": {
+        "name": "Gemini 4 Argon",
+        "provider": "Google",
+        "why": "A close second on the writing board, and still the leader for general chat.",
+        "benchmark_context": "LMArena Creative Writing 1512",
+        "direct_link": "https://gemini.google.com",
+        "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
+        "access": "paid",
+        "cost": "Google AI Pro is $19.99/month. API is $2/M input and $10/M output tokens until Nov 30, 2026, then $4/$20.",
+        "free_tier": "Not on the free plan. The free Gemini app keeps Flash-Lite, not Argon.",
+        "when_not": "Skip it when the draft must sound like you. It still needs your edit and facts.",
+        "starter_prompt": "Write a LinkedIn post about this launch in a plain, specific voice. No hype.",
+        "source_url": "https://lmarena.ai/",
+        "checked": "2026-10-24",
+        "primary_score": 1512,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when you want a strong draft and already use Gemini."
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
         "provider": "Xiaomi",
-        "badge": "Top Open Writer",
         "why": "The highest-rated open-weights model on major benchmarks, available under a permissive MIT license.",
-        "benchmark_context": "#1 open model on AA Intelligence Index (46); LMArena Text open leader",
+        "benchmark_context": "LMArena Creative Writing not cited. Highest-rated open model on the Artificial Analysis Intelligence Index (46).",
         "direct_link": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
         "where_to_get": "Download the MiMo-V2.6-Pro weights, or open Xiaomi AI Studio.",
         "access": "free_limited",
@@ -277,9 +302,14 @@
         "when_not": "Skip a hosted demo if the draft includes unreleased product details.",
         "starter_prompt": "Draft three headline options and one short paragraph for this announcement.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": null,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the draft cannot leave your own machines."
       },
-      "slug": "writing"
+      "slug": "writing",
+      "primary_signal": "LMArena Creative Writing"
     },
     "reasoning_math": {
       "display_name": "Reasoning, Math & Science",
@@ -327,9 +357,8 @@
       "leader": {
         "name": "Claude Opus 5.5",
         "provider": "Anthropic",
-        "badge": "Reasoning Champion",
         "why": "Leads the hardest expert-level exam across every academic field.",
-        "benchmark_context": "#1 Humanity's Last Exam (61.4%).",
+        "benchmark_context": "Humanity's Last Exam 61.4%.",
         "direct_link": "https://claude.ai",
         "where_to_get": "Claude app, Pro plan ($20/month), choose Opus 5.5.",
         "access": "paid",
@@ -338,14 +367,17 @@
         "when_not": "Do not trust a proof you have not checked. Ask it to show the steps.",
         "starter_prompt": "Solve this step by step, and mark any step you are not sure about.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 61.4,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this for hard math, proofs, and expert questions."
       },
       "runner_up": {
         "name": "GPT-6 Astra",
         "provider": "OpenAI",
-        "badge": "Top Science Scorer",
         "why": "Highest score on graduate-level science questions written by PhD experts.",
-        "benchmark_context": "#1 GPQA Diamond (96.1%).",
+        "benchmark_context": "Humanity's Last Exam not cited. #1 GPQA Diamond (96.1%).",
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT Plus, then choose GPT-6 Astra in Work or Codex.",
         "access": "paid",
@@ -354,14 +386,17 @@
         "when_not": "Skip it for a quick arithmetic check. A fast model is enough.",
         "starter_prompt": "Work this graduate-level question and cite the principle behind each step.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": null,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this for graduate-level science questions."
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
         "provider": "Xiaomi",
-        "badge": "Top Open Reasoner",
         "why": "Matches some frontier proprietary models on hard reasoning at a fraction of the cost.",
-        "benchmark_context": "49.4% Humanity's Last Exam; #1 open model on AA Intelligence Index.",
+        "benchmark_context": "Humanity's Last Exam 49.4%.",
         "direct_link": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
         "where_to_get": "Download the MiMo-V2.6-Pro weights, or open Xiaomi AI Studio.",
         "access": "free_limited",
@@ -370,9 +405,14 @@
         "when_not": "Skip it when you need the single highest exam score. The leader still leads that board.",
         "starter_prompt": "Explain this concept with one example, then give me a harder practice problem.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 49.4,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the problem cannot leave your own machines."
       },
-      "slug": "reasoning"
+      "slug": "reasoning",
+      "primary_signal": "Humanity's Last Exam"
     },
     "low_latency": {
       "display_name": "Speed & High Volume",
@@ -401,9 +441,8 @@
       "leader": {
         "name": "Gemini 3.5 Flash-Lite",
         "provider": "Google",
-        "badge": "Fastest Measured",
         "why": "The fastest output of any tracked model, with a free API tier for prototyping.",
-        "benchmark_context": "412 tokens/sec (Artificial Analysis, Oct 2026).",
+        "benchmark_context": "Artificial Analysis output speed 412 tokens/sec (Oct 2026).",
         "direct_link": "https://aistudio.google.com",
         "where_to_get": "Google AI Studio free tier, or the Gemini app, choose Gemini 3.5 Flash-Lite.",
         "access": "free_limited",
@@ -412,14 +451,17 @@
         "when_not": "Skip it for hard coding, legal reading, or anything where a miss is expensive.",
         "starter_prompt": "Classify each of these support messages as billing, bug, or other, one label per line.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 412,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this for high volume, where a miss is cheap."
       },
       "runner_up": {
         "name": "Claude Haiku 5.5",
         "provider": "Anthropic",
-        "badge": "Fast and Smart",
         "why": "Very fast while staying far smarter than most budget models, at a $0.10 per million token input price.",
-        "benchmark_context": "237 tokens/sec; AA Intelligence Index 43 (Artificial Analysis, Oct 2026).",
+        "benchmark_context": "Artificial Analysis output speed 237 tokens/sec.",
         "direct_link": "https://claude.ai",
         "where_to_get": "Claude app, free plan includes Haiku 5.5.",
         "access": "free_limited",
@@ -428,14 +470,17 @@
         "when_not": "Skip it when the task is hard enough that Opus or Fable would change the answer.",
         "starter_prompt": "Reply to this customer in two sentences. Be specific and do not over-promise.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 237,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when you want speed and a Claude account."
       },
       "open_source_pick": {
         "name": "DeepSeek V4.1 Flash",
         "provider": "DeepSeek",
-        "badge": "Fast Open Weights",
         "why": "Fast, extremely cheap, MIT-licensed, and the smartest model in the budget tier.",
-        "benchmark_context": "AA Intelligence Index 45 (Artificial Analysis, Oct 2026).",
+        "benchmark_context": "Artificial Analysis output speed not cited. AA Intelligence Index 45.",
         "direct_link": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
         "where_to_get": "DeepSeek chat is free. Choose V4.1 Flash, or download weights on Hugging Face.",
         "access": "free_limited",
@@ -444,9 +489,14 @@
         "when_not": "Skip the hosted chat for private data. The weights can be run on your own machines.",
         "starter_prompt": "Tag each row as yes or no, and keep the output to a single column.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": null,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the messages cannot leave your own machines."
       },
-      "slug": "speed"
+      "slug": "speed",
+      "primary_signal": "Artificial Analysis output speed"
     },
     "general": {
       "display_name": "General & Everyday",
@@ -481,9 +531,8 @@
       "leader": {
         "name": "Gemini 4 Argon",
         "provider": "Google",
-        "badge": "Best All-Rounder",
         "why": "The highest-rated model overall in blind votes from millions of real users, across every kind of question.",
-        "benchmark_context": "#1 LMArena Text overall (1517)",
+        "benchmark_context": "LMArena Text overall 1517",
         "direct_link": "https://gemini.google.com",
         "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
         "access": "paid",
@@ -492,14 +541,17 @@
         "when_not": "Skip it for a narrow job another category already wins, such as code or contracts.",
         "starter_prompt": "Help me plan this. Ask one clarifying question, then give a short next step.",
         "source_url": "https://lmarena.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": 1517,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this for everyday questions that are not a specialist job."
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
         "provider": "OpenAI",
-        "badge": "Best Everyday Value",
         "why": "Near-flagship quality at a lower price, with the largest context window of the top models.",
-        "benchmark_context": "BenchLM best near-frontier value; 1.05M token context.",
+        "benchmark_context": "LMArena Text overall not cited. BenchLM near-frontier value; 1.05M token context.",
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT Plus ($20/month), in Work or Codex, choose GPT-6.1 Sol.",
         "access": "paid",
@@ -508,14 +560,17 @@
         "when_not": "Skip it if you only use the normal chat box. Sol is in Work and Codex for now.",
         "starter_prompt": "Turn this messy idea into a one-page plan with the first three tasks.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": null,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this for everyday work you already do in ChatGPT."
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
         "provider": "Xiaomi",
-        "badge": "Top Open All-Rounder",
         "why": "The smartest open-weights model overall, free to download under the MIT license.",
-        "benchmark_context": "#1 open model on Artificial Analysis Intelligence Index (46).",
+        "benchmark_context": "LMArena Text overall not cited. #1 open model on the Artificial Analysis Intelligence Index (46).",
         "direct_link": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
         "where_to_get": "Download the MiMo-V2.6-Pro weights from Hugging Face, or open Xiaomi MiMo Studio.",
         "access": "free_limited",
@@ -524,9 +579,14 @@
         "when_not": "Skip a hosted demo for anything you would not want stored on someone else's account.",
         "starter_prompt": "Give me three options for this, with one downside for each.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24"
+        "checked": "2026-10-24",
+        "primary_score": null,
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "pick_if": "Pick this when the question cannot leave your own machines."
       },
-      "slug": "general"
+      "slug": "general",
+      "primary_signal": "LMArena Text overall"
     }
   }
 }

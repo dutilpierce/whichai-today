@@ -5,7 +5,6 @@ export type Access = "free_limited" | "paid" | "api_only";
 export type ModelProfile = {
   name: string;
   provider: string;
-  badge: string;
   why: string;
   benchmark_context: string;
   direct_link: string;
@@ -17,6 +16,10 @@ export type ModelProfile = {
   starter_prompt: string;
   source_url: string;
   checked: string;
+  primary_score: number | null;
+  sources_agreeing: number;
+  sources_checked: number;
+  pick_if: string;
 };
 
 function escapeRegExp(value: string) {

@@ -3,25 +3,30 @@
 import { useEffect, useState } from "react";
 
 const PLAN_STEPS = [
-  "Reading your project…",
-  "Breaking it into stages…",
-  "Matching each stage to today's leaders…",
-  "Almost there…",
+  "Reading your project",
+  "Splitting into stages",
+  "Matching today's models",
 ];
 
 export function Thinking({ mode }: { mode: "quick" | "plan" }) {
   const [step, setStep] = useState(0);
+  const [seconds, setSeconds] = useState(0);
 
   useEffect(() => {
     if (mode !== "plan") return;
-    const id = setInterval(
+    const steps = setInterval(
       () => setStep((current) => (current + 1) % PLAN_STEPS.length),
-      2500,
+      4000,
     );
-    return () => clearInterval(id);
+    const clock = setInterval(() => setSeconds((current) => current + 1), 1000);
+    return () => {
+      clearInterval(steps);
+      clearInterval(clock);
+    };
   }, [mode]);
 
-  const status = mode === "plan" ? PLAN_STEPS[step] : "Finding the best fit…";
+  const status =
+    mode === "plan" ? `${PLAN_STEPS[step]} · ${seconds}s` : "Finding the best fit…";
 
   return (
     <div className="mt-10" aria-live="polite">

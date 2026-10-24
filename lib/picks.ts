@@ -81,6 +81,38 @@ export function changeTitle(entry: HistoryEntry, slug: string) {
   return `${label}: ${entry.leader} overtook ${entry.previous}`;
 }
 
+export function leaderBadge(sourcesAgreeing: number, signal: string) {
+  if (sourcesAgreeing >= 3) return "Clear #1";
+  if (sourcesAgreeing >= 2) return "Leads most boards";
+  return `Leads ${signal}`;
+}
+
+export function modelSlug(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export function comparePair(leader: string, alternative: string) {
+  return `${modelSlug(leader)}-vs-${modelSlug(alternative)}`;
+}
+
+export function changeId(date: string, slug: string) {
+  return `${date.slice(0, 10)}-${slug}`;
+}
+
+export function isoWeek(date: string) {
+  const value = new Date(`${date.slice(0, 10)}T12:00:00Z`);
+  const day = (value.getUTCDay() + 6) % 7;
+  value.setUTCDate(value.getUTCDate() - day + 3);
+  const firstThursday = new Date(Date.UTC(value.getUTCFullYear(), 0, 4));
+  const firstDay = (firstThursday.getUTCDay() + 6) % 7;
+  firstThursday.setUTCDate(firstThursday.getUTCDate() - firstDay + 3);
+  const week = 1 + Math.round((value.getTime() - firstThursday.getTime()) / 604800000);
+  return `${value.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
+}
+
 export function leaderLine(entry: HistoryEntry | null) {
   if (!entry) return "No leader history is on record yet.";
   const since = formatDay(entry.date);

@@ -8,7 +8,6 @@ const SLOTS = ["leader", "runner_up", "open_source_pick"];
 const FIELDS = [
   "name",
   "provider",
-  "badge",
   "why",
   "benchmark_context",
   "direct_link",
@@ -19,14 +18,14 @@ const FIELDS = [
   "when_not",
   "starter_prompt",
   "source_url",
+  "pick_if",
 ];
 const ACCESS = new Set(["free_limited", "paid", "api_only"]);
 const MAX_LENGTH = {
   name: 60,
   provider: 40,
-  badge: 40,
   why: 220,
-  benchmark_context: 160,
+  benchmark_context: 180,
   direct_link: 200,
   where_to_get: 160,
   access: 20,
@@ -35,6 +34,7 @@ const MAX_LENGTH = {
   when_not: 220,
   starter_prompt: 240,
   source_url: 200,
+  pick_if: 160,
 };
 
 function sameName(a, b) {
@@ -51,17 +51,17 @@ Typical tasks: ${category.keywords.slice(0, 15).join(", ")}
 Current picks:
 ${JSON.stringify(current, null, 2)}
 
-Search the web for the latest results on independent leaderboards relevant to this category (for example LMArena, Artificial Analysis, Vals AI, SWE-bench, LiveCodeBench, GPQA, Humanity's Last Exam). Also check the provider's current plan page for where a normal person gets the model and what it costs. Decide the current:
-- leader: the best model for this category right now
+Search the web for the latest results on this category's primary signal first: ${category.primary_signal}. Use other independent leaderboards only as support (for example LMArena, Artificial Analysis, Vals AI, SWE-bench, LiveCodeBench, GPQA, Humanity's Last Exam). The leader is whoever leads ${category.primary_signal}, not a general board, unless that signal is itself the general board. Also check the provider's current plan page for where a normal person gets the model and what it costs. Decide the current:
+- leader: the best model for this category right now, ranked on ${category.primary_signal}
 - runner_up: the best alternative from a different provider than the leader when possible
 - open_source_pick: the best open-weights model (weights downloadable)
 
-Keep a current pick if it is still accurate. Only use models that are publicly available today. Do not invent prices. If a price is not on an official page, describe the plan without a number.
+Keep a current pick if it is still accurate. Only use models that are publicly available today. Do not invent prices. If a price is not on an official page, describe the plan without a number. benchmark_context must start with "${category.primary_signal}". primary_score is the number for that signal, or null if this pick has no score on it. The runner-up's primary_score must not be higher than the leader's when both are numbers.
 
 Return ONLY a JSON object, with no markdown, shaped exactly like:
 {"leader": P, "runner_up": P, "open_source_pick": P}
 where each P is:
-{"name":"model name","provider":"company","badge":"2-4 word callout","why":"one plain-English sentence under 25 words","benchmark_context":"benchmark name and score","direct_link":"https URL of the official chat app, or the Hugging Face page for open models","where_to_get":"one line naming the app, the plan, and which model to select","access":"free_limited or paid or api_only","cost":"plan price or rough API price","free_tier":"whether a free plan can use it, and the notable limit","when_not":"one honest line on when this pick is the wrong choice","starter_prompt":"one short example prompt","source_url":"https URL of the leaderboard behind this pick"}`;
+{"name":"model name","provider":"company","why":"one plain-English sentence under 25 words with no number that is not also in benchmark_context or cost","benchmark_context":"starts with ${category.primary_signal}, then the score","direct_link":"https URL of the official chat app, or the Hugging Face page for open models","where_to_get":"one line naming the app, the plan, and which model to select","access":"free_limited or paid or api_only","cost":"plan price or rough API price","free_tier":"whether a free plan can use it, and the notable limit","when_not":"one honest line on when this pick is the wrong choice","starter_prompt":"one short example prompt","source_url":"https URL of the leaderboard behind this pick","pick_if":"one line, Pick this when...","primary_score":1520,"sources_agreeing":1,"sources_checked":1}`;
 }
 
 function extractJson(text) {
@@ -71,7 +71,7 @@ function extractJson(text) {
   return JSON.parse(text.slice(start, end + 1));
 }
 
-function validate(result, today) {
+function validate(result, category, today) {
   const picks = {};
   for (const slot of SLOTS) {
     const profile = result?.[slot];
@@ -87,11 +87,32 @@ function validate(result, today) {
     for (const field of ["direct_link", "source_url"]) {
       if (new URL(next[field]).protocol !== "https:") throw new Error(`${slot}.${field} is not https`);
     }
+    if (!next.benchmark_context.startsWith(category.primary_signal)) {
+      throw new Error(`${slot}.benchmark_context must start with ${category.primary_signal}`);
+    }
+    const score = profile.primary_score;
+    if (score !== null && (typeof score !== "number" || Number.isNaN(score))) {
+      throw new Error(`${slot}.primary_score must be a number or null`);
+    }
+    for (const field of ["sources_agreeing", "sources_checked"]) {
+      const value = profile[field];
+      if (!Number.isInteger(value) || value < 0) throw new Error(`${slot}.${field} must be an integer`);
+      next[field] = value;
+    }
+    if (next.sources_agreeing > next.sources_checked) {
+      throw new Error(`${slot}.sources_agreeing cannot exceed sources_checked`);
+    }
+    next.primary_score = score;
     next.checked = today;
     picks[slot] = next;
   }
   if (sameName(picks.leader.name, picks.runner_up.name)) {
     throw new Error("leader and runner_up are the same model");
+  }
+  const leaderScore = picks.leader.primary_score;
+  const runnerScore = picks.runner_up.primary_score;
+  if (leaderScore !== null && runnerScore !== null && runnerScore > leaderScore) {
+    throw new Error("runner_up primary_score beats the leader on the primary signal");
   }
   return picks;
 }
@@ -143,7 +164,7 @@ async function research(today, category) {
   if (!res.ok) throw new Error(`Gemini returned ${res.status}: ${await res.text()}`);
   const data = await res.json();
   const text = (data?.candidates?.[0]?.content?.parts ?? []).map((part) => part.text ?? "").join("");
-  return validate(extractJson(text), today);
+  return validate(extractJson(text), category, today);
 }
 
 function assert(condition, message) {
@@ -166,6 +187,10 @@ function selfCheck() {
       when_not: "Not for this.",
       starter_prompt: "Try this.",
       source_url: "https://example.com/board",
+      pick_if: "Pick this when testing.",
+      primary_score: 1,
+      sources_agreeing: 1,
+      sources_checked: 1,
       checked: "2026-10-24",
     };
   }
@@ -205,6 +230,22 @@ function selfCheck() {
   assert(third.leader.name === "Alpha", "a different challenger should not switch yet");
   assert(third.pending_leader.name === "Epsilon", "a different challenger should replace pending");
 
+  let rejected = false;
+  try {
+    validate(
+      {
+        leader: blank("Alpha"),
+        runner_up: { ...blank("Beta"), primary_score: 9 },
+        open_source_pick: blank("Gamma"),
+      },
+      { primary_signal: "Board" },
+      "2026-10-24",
+    );
+  } catch {
+    rejected = true;
+  }
+  assert(rejected, "a higher runner-up score on the primary signal should fail");
+
   console.log("self-check ok");
 }
 
@@ -242,7 +283,7 @@ for (const [key, category] of Object.entries(models.categories)) {
   console.log(`${key}: ${SLOTS.map((slot) => category[slot].name).join(" / ")} (${state})`);
 }
 
-if (failures === 0) {
+if (failures < Object.keys(models.categories).length) {
   models.last_updated = `${today}T12:00:00Z`;
 }
 

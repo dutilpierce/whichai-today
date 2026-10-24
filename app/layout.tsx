@@ -3,6 +3,7 @@ import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Aurora } from "@/components/Aurora";
 import { JsonLd } from "@/components/JsonLd";
+import { SiteFooter } from "@/components/SiteFooter";
 import "./globals.css";
 
 const description =
@@ -83,6 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         {children}
+        <SiteFooter />
         <Analytics />
       </body>
     </html>

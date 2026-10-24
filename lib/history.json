@@ -5,42 +5,49 @@
       "leader": "Claude Opus 5.5",
       "previous": null,
       "date": "2026-10-23",
-      "evidence": "#1 BenchLeader coding index (82.1); #1 LMArena WebDev."
+      "evidence": "LMArena Code 1813; #1 SWE-bench Pro (89.9%)"
     },
     {
       "category": "legal_analysis",
       "leader": "Claude Fable 5.1",
       "previous": null,
       "date": "2026-10-23",
-      "evidence": "88.5% Vals LegalBench (top 2 of 150+ models)."
+      "evidence": "Vals LegalBench 88.5% (top 2 of 150+ models)"
     },
     {
       "category": "writing_creative",
       "leader": "Gemini 4 Argon",
       "previous": null,
       "date": "2026-10-23",
-      "evidence": "#1 LMArena Text (1526, preliminary)."
+      "evidence": "LMArena Text overall 1517"
     },
     {
       "category": "reasoning_math",
       "leader": "Claude Opus 5.5",
       "previous": null,
       "date": "2026-10-23",
-      "evidence": "#1 Humanity's Last Exam (61.4%)."
+      "evidence": "Humanity's Last Exam 61.4%."
     },
     {
       "category": "low_latency",
       "leader": "Gemini 3.5 Flash-Lite",
       "previous": null,
       "date": "2026-10-23",
-      "evidence": "454 tokens/sec (Artificial Analysis, Oct 2026)."
+      "evidence": "Artificial Analysis output speed 412 tokens/sec (Oct 2026)."
     },
     {
       "category": "general",
       "leader": "Gemini 4 Argon",
       "previous": null,
       "date": "2026-10-23",
-      "evidence": "#1 LMArena Text overall (1526, preliminary)."
+      "evidence": "LMArena Text overall 1517"
+    },
+    {
+      "category": "writing_creative",
+      "leader": "Claude Opus 5.5",
+      "previous": "Gemini 4 Argon",
+      "date": "2026-10-24",
+      "evidence": "LMArena Creative Writing 1520. Writing now ranks on Creative Writing, not the general text board."
     }
   ]
 }

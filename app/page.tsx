@@ -49,6 +49,7 @@ export default function Home() {
     const url = new URL(window.location.href);
     url.pathname = "/";
     url.search = "";
+    url.hash = "";
     url.searchParams.set("q", value.trim());
     window.history.replaceState(null, "", `${url.pathname}${url.search}`);
   }
@@ -93,7 +94,38 @@ export default function Home() {
     writeQuery(query);
   }
 
+function encodePlan(value: Plan) {
+    const bytes = new TextEncoder().encode(JSON.stringify(value));
+    let binary = "";
+    bytes.forEach((byte) => {
+      binary += String.fromCharCode(byte);
+    });
+    return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+  }
+
+  function decodePlan(value: string): Plan | null {
+    try {
+      const binary = atob(value.replace(/-/g, "+").replace(/_/g, "/"));
+      const bytes = Uint8Array.from(binary, (char) => char.charCodeAt(0));
+      const data = JSON.parse(new TextDecoder().decode(bytes)) as Plan;
+      if (!data?.summary || !Array.isArray(data.stages)) return null;
+      return data;
+    } catch {
+      return null;
+    }
+  }
+
   useEffect(() => {
+    const hash = window.location.hash;
+    if (hash.startsWith("#plan=")) {
+      const restored = decodePlan(decodeURIComponent(hash.slice("#plan=".length)));
+      if (restored) {
+        setMode("plan");
+        setPlan(restored);
+        return;
+      }
+    }
+
     const q = new URLSearchParams(window.location.search).get("q");
     if (!q?.trim()) return;
     setQuery(q);
@@ -144,6 +176,7 @@ export default function Home() {
       }
       if (id !== requestId.current) return;
       setPlan(data);
+      window.history.replaceState(null, "", `/#plan=${encodePlan(data)}`);
     } catch {
       if (id !== requestId.current) return;
       setPlanError(true);
@@ -154,6 +187,18 @@ export default function Home() {
   const category = categoryKey
     ? models.categories[categoryKey as keyof typeof models.categories]
     : null;
+
+  async function copyPlanLink() {
+    if (!plan) return;
+    const url = `${window.location.origin}/#plan=${encodePlan(plan)}`;
+    try {
+      await navigator.clipboard.writeText(url);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2000);
+    } catch {
+      setCopied(false);
+    }
+  }
 
   async function copyLink() {
     if (!category) return;
@@ -214,6 +259,7 @@ export default function Home() {
                 requestId.current += 1;
                 setLoading(false);
                 setMode(value);
+                clearQuery();
               }}
               className={mode === value ? pillSelected : pillRest}
             >
@@ -268,17 +314,18 @@ export default function Home() {
           {categories.map(([key, item]) => {
             const selected = key === categoryKey;
             return (
-              <button
+              <a
                 key={key}
-                type="button"
-                onClick={() => {
+                href={`/${item.slug}`}
+                onClick={(event) => {
+                  event.preventDefault();
                   showCategory(key);
                   clearQuery();
                 }}
                 className={selected ? pillSelected : pillRest}
               >
                 {item.emoji} {item.display_name}
-              </button>
+              </a>
             );
           })}
         </div>
@@ -308,7 +355,12 @@ export default function Home() {
                 {copied ? "Copied" : "Copy link"}
               </button>
             </div>
-            <ModelCard model={category.leader} label="#1 Champion" featured />
+            <ModelCard
+              model={category.leader}
+              label="#1 Champion"
+              signal={category.primary_signal}
+              featured
+            />
             <div className="grid gap-4 md:grid-cols-2">
               <ModelCard model={category.runner_up} label="Top Alternative" />
               <ModelCard
@@ -325,6 +377,9 @@ export default function Home() {
             style={{ animation: "whichai-fade 0.35s ease" }}
           >
             <p className="text-base leading-7 text-zinc-200">{plan.summary}</p>
+            <button type="button" onClick={copyPlanLink} className="self-start text-sm text-zinc-300 hover:text-white">
+              {copied ? "Copied" : "Copy link"}
+            </button>
             {plan.stages.map((stage, index) => {
               const stageCategory =
                 models.categories[stage.category as keyof typeof models.categories];
@@ -341,21 +396,6 @@ export default function Home() {
           </section>
         )}
       </main>
-
-      <footer className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-between gap-3 px-4 pb-8 text-xs text-zinc-500">
-        <p>
-          Rankings compiled from LMArena, Artificial Analysis, Vals AI, and
-          SWE-bench, last reviewed {updatedLabel}.
-        </p>
-        <div className="flex items-center gap-4">
-          <a href="/feed.xml" className="text-zinc-400 hover:text-white">
-            RSS
-          </a>
-          <a href="/about" className="text-zinc-400 hover:text-white">
-            About
-          </a>
-        </div>
-      </footer>
     </div>
   );
 }

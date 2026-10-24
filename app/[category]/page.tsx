@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ModelCard } from "@/components/ModelCard";
+import { EmailSignup } from "@/components/EmailSignup";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
 import {
@@ -29,6 +30,7 @@ export async function generateMetadata({
   if (!found) return {};
   const heading = categoryHeading(slug);
   const description = `${found.category.leader.name} leads ${found.category.display_name.toLowerCase()} right now. ${found.category.leader.why}`;
+  const url = `https://whichai.today/${slug}`;
   return {
     title: heading,
     description,
@@ -37,6 +39,18 @@ export async function generateMetadata({
       types: {
         "application/rss+xml": "https://whichai.today/feed.xml",
       },
+    },
+    openGraph: {
+      title: heading,
+      description,
+      url,
+      siteName: "WhichAI.today",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: heading,
+      description,
     },
   };
 }
@@ -102,11 +116,19 @@ export default async function CategoryPage({
           {category.leader.why} These picks are readable without an account, and the details behind each one are on the card.
         </p>
         <div className="mt-8 flex flex-col gap-4">
-          <ModelCard model={category.leader} label="#1 Champion" featured />
+          <ModelCard
+            model={category.leader}
+            label="#1 Champion"
+            signal={category.primary_signal}
+            featured
+          />
           <div className="grid gap-4 md:grid-cols-2">
             <ModelCard model={category.runner_up} label="Top Alternative" />
             <ModelCard model={category.open_source_pick} label="Best Open Source" />
           </div>
+        </div>
+        <div className="mt-8">
+          <EmailSignup />
         </div>
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Leader history</h2>
@@ -123,8 +145,8 @@ export default async function CategoryPage({
         </ul>
         <p className="mt-4 text-sm text-zinc-400">
           A new number one has to show up on two daily checks before it replaces the current leader.{" "}
-          <a href="/feed.xml" className="text-zinc-200 hover:text-white">
-            Follow changes by RSS
+          <a href="/alerts" className="text-zinc-200 hover:text-white">
+            Get alerts
           </a>
           .
         </p>

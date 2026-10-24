@@ -24,6 +24,8 @@ Picks come from public evaluations: LMArena, Artificial Analysis, Vals AI, SWE-b
 Canonical pages:
 https://whichai.today
 https://whichai.today/about
+https://whichai.today/alerts
+https://whichai.today/privacy
 ${pages}
 
 Leader changes: https://whichai.today/feed.xml

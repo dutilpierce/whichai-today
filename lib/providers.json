@@ -1,32 +1,38 @@
 {
   "Anthropic": {
-    "trains_by_default": "No. Consumer chats are used for training only if you turn that on.",
-    "opt_out": "Settings, then Privacy. Leave Help improve Claude off.",
+    "trains_by_default": "Consumer Free, Pro, and Max chats are used for training only if you allow it. You choose at signup. Anthropic does not publish which option starts selected.",
+    "opt_out": "Settings, then Privacy. Turn off Help improve Claude.",
+    "source_url": "https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training",
     "checked": "2026-10-24"
   },
   "OpenAI": {
     "trains_by_default": "Yes on personal Free, Plus, and Pro. Improve the model for everyone is on by default.",
     "opt_out": "Settings, Data controls, turn off Improve the model for everyone.",
+    "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
     "checked": "2026-10-24"
   },
   "Google": {
     "trains_by_default": "Yes for adults. Gemini Apps Activity is on by default, and those chats can be used to improve Google AI.",
     "opt_out": "Gemini Apps Activity, turn off Keep Activity. Safety review can still apply.",
+    "source_url": "https://support.google.com/gemini/answer/13594961",
     "checked": "2026-10-24"
   },
   "Moonshot AI": {
     "trains_by_default": "Yes. The Kimi consumer policy says prompts and files can be used to improve models.",
     "opt_out": "Ask Kimi support to stop training use if the app has no toggle.",
+    "source_url": "https://www.kimi.com/user/agreement/userPrivacy",
     "checked": "2026-10-24"
   },
   "Xiaomi": {
     "trains_by_default": "No, if you download the weights and run them yourself. Hosted Xiaomi apps may differ.",
     "opt_out": "Run the open weights on your own machine when chats must stay private.",
+    "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
     "checked": "2026-10-24"
   },
   "DeepSeek": {
     "trains_by_default": "Possibly. DeepSeek says some optimization data can come from user input, after de-identification.",
     "opt_out": "Use the opt-out described in the DeepSeek privacy policy.",
+    "source_url": "https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html",
     "checked": "2026-10-24"
   }
 }
