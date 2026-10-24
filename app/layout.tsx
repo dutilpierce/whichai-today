@@ -84,7 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           }}
         />
         {children}
-        <SiteFooter />
+        <SiteFooter includeChanges />
         <Analytics />
       </body>
     </html>

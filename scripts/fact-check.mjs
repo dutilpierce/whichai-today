@@ -19,6 +19,10 @@ export function latestEntry(history, key) {
     .at(-1)?.entry ?? null;
 }
 
+function slugify(name) {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
+
 function daysSince(value, today) {
   const start = new Date(`${value.slice(0, 10)}T12:00:00Z`).getTime();
   const end = new Date(`${today}T12:00:00Z`).getTime();
@@ -65,6 +69,7 @@ export function checkData(models, history, providers, today) {
     if (leaderScore !== null && runnerScore !== null && runnerScore > leaderScore) {
       fail(`${key} runner-up scores higher than the leader on ${signal}`, { kind: "cost", model: category.leader.name });
       pages.push(`/${category.slug}`);
+      pages.push(`/compare/${slugify(category.leader.name)}-vs-${slugify(category.runner_up.name)}`);
     }
     const latest = latestEntry(history, key);
     if (!latest || latest.leader !== category.leader.name) {

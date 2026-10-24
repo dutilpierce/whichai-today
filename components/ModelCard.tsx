@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import providers from "@/lib/providers.json";
 import models from "@/lib/models.json";
 import { held } from "@/lib/held";
-import { ACCESS_LABEL, formatDay, leaderBadge } from "@/lib/picks";
+import { ACCESS_LABEL, formatDay, leaderBadge, modelSlug } from "@/lib/picks";
 import type { ModelProfile } from "@/lib/match";
 
 function Detail({ label, children }: { label: string; children: ReactNode }) {
@@ -59,7 +59,9 @@ export function ModelCard({
             : "mt-3 text-xl font-semibold tracking-tight text-white"
         }
       >
-        {model.name}
+        <a href={`/models/${modelSlug(model.name)}`} className="hover:text-emerald-200">
+          {model.name}
+        </a>
       </h2>
       <p className="mt-1 text-sm text-zinc-400">{model.provider}</p>
       <p className="mt-3 text-sm leading-6 text-zinc-200">{model.where_to_get}</p>
