@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { changeById, confirmedChanges } from "@/lib/catalog";
-import { formatDay } from "@/lib/picks";
+import { changeById, confirmedChanges, methodologyUpdates } from "@/lib/catalog";
+import { changeTitle, entryKind, formatDay } from "@/lib/picks";
 
 export function generateStaticParams() {
-  return confirmedChanges().map((change) => ({ id: change.id }));
+  return [...confirmedChanges(), ...methodologyUpdates()].map((change) => ({ id: change.id }));
 }
 
 export async function generateMetadata({
@@ -15,7 +15,7 @@ export async function generateMetadata({
   const { id } = await params;
   const change = changeById(id);
   if (!change) return {};
-  const title = `${change.category.display_name}: ${change.leader} overtook ${change.previous}`;
+  const title = changeTitle(change, change.slug);
   const description = change.evidence;
   const url = `https://whichai.today/changes/${id}`;
   return {
@@ -46,13 +46,19 @@ export default async function ChangePage({
       </header>
       <main className="mt-8">
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          {change.category.display_name}: {change.leader} overtook {change.previous}
+          {changeTitle(change, change.slug)}
         </h1>
         <p className="mt-4 text-sm text-zinc-400">{formatDay(change.date)}</p>
         <p className="mt-4 text-base leading-7 text-zinc-300">{change.evidence}</p>
-        <p className="mt-4 text-base leading-7 text-zinc-300">
-          The previous leader was {change.previous}. {leader.where_to_get}
-        </p>
+        {entryKind(change) === "methodology" ? (
+          <p className="mt-4 text-base leading-7 text-zinc-300">
+            This is a change in how the category is ranked, not a model pulling ahead. It is not sent as an alert.
+          </p>
+        ) : (
+          <p className="mt-4 text-base leading-7 text-zinc-300">
+            The previous leader was {change.previous}. {leader.where_to_get}
+          </p>
+        )}
         <p className="mt-6">
           <a href={`/${change.slug}`} className="text-sm font-medium text-emerald-300 hover:text-emerald-200">
             {change.category.emoji} {change.category.display_name}

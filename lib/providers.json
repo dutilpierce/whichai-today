@@ -1,6 +1,6 @@
 {
   "Anthropic": {
-    "trains_by_default": "Consumer Free, Pro, and Max chats are used for training only if you allow it. You choose at signup. Anthropic does not publish which option starts selected.",
+      "trains_by_default": "Anthropic says Free, Pro, and Max chats are used for training only if you allow it, and you choose at signup. The toggle has been reported as on by default, so check it.",
     "opt_out": "Settings, then Privacy. Turn off Help improve Claude.",
     "source_url": "https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training",
     "checked": "2026-10-24"

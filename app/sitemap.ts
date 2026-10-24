@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { compareRecords, confirmedChanges, modelRecords, weekRecords } from "@/lib/catalog";
+import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
 import { categoryEntries, categoryLastModified } from "@/lib/picks";
 import models from "@/lib/models.json";
 
@@ -54,7 +54,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily" as const,
       priority: 0.6,
     })),
-    ...confirmedChanges().map((change) => ({
+    ...[...confirmedChanges(), ...methodologyUpdates()].map((change) => ({
       url: `https://whichai.today/changes/${change.id}`,
       lastModified: new Date(`${change.date}T12:00:00Z`),
       changeFrequency: "monthly" as const,

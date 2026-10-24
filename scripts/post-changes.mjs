@@ -101,6 +101,7 @@ if (!changes.length) {
 }
 
 for (const change of changes) {
+  if (change.type !== "change") continue;
   if (!models.categories[change.category]) continue;
   const { text, url } = postText(change);
   const telegram = await postTelegram(text);

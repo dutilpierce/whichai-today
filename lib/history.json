@@ -47,7 +47,8 @@
       "leader": "Claude Opus 5.5",
       "previous": "Gemini 4 Argon",
       "date": "2026-10-24",
-      "evidence": "LMArena Creative Writing 1520. Writing now ranks on Creative Writing, not the general text board."
+      "type": "methodology",
+      "evidence": "Writing now ranks on LMArena Creative Writing instead of the general text board. Claude Opus 5.5 leads that board (1520)."
     }
   ]
 }

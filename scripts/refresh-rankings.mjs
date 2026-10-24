@@ -52,7 +52,7 @@ Typical tasks: ${category.keywords.slice(0, 15).join(", ")}
 Current picks:
 ${JSON.stringify(current, null, 2)}
 
-Search the web for the latest results on this category's primary signal first: ${category.primary_signal}. Use other independent leaderboards only as support (for example LMArena, Artificial Analysis, Vals AI, SWE-bench, LiveCodeBench, GPQA, Humanity's Last Exam). The leader is whoever leads ${category.primary_signal}, not a general board, unless that signal is itself the general board. Also check the provider's current plan page for where a normal person gets the model and what it costs. Decide the current:
+Search the web for the latest results on this category's primary signal first: ${category.primary_signal}. Count sources_agreeing and sources_checked only from this list, and sources_checked must be no more than ${category.sources?.length ?? 1}: ${(category.sources ?? [category.primary_signal]).join(", ")}. Use other boards only as support. The leader is whoever leads ${category.primary_signal}, not a general board, unless that signal is itself the general board. Also check the provider's current plan page for where a normal person gets the model and what it costs. Decide the current:
 - leader: the best model for this category right now, ranked on ${category.primary_signal}
 - runner_up: the best alternative from a different provider than the leader when possible
 - open_source_pick: the best open-weights model (weights downloadable)
@@ -103,6 +103,10 @@ function validate(result, category, today) {
     if (next.sources_agreeing > next.sources_checked) {
       throw new Error(`${slot}.sources_agreeing cannot exceed sources_checked`);
     }
+    const listed = Array.isArray(category.sources) ? category.sources.length : next.sources_checked;
+    if (next.sources_checked > listed) {
+      throw new Error(`${slot}.sources_checked exceeds the category source list`);
+    }
     next.primary_score = score;
     next.checked = today;
     picks[slot] = next;
@@ -137,6 +141,7 @@ export function applyResearch(category, history, key, picks, today) {
       leader: picks.leader.name,
       previous,
       date: today,
+      type: "change",
       evidence: picks.leader.benchmark_context,
     });
     switched = true;
@@ -224,6 +229,7 @@ function selfCheck() {
   assert(second.leader.name === "Delta", "second sighting should switch the leader");
   assert(!second.pending_leader, "second sighting should clear pending");
   assert(log.entries[0].previous === "Alpha" && log.entries[0].leader === "Delta", "history should record the switch");
+  assert(log.entries[0].type === "change", "a confirmed switch is a change, not a methodology note");
 
   const third = base();
   third.pending_leader = { name: "Delta", since: "2026-10-25" };
@@ -246,6 +252,22 @@ function selfCheck() {
     rejected = true;
   }
   assert(rejected, "a higher runner-up score on the primary signal should fail");
+
+  let tooMany = false;
+  try {
+    validate(
+      {
+        leader: { ...blank("Alpha"), sources_checked: 4 },
+        runner_up: blank("Beta"),
+        open_source_pick: blank("Gamma"),
+      },
+      { primary_signal: "Board", sources: ["Board"] },
+      "2026-10-24",
+    );
+  } catch {
+    tooMany = true;
+  }
+  assert(tooMany, "sources_checked cannot exceed the category source list");
 
   console.log("self-check ok");
 }

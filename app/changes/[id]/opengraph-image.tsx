@@ -1,4 +1,5 @@
 import { changeById } from "@/lib/catalog";
+import { changeTitle } from "@/lib/picks";
 import { ogContentType, ogImage, ogSize } from "@/lib/og";
 
 export const alt = "WhichAI.today leader change";
@@ -13,7 +14,7 @@ export default async function Image({
   const { id } = await params;
   const change = changeById(id);
   return ogImage(
-    change ? `${change.leader} overtook ${change.previous}` : "WhichAI.today",
+    change ? changeTitle(change, change.slug) : "WhichAI.today",
     change ? change.category.display_name : "Leader changes",
   );
 }

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { confirmedChanges, trackingStart, weekRecords } from "@/lib/catalog";
-import { formatDay } from "@/lib/picks";
+import { confirmedChanges, methodologyUpdates, trackingStart, weekRecords } from "@/lib/catalog";
+import { changeTitle, formatDay } from "@/lib/picks";
 
 export const metadata: Metadata = {
   title: "Leader changes",
@@ -22,6 +22,7 @@ export const metadata: Metadata = {
 
 export default function ChangesPage() {
   const changes = confirmedChanges();
+  const methods = methodologyUpdates();
   const weeks = weekRecords();
 
   return (
@@ -38,7 +39,7 @@ export default function ChangesPage() {
             {changes.map((change) => (
               <li key={change.id}>
                 <a href={`/changes/${change.id}`} className="text-base text-zinc-100 hover:text-white">
-                  {formatDay(change.date)}. {change.category.display_name}: {change.leader} overtook {change.previous}
+                  {formatDay(change.date)}. {changeTitle(change, change.slug)}
                 </a>
               </li>
             ))}
@@ -48,6 +49,23 @@ export default function ChangesPage() {
             No leader changes yet. Tracking began {formatDay(trackingStart())}.
           </p>
         )}
+        {methods.length ? (
+          <>
+            <h2 className="mt-12 text-2xl font-semibold text-white">Methodology updates</h2>
+            <p className="mt-3 text-sm leading-6 text-zinc-400">
+              These change how a category is ranked. They are not model changes, and they are not sent as alerts.
+            </p>
+            <ul className="mt-4 flex flex-col gap-4">
+              {methods.map((change) => (
+                <li key={change.id}>
+                  <a href={`/changes/${change.id}`} className="text-base text-zinc-100 hover:text-white">
+                    {formatDay(change.date)}. {changeTitle(change, change.slug)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
         {weeks.length ? (
           <>
             <h2 className="mt-12 text-2xl font-semibold text-white">Weeks</h2>

@@ -4,7 +4,9 @@ import { weekById, weekRecords } from "@/lib/catalog";
 import { formatDay } from "@/lib/picks";
 
 export function generateStaticParams() {
-  return weekRecords().map((week) => ({ week: week.week }));
+  const weeks = weekRecords();
+  if (!weeks.length) return [{ week: "_none" }];
+  return weeks.map((week) => ({ week: week.week }));
 }
 
 export async function generateMetadata({

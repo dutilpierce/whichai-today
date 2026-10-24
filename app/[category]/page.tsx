@@ -2,17 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ModelCard } from "@/components/ModelCard";
 import { EmailSignup } from "@/components/EmailSignup";
+import { EmbedBadge } from "@/components/EmbedBadge";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
-import {
-  categoryBySlug,
-  categoryEntries,
-  categoryHeading,
-  formatDay,
-  historyFor,
-  leaderLine,
-  latestChange,
-} from "@/lib/picks";
+import { categoryBySlug, categoryEntries, categoryHeading, entryKind, formatDay, historyBlurb, historyFor, latestChange, leaderLine, shortLabel } from "@/lib/picks";
 
 export function generateStaticParams() {
   return Object.values(models.categories).map((category) => ({
@@ -80,7 +73,9 @@ export default async function CategoryPage({
     },
     {
       question: "Has this leader changed?",
-      answer: latest?.previous
+      answer: latest && entryKind(latest) === "methodology"
+        ? `Ranking method updated on ${formatDay(latest.date)}. ${latest.evidence}`
+        : latest?.previous
         ? `${category.leader.name} took the lead on ${formatDay(latest.date)}, replacing ${latest.previous}. ${latest.evidence}`
         : `Tracking for this category began on ${latest ? formatDay(latest.date) : "October 23, 2026"}, with ${category.leader.name} as the first recorded leader.`,
     },
@@ -120,6 +115,8 @@ export default async function CategoryPage({
             model={category.leader}
             label="#1 Champion"
             signal={category.primary_signal}
+            leaderScore={category.leader.primary_score}
+            runnerScore={category.runner_up.primary_score}
             featured
           />
           <div className="grid gap-4 md:grid-cols-2">
@@ -136,9 +133,7 @@ export default async function CategoryPage({
           {log.map((entry) => (
             <li key={`${entry.date}-${entry.leader}`} className="text-sm leading-6 text-zinc-300">
               <span className="text-white">{formatDay(entry.date)}. </span>
-              {entry.previous
-                ? `${entry.leader} overtook ${entry.previous}. `
-                : `${entry.leader} is the first leader on record. `}
+              {historyBlurb(entry)}
               {entry.evidence}
             </li>
           ))}
@@ -150,6 +145,12 @@ export default async function CategoryPage({
           </a>
           .
         </p>
+        <EmbedBadge
+          html={`<a href="https://whichai.today/${category.slug}"><img src="https://whichai.today/badge/${category.slug}" alt="Today's best ${shortLabel(category.slug).toLowerCase()} AI: ${category.leader.name}, via WhichAI.today" width="320" height="40"></a>`}
+          src={`/badge/${category.slug}`}
+          alt={`Today's best ${shortLabel(category.slug).toLowerCase()} AI: ${category.leader.name}, via WhichAI.today`}
+          href={`https://whichai.today/${category.slug}`}
+        />
 
         <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">Questions</h2>
         <div className="mt-6 flex flex-col gap-6">

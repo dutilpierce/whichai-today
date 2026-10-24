@@ -11,6 +11,10 @@ export function numbersIn(value) {
   return value.match(/\d+(?:\.\d+)?/g) ?? [];
 }
 
+export function alertable(entry) {
+  return entry?.type === "change" && Boolean(entry.previous);
+}
+
 export function latestEntry(history, key) {
   return history.entries
     .map((entry, index) => ({ entry, index }))
@@ -56,6 +60,9 @@ export function checkData(models, history, providers, today) {
       }
       if (!pick.benchmark_context?.startsWith(signal)) {
         fail(`${key}.${slot} evidence does not start with ${signal}`, { kind: "cost", model: pick.name });
+      }
+      if (Array.isArray(category.sources) && category.sources.length && pick.sources_checked > category.sources.length) {
+        fail(`${key}.${slot} sources_checked is larger than the source list`, { kind: "cost", model: pick.name });
       }
       const evidence = `${pick.benchmark_context ?? ""} ${pick.cost ?? ""}`;
       for (const number of numbersIn(pick.why ?? "")) {
@@ -177,6 +184,15 @@ function selfCheck() {
   const old = checkData(stale, history, providers, today);
   assert(old.errors.some((error) => error.includes("older than")), "stale cost facts should fail");
 
+  assert(alertable({ type: "change", previous: "Other" }) === true, "a real change is alertable");
+  assert(alertable({ type: "methodology", previous: "Other" }) === false, "a methodology entry is not alertable");
+
+  const tooMany = structuredClone(models);
+  tooMany.categories.coding.sources = ["LMArena Code"];
+  tooMany.categories.coding.leader.sources_checked = 4;
+  const counted = checkData(tooMany, history, providers, today);
+  assert(counted.errors.some((error) => error.includes("source list")), "sources_checked cannot exceed the list");
+
   console.log("fact-check self-check ok");
 }
 
@@ -190,6 +206,15 @@ const models = JSON.parse(await readFile(MODELS, "utf8"));
 const history = JSON.parse(await readFile(HISTORY, "utf8"));
 const providers = JSON.parse(await readFile(PROVIDERS, "utf8"));
 const result = checkData(models, history, providers, today);
+
+try {
+  const posted = JSON.parse(await readFile(new URL("../changes-this-run.json", import.meta.url), "utf8"));
+  if (Array.isArray(posted) && posted.some((entry) => !alertable(entry))) {
+    result.errors.push("changes-this-run.json contains an entry that is not a confirmed change");
+  }
+} catch {
+  // The file exists only after a refresh that confirmed a switch.
+}
 
 if (process.argv.includes("--links")) {
   const links = await checkLinks(models, providers);

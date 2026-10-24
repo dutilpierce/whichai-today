@@ -96,7 +96,8 @@
         "pick_if": "Pick this when the code cannot leave your own machines."
       },
       "slug": "coding",
-      "primary_signal": "LMArena Code"
+      "primary_signal": "LMArena Code",
+      "sources": ["LMArena Code", "SWE-bench Pro", "LiveCodeBench", "Artificial Analysis Coding Index"]
     },
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
@@ -202,7 +203,8 @@
         "pick_if": "Pick this when the document cannot be uploaded to a hosted chat."
       },
       "slug": "legal",
-      "primary_signal": "Vals LegalBench"
+      "primary_signal": "Vals LegalBench",
+      "sources": ["Vals LegalBench", "LegalBench", "BigLaw Bench"]
     },
     "writing_creative": {
       "display_name": "Writing & Marketing",
@@ -309,7 +311,8 @@
         "pick_if": "Pick this when the draft cannot leave your own machines."
       },
       "slug": "writing",
-      "primary_signal": "LMArena Creative Writing"
+      "primary_signal": "LMArena Creative Writing",
+      "sources": ["LMArena Creative Writing", "LMArena Text overall", "EQ-Bench Creative Writing"]
     },
     "reasoning_math": {
       "display_name": "Reasoning, Math & Science",
@@ -412,7 +415,8 @@
         "pick_if": "Pick this when the problem cannot leave your own machines."
       },
       "slug": "reasoning",
-      "primary_signal": "Humanity's Last Exam"
+      "primary_signal": "Humanity's Last Exam",
+      "sources": ["Humanity's Last Exam", "GPQA Diamond", "FrontierMath", "Artificial Analysis Intelligence Index"]
     },
     "low_latency": {
       "display_name": "Speed & High Volume",
@@ -496,7 +500,8 @@
         "pick_if": "Pick this when the messages cannot leave your own machines."
       },
       "slug": "speed",
-      "primary_signal": "Artificial Analysis output speed"
+      "primary_signal": "Artificial Analysis output speed",
+      "sources": ["Artificial Analysis output speed", "Artificial Analysis latency", "Artificial Analysis price"]
     },
     "general": {
       "display_name": "General & Everyday",
@@ -586,7 +591,8 @@
         "pick_if": "Pick this when the question cannot leave your own machines."
       },
       "slug": "general",
-      "primary_signal": "LMArena Text overall"
+      "primary_signal": "LMArena Text overall",
+      "sources": ["LMArena Text overall", "Artificial Analysis Intelligence Index", "LMArena Text hard prompts"]
     }
   }
 }

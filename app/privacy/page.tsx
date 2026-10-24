@@ -35,8 +35,9 @@ export default function PrivacyPage() {
           <p>
             A normal search is matched on this site. The words you type are sent to Google
             Gemini only when that match misses, and when you use Plan a project. Those
-            requests are used to pick a category or split a project into stages. They are
-            not used to train a WhichAI model, because there isn&apos;t one.
+            requests use Google&apos;s paid API tier, where Google does not use prompts to
+            improve its products. They are not used to train a WhichAI model, because
+            there isn&apos;t one.
           </p>
           <p>
             Email alerts, when the signup is open, go through Buttondown. Buttondown is the

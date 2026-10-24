@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { modelBySlug, modelRecords, historyMentioning } from "@/lib/catalog";
-import { ACCESS_LABEL, formatDay } from "@/lib/picks";
+import { ACCESS_LABEL, formatDay, historyBlurb } from "@/lib/picks";
 import providers from "@/lib/providers.json";
 
 export function generateStaticParams() {
@@ -109,9 +109,7 @@ export default async function ModelPage({
             {log.map((entry) => (
               <li key={`${entry.date}-${entry.category}-${entry.leader}`} className="text-sm leading-6 text-zinc-300">
                 <span className="text-white">{formatDay(entry.date)}. </span>
-                {entry.previous
-                  ? `${entry.leader} overtook ${entry.previous}. `
-                  : `${entry.leader} is the first leader on record. `}
+                {historyBlurb(entry)}
                 {entry.evidence}
               </li>
             ))}

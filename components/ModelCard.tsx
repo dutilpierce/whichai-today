@@ -19,11 +19,15 @@ export function ModelCard({
   label,
   signal,
   featured = false,
+  leaderScore = null,
+  runnerScore = null,
 }: {
   model: ModelProfile;
   label: string;
   signal?: string;
   featured?: boolean;
+  leaderScore?: number | null;
+  runnerScore?: number | null;
 }) {
   const privacy = providers[model.provider as keyof typeof providers];
   const privacyHeld = held.facts.some(
@@ -33,7 +37,9 @@ export function ModelCard({
     (fact) => fact.kind === "cost" && fact.model === model.name,
   );
   const showChecked = model.checked.slice(0, 10) !== models.last_updated.slice(0, 10);
-  const badge = featured && signal ? leaderBadge(model.sources_agreeing, signal) : null;
+  const badge = featured && signal
+    ? leaderBadge(model.sources_agreeing, model.sources_checked, signal, leaderScore, runnerScore)
+    : null;
 
   return (
     <article

@@ -6,6 +6,7 @@ import type { ModelProfile } from "./match";
 import {
   changeId,
   comparePair,
+  entryKind,
   isoWeek,
   modelSlug,
 } from "./picks";
@@ -132,23 +133,32 @@ export function compareByPair(pair: string) {
   return compareRecords().find((item) => item.pair === pair) ?? null;
 }
 
+function mapChange(entry: (typeof history.entries)[number]) {
+  const category = models.categories[entry.category as keyof typeof models.categories];
+  return {
+    ...entry,
+    id: changeId(entry.date, category.slug),
+    slug: category.slug,
+    category,
+  };
+}
+
 export function confirmedChanges() {
   return history.entries
-    .filter((entry) => entry.previous)
-    .map((entry) => {
-      const category = models.categories[entry.category as keyof typeof models.categories];
-      return {
-        ...entry,
-        id: changeId(entry.date, category.slug),
-        slug: category.slug,
-        category,
-      };
-    })
+    .filter((entry) => entry.previous && entryKind(entry) === "change")
+    .map(mapChange)
+    .filter((entry) => !isHeld(`/changes/${entry.id}`));
+}
+
+export function methodologyUpdates() {
+  return history.entries
+    .filter((entry) => entryKind(entry) === "methodology")
+    .map(mapChange)
     .filter((entry) => !isHeld(`/changes/${entry.id}`));
 }
 
 export function changeById(id: string) {
-  return confirmedChanges().find((entry) => entry.id === id) ?? null;
+  return [...confirmedChanges(), ...methodologyUpdates()].find((entry) => entry.id === id) ?? null;
 }
 
 export function weekRecords() {

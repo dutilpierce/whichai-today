@@ -359,6 +359,8 @@ function encodePlan(value: Plan) {
               model={category.leader}
               label="#1 Champion"
               signal={category.primary_signal}
+              leaderScore={category.leader.primary_score}
+              runnerScore={category.runner_up.primary_score}
               featured
             />
             <div className="grid gap-4 md:grid-cols-2">

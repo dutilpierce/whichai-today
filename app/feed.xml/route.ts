@@ -1,6 +1,6 @@
 import models from "@/lib/models.json";
 import history from "@/lib/history.json";
-import { categoryEntries, changeTitle } from "@/lib/picks";
+import { categoryEntries, changeTitle, entryKind } from "@/lib/picks";
 
 function xml(value: string) {
   return value
@@ -12,7 +12,7 @@ function xml(value: string) {
 
 export function GET() {
   const byKey = Object.fromEntries(categoryEntries());
-  const items = [...history.entries].reverse().map((entry) => {
+  const items = [...history.entries].reverse().filter((entry) => entryKind(entry) === "change").map((entry) => {
     const category = byKey[entry.category];
     const slug = category?.slug ?? entry.category;
     const title = category ? changeTitle(entry, slug) : entry.leader;

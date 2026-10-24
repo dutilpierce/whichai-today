@@ -32,7 +32,12 @@ export type HistoryEntry = {
   previous: string | null;
   date: string;
   evidence: string;
+  type?: string;
 };
+
+export function entryKind(entry: { type?: string }) {
+  return entry.type === "methodology" ? "methodology" : "change";
+}
 
 export function categoryBySlug(slug: string) {
   const found = Object.entries(models.categories).find(([, category]) => category.slug === slug);
@@ -43,7 +48,7 @@ export function categoryEntries() {
   return Object.entries(models.categories);
 }
 
-export function historyFor(key: string): HistoryEntry[] {
+export function historyFor(key: string) {
   return history.entries
     .filter((entry) => entry.category === key)
     .sort((a, b) => b.date.localeCompare(a.date));
@@ -75,15 +80,40 @@ export function categoryHeading(slug: string) {
   return H1[slug] ?? "Best AI model for this job right now";
 }
 
-export function changeTitle(entry: HistoryEntry, slug: string) {
+export function changeTitle(
+  entry: { type?: string; previous: string | null; leader: string },
+  slug: string,
+) {
   const label = shortLabel(slug);
+  if (entryKind(entry) === "methodology") return `${label}: ranking method updated`;
   if (!entry.previous) return `${label}: ${entry.leader} (tracking began)`;
   return `${label}: ${entry.leader} overtook ${entry.previous}`;
 }
 
-export function leaderBadge(sourcesAgreeing: number, signal: string) {
-  if (sourcesAgreeing >= 3) return "Clear #1";
-  if (sourcesAgreeing >= 2) return "Leads most boards";
+export function historyBlurb(entry: { type?: string; previous: string | null; leader: string }) {
+  if (entryKind(entry) === "methodology") {
+    return `Ranking method updated. ${entry.leader} leads on the new signal. `;
+  }
+  if (entry.previous) return `${entry.leader} overtook ${entry.previous}. `;
+  return `${entry.leader} is the first leader on record. `;
+}
+
+export function leaderBadge(
+  sourcesAgreeing: number,
+  sourcesChecked: number,
+  signal: string,
+  leaderScore: number | null,
+  runnerScore: number | null,
+) {
+  if (
+    leaderScore !== null &&
+    runnerScore !== null &&
+    leaderScore !== 0 &&
+    Math.abs(leaderScore - runnerScore) / Math.abs(leaderScore) <= 0.01
+  ) {
+    return "Close race";
+  }
+  if (sourcesChecked > 1) return `${sourcesAgreeing} of ${sourcesChecked} sources agree`;
   return `Leads ${signal}`;
 }
 
@@ -113,9 +143,12 @@ export function isoWeek(date: string) {
   return `${value.getUTCFullYear()}-W${String(week).padStart(2, "0")}`;
 }
 
-export function leaderLine(entry: HistoryEntry | null) {
+export function leaderLine(entry: { type?: string; previous: string | null; leader: string; date: string } | null) {
   if (!entry) return "No leader history is on record yet.";
   const since = formatDay(entry.date);
+  if (entryKind(entry) === "methodology") {
+    return `Ranking method updated ${since}. ${entry.leader} leads on the current signal.`;
+  }
   if (!entry.previous) {
     return `#1 since ${since}. No earlier leader is on record.`;
   }

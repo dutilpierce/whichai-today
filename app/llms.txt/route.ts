@@ -1,5 +1,5 @@
 import models from "@/lib/models.json";
-import { compareRecords, confirmedChanges, modelRecords, weekRecords } from "@/lib/catalog";
+import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
 
 export function GET() {
   const reviewed = models.last_updated.slice(0, 10);
@@ -16,7 +16,9 @@ export function GET() {
     ...compareRecords().map((item) => `https://whichai.today/compare/${item.pair}`),
     "https://whichai.today/changes",
     ...confirmedChanges().map((change) => `https://whichai.today/changes/${change.id}`),
+    ...methodologyUpdates().map((change) => `https://whichai.today/changes/${change.id}`),
     ...weekRecords().map((week) => `https://whichai.today/changes/week/${week.week}`),
+    ...Object.values(models.categories).map((category) => `https://whichai.today/badge/${category.slug}`),
   ].join("\n");
 
   const body = `# WhichAI.today
