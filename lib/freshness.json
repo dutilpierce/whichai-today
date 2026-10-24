@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-10-24",
-      "hash": "31ccf09cb03c0699"
+      "hash": "043615930842886c"
     },
     "/coding": {
       "changed": "2026-10-24",
-      "hash": "3302da585f2109a4"
+      "hash": "34c63dc6a4c2b080"
     },
     "/legal": {
       "changed": "2026-10-24",
@@ -30,15 +30,15 @@
     },
     "/models/claude-opus-5-5": {
       "changed": "2026-10-24",
-      "hash": "3fdd7647171374a0"
+      "hash": "14561cb1b1e1b0cc"
     },
     "/models/gpt-6-astra": {
       "changed": "2026-10-24",
-      "hash": "c6dbd1d773e75178"
+      "hash": "28e429c0d21140e3"
     },
     "/models/kimi-k3": {
       "changed": "2026-10-24",
-      "hash": "944fe3b5b85aca39"
+      "hash": "b6232950efc11a66"
     },
     "/models/claude-fable-5-1": {
       "changed": "2026-10-24",
@@ -70,7 +70,7 @@
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-10-24",
-      "hash": "3999ad3fe371c51b"
+      "hash": "b9e2f1c865453372"
     },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
       "changed": "2026-10-24",

@@ -52,8 +52,8 @@
         "starter_prompt": "Find the bug in this function, explain the cause, and give the fixed version.",
         "source_url": "https://lmarena.ai/",
         "pick_if": "Pick this when the code has to be right the first time.",
-        "sources_agreeing": 1,
-        "sources_checked": 1,
+        "sources_agreeing": 3,
+        "sources_checked": 4,
         "primary_score": 1813,
         "checked": "2026-10-24"
       },
@@ -70,9 +70,9 @@
         "when_not": "Skip it if you want to run completely offline without sending source code to proprietary servers.",
         "starter_prompt": "Implement this feature in the repo, then list the files you changed and why.",
         "source_url": "https://lmarena.ai/",
-        "pick_if": "Pick this if you already work in ChatGPT or Codex.",
+        "pick_if": "Pick this when you already work in ChatGPT or Codex.",
         "sources_agreeing": 1,
-        "sources_checked": 1,
+        "sources_checked": 4,
         "primary_score": 1786.1,
         "checked": "2026-10-24"
       },
@@ -91,7 +91,7 @@
         "source_url": "https://www.swebench.com/",
         "pick_if": "Pick this when the code cannot leave your own machines.",
         "sources_agreeing": 1,
-        "sources_checked": 1,
+        "sources_checked": 4,
         "primary_score": null,
         "checked": "2026-10-24"
       },
