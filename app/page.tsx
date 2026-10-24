@@ -219,7 +219,11 @@ function encodePlan(value: Plan) {
       <style>{`@keyframes whichai-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}`}</style>
       <header className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 pt-8">
         <p className="flex items-center gap-4 text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
+          <span className="inline-flex items-center gap-2">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" />
+            WhichAI.today
+          </span>
           <a href="/about" className="text-sm font-medium text-zinc-400 hover:text-white">
             About
           </a>
