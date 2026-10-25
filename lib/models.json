@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-24T12:00:00Z",
+  "last_updated": "2026-10-25T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -55,7 +55,7 @@
         "sources_agreeing": 3,
         "sources_checked": 4,
         "primary_score": 1813,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -74,7 +74,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": 1786.1,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -167,7 +167,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +186,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +205,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -279,7 +279,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1520,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -298,7 +298,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1512,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +317,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -387,7 +387,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 61.4,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -406,7 +406,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -425,7 +425,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 49.4,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -572,7 +572,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1517,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
@@ -591,7 +591,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -610,7 +610,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-24"
+        "checked": "2026-10-25"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
