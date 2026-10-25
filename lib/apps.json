@@ -1,3 +1,729 @@
 {
-  "apps": []
+  "apps": [
+    {
+      "slug": "chatgpt",
+      "name": "ChatGPT",
+      "maker": "OpenAI",
+      "link": "https://chatgpt.com",
+      "models": [
+        {
+          "name": "GPT-6 Astra",
+          "plan": "Pro"
+        },
+        {
+          "name": "GPT-6.1 Sol",
+          "plan": "Plus"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Access to standard reasoning models, web search, data analysis, file uploads, and limited image generation.",
+          "source_url": "https://openai.com/chatgpt/pricing"
+        },
+        {
+          "name": "Plus",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://openai.com/chatgpt/pricing"
+        },
+        {
+          "name": "Pro",
+          "price_usd_month": 100,
+          "free_tier": "none",
+          "source_url": "https://openai.com/chatgpt/pricing"
+        }
+      ],
+      "skill": "Beginner",
+      "privacy": {
+        "trains_by_default": "When you use our services for individuals (Free, Plus, Pro), we may use your content to train our models.",
+        "opt_out": "Settings > Data controls > Improve the model for everyone",
+        "source_url": "https://help.openai.com/en/articles/7039948-how-your-data-is-used-to-improve-model-performance"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": false,
+        "presentations": false,
+        "code_editing": true,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "claude",
+      "name": "Claude",
+      "maker": "Anthropic",
+      "link": "https://claude.ai",
+      "models": [
+        {
+          "name": "Claude Haiku 5.5",
+          "plan": "Free"
+        },
+        {
+          "name": "Claude Opus 5.5",
+          "plan": "Pro"
+        },
+        {
+          "name": "Claude Fable 5.1",
+          "plan": "Pro"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Includes chat on web, desktop, and mobile, web search, file creation, code execution, Artifacts, and Claude Slides/Docs, with usage limits that reset every 5 hours based on demand",
+          "source_url": "https://claude.ai/pricing"
+        },
+        {
+          "name": "Pro",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://claude.ai/pricing"
+        },
+        {
+          "name": "Max",
+          "price_usd_month": 100,
+          "free_tier": "none",
+          "source_url": "https://claude.ai/pricing"
+        },
+        {
+          "name": "Team",
+          "price_usd_month": null,
+          "free_tier": "none",
+          "source_url": "https://claude.ai/pricing"
+        }
+      ],
+      "skill": "Beginner",
+      "privacy": {
+        "trains_by_default": "Input and Output data may be used to train models and improve services unless users disable this setting in their account.",
+        "opt_out": "Settings > Privacy > Help Improve our AI models",
+        "source_url": "https://www.anthropic.com/legal/privacy"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": false,
+        "video_generation": false,
+        "presentations": true,
+        "code_editing": true,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "gemini",
+      "name": "Gemini",
+      "maker": "Google",
+      "link": "https://gemini.google.com",
+      "models": [
+        {
+          "name": "Gemini 3.5 Flash-Lite",
+          "plan": "Free"
+        },
+        {
+          "name": "Gemini 4 Argon",
+          "plan": "Google AI Pro"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Access to standard Gemini models with compute limits resetting every 5 hours and 15 GB shared storage",
+          "source_url": "https://one.google.com/about/plans"
+        },
+        {
+          "name": "Google AI Plus",
+          "price_usd_month": 4.99,
+          "free_tier": "none",
+          "source_url": "https://one.google.com/about/plans"
+        },
+        {
+          "name": "Google AI Pro",
+          "price_usd_month": 19.99,
+          "free_tier": "none",
+          "source_url": "https://one.google.com/about/plans"
+        }
+      ],
+      "skill": "Beginner",
+      "privacy": {
+        "trains_by_default": "When Gemini Apps Activity is on, Google collects your Gemini Apps activity and uses it to improve and develop Google products and services and machine-learning technologies.",
+        "opt_out": "Settings > Gemini Apps Activity (or Keep Activity toggle)",
+        "source_url": "https://support.google.com/gemini/answer/13594961"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": true,
+        "presentations": true,
+        "code_editing": true,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "copilot",
+      "name": "Microsoft Copilot",
+      "maker": "Microsoft",
+      "link": "https://copilot.microsoft.com",
+      "models": [],
+      "plans": [
+        {
+          "name": "Copilot Free",
+          "price_usd_month": 0,
+          "free_tier": "AI chat, web search, and image generation with daily limits",
+          "source_url": "https://www.microsoft.com/en-us/microsoft-copilot/pricing"
+        },
+        {
+          "name": "Copilot Pro",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://www.microsoft.com/en-us/microsoft-copilot/pricing"
+        }
+      ],
+      "skill": "Beginner",
+      "privacy": {
+        "trains_by_default": "AI model training applies to our consumer Copilot experience.",
+        "opt_out": "Profile icon > profile name > Privacy > Training on conversation activity",
+        "source_url": "https://support.microsoft.com/en-us/topic/microsoft-copilot-privacy-controls-d7606cb8-2895-4eb4-b976-b60580795c47"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": false,
+        "presentations": false,
+        "code_editing": false,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "perplexity",
+      "name": "Perplexity",
+      "maker": "Perplexity",
+      "link": "https://www.perplexity.ai",
+      "models": [
+        {
+          "name": "Claude Opus 5.5",
+          "plan": "Max"
+        },
+        {
+          "name": "Claude Fable 5.1",
+          "plan": "Max"
+        },
+        {
+          "name": "Gemini 4 Argon",
+          "plan": "Max"
+        },
+        {
+          "name": "GPT-6 Astra",
+          "plan": "Max"
+        },
+        {
+          "name": "GPT-6.1 Sol",
+          "plan": "Pro"
+        },
+        {
+          "name": "Kimi K3",
+          "plan": "Pro"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Includes Best search mode and a limited number of Pro Searches, without manual model selection",
+          "source_url": "https://www.perplexity.ai/pro"
+        },
+        {
+          "name": "Pro",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://www.perplexity.ai/pro"
+        },
+        {
+          "name": "Max",
+          "price_usd_month": 200,
+          "free_tier": "none",
+          "source_url": "https://www.perplexity.ai/pro"
+        },
+        {
+          "name": "Enterprise Pro",
+          "price_usd_month": 40,
+          "free_tier": "none",
+          "source_url": "https://www.perplexity.ai/enterprise"
+        }
+      ],
+      "skill": "Beginner",
+      "privacy": {
+        "trains_by_default": "For Free, Perplexity Pro and Perplexity Max users, AI Data Retention is enabled by default.",
+        "opt_out": "Account Settings > Preferences > AI data retention toggle",
+        "source_url": "https://www.perplexity.ai/hub/faq/data-collection-at-perplexity"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": true,
+        "presentations": true,
+        "code_editing": false,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "cursor",
+      "name": "Cursor",
+      "maker": "Anysphere",
+      "link": "https://cursor.com",
+      "models": [
+        {
+          "name": "Claude Opus 5.5",
+          "plan": "Premium"
+        },
+        {
+          "name": "Claude Fable 5.1",
+          "plan": "Premium"
+        },
+        {
+          "name": "Claude Haiku 5.5",
+          "plan": "Premium"
+        },
+        {
+          "name": "Gemini 4 Argon",
+          "plan": "Premium"
+        },
+        {
+          "name": "Kimi K3",
+          "plan": "Premium"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Includes limited AI usage, with limited agent and Chat requests",
+          "source_url": "https://cursor.com/pricing"
+        },
+        {
+          "name": "Plus",
+          "price_usd_month": 8,
+          "free_tier": "none",
+          "source_url": "https://cursor.com/pricing"
+        },
+        {
+          "name": "Premium",
+          "price_usd_month": 30,
+          "free_tier": "none",
+          "source_url": "https://cursor.com/pricing"
+        },
+        {
+          "name": "Super",
+          "price_usd_month": 100,
+          "free_tier": "none",
+          "source_url": "https://cursor.com/pricing"
+        },
+        {
+          "name": "Ultra",
+          "price_usd_month": 200,
+          "free_tier": "none",
+          "source_url": "https://cursor.com/pricing"
+        }
+      ],
+      "skill": "Technical",
+      "privacy": {
+        "trains_by_default": "We do not use Inputs or Suggestions to train our models, or permit third parties to use them for training, unless: (1) they are flagged for security review (in which case we may analyze them to improve our ability to detect and enforce our Terms of Service), (2) you explicitly report them to us (for example, as Feedback), or (3) you've explicitly agreed to their use for such training purposes.",
+        "opt_out": "Cursor Settings > General > Privacy Mode",
+        "source_url": "https://cursor.com/privacy"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": false,
+        "presentations": false,
+        "code_editing": true,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "github-copilot",
+      "name": "GitHub Copilot",
+      "maker": "GitHub",
+      "link": "https://github.com/features/copilot",
+      "models": [
+        {
+          "name": "Claude Opus 5.5",
+          "plan": "Copilot Pro"
+        },
+        {
+          "name": "GPT-6 Astra",
+          "plan": "Copilot Pro"
+        },
+        {
+          "name": "Kimi K3",
+          "plan": "Copilot Pro"
+        },
+        {
+          "name": "Claude Fable 5.1",
+          "plan": "Copilot Pro"
+        },
+        {
+          "name": "Gemini 4 Argon",
+          "plan": "Copilot Pro"
+        },
+        {
+          "name": "Claude Haiku 5.5",
+          "plan": "Copilot Pro"
+        },
+        {
+          "name": "GPT-6.1 Sol",
+          "plan": "Copilot Pro"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Copilot Free",
+          "price_usd_month": 0,
+          "free_tier": "Includes 2,000 code completions per month, 50 chat messages per month, auto model selection, and Copilot CLI access",
+          "source_url": "https://github.com/features/copilot#pricing"
+        },
+        {
+          "name": "Copilot Pro",
+          "price_usd_month": 10,
+          "free_tier": "none",
+          "source_url": "https://github.com/features/copilot#pricing"
+        },
+        {
+          "name": "Copilot Pro+",
+          "price_usd_month": 39,
+          "free_tier": "none",
+          "source_url": "https://github.com/features/copilot#pricing"
+        },
+        {
+          "name": "Copilot Max",
+          "price_usd_month": 100,
+          "free_tier": "none",
+          "source_url": "https://github.com/features/copilot#pricing"
+        },
+        {
+          "name": "Copilot Business",
+          "price_usd_month": 19,
+          "free_tier": "none",
+          "source_url": "https://github.com/features/copilot#pricing"
+        },
+        {
+          "name": "Copilot Enterprise",
+          "price_usd_month": 39,
+          "free_tier": "none",
+          "source_url": "https://github.com/features/copilot#pricing"
+        }
+      ],
+      "skill": "Technical",
+      "privacy": {
+        "trains_by_default": "For individual subscribers—Copilot Free, Copilot Pro, Copilot Pro+, and Copilot Max users—GitHub may use Copilot interaction data, including prompts (inputs), suggestions (outputs), and code snippets generated during Copilot sessions to train and improve AI models, in accordance with our GitHub General Privacy Statement and applicable user settings.",
+        "opt_out": "In the upper-right corner of any page on GitHub, click your profile picture, select Copilot settings, and set 'Allow GitHub to use my data for AI model training' to Disabled.",
+        "source_url": "https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-account/managing-github-copilot-policies-as-an-individual-subscriber"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": false,
+        "video_generation": false,
+        "presentations": false,
+        "code_editing": true,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "claude-code",
+      "name": "Claude Code",
+      "maker": "Anthropic",
+      "link": "https://claude.com/product/claude-code",
+      "models": [
+        {
+          "name": "Claude Opus 5.5",
+          "plan": "Pro"
+        },
+        {
+          "name": "Claude Fable 5.1",
+          "plan": "Max"
+        },
+        {
+          "name": "Claude Haiku 5.5",
+          "plan": "Pro"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Chat on web, desktop, and mobile, web search, file creation, and code execution, but does not include Claude Code and is subject to daily usage limits",
+          "source_url": "https://claude.com/pricing"
+        },
+        {
+          "name": "Pro",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://claude.com/pricing"
+        },
+        {
+          "name": "Max",
+          "price_usd_month": 100,
+          "free_tier": "none",
+          "source_url": "https://claude.com/pricing"
+        },
+        {
+          "name": "Team",
+          "price_usd_month": 25,
+          "free_tier": "none",
+          "source_url": "https://claude.com/pricing"
+        },
+        {
+          "name": "Enterprise",
+          "price_usd_month": null,
+          "free_tier": "none",
+          "source_url": "https://claude.com/pricing"
+        }
+      ],
+      "skill": "Technical",
+      "privacy": {
+        "trains_by_default": "By default, we will not use your inputs or outputs from our commercial products (e.g. Claude for Work, Anthropic API, Claude Gov, etc.) to train our models.",
+        "opt_out": "Account menu > Settings > Privacy > Help Improve our AI models toggle",
+        "source_url": "https://privacy.anthropic.com"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": false,
+        "video_generation": false,
+        "presentations": false,
+        "code_editing": true,
+        "voice": false,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "codex",
+      "name": "Codex",
+      "maker": "OpenAI",
+      "link": "https://chatgpt.com/codex",
+      "models": [
+        {
+          "name": "GPT-6 Astra",
+          "plan": "Plus"
+        },
+        {
+          "name": "GPT-6.1 Sol",
+          "plan": "Plus"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Includes quick coding tasks using GPT-6 Luna at Standard speed in the desktop app, without cloud-based features",
+          "source_url": "https://learn.chatgpt.com/docs/pricing"
+        },
+        {
+          "name": "Go",
+          "price_usd_month": 8,
+          "free_tier": "none",
+          "source_url": "https://learn.chatgpt.com/docs/pricing"
+        },
+        {
+          "name": "Plus",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://learn.chatgpt.com/docs/pricing"
+        },
+        {
+          "name": "Pro",
+          "price_usd_month": 100,
+          "free_tier": "none",
+          "source_url": "https://learn.chatgpt.com/docs/pricing"
+        }
+      ],
+      "skill": "Technical",
+      "privacy": {
+        "trains_by_default": "When you use our services for individuals (Free, Plus, Pro), we may use your content to train our models.",
+        "opt_out": "Settings > Data controls > Improve the model for everyone",
+        "source_url": "https://help.openai.com/en/articles/7730892-data-controls-in-chatgpt"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": false,
+        "video_generation": false,
+        "presentations": false,
+        "code_editing": true,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "midjourney",
+      "name": "Midjourney",
+      "maker": "Midjourney",
+      "link": "https://www.midjourney.com",
+      "models": [],
+      "plans": [
+        {
+          "name": "Basic Plan",
+          "price_usd_month": 10,
+          "free_tier": "none",
+          "source_url": "https://docs.midjourney.com/docs/plans"
+        },
+        {
+          "name": "Standard Plan",
+          "price_usd_month": 30,
+          "free_tier": "none",
+          "source_url": "https://docs.midjourney.com/docs/plans"
+        },
+        {
+          "name": "Pro Plan",
+          "price_usd_month": 60,
+          "free_tier": "none",
+          "source_url": "https://docs.midjourney.com/docs/plans"
+        },
+        {
+          "name": "Mega Plan",
+          "price_usd_month": 120,
+          "free_tier": "none",
+          "source_url": "https://docs.midjourney.com/docs/plans"
+        }
+      ],
+      "skill": "Some setup",
+      "privacy": {
+        "trains_by_default": "This Policy applies to Personal Data that Midjourney collects, uses, and discloses about You and which may include data collected through the process of training Midjourney machine learning algorithms.",
+        "opt_out": "None",
+        "source_url": "https://docs.midjourney.com/docs/privacy-policy"
+      },
+      "capabilities": {
+        "web_search": false,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": true,
+        "presentations": false,
+        "code_editing": false,
+        "voice": false,
+        "team_plan": false
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "canva",
+      "name": "Canva",
+      "maker": "Canva",
+      "link": "https://www.canva.com",
+      "models": [],
+      "plans": [
+        {
+          "name": "Canva Free",
+          "price_usd_month": 0,
+          "free_tier": "1.6M+ free templates, 4.7M+ free photos, graphics, and audio, 5GB cloud storage, 1 Brand Kit with up to 3 colors, and limited to 20 AI uses per month",
+          "source_url": "https://www.canva.com/pricing"
+        },
+        {
+          "name": "Canva Pro",
+          "price_usd_month": 15,
+          "free_tier": "none",
+          "source_url": "https://www.canva.com/pricing"
+        }
+      ],
+      "skill": "Technical",
+      "privacy": {
+        "trains_by_default": "We may analyze your activity, content, media uploads and related data in your account to provide and customize the Service, including generating and storing that data as Memories, and to train our algorithms, models and AI products and services using machine learning to develop, improve and provide our Service.",
+        "opt_out": "Privacy controls page under account privacy settings",
+        "source_url": "https://www.canva.com/policies/privacy-policy/"
+      },
+      "capabilities": {
+        "web_search": false,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": true,
+        "presentations": true,
+        "code_editing": false,
+        "voice": false,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    },
+    {
+      "slug": "ollama",
+      "name": "Ollama",
+      "maker": "Ollama",
+      "link": "https://ollama.com",
+      "models": [
+        {
+          "name": "DeepSeek V4.1 Flash",
+          "plan": "Pro"
+        },
+        {
+          "name": "Kimi K3",
+          "plan": "Pro"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Unlimited local inference and starter cloud usage credits for starter models, limited to 1 concurrent request.",
+          "source_url": "https://ollama.com/pricing"
+        },
+        {
+          "name": "Pro",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://ollama.com/pricing"
+        },
+        {
+          "name": "Max",
+          "price_usd_month": 100,
+          "free_tier": "none",
+          "source_url": "https://ollama.com/pricing"
+        },
+        {
+          "name": "Team",
+          "price_usd_month": 500,
+          "free_tier": "none",
+          "source_url": "https://ollama.com/pricing"
+        }
+      ],
+      "skill": "Technical",
+      "privacy": {
+        "trains_by_default": "We don't log your prompts, and we never train on your data.",
+        "opt_out": "Not applicable (Ollama does not train on user data)",
+        "source_url": "https://ollama.com/privacy"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": false,
+        "image_generation": false,
+        "video_generation": false,
+        "presentations": false,
+        "code_editing": false,
+        "voice": true,
+        "team_plan": true
+      },
+      "checked": "2026-10-25"
+    }
+  ]
 }
