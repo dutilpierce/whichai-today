@@ -93,7 +93,10 @@ export function checkData(models, history, providers, today) {
       if (!pick.checked || daysSince(pick.checked, today) > FRESH_DAYS) {
         fail(`${key}.${slot} cost and free tier are older than ${FRESH_DAYS} days`, { kind: "cost", model: pick.name });
       }
-      if (!pick.benchmark_context?.startsWith(signal)) {
+      if (/not cited/i.test(pick.benchmark_context ?? "")) {
+        fail(`${key}.${slot} evidence says a board was not cited`, { kind: "cost", model: pick.name });
+      }
+      if (slot === "leader" && !pick.benchmark_context?.startsWith(signal)) {
         fail(`${key}.${slot} evidence does not start with ${signal}`, { kind: "cost", model: pick.name });
       }
       if (Array.isArray(category.sources) && category.sources.length && pick.sources_checked > category.sources.length) {
@@ -212,7 +215,17 @@ function selfCheck() {
   const wrong = structuredClone(models);
   wrong.categories.coding.leader.benchmark_context = "Other board 1";
   const signal = checkData(wrong, history, providers, today);
-  assert(signal.errors.some((error) => error.includes("does not start")), "evidence must start with the primary signal");
+  assert(signal.errors.some((error) => error.includes("does not start")), "leader evidence must start with the primary signal");
+
+  const otherEvidence = structuredClone(models);
+  otherEvidence.categories.coding.runner_up.benchmark_context = "88.2% on SWE-bench Pro.";
+  const allowed = checkData(otherEvidence, history, providers, today);
+  assert(allowed.errors.length === 0, "an alternative may cite evidence other than the primary signal");
+
+  const uncited = structuredClone(models);
+  uncited.categories.coding.open_source_pick.benchmark_context = "Board not cited. Score 1.";
+  const missingCite = checkData(uncited, history, providers, today);
+  assert(missingCite.errors.some((error) => error.includes("not cited")), "not cited is not evidence");
 
   const stale = structuredClone(models);
   stale.categories.coding.leader.checked = "2026-01-01";

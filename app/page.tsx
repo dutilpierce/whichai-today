@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { ModelCard } from "@/components/ModelCard";
 import { StageCard } from "@/components/StageCard";
 import { Thinking } from "@/components/Thinking";
+import { intentNotice, matchIntent, type UnrankedIntent } from "@/lib/intents";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
 
@@ -39,6 +40,7 @@ export default function Home() {
   const [query, setQuery] = useState("");
   const [description, setDescription] = useState("");
   const [categoryKey, setCategoryKey] = useState<string | null>(null);
+  const [intent, setIntent] = useState<UnrankedIntent | null>(null);
   const [plan, setPlan] = useState<Plan | null>(null);
   const [planError, setPlanError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -67,12 +69,27 @@ export default function Home() {
   function showCategory(key: string) {
     requestId.current += 1;
     setLoading(false);
+    setIntent(null);
     setCategoryKey(key);
+  }
+
+  function showIntent(next: UnrankedIntent) {
+    requestId.current += 1;
+    setLoading(false);
+    setCategoryKey(null);
+    setIntent(next);
   }
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!query.trim()) return;
+
+    const unranked = matchIntent(query);
+    if (unranked) {
+      showIntent(unranked);
+      writeQuery(query);
+      return;
+    }
 
     const key = matchCategory(query);
     if (key) {
@@ -83,8 +100,10 @@ export default function Home() {
 
     const id = ++requestId.current;
     setCategoryKey(null);
+    setIntent(null);
     setLoading(true);
     let next = "general";
+    let nextIntent: UnrankedIntent | null = null;
     try {
       const res = await fetch("/api/classify", {
         method: "POST",
@@ -92,11 +111,13 @@ export default function Home() {
         body: JSON.stringify({ query }),
       });
       const data = await res.json();
-      if (data?.category in models.categories) next = data.category;
+      if (data?.intent && data.intent !== "none") nextIntent = data.intent;
+      else if (data?.category in models.categories) next = data.category;
     } catch {}
     if (id !== requestId.current) return;
     setLoading(false);
-    setCategoryKey(next);
+    if (nextIntent) setIntent(nextIntent);
+    else setCategoryKey(next);
     writeQuery(query);
   }
 
@@ -135,6 +156,11 @@ function encodePlan(value: Plan) {
     const q = new URLSearchParams(window.location.search).get("q");
     if (!q?.trim()) return;
     setQuery(q);
+    const unranked = matchIntent(q);
+    if (unranked) {
+      setIntent(unranked);
+      return;
+    }
     const key = matchCategory(q);
     if (key) {
       setCategoryKey(key);
@@ -151,6 +177,10 @@ function encodePlan(value: Plan) {
       .then((res) => res.json())
       .then((data) => {
         if (id !== requestId.current) return;
+        if (data?.intent && data.intent !== "none") {
+          setIntent(data.intent);
+          return;
+        }
         setCategoryKey(data?.category in models.categories ? data.category : "general");
       })
       .catch(() => {
@@ -161,6 +191,15 @@ function encodePlan(value: Plan) {
         if (id === requestId.current) setLoading(false);
       });
   }, []);
+
+  useEffect(() => {
+    if (!intent) return;
+    fetch("/api/event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ intent }),
+    }).catch(() => {});
+  }, [intent]);
 
   async function onPlan(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -269,6 +308,7 @@ function encodePlan(value: Plan) {
                 requestId.current += 1;
                 setLoading(false);
                 setMode(value);
+                setIntent(null);
                 clearQuery();
               }}
               className={mode === value ? pillSelected : pillRest}
@@ -347,6 +387,18 @@ function encodePlan(value: Plan) {
           <p className="mt-10 text-sm text-amber-200">
             Couldn&apos;t plan this right now. Try Quick pick or try again.
           </p>
+        )}
+
+        {mode === "quick" && intent && (
+          <section
+            className="mt-10 rounded-2xl border border-zinc-800 bg-zinc-900 p-6"
+            style={{ animation: "whichai-fade 0.35s ease" }}
+          >
+            <p className="text-base leading-7 text-zinc-200">{intentNotice(intent)}</p>
+            <p className="mt-2 text-sm leading-6 text-zinc-400">
+              A text model is not the answer for this. Rankings will appear here once a public board exists.
+            </p>
+          </section>
         )}
 
         {mode === "quick" && category && (

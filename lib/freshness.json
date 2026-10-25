@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-10-24",
-      "hash": "043615930842886c"
+      "hash": "e1e86cd21a853552"
     },
     "/coding": {
       "changed": "2026-10-24",
-      "hash": "34c63dc6a4c2b080"
+      "hash": "a57aae4a4069bd09"
     },
     "/legal": {
       "changed": "2026-10-24",
@@ -14,19 +14,19 @@
     },
     "/writing": {
       "changed": "2026-10-24",
-      "hash": "bd213de4308d05ff"
+      "hash": "8ff3e78e7eefe547"
     },
     "/reasoning": {
       "changed": "2026-10-24",
-      "hash": "5303f774afa221b0"
+      "hash": "6ebc414ebf14961d"
     },
     "/speed": {
       "changed": "2026-10-24",
-      "hash": "ae1783f82c1b2c3d"
+      "hash": "911cdff2e3a6ff3b"
     },
     "/general": {
       "changed": "2026-10-24",
-      "hash": "2134d357481c12d5"
+      "hash": "7a98b401da056f94"
     },
     "/models/claude-opus-5-5": {
       "changed": "2026-10-24",
@@ -34,11 +34,11 @@
     },
     "/models/gpt-6-astra": {
       "changed": "2026-10-24",
-      "hash": "28e429c0d21140e3"
+      "hash": "8b79bfac81bfaf09"
     },
     "/models/kimi-k3": {
       "changed": "2026-10-24",
-      "hash": "b6232950efc11a66"
+      "hash": "bae14b6ffbfc749a"
     },
     "/models/claude-fable-5-1": {
       "changed": "2026-10-24",
@@ -50,7 +50,7 @@
     },
     "/models/mimo-v2-6-pro": {
       "changed": "2026-10-24",
-      "hash": "f8f8e0ef99b89873"
+      "hash": "55bc44f329b6aae2"
     },
     "/models/gemini-3-5-flash-lite": {
       "changed": "2026-10-24",
@@ -62,11 +62,11 @@
     },
     "/models/deepseek-v4-1-flash": {
       "changed": "2026-10-24",
-      "hash": "f304ebe0b52b7b4c"
+      "hash": "db7451428565ed95"
     },
     "/models/gpt-6-1-sol": {
       "changed": "2026-10-24",
-      "hash": "1a2cf4e411444f06"
+      "hash": "5dac9c1fc32775ae"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-10-24",
@@ -86,7 +86,7 @@
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
       "changed": "2026-10-24",
-      "hash": "2d02f0fadefa11f6"
+      "hash": "3c4d74bd85d8ae8a"
     },
     "/changes": {
       "changed": "2026-10-24",

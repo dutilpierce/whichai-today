@@ -57,12 +57,12 @@ Search the web for the latest results on this category's primary signal first: $
 - runner_up: the best alternative from a different provider than the leader when possible
 - open_source_pick: the best open-weights model (weights downloadable)
 
-Keep a current pick if it is still accurate. Only use models that are publicly available today. Do not invent prices. If a price is not on an official page, describe the plan without a number. benchmark_context must start with "${category.primary_signal}". primary_score is the number for that signal, or null if this pick has no score on it. The runner-up's primary_score must not be higher than the leader's when both are numbers.
+Keep a current pick if it is still accurate. Only use models that are publicly available today. Do not invent prices. If a price is not on an official page, describe the plan without a number. The leader's benchmark_context must start with "${category.primary_signal}". For the alternative and the open pick, benchmark_context is the evidence that actually justifies that pick. Never write "not cited". primary_score is the number for ${category.primary_signal}, or null if this pick has no score on it. The runner-up's primary_score must not be higher than the leader's when both are numbers.
 
 Return ONLY a JSON object, with no markdown, shaped exactly like:
 {"leader": P, "runner_up": P, "open_source_pick": P}
 where each P is:
-{"name":"model name","provider":"company","why":"one plain-English sentence under 25 words with no number that is not also in benchmark_context or cost","benchmark_context":"starts with ${category.primary_signal}, then the score","direct_link":"https URL of the official chat app, or the Hugging Face page for open models","where_to_get":"one line naming the app, the plan, and which model to select","access":"free_limited or paid or api_only","cost":"plan price or rough API price","free_tier":"whether a free plan can use it, and the notable limit","when_not":"one honest line on when this pick is the wrong choice","starter_prompt":"one short example prompt","source_url":"https URL of the leaderboard behind this pick","pick_if":"one line, Pick this when...","primary_score":1520,"sources_agreeing":1,"sources_checked":1}`;
+{"name":"model name","provider":"company","why":"one plain-English sentence under 25 words with no number that is not also in benchmark_context or cost","benchmark_context":"the leader starts with ${category.primary_signal}; the others state their own evidence","direct_link":"https URL of the official chat app, or the Hugging Face page for open models","where_to_get":"one line naming the app, the plan, and which model to select","access":"free_limited or paid or api_only","cost":"plan price or rough API price","free_tier":"whether a free plan can use it, and the notable limit","when_not":"one honest line on when this pick is the wrong choice","starter_prompt":"one short example prompt","source_url":"https URL of the leaderboard behind this pick","pick_if":"one line, Pick this when...","primary_score":1520,"sources_agreeing":1,"sources_checked":1}`;
 }
 
 function extractJson(text) {
@@ -88,8 +88,11 @@ function validate(result, category, today) {
     for (const field of ["direct_link", "source_url"]) {
       if (new URL(next[field]).protocol !== "https:") throw new Error(`${slot}.${field} is not https`);
     }
-    if (!next.benchmark_context.startsWith(category.primary_signal)) {
-      throw new Error(`${slot}.benchmark_context must start with ${category.primary_signal}`);
+    if (/not cited/i.test(next.benchmark_context)) {
+      throw new Error(`${slot}.benchmark_context must state the evidence, not that a board was not cited`);
+    }
+    if (slot === "leader" && !next.benchmark_context.startsWith(category.primary_signal)) {
+      throw new Error(`leader.benchmark_context must start with ${category.primary_signal}`);
     }
     const score = profile.primary_score;
     if (score !== null && (typeof score !== "number" || Number.isNaN(score))) {
@@ -268,6 +271,32 @@ function selfCheck() {
     tooMany = true;
   }
   assert(tooMany, "sources_checked cannot exceed the category source list");
+
+  validate(
+    {
+      leader: blank("Alpha"),
+      runner_up: { ...blank("Beta"), benchmark_context: "88.2% on SWE-bench Pro." },
+      open_source_pick: blank("Gamma"),
+    },
+    { primary_signal: "Board" },
+    "2026-10-24",
+  );
+
+  let uncited = false;
+  try {
+    validate(
+      {
+        leader: blank("Alpha"),
+        runner_up: { ...blank("Beta"), benchmark_context: "Board not cited." },
+        open_source_pick: blank("Gamma"),
+      },
+      { primary_signal: "Board" },
+      "2026-10-24",
+    );
+  } catch {
+    uncited = true;
+  }
+  assert(uncited, "not cited is not evidence");
 
   console.log("self-check ok");
 }

@@ -78,7 +78,9 @@ export function ModelCard({
         </p>
       ) : null}
       <p className="mt-4 text-base leading-7 text-zinc-200">{model.why}</p>
-      <p className="mt-3 text-xs text-zinc-500">{model.benchmark_context}</p>
+      {model.benchmark_context?.trim() ? (
+        <p className="mt-3 text-xs text-zinc-500">{model.benchmark_context}</p>
+      ) : null}
       <a
         href={model.direct_link}
         target="_blank"
@@ -96,13 +98,15 @@ export function ModelCard({
           Details
         </summary>
         <dl className="mt-4 flex flex-col gap-4">
-          <Detail label="Why it leads">
-            {model.benchmark_context}{" "}
-            <a href={model.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
-              Source
-            </a>
-            .
-          </Detail>
+          {model.benchmark_context?.trim() ? (
+            <Detail label="Why it leads">
+              {model.benchmark_context}{" "}
+              <a href={model.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                Source
+              </a>
+              .
+            </Detail>
+          ) : null}
           <Detail label="Cost">
             {costHeld ? (
               <>
