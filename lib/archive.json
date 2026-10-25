@@ -1,4 +1,15 @@
 {
-  "models": [],
+  "models": [
+    {
+      "name": "Qwen-Image",
+      "provider": "Alibaba",
+      "slug": "qwen-image",
+      "where_to_get": "Download the Qwen-Image weights, or use a host that offers them.",
+      "cost": "The weights are free to download. A host may charge to run them.",
+      "free_tier": "The weights are free to download.",
+      "direct_link": "https://huggingface.co/Qwen",
+      "access": "free_limited"
+    }
+  ],
   "retired_compares": []
 }

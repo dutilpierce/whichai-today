@@ -511,11 +511,11 @@
         "when_not": "Skip the hosted chat for private data. The weights can be run on your own machines.",
         "starter_prompt": "Tag each row as yes or no, and keep the output to a single column.",
         "source_url": "https://artificialanalysis.ai/",
-        "checked": "2026-10-24",
-        "primary_score": null,
+        "pick_if": "Pick this when the messages cannot leave your own machines.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "pick_if": "Pick this when the messages cannot leave your own machines."
+        "primary_score": null,
+        "checked": "2026-10-25"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -523,7 +523,11 @@
         "Artificial Analysis output speed",
         "Artificial Analysis latency",
         "Artificial Analysis price"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Celeris-1",
+        "since": "2026-10-25"
+      }
     },
     "general": {
       "display_name": "General & Everyday",
@@ -619,21 +623,33 @@
     "images": {
       "display_name": "Images",
       "emoji": "🎨",
-      "keywords": ["logo", "image", "picture", "photo", "illustration", "drawing", "thumbnail", "poster", "icon"],
+      "keywords": [
+        "logo",
+        "image",
+        "picture",
+        "photo",
+        "illustration",
+        "drawing",
+        "thumbnail",
+        "poster",
+        "icon"
+      ],
       "slug": "images",
       "primary_signal": "LMArena Text-to-Image",
-      "sources": ["LMArena Text-to-Image"],
+      "sources": [
+        "LMArena Text-to-Image"
+      ],
       "leader": {
         "name": "GPT-Image-2.5 Sunburst",
         "provider": "OpenAI",
         "why": "Leads the public text-to-image board.",
         "benchmark_context": "LMArena Text-to-Image 1425.",
         "direct_link": "https://chatgpt.com",
-        "where_to_get": "ChatGPT, then the image tool, and select GPT-Image-2.5 Sunburst.",
+        "where_to_get": "ChatGPT, choose a Plus or Pro plan, and select GPT-Image-2.5 Sunburst.",
         "access": "paid",
-        "cost": "Uses a ChatGPT plan. The image price changes, so check the plan page.",
-        "free_tier": "A free plan may not include this model.",
-        "when_not": "Skip it when the picture has to be free to use commercially and the plan does not say so.",
+        "cost": "$20/month for ChatGPT Plus, or token billing via the OpenAI API.",
+        "free_tier": "Free users have access to image generation with daily rate limits.",
+        "when_not": "Skip it when you need fast generation or unmetered local generation.",
         "starter_prompt": "Make one image of this subject. Leave space for text I will add later.",
         "source_url": "https://lmarena.ai/leaderboard/text-to-image",
         "pick_if": "Pick this when the picture has to look right the first time.",
@@ -648,10 +664,10 @@
         "why": "The strongest image model from another provider on the same board.",
         "benchmark_context": "LMArena Text-to-Image 1334.",
         "direct_link": "https://grok.com",
-        "where_to_get": "Grok, then image generation, and select Imagine Image 2.0.",
+        "where_to_get": "Grok, choose a Premium plan, and select Grok Imagine Image 2.0.",
         "access": "paid",
-        "cost": "Uses a Grok plan. Check the plan page for the current price.",
-        "free_tier": "A free plan may allow a limited number of images.",
+        "cost": "Uses a Grok subscription plan, or $0.04 per generated image via API.",
+        "free_tier": "A free plan may allow a limited number of image generations.",
         "when_not": "Skip it if you need the single highest score on the board.",
         "starter_prompt": "Make one image of this subject, and describe the composition in the prompt.",
         "source_url": "https://lmarena.ai/leaderboard/text-to-image",
@@ -662,32 +678,40 @@
         "checked": "2026-10-25"
       },
       "open_source_pick": {
-        "name": "Qwen-Image",
+        "name": "Qwen-Image-2.1",
         "provider": "Alibaba",
-        "why": "An open-weights image model with a public score on the same board.",
-        "benchmark_context": "LMArena Text-to-Image 1125. Apache 2.0 weights.",
-        "direct_link": "https://huggingface.co/Qwen",
-        "where_to_get": "Download the Qwen-Image weights, or use a host that offers them.",
+        "why": "The highest-ranking open-weights model on the text-to-image board.",
+        "benchmark_context": "LMArena Text-to-Image 1223.",
+        "direct_link": "https://huggingface.co/Qwen/Qwen-Image-2.1",
+        "where_to_get": "Hugging Face, download Qwen-Image-2.1 weights, and run via Diffusers or ComfyUI.",
         "access": "free_limited",
-        "cost": "The weights are free to download. A host may charge to run them.",
-        "free_tier": "The weights are free to download.",
-        "when_not": "Skip self-hosting if you need the top of the board and do not want to run a model yourself.",
+        "cost": "The weights are free to download and run on local hardware.",
+        "free_tier": "The weights are free to download under the Qwen Research License.",
+        "when_not": "Skip it if you require commercial licensing or lack sufficient GPU hardware.",
         "starter_prompt": "Make one image from this description. Keep the subject obvious.",
         "source_url": "https://lmarena.ai/leaderboard/text-to-image",
-        "pick_if": "Pick this when the image must be made from weights you can download.",
+        "pick_if": "Pick this when you want the highest-performing downloadable open-weight image model.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1125,
+        "primary_score": 1223,
         "checked": "2026-10-25"
       }
     },
     "video": {
       "display_name": "Video",
       "emoji": "🎬",
-      "keywords": ["video", "animate", "animation", "footage", "reel"],
+      "keywords": [
+        "video",
+        "animate",
+        "animation",
+        "footage",
+        "reel"
+      ],
       "slug": "video",
       "primary_signal": "LMArena Text-to-Video",
-      "sources": ["LMArena Text-to-Video"],
+      "sources": [
+        "LMArena Text-to-Video"
+      ],
       "leader": {
         "name": "Gemini Omni 1.1 Flash",
         "provider": "Google",
@@ -749,10 +773,18 @@
     "research": {
       "display_name": "Research & Web Search",
       "emoji": "🔎",
-      "keywords": ["research", "fact-check", "citation", "sources", "cite"],
+      "keywords": [
+        "research",
+        "fact-check",
+        "citation",
+        "sources",
+        "cite"
+      ],
       "slug": "research",
       "primary_signal": "LMArena Search",
-      "sources": ["LMArena Search"],
+      "sources": [
+        "LMArena Search"
+      ],
       "leader": {
         "name": "GPT-5.6 Sol",
         "provider": "OpenAI",
@@ -796,8 +828,8 @@
         "provider": "Diffbot",
         "why": "The open-weights model with a public score on the search board.",
         "benchmark_context": "LMArena Search 1023. Apache 2.0 weights.",
-        "direct_link": "https://www.diffbot.com",
-        "where_to_get": "Diffbot, or the published weights for Diffbot-Small-XL.",
+        "direct_link": "https://huggingface.co/diffbot/Diffbot-Small-XL-2508",
+        "where_to_get": "Diffbot, or the published weights for Diffbot-Small-XL on Hugging Face.",
         "access": "free_limited",
         "cost": "The weights are under Apache 2.0. A hosted search API may be paid.",
         "free_tier": "The weights are free to download.",

@@ -2,7 +2,7 @@
   "pages": {
     "/": {
       "changed": "2026-10-25",
-      "hash": "5d412fd15e246e26"
+      "hash": "8bfb01ce6b169b54"
     },
     "/coding": {
       "changed": "2026-10-24",
@@ -21,8 +21,8 @@
       "hash": "6ebc414ebf14961d"
     },
     "/speed": {
-      "changed": "2026-10-24",
-      "hash": "911cdff2e3a6ff3b"
+      "changed": "2026-10-25",
+      "hash": "3db2eede7e1b0e2e"
     },
     "/general": {
       "changed": "2026-10-24",
@@ -30,7 +30,7 @@
     },
     "/images": {
       "changed": "2026-10-25",
-      "hash": "a1673addf85ff202"
+      "hash": "9266405d28f88138"
     },
     "/video": {
       "changed": "2026-10-25",
@@ -38,7 +38,7 @@
     },
     "/research": {
       "changed": "2026-10-25",
-      "hash": "4783eaadd416e970"
+      "hash": "fde25c146e803392"
     },
     "/models/claude-opus-5-5": {
       "changed": "2026-10-24",
@@ -73,8 +73,8 @@
       "hash": "1fe06bff48a1a23d"
     },
     "/models/deepseek-v4-1-flash": {
-      "changed": "2026-10-24",
-      "hash": "db7451428565ed95"
+      "changed": "2026-10-25",
+      "hash": "636efaff7e85d902"
     },
     "/models/gpt-6-1-sol": {
       "changed": "2026-10-24",
@@ -82,15 +82,15 @@
     },
     "/models/gpt-image-2-5-sunburst": {
       "changed": "2026-10-25",
-      "hash": "cab2f9d2563f5a79"
+      "hash": "0f65ac541f0545ce"
     },
     "/models/grok-imagine-image-2-0": {
       "changed": "2026-10-25",
-      "hash": "5f6179c0b44e2e3e"
+      "hash": "ba6c594384f1a6a4"
     },
-    "/models/qwen-image": {
+    "/models/qwen-image-2-1": {
       "changed": "2026-10-25",
-      "hash": "2cf7ce3996680f5c"
+      "hash": "e76a51e49b019b53"
     },
     "/models/gemini-omni-1-1-flash": {
       "changed": "2026-10-25",
@@ -114,7 +114,11 @@
     },
     "/models/diffbot-small-xl": {
       "changed": "2026-10-25",
-      "hash": "52d6e9665edf955f"
+      "hash": "1a56f8619a2eb01d"
+    },
+    "/models/qwen-image": {
+      "changed": "2026-10-25",
+      "hash": "2c994d24b91301e2"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-10-24",
@@ -138,7 +142,7 @@
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
       "changed": "2026-10-25",
-      "hash": "00bd91744d93ff56"
+      "hash": "7cc8b4c003236bf1"
     },
     "/compare/gemini-omni-1-1-flash-vs-dreamina-seedance-2-0": {
       "changed": "2026-10-25",
@@ -342,11 +346,11 @@
     },
     "/about": {
       "changed": "2026-10-25",
-      "hash": "161d7eb3d7c5fca4"
+      "hash": "94c097fdcdbc70f9"
     },
     "/privacy": {
       "changed": "2026-10-25",
-      "hash": "a014cc4dc9527a6a"
+      "hash": "4bfdfd63cbc5300c"
     },
     "/alerts": {
       "changed": "2026-10-24",
@@ -366,23 +370,23 @@
     },
     "/free": {
       "changed": "2026-10-25",
-      "hash": "9af82089cd489a4f"
+      "hash": "de4e6e862ddbc2ac"
     },
     "/prompt-builder": {
       "changed": "2026-10-25",
-      "hash": "ddeb8e10eb2d7cae"
+      "hash": "7f542337409199f7"
     },
     "/suggest": {
       "changed": "2026-10-25",
-      "hash": "0dd84c2a788dc41d"
+      "hash": "b829b70199c10f27"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-10-25",
-      "hash": "fa23f258a9ee008a"
+      "hash": "f10b9cde7b32cb9f"
     },
     "/pick": {
       "changed": "2026-10-25",
-      "hash": "edddbb3103f5f850"
+      "hash": "7325b347e7938321"
     },
     "/for/students": {
       "changed": "2026-10-25",
