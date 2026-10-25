@@ -87,10 +87,7 @@ export default function AboutPage() {
           ],
         }}
       />
-      <a href="/" className="text-sm text-zinc-400 hover:text-white">
-        Back to WhichAI.today
-      </a>
-      <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+      <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
         The model you already use is probably not the best one for this job.
       </h1>
       <p className="mt-4 text-base leading-7 text-zinc-300">

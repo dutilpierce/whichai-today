@@ -60,12 +60,7 @@ export default async function ModelPage({
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
       <JsonLd data={pageGraph(`/models/${slug}`, crumbs, faqs.length ? [faqNode(faqs)] : [])} />
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{found.name}</h1>
         <Freshness path={`/models/${slug}`} />
         <p className="mt-2 text-sm text-zinc-400">{found.provider}</p>

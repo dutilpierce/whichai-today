@@ -17,12 +17,7 @@ export const metadata: Metadata = {
 export default function SuggestPage() {
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Suggest a model, app, or correction</h1>
         <p className="mt-4 text-base leading-7 text-zinc-300">
           This is read by the person who runs the site. It does not change a ranking by itself. Rankings still come from the public boards.

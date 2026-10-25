@@ -42,13 +42,11 @@ export default async function WeekPage({
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <header>
+      <main>
         <a href="/changes" className="text-sm text-zinc-400 hover:text-white">
           All changes
         </a>
-      </header>
-      <main className="mt-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Leader changes, {found.week}
         </h1>
         <ul className="mt-8 flex flex-col gap-6">

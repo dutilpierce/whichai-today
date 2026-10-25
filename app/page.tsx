@@ -320,24 +320,14 @@ function encodePlan(value: Plan) {
   return (
     <div className="flex min-h-full flex-1 flex-col text-zinc-50">
       <style>{`@keyframes whichai-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}`}</style>
-      <header className="mx-auto flex w-full max-w-3xl items-center justify-between px-4 pt-8">
-        <p className="flex items-center gap-4 text-lg font-semibold tracking-tight text-white">
-          <span className="inline-flex items-center gap-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" />
-            WhichAI.today
-          </span>
-          <a href="/about" className="text-sm font-medium text-zinc-400 hover:text-white">
-            About
-          </a>
-        </p>
-        <p className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
+      <p className="mx-auto mt-4 flex w-full max-w-3xl justify-end px-4">
+        <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
           Updated {updatedLabel}
-        </p>
-      </header>
+        </span>
+      </p>
 
-      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-12 pt-10">
+      <main className="mx-auto flex w-full max-w-3xl flex-1 flex-col px-4 pb-12 pt-6">
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Find the best AI model for the job.
         </h1>

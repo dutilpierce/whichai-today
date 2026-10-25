@@ -1,0 +1,48 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
+function current(path: string, href: string) {
+  if (href === "/prompt-builder") return path === "/prompt-builder" || path.startsWith("/prompts");
+  return path === href;
+}
+
+export function SiteHeader() {
+  const path = usePathname();
+  const prompt = current(path, "/prompt-builder");
+  const guide = current(path, "/which-ai-should-i-use");
+  const free = current(path, "/free");
+
+  return (
+    <header className="mx-auto flex w-full max-w-3xl flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 pt-8">
+      <a href="/" className="inline-flex items-center gap-2 text-lg font-semibold tracking-tight text-white">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="/logo.svg" alt="" width={28} height={28} className="h-7 w-7" />
+        WhichAI.today
+      </a>
+      <nav className="flex flex-wrap items-center gap-x-4 gap-y-2" aria-label="Primary">
+        <a
+          href="/prompt-builder"
+          aria-current={prompt ? "page" : undefined}
+          className="rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-zinc-950 hover:bg-zinc-200"
+        >
+          Prompt builder
+        </a>
+        <a
+          href="/which-ai-should-i-use"
+          aria-current={guide ? "page" : undefined}
+          className={guide ? "text-sm font-medium text-white" : "text-sm font-medium text-zinc-400 hover:text-white"}
+        >
+          Which AI
+        </a>
+        <a
+          href="/free"
+          aria-current={free ? "page" : undefined}
+          className={free ? "text-sm font-medium text-white" : "text-sm font-medium text-zinc-400 hover:text-white"}
+        >
+          Free
+        </a>
+      </nav>
+    </header>
+  );
+}

@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Aurora } from "@/components/Aurora";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
+import { SiteHeader } from "@/components/SiteHeader";
 import site from "@/lib/site.json";
 import "./globals.css";
 
@@ -93,6 +94,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             ],
           }}
         />
+        <SiteHeader />
         {children}
         <SiteFooter includeChanges />
         <Analytics />

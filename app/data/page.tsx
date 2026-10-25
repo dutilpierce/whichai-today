@@ -60,12 +60,7 @@ export default function DataPage() {
           ],
         }}
       />
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Open data</h1>
         <p className="mt-4 text-base leading-7 text-zinc-300">
           These files are the same rankings the site shows. They update when the daily check changes a page. The license is {DATA_LICENSE}: free to reuse if you credit {DATA_ATTRIBUTION}.

@@ -346,47 +346,47 @@
     },
     "/about": {
       "changed": "2026-10-25",
-      "hash": "94c097fdcdbc70f9"
+      "hash": "f7a92843ee5d1f3b"
     },
     "/privacy": {
       "changed": "2026-10-25",
-      "hash": "4bfdfd63cbc5300c"
+      "hash": "dcc63a0818276543"
     },
     "/alerts": {
-      "changed": "2026-10-24",
-      "hash": "30e36fb8affa26e1"
+      "changed": "2026-10-25",
+      "hash": "80525339aced29d3"
     },
     "/methodology": {
-      "changed": "2026-10-24",
-      "hash": "1261551d582e208e"
+      "changed": "2026-10-25",
+      "hash": "2a8d3c489efdc497"
     },
     "/embed": {
-      "changed": "2026-10-24",
-      "hash": "8006f1e16a89a200"
+      "changed": "2026-10-25",
+      "hash": "359f9b66b254eb98"
     },
     "/data": {
-      "changed": "2026-10-24",
-      "hash": "a3aa1bf63f138c2b"
+      "changed": "2026-10-25",
+      "hash": "428c9f9be242f936"
     },
     "/free": {
       "changed": "2026-10-25",
-      "hash": "de4e6e862ddbc2ac"
+      "hash": "67336832aa006862"
     },
     "/prompt-builder": {
       "changed": "2026-10-25",
-      "hash": "7f542337409199f7"
+      "hash": "9d055e0cf28387b6"
     },
     "/suggest": {
       "changed": "2026-10-25",
-      "hash": "b829b70199c10f27"
+      "hash": "4bd59326ca9f695f"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-10-25",
-      "hash": "f10b9cde7b32cb9f"
+      "hash": "90b5b0f032cc0435"
     },
     "/pick": {
       "changed": "2026-10-25",
-      "hash": "7325b347e7938321"
+      "hash": "27346a309fe8184f"
     },
     "/for/students": {
       "changed": "2026-10-25",

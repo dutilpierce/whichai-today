@@ -78,15 +78,7 @@ export default async function CategoryPage({
           { name: category.display_name, path: `/${slug}` },
         ], [faqNode(faqs), categoryItemList(category)])}
       />
-      <header className="flex items-center justify-between">
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-        <a href="/about" className="text-sm font-medium text-zinc-400 hover:text-white">
-          About
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           {heading}
         </h1>

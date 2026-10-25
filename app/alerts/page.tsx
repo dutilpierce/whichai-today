@@ -20,12 +20,7 @@ export const metadata: Metadata = {
 export default function AlertsPage() {
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Get alerts
         </h1>

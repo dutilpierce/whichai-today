@@ -19,12 +19,7 @@ export const metadata: Metadata = {
 export default function EmbedPage() {
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Put this on your site</h1>
         <p className="mt-4 text-base leading-7 text-zinc-300">
           Each badge links back to the category page and updates when that leader changes. Use the text link where images are blocked.

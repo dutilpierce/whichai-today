@@ -41,13 +41,11 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <header>
+      <main>
         <a href="/pick" className="text-sm text-zinc-400 hover:text-white">
           Back
         </a>
-      </header>
-      <main className="mt-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{topic.name}</h1>
+        <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{topic.name}</h1>
         <Freshness path={path} />
         <ul className="mt-8 flex flex-col gap-3">
           {topic.goals.map((goal) => (

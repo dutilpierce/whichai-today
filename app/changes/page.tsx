@@ -27,12 +27,7 @@ export default function ChangesPage() {
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Leader changes</h1>
         {changes.length ? (
           <ul className="mt-8 flex flex-col gap-4">

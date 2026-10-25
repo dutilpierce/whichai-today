@@ -64,12 +64,7 @@ export default async function TaskPage({
           { name: title, path },
         ], [])}
       />
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h1>
         <Freshness path={path} />
         <p className="mt-4 text-base leading-7 text-zinc-300">{task.tip}</p>

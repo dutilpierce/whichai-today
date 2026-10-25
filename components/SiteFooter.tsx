@@ -13,41 +13,32 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
           Rankings compiled from LMArena, Artificial Analysis, Vals AI, and
           SWE-bench, last reviewed {reviewed}. No affiliate links. No paid placement.
         </p>
-        <nav className="flex items-center gap-4" aria-label="Site">
-          <a href="/alerts" className="text-zinc-400 hover:text-white">
-            Get alerts
+        <nav className="flex flex-wrap items-center gap-x-4 gap-y-2" aria-label="Site">
+          <a href="/about" className="text-zinc-400 hover:text-white">
+            About
+          </a>
+          <a href="/privacy" className="text-zinc-400 hover:text-white">
+            Privacy
+          </a>
+          <a href="/methodology" className="text-zinc-400 hover:text-white">
+            Methodology
+          </a>
+          <a href="/data" className="text-zinc-400 hover:text-white">
+            Data
           </a>
           {includeChanges ? (
             <a href="/changes" className="text-zinc-400 hover:text-white">
               Changes
             </a>
           ) : null}
-          <a href="/embed" className="text-zinc-400 hover:text-white">
-            Embed
-          </a>
-          <a href="/prompt-builder" className="text-zinc-400 hover:text-white">
-            Prompt builder
-          </a>
-          <a href="/which-ai-should-i-use" className="text-zinc-400 hover:text-white">
-            Choose
-          </a>
-          <a href="/free" className="text-zinc-400 hover:text-white">
-            Free
-          </a>
-          <a href="/data" className="text-zinc-400 hover:text-white">
-            Data
-          </a>
-          <a href="/methodology" className="text-zinc-400 hover:text-white">
-            Methodology
+          <a href="/alerts" className="text-zinc-400 hover:text-white">
+            Get alerts
           </a>
           <a href="/suggest" className="text-zinc-400 hover:text-white">
             Suggest
           </a>
-          <a href="/about" className="text-zinc-400 hover:text-white">
-            About
-          </a>
-          <a href="/privacy" className="text-zinc-400 hover:text-white">
-            Privacy
+          <a href="/embed" className="text-zinc-400 hover:text-white">
+            Embed
           </a>
         </nav>
       </div>

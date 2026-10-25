@@ -19,12 +19,7 @@ export default function MethodologyPage() {
   const categories = Object.values(models.categories);
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <header>
-        <a href="/" className="text-lg font-semibold tracking-tight text-white">
-          WhichAI.today
-        </a>
-      </header>
-      <main className="mt-10">
+      <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Methodology</h1>
         <p className="mt-4 text-base leading-7 text-zinc-300">
           Each job is ranked on one public board. Other boards are support, not a second vote that can overturn the leader.

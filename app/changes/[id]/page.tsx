@@ -49,13 +49,11 @@ export default async function ChangePage({
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
       <JsonLd data={pageGraph(path, crumbs, [changeArticle(change, change.slug, path)])} />
-      <header>
+      <main>
         <a href="/changes" className="text-sm text-zinc-400 hover:text-white">
           All changes
         </a>
-      </header>
-      <main className="mt-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           {changeTitle(change, change.slug)}
         </h1>
         <p className="mt-4 text-sm text-zinc-400">{formatDay(change.date)}</p>
