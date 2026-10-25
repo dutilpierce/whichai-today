@@ -398,6 +398,13 @@ function encodePlan(value: Plan) {
           </button>
         </form>
         ) : null}
+        {mode === "quick" ? (
+          <p className="mt-3 text-sm text-zinc-500">
+            <a href="/pick" className="text-zinc-300 hover:text-white">
+              Not sure what to type?
+            </a>
+          </p>
+        ) : null}
         {mode === "quick" ? <OptionsPanel choice={choice} onChange={updateChoice} /> : null}
         {recommendations > 0 ? (
           <p className="mt-3 text-xs text-zinc-500">{recommendations} recommendations given</p>

@@ -28,6 +28,9 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
           <a href="/prompt-builder" className="text-zinc-400 hover:text-white">
             Prompt builder
           </a>
+          <a href="/which-ai-should-i-use" className="text-zinc-400 hover:text-white">
+            Choose
+          </a>
           <a href="/free" className="text-zinc-400 hover:text-white">
             Free
           </a>

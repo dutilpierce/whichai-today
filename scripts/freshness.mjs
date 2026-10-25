@@ -15,6 +15,8 @@ const STATIC_PAGES = {
   "/free": "app/free/page.tsx",
   "/prompt-builder": "app/prompt-builder/page.tsx",
   "/suggest": "app/suggest/page.tsx",
+  "/which-ai-should-i-use": "app/which-ai-should-i-use/page.tsx",
+  "/pick": "app/pick/page.tsx",
 };
 
 function slugify(name) {
@@ -47,7 +49,16 @@ function entryKind(entry) {
   return entry.type === "methodology" ? "methodology" : "change";
 }
 
-export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides }) {
+const PAIRS = [
+  ["chatgpt", "claude", "chatgpt-vs-claude"],
+  ["claude", "gemini", "claude-vs-gemini"],
+  ["chatgpt", "gemini", "chatgpt-vs-gemini"],
+  ["perplexity", "chatgpt", "perplexity-vs-chatgpt"],
+  ["copilot", "chatgpt", "copilot-vs-chatgpt"],
+  ["cursor", "github-copilot", "cursor-vs-github-copilot"],
+];
+
+export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps }) {
   const skip = new Set(held?.pages ?? []);
   const pages = {};
   const categories = Object.values(models.categories);
@@ -153,6 +164,23 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
     if (typeof text === "string") put(path, { source: text });
   }
 
+  for (const audience of audiences?.audiences ?? []) put(`/for/${audience.slug}`, audience);
+  for (const topic of picker?.topics ?? []) put(`/pick/${topic.slug}`, topic);
+
+  const appSlugs = new Set((apps?.apps ?? []).map((app) => app.slug));
+  for (const app of apps?.apps ?? []) {
+    put(`/apps/${app.slug}`, {
+      plans: app.plans,
+      privacy: app.privacy,
+      capabilities: app.capabilities,
+      models: app.models,
+      checked: app.checked,
+    });
+  }
+  for (const [left, right, slug] of PAIRS) {
+    if (appSlugs.has(left) && appSlugs.has(right)) put(`/vs/${slug}`, { left, right });
+  }
+
   return pages;
 }
 
@@ -203,7 +231,10 @@ async function main() {
   } catch {
     guides = null;
   }
-  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides });
+  const audiences = await readJson(new URL("lib/audiences.json", ROOT));
+  const picker = await readJson(new URL("lib/picker.json", ROOT));
+  const apps = (await readJson(new URL("lib/apps.json", ROOT))) ?? { apps: [] };
+  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps });
   const existing = (await readJson(FRESHNESS)) ?? { pages: {} };
   const today = (models.last_updated ?? new Date().toISOString()).slice(0, 10);
   const next = applyFreshness(existing, payloads, today);

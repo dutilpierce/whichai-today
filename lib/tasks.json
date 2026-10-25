@@ -251,6 +251,135 @@
       "starter_prompt": "Check this claim. Name a source that supports it, a source that disputes it, and what is still unknown.",
       "caution": "Do not treat the model's verdict as the last word. Read the sources.",
       "measured": "The search board measures search answers, not a formal fact-check."
+    },
+    {
+      "slug": "email",
+      "title": "writing an email",
+      "category": "writing",
+      "tip": "Say who it is to, what you need, and the tone. Ask for one short email.",
+      "starter_prompt": "Write one email to this person. Say what I need, and keep it short enough to answer.",
+      "caution": "Do not invent a promise, a price, or a fact the other person can check.",
+      "measured": "The writing board measures preference on prose, not whether the email gets a reply."
+    },
+    {
+      "slug": "resume",
+      "title": "rewriting a resume",
+      "category": "writing",
+      "tip": "Paste the role and the real jobs. Ask it to use only what you already did.",
+      "starter_prompt": "Rewrite this resume for this role. Use only the experience I gave you, and do not add a skill.",
+      "caution": "Do not let it invent a job, a degree, or a result.",
+      "measured": "The writing board measures prose, not whether a resume passes a screen."
+    },
+    {
+      "slug": "presentation-outline",
+      "title": "outlining a presentation",
+      "category": "writing",
+      "tip": "Give the audience, the one point, and how long you have. Ask for an outline, not slides.",
+      "starter_prompt": "Outline a presentation for this audience and this point. One idea per section.",
+      "caution": "An outline is not a finished deck, and it can skip the objection your audience will raise.",
+      "measured": "The writing board measures prose. It does not measure slides."
+    },
+    {
+      "slug": "youtube-script",
+      "title": "writing a video script",
+      "category": "writing",
+      "tip": "Say the viewer, the point, and the length in words. Ask for a spoken script.",
+      "starter_prompt": "Write a spoken script for this topic. Open with the point, then the steps, then what to do next.",
+      "caution": "Do not invent a quote, a statistic, or a personal story.",
+      "measured": "The writing board measures prose, not whether a video holds attention."
+    },
+    {
+      "slug": "social-captions",
+      "title": "writing social captions",
+      "category": "writing",
+      "tip": "Give the post, the audience, and the one action. Ask for a few captions, not a campaign.",
+      "starter_prompt": "Write three captions for this post. Each one should ask for the same action.",
+      "caution": "Do not invent a customer result, a price, or a review.",
+      "measured": "The writing board measures prose, not reach."
+    },
+    {
+      "slug": "translate-a-document",
+      "title": "translating a document",
+      "category": "general",
+      "tip": "Name the language and say which terms must stay exact. Ask for a translation, not a summary.",
+      "starter_prompt": "Translate this into the language I named. Keep names and numbers as they are, and mark anything you are unsure of.",
+      "caution": "Have a person check anything you would sign, file, or send to a customer.",
+      "measured": "No board on this site measures translation. The general ranking is only a stand-in for clear writing."
+    },
+    {
+      "slug": "study-flashcards",
+      "title": "making study flashcards",
+      "category": "general",
+      "tip": "Paste the notes and ask for a question on the front and a short answer on the back.",
+      "starter_prompt": "Turn these notes into flashcards. One fact per card, and do not add a fact that is not in the notes.",
+      "caution": "Check the cards against the source. A tidy card can still be wrong.",
+      "measured": "The general board measures everyday answers, not whether a card matches your course."
+    },
+    {
+      "slug": "compare-a-loan",
+      "title": "comparing a loan",
+      "category": "general",
+      "tip": "Give the amount in words, the term, and what you would use it for. Ask what to compare, not which loan to take.",
+      "starter_prompt": "List what to compare on these loans. Do not tell me which one to take.",
+      "caution": "This is not financial advice. Confirm the terms with the lender.",
+      "measured": "The general board does not measure lending decisions."
+    },
+    {
+      "slug": "plan-retirement",
+      "title": "planning for retirement",
+      "category": "general",
+      "tip": "Say the age you want to stop working and what you already save. Ask for questions to take to an adviser.",
+      "starter_prompt": "List the questions I should ask an adviser about retirement. Do not tell me what to buy.",
+      "caution": "This is not financial advice. A chat does not know your taxes, debts, or accounts.",
+      "measured": "The general board does not measure retirement planning."
+    },
+    {
+      "slug": "check-a-tax-question",
+      "title": "checking a question about taxes",
+      "category": "general",
+      "tip": "Say the country and the year in words. Ask what to look up, not what you owe.",
+      "starter_prompt": "Explain how to look this tax question up on the official site. Do not tell me what I owe.",
+      "caution": "This is not tax advice. Use the revenue agency's own page or a tax preparer.",
+      "measured": "The general board does not measure tax law."
+    },
+    {
+      "slug": "explain-a-mortgage",
+      "title": "explaining a mortgage",
+      "category": "general",
+      "tip": "Ask what the words mean. Do not ask which mortgage to sign.",
+      "starter_prompt": "Explain these mortgage words in plain language, and list what I should ask the lender.",
+      "caution": "This is not financial advice. The offer from the lender is the one that counts.",
+      "measured": "The general board does not measure mortgage offers."
+    },
+    {
+      "slug": "slide-deck",
+      "title": "building a slide deck",
+      "category": "",
+      "capability": "presentations",
+      "tip": "Say the audience and the one point. Ask for slides you can edit, not a picture of slides.",
+      "starter_prompt": "Build a short slide deck for this audience and this point. One idea per slide.",
+      "caution": "Check every claim before you present it.",
+      "measured": "This task is not ranked. No board on this site measures presentation tools."
+    },
+    {
+      "slug": "design-a-poster",
+      "title": "designing a poster",
+      "category": "",
+      "capability": "image_generation",
+      "tip": "Describe the subject, the few words that must be readable, and the size in words.",
+      "starter_prompt": "Design one poster for this event. Keep the title readable and the subject large.",
+      "caution": "Do not copy a poster, a logo, or a photo you do not have rights to use.",
+      "measured": "This task is not ranked. Design tools are listed by what the app says it can do, not by a board."
+    },
+    {
+      "slug": "voiceover",
+      "title": "making a voiceover",
+      "category": "",
+      "capability": "voice",
+      "tip": "Paste the script and say the pace. Ask for a read, not a new script.",
+      "starter_prompt": "Read this script aloud at a calm pace. Do not change the words.",
+      "caution": "Do not imitate a real person's voice without permission.",
+      "measured": "This task is not ranked. No board on this site measures voice."
     }
   ]
 }

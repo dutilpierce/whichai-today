@@ -268,9 +268,65 @@
       "changed": "2026-10-25",
       "hash": "58a5edbc31df77e0"
     },
+    "/tasks/email": {
+      "changed": "2026-10-25",
+      "hash": "343eb5cacfd4c4c2"
+    },
+    "/tasks/resume": {
+      "changed": "2026-10-25",
+      "hash": "66eff7fde8aa2b17"
+    },
+    "/tasks/presentation-outline": {
+      "changed": "2026-10-25",
+      "hash": "b22950b779c4da3f"
+    },
+    "/tasks/youtube-script": {
+      "changed": "2026-10-25",
+      "hash": "bceff2f17ca1e8a3"
+    },
+    "/tasks/social-captions": {
+      "changed": "2026-10-25",
+      "hash": "150aa80734bb2b1c"
+    },
+    "/tasks/translate-a-document": {
+      "changed": "2026-10-25",
+      "hash": "f2878ea858879aa4"
+    },
+    "/tasks/study-flashcards": {
+      "changed": "2026-10-25",
+      "hash": "4a39cfe94b3ab7af"
+    },
+    "/tasks/compare-a-loan": {
+      "changed": "2026-10-25",
+      "hash": "389ab27a13c6ae44"
+    },
+    "/tasks/plan-retirement": {
+      "changed": "2026-10-25",
+      "hash": "e6e50e33e606379e"
+    },
+    "/tasks/check-a-tax-question": {
+      "changed": "2026-10-25",
+      "hash": "0a651790548cdd69"
+    },
+    "/tasks/explain-a-mortgage": {
+      "changed": "2026-10-25",
+      "hash": "3a260ba66fd48837"
+    },
+    "/tasks/slide-deck": {
+      "changed": "2026-10-25",
+      "hash": "84d4026670918c69"
+    },
+    "/tasks/design-a-poster": {
+      "changed": "2026-10-25",
+      "hash": "4a2297968737b6be"
+    },
+    "/tasks/voiceover": {
+      "changed": "2026-10-25",
+      "hash": "6c73f5f495f884c1"
+    },
     "/tasks": {
       "changed": "2026-10-25",
-      "hash": "f58c1ecc23d6e71e"
+      "hash": "f10b40e33b17e991"
     },
     "/prompts/claude": {
       "changed": "2026-10-25",
@@ -285,8 +341,8 @@
       "hash": "637fb64d5f7fa39b"
     },
     "/about": {
-      "changed": "2026-10-24",
-      "hash": "6b45c8665a562aba"
+      "changed": "2026-10-25",
+      "hash": "94c097fdcdbc70f9"
     },
     "/privacy": {
       "changed": "2026-10-25",
@@ -319,6 +375,62 @@
     "/suggest": {
       "changed": "2026-10-25",
       "hash": "b829b70199c10f27"
+    },
+    "/which-ai-should-i-use": {
+      "changed": "2026-10-25",
+      "hash": "36d865e334a41cab"
+    },
+    "/pick": {
+      "changed": "2026-10-25",
+      "hash": "7325b347e7938321"
+    },
+    "/for/students": {
+      "changed": "2026-10-25",
+      "hash": "d82610e756745c55"
+    },
+    "/for/developers": {
+      "changed": "2026-10-25",
+      "hash": "47e41f0d1aec9309"
+    },
+    "/for/small-business": {
+      "changed": "2026-10-25",
+      "hash": "9bbecab5f49a94a0"
+    },
+    "/for/writers-and-marketers": {
+      "changed": "2026-10-25",
+      "hash": "314862e2937cc82f"
+    },
+    "/for/lawyers": {
+      "changed": "2026-10-25",
+      "hash": "bad19b74fa3813ec"
+    },
+    "/for/researchers": {
+      "changed": "2026-10-25",
+      "hash": "908e9f6aa407dfff"
+    },
+    "/pick/write": {
+      "changed": "2026-10-25",
+      "hash": "989c152f489282bc"
+    },
+    "/pick/build": {
+      "changed": "2026-10-25",
+      "hash": "c0ce9536f2ebb754"
+    },
+    "/pick/study": {
+      "changed": "2026-10-25",
+      "hash": "7c62022f5b644439"
+    },
+    "/pick/look-it-up": {
+      "changed": "2026-10-25",
+      "hash": "c397b7e105ddb937"
+    },
+    "/pick/pictures": {
+      "changed": "2026-10-25",
+      "hash": "0ec6a3eb5a21950c"
+    },
+    "/pick/money": {
+      "changed": "2026-10-25",
+      "hash": "b434d212a9484c0f"
     }
   }
 }

@@ -1,4 +1,6 @@
-import { readFile, writeFile } from "node:fs/promises";
+import { readdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
 import { buildPayloads } from "./freshness.mjs";
 import { checkPrompt } from "../lib/prompt-rules.mjs";
 
@@ -25,7 +27,20 @@ export function checkTasks(tasks, models, providers) {
     if (seen.has(task.slug)) errors.push(`duplicate task ${task.slug}`);
     seen.add(task.slug);
     const category = Object.values(models.categories).find((item) => item.slug === task.category);
-    if (!category) errors.push(`${task.slug} does not match a category`);
+    const capabilities = new Set([
+      "web_search",
+      "file_upload",
+      "image_generation",
+      "video_generation",
+      "presentations",
+      "code_editing",
+      "voice",
+      "team_plan",
+    ]);
+    if (task.capability) {
+      if (task.category) errors.push(`${task.slug} has both a category and a capability`);
+      if (!capabilities.has(task.capability)) errors.push(`${task.slug} has an unknown capability`);
+    } else if (!category) errors.push(`${task.slug} does not match a category`);
     for (const field of ["title", "tip", "starter_prompt", "caution", "measured"]) {
       if (typeof task[field] !== "string" || !task[field].trim()) errors.push(`${task.slug} ${field} is empty`);
       else if (numbersIn(task[field]).length) errors.push(`${task.slug} ${field} cites a number`);
@@ -39,6 +54,61 @@ export function checkTasks(tasks, models, providers) {
     }
   }
   return errors;
+}
+
+export function bareBrand(title) {
+  return /WhichAI(?!\.today)/.test(title);
+}
+
+export function checkPages(audiences, picker, tasks) {
+  const errors = [];
+  const slugs = new Set((tasks?.tasks ?? []).map((task) => task.slug));
+  for (const audience of audiences?.audiences ?? []) {
+    if (!audience.caution?.trim() || !audience.free?.trim()) errors.push(`${audience.slug} is missing its caution or free note`);
+    if (numbersIn(`${audience.caution ?? ""} ${audience.free ?? ""}`).length) errors.push(`${audience.slug} cites a number`);
+    for (const task of audience.tasks ?? []) {
+      if (!slugs.has(task)) errors.push(`${audience.slug} links missing task ${task}`);
+    }
+  }
+  for (const topic of picker?.topics ?? []) {
+    const goals = topic.goals ?? [];
+    if (goals.length < 3 || goals.length > 5) errors.push(`${topic.slug} should have about four goals`);
+    for (const goal of goals) {
+      if (!slugs.has(goal.task)) errors.push(`${topic.slug} links missing task ${goal.task}`);
+    }
+  }
+  return errors;
+}
+
+async function titleProblems() {
+  const problems = [];
+  async function walk(dir) {
+    let entries = [];
+    try {
+      entries = await readdir(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const full = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === "node_modules" || entry.name === ".git") continue;
+        await walk(full);
+      } else if (entry.name.endsWith(".tsx") || entry.name.endsWith(".html")) {
+        const text = await readFile(full, "utf8");
+        for (const match of text.matchAll(/<title>([^<]+)<\/title>/gi)) {
+          if (bareBrand(match[1])) problems.push(`${full}: ${match[1]}`);
+        }
+        for (const match of text.matchAll(/title:\s*(?:\{[^}]*default:\s*)?["'`]([^"'`]+)["'`]/g)) {
+          if (bareBrand(match[1])) problems.push(`${full}: ${match[1]}`);
+        }
+      }
+    }
+  }
+  const root = new URL("../", import.meta.url);
+  await walk(fileURLToPath(new URL("app", root)));
+  await walk(fileURLToPath(new URL(".next/server/app", root)));
+  return problems;
 }
 
 export function checkGuides(guides, tasks) {
@@ -353,6 +423,7 @@ function selfCheck() {
     checkGuides({ guides: { demo: { tips: [{ text: "", source_url: "" }], tasks: ["missing"] } } }, { tasks: [] }).some((error) => error.includes("5 to 8")),
     "a short prompt guide should fail",
   );
+  assert(bareBrand("WhichAI") && !bareBrand("WhichAI.today"), "a bare WhichAI title should fail");
 
   console.log("fact-check self-check ok");
 }
@@ -402,6 +473,8 @@ try {
     "/free": "../app/free/page.tsx",
     "/prompt-builder": "../app/prompt-builder/page.tsx",
     "/suggest": "../app/suggest/page.tsx",
+    "/which-ai-should-i-use": "../app/which-ai-should-i-use/page.tsx",
+    "/pick": "../app/pick/page.tsx",
   })) {
     try {
       files[path] = await readFile(new URL(relative, import.meta.url), "utf8");
@@ -409,7 +482,22 @@ try {
       // The page does not exist yet.
     }
   }
-  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides });
+  const audiences = JSON.parse(await readFile(new URL("../lib/audiences.json", import.meta.url), "utf8"));
+  const picker = JSON.parse(await readFile(new URL("../lib/picker.json", import.meta.url), "utf8"));
+  const payloads = buildPayloads({
+    models,
+    history,
+    providers,
+    archive,
+    tasks,
+    files,
+    held,
+    guides,
+    audiences,
+    picker,
+    apps,
+  });
+  if (tasks) result.errors.push(...checkPages(audiences, picker, tasks));
   result.errors.push(...checkFreshness(Object.keys(payloads), freshness, today));
   if (tasks) result.errors.push(...checkTasks(tasks, models, providers));
   if (guides) result.errors.push(...checkGuides(guides, tasks));
@@ -425,6 +513,8 @@ try {
 } catch {
   // The file exists only after a refresh that confirmed a switch.
 }
+
+result.errors.push(...(await titleProblems()));
 
 if (process.argv.includes("--links")) {
   const links = await checkLinks(models, providers, apps);

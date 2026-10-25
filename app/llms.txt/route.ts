@@ -1,4 +1,8 @@
+import { appList } from "@/lib/apps";
 import models from "@/lib/models.json";
+import audiencesFile from "@/lib/audiences.json";
+import pairsFile from "@/lib/pairs.json";
+import pickerFile from "@/lib/picker.json";
 import tasksFile from "@/lib/tasks.json";
 import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
 
@@ -42,6 +46,15 @@ https://whichai.today/data
 https://whichai.today/free
 https://whichai.today/prompt-builder
 https://whichai.today/suggest
+https://whichai.today/which-ai-should-i-use
+https://whichai.today/pick
+${pickerFile.topics.map((topic) => `https://whichai.today/pick/${topic.slug}`).join("\n")}
+${audiencesFile.audiences.map((audience) => `https://whichai.today/for/${audience.slug}`).join("\n")}
+${appList().map((app) => `https://whichai.today/apps/${app.slug}`).join("\n")}
+${pairsFile.pairs
+  .filter((pair) => appList().some((app) => app.slug === pair.left) && appList().some((app) => app.slug === pair.right))
+  .map((pair) => `https://whichai.today/vs/${pair.slug}`)
+  .join("\n")}
 https://whichai.today/prompts/claude
 https://whichai.today/prompts/chatgpt
 https://whichai.today/prompts/gemini

@@ -1,0 +1,46 @@
+{
+  "audiences": [
+    {
+      "slug": "students",
+      "name": "Students",
+      "tasks": ["explain-for-an-exam", "study-flashcards", "math-homework", "summarize-a-pdf"],
+      "free": "Start on the Free page. Use a free tier for practice, and move to a paid plan only when the limit blocks the assignment.",
+      "caution": "Do not turn in generated work as your own. Follow your school's rules on academic integrity."
+    },
+    {
+      "slug": "developers",
+      "name": "Developers",
+      "tasks": ["debug-code", "python-script", "sql-queries", "build-a-website"],
+      "free": "The open-weights pick on the coding page can run on your own machine. A hosted free tier is for drafts, not for secrets.",
+      "caution": "Do not paste secrets, private keys, or unreleased source into a chat that trains on chats by default."
+    },
+    {
+      "slug": "small-business",
+      "name": "Small businesses",
+      "tasks": ["email", "product-description", "social-captions", "logo"],
+      "free": "Use the free option on the Free page for a first draft. Pay when you need the leader for the job you do every day.",
+      "caution": "Do not invent a price, a review, or a result a customer did not have."
+    },
+    {
+      "slug": "writers-and-marketers",
+      "name": "Writers and marketers",
+      "tasks": ["blog-post", "linkedin-post", "youtube-script", "social-captions"],
+      "free": "The writing category's open-weights pick is the free starting point. The leader is the paid starting point.",
+      "caution": "Do not publish a claim you have not checked, and say when a draft was generated."
+    },
+    {
+      "slug": "lawyers",
+      "name": "Lawyers",
+      "tasks": ["review-a-contract", "review-a-lease", "summarize-a-pdf", "summarize-a-paper"],
+      "free": "A free tier is a poor place for client work. If the document cannot leave your network, use the open-weights pick and run it yourself.",
+      "caution": "This is not legal advice. Do not paste client-confidential documents into a chat that trains on chats by default."
+    },
+    {
+      "slug": "researchers",
+      "name": "Researchers",
+      "tasks": ["research-report", "fact-check-a-claim", "summarize-a-paper", "summarize-a-pdf"],
+      "free": "Use the research category's open-weights pick when the stack has to be downloadable. Otherwise start with the free tier and open every source.",
+      "caution": "Open the sources. A citation can point at a page that does not say what the draft claims."
+    }
+  ]
+}

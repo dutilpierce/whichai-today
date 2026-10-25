@@ -34,6 +34,22 @@ export default function TasksPage() {
         <p className="mt-4 text-base leading-7 text-zinc-300">
           Each task uses the current picks for one job, plus a tip that is specific to the task.
         </p>
+        {tasksFile.tasks.some((task) => "capability" in task && task.capability) ? (
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold text-white">Not ranked</h2>
+            <ul className="mt-3 flex flex-col gap-2">
+              {tasksFile.tasks
+                .filter((task) => "capability" in task && task.capability)
+                .map((task) => (
+                  <li key={task.slug}>
+                    <a href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
+                      Best AI for {task.title}
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </section>
+        ) : null}
         {groups.map(({ category, tasks }) => (
           <section key={category.slug} className="mt-10">
             <h2 className="text-xl font-semibold text-white">

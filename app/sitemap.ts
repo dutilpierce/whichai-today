@@ -1,8 +1,12 @@
 import type { MetadataRoute } from "next";
+import { appList } from "@/lib/apps";
 import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
 import { pageDates } from "@/lib/freshness";
 import { categoryEntries } from "@/lib/picks";
+import audiencesFile from "@/lib/audiences.json";
 import guidesFile from "@/lib/prompt-guides.json";
+import pairsFile from "@/lib/pairs.json";
+import pickerFile from "@/lib/picker.json";
 import tasksFile from "@/lib/tasks.json";
 
 function item(path: string, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"], priority: number) {
@@ -25,6 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     item("/free", "daily", 0.6),
     item("/prompt-builder", "monthly", 0.5),
     item("/suggest", "monthly", 0.3),
+    item("/which-ai-should-i-use", "daily", 0.8),
+    item("/pick", "monthly", 0.5),
+    ...pickerFile.topics.map((topic) => item(`/pick/${topic.slug}`, "monthly", 0.4)),
+    ...audiencesFile.audiences.map((audience) => item(`/for/${audience.slug}`, "weekly", 0.5)),
+    ...appList().map((app) => item(`/apps/${app.slug}`, "weekly", 0.5)),
+    ...pairsFile.pairs
+      .filter((pair) => appList().some((app) => app.slug === pair.left) && appList().some((app) => app.slug === pair.right))
+      .map((pair) => item(`/vs/${pair.slug}`, "daily", 0.6)),
     ...Object.keys(guidesFile.guides).map((assistant) => item(`/prompts/${assistant}`, "monthly", 0.5)),
     item("/embed", "weekly", 0.4),
     item("/tasks", "weekly", 0.6),

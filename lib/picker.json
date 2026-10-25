@@ -1,0 +1,64 @@
+{
+  "topics": [
+    {
+      "slug": "write",
+      "name": "Write something",
+      "goals": [
+        { "label": "Write an email", "task": "email" },
+        { "label": "Rewrite a resume", "task": "resume" },
+        { "label": "Draft a blog post", "task": "blog-post" },
+        { "label": "Write a cover letter", "task": "cover-letter" }
+      ]
+    },
+    {
+      "slug": "build",
+      "name": "Build something",
+      "goals": [
+        { "label": "Fix a bug", "task": "debug-code" },
+        { "label": "Build a website", "task": "build-a-website" },
+        { "label": "Write a script", "task": "python-script" },
+        { "label": "Write a query", "task": "sql-queries" }
+      ]
+    },
+    {
+      "slug": "study",
+      "name": "Study",
+      "goals": [
+        { "label": "Explain it for an exam", "task": "explain-for-an-exam" },
+        { "label": "Make flashcards", "task": "study-flashcards" },
+        { "label": "Work a math problem", "task": "math-homework" },
+        { "label": "Summarize a reading", "task": "summarize-a-pdf" }
+      ]
+    },
+    {
+      "slug": "look-it-up",
+      "name": "Look something up",
+      "goals": [
+        { "label": "Write a research report", "task": "research-report" },
+        { "label": "Fact-check a claim", "task": "fact-check-a-claim" },
+        { "label": "Summarize a paper", "task": "summarize-a-paper" },
+        { "label": "Turn a meeting into notes", "task": "meeting-notes" }
+      ]
+    },
+    {
+      "slug": "pictures",
+      "name": "Make a picture or clip",
+      "goals": [
+        { "label": "Make a logo", "task": "logo" },
+        { "label": "Make a product photo", "task": "product-photo" },
+        { "label": "Make a thumbnail", "task": "thumbnail" },
+        { "label": "Edit a photo", "task": "edit-a-photo" }
+      ]
+    },
+    {
+      "slug": "money",
+      "name": "Money questions",
+      "goals": [
+        { "label": "Compare a loan", "task": "compare-a-loan" },
+        { "label": "Plan for retirement", "task": "plan-retirement" },
+        { "label": "Check a tax question", "task": "check-a-tax-question" },
+        { "label": "Understand a mortgage", "task": "explain-a-mortgage" }
+      ]
+    }
+  ]
+}

@@ -192,14 +192,8 @@ export default function AboutPage() {
         How WhichAI.today works
       </h2>
       <p className="mt-4 text-base leading-7 text-zinc-300">
-        Every recommendation comes from one of six categories:{" "}
-        <a href="/coding" className="text-white hover:text-emerald-200">coding</a>,{" "}
-        <a href="/legal" className="text-white hover:text-emerald-200">legal and long documents</a>,{" "}
-        <a href="/writing" className="text-white hover:text-emerald-200">writing and marketing</a>,{" "}
-        <a href="/reasoning" className="text-white hover:text-emerald-200">reasoning and math</a>,{" "}
-        <a href="/speed" className="text-white hover:text-emerald-200">speed and high volume</a>, and a{" "}
-        <a href="/general" className="text-white hover:text-emerald-200">general catch-all</a>{" "}
-        for everyday tasks. Each has its own page with the current picks and the leader history. Picks are
+        Every ranked recommendation comes from a category in the table above. Each has its own page
+        with the current picks and the leader history. Picks are
         grounded in public evaluations from LMArena, Artificial Analysis, Vals
         AI, SWE-bench, GPQA, and Humanity&apos;s Last Exam.
       </p>
@@ -252,6 +246,9 @@ export default function AboutPage() {
       </h2>
       <p className="mt-4 text-base leading-7 text-zinc-300">
         No paid placement, no affiliate links in the picks, and no provider sponsorship. A model is listed because of the public board for that job.
+      </p>
+      <p className="mt-4 text-base leading-7 text-zinc-300">
+        WhichAI.today is not affiliated with other sites using similar names.
       </p>
       <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">
         Corrections

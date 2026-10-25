@@ -1,0 +1,46 @@
+{
+  "pairs": [
+    {
+      "slug": "chatgpt-vs-claude",
+      "left": "chatgpt",
+      "right": "claude",
+      "left_if": "Pick ChatGPT if you want one chat app for writing and search.",
+      "right_if": "Pick Claude if the work is code or a long document."
+    },
+    {
+      "slug": "claude-vs-gemini",
+      "left": "claude",
+      "right": "gemini",
+      "left_if": "Pick Claude if the work is code or a long document.",
+      "right_if": "Pick Gemini if you already work in Google's tools."
+    },
+    {
+      "slug": "chatgpt-vs-gemini",
+      "left": "chatgpt",
+      "right": "gemini",
+      "left_if": "Pick ChatGPT if you want one chat app for writing and search.",
+      "right_if": "Pick Gemini if you already work in Google's tools."
+    },
+    {
+      "slug": "perplexity-vs-chatgpt",
+      "left": "perplexity",
+      "right": "chatgpt",
+      "left_if": "Pick Perplexity if the job is finding sources.",
+      "right_if": "Pick ChatGPT if you also need writing and files in the same app."
+    },
+    {
+      "slug": "copilot-vs-chatgpt",
+      "left": "copilot",
+      "right": "chatgpt",
+      "left_if": "Pick Copilot if you want answers inside Microsoft 365.",
+      "right_if": "Pick ChatGPT if the work is not tied to Microsoft's apps."
+    },
+    {
+      "slug": "cursor-vs-github-copilot",
+      "left": "cursor",
+      "right": "github-copilot",
+      "left_if": "Pick Cursor if you want an editor built around the model.",
+      "right_if": "Pick GitHub Copilot if you want suggestions inside the editor you already use."
+    }
+  ]
+}
