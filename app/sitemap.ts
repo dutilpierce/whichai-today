@@ -21,6 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     item("/alerts", "weekly", 0.5),
     item("/privacy", "monthly", 0.3),
     item("/data", "daily", 0.5),
+    item("/free", "daily", 0.6),
     item("/embed", "weekly", 0.4),
     item("/tasks", "weekly", 0.6),
     ...tasksFile.tasks.map((task) => item(`/tasks/${task.slug}`, "daily", 0.6)),

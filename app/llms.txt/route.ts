@@ -39,6 +39,7 @@ https://whichai.today/methodology
 https://whichai.today/alerts
 https://whichai.today/privacy
 https://whichai.today/data
+https://whichai.today/free
 https://whichai.today/embed
 ${pages}
 

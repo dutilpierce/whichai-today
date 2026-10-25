@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { ModelCard } from "@/components/ModelCard";
+import { OptionsPanel } from "@/components/OptionsPanel";
 import { PromptPanel } from "@/components/PromptPanel";
 import { StageCard } from "@/components/StageCard";
 import { Thinking } from "@/components/Thinking";
@@ -9,6 +10,7 @@ import { appsWithCapability } from "@/lib/apps";
 import { intentNotice, matchIntent, type UnrankedIntent } from "@/lib/intents";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
+import { bestInside, decodeChoice, encodeChoice, readSavedChoice, saveChoice, type Choice, DEFAULT_CHOICE } from "@/lib/options";
 
 type PlanStage = {
   name: string;
@@ -47,6 +49,7 @@ export default function Home() {
   const [planError, setPlanError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [choice, setChoice] = useState<Choice>(DEFAULT_CHOICE);
   const requestId = useRef(0);
 
   function utmSearch(extra?: Record<string, string>) {
@@ -155,7 +158,10 @@ function encodePlan(value: Plan) {
       }
     }
 
-    const q = new URLSearchParams(window.location.search).get("q");
+    const params = new URLSearchParams(window.location.search);
+    const opt = params.get("opt");
+    setChoice(opt ? decodeChoice(opt) : readSavedChoice());
+    const q = params.get("q");
     if (!q?.trim()) return;
     setQuery(q);
     const unranked = matchIntent(q);
@@ -258,10 +264,16 @@ function encodePlan(value: Plan) {
     }
   }
 
+  function updateChoice(next: Choice) {
+    setChoice(next);
+    saveChoice(next);
+  }
+
   async function copyLink() {
     if (!category) return;
+    const opt = encodeChoice(choice);
     const url = query.trim()
-      ? `${window.location.origin}/?q=${encodeURIComponent(query.trim())}`
+      ? `${window.location.origin}/?q=${encodeURIComponent(query.trim())}${opt ? `&opt=${encodeURIComponent(opt)}` : ""}`
       : `${window.location.origin}/${category.slug}`;
     try {
       await navigator.clipboard.writeText(url);
@@ -352,7 +364,9 @@ function encodePlan(value: Plan) {
             {loading ? "Finding…" : "Find"}
           </button>
         </form>
-        ) : (
+        ) : null}
+        {mode === "quick" ? <OptionsPanel choice={choice} onChange={updateChoice} /> : null}
+        {mode === "plan" ? (
         <form onSubmit={onPlan} className="mt-4 flex flex-col gap-3">
           <textarea
             value={description}
@@ -370,7 +384,7 @@ function encodePlan(value: Plan) {
             {loading ? "Planning…" : "Plan it"}
           </button>
         </form>
-        )}
+        ) : null}
 
         {mode === "quick" && (
         <div className="mt-4 flex flex-wrap gap-2">
@@ -431,6 +445,9 @@ function encodePlan(value: Plan) {
             className="mt-10 flex flex-col gap-4"
             style={{ animation: "whichai-fade 0.35s ease" }}
           >
+            {bestInside(category, choice) ? (
+              <p className="text-sm leading-6 text-zinc-200">{bestInside(category, choice)}</p>
+            ) : null}
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm font-medium text-zinc-400">
               <p>
                 {category.emoji} {category.display_name}

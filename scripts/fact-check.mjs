@@ -372,6 +372,7 @@ try {
     "/methodology": "../app/methodology/page.tsx",
     "/embed": "../app/embed/page.tsx",
     "/data": "../app/data/page.tsx",
+    "/free": "../app/free/page.tsx",
   })) {
     try {
       files[path] = await readFile(new URL(relative, import.meta.url), "utf8");

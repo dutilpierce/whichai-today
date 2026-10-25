@@ -203,6 +203,10 @@
     "/data": {
       "changed": "2026-10-24",
       "hash": "a3aa1bf63f138c2b"
+    },
+    "/free": {
+      "changed": "2026-10-25",
+      "hash": "de4e6e862ddbc2ac"
     }
   }
 }

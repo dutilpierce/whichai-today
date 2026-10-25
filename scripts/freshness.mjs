@@ -12,6 +12,7 @@ const STATIC_PAGES = {
   "/methodology": "app/methodology/page.tsx",
   "/embed": "app/embed/page.tsx",
   "/data": "app/data/page.tsx",
+  "/free": "app/free/page.tsx",
 };
 
 function slugify(name) {
