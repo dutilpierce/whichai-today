@@ -1,4 +1,5 @@
 import { UNRANKED_INTENTS } from "@/lib/intents";
+import { incr } from "@/lib/store";
 
 const COUNTED = new Set<string>(UNRANKED_INTENTS);
 
@@ -9,13 +10,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Unknown event" }, { status: 400 });
   }
 
-  const url = process.env.UPSTASH_REDIS_REST_URL;
-  const token = process.env.UPSTASH_REDIS_REST_TOKEN;
-  if (url && token) {
-    await fetch(`${url}/incr/notranked:${intent}`, {
-      headers: { Authorization: `Bearer ${token}` },
-    }).catch(() => null);
-  }
+  await incr(`notranked:${intent}`);
 
   return new Response(null, { status: 204 });
 }

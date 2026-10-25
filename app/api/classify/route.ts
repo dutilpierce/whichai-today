@@ -1,5 +1,6 @@
 import { categoryGuide, categoryKeys, generateJson } from "@/lib/gemini";
 import { UNRANKED_INTENTS, type UnrankedIntent } from "@/lib/intents";
+import { allow } from "@/lib/store";
 
 const FALLBACK = "general";
 const MODEL = process.env.CLASSIFIER_MODEL ?? "gemini-3.5-flash-lite";
@@ -31,6 +32,9 @@ export async function POST(request: Request) {
 
   if (!query || !process.env.GEMINI_API_KEY) {
     return Response.json({ category: FALLBACK, intent: "none" });
+  }
+  if (!(await allow(request, "classify", 30, 60))) {
+    return Response.json({ error: "Too many requests" }, { status: 429 });
   }
 
   try {

@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { ModelCard } from "@/components/ModelCard";
+import { PromptPanel } from "@/components/PromptPanel";
 import { StageCard } from "@/components/StageCard";
 import { Thinking } from "@/components/Thinking";
 import { intentNotice, matchIntent, type UnrankedIntent } from "@/lib/intents";
@@ -432,6 +433,14 @@ function encodePlan(value: Plan) {
                 label="Best Open Source"
               />
             </div>
+            <PromptPanel
+              query={query}
+              categoryKey={categoryKey ?? ""}
+              modelName={category.leader.name}
+              provider={category.leader.provider}
+              href={category.leader.direct_link}
+              share
+            />
           </section>
         )}
 
@@ -454,6 +463,7 @@ function encodePlan(value: Plan) {
                   index={index + 1}
                   stage={stage}
                   category={stageCategory}
+                  categoryKey={stage.category}
                 />
               );
             })}

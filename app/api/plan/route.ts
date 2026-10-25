@@ -1,4 +1,5 @@
 import { categoryGuide, categoryKeys, generateJson } from "@/lib/gemini";
+import { allow } from "@/lib/store";
 
 const MODEL = process.env.PLANNER_MODEL ?? "gemini-3.8-flash";
 
@@ -34,6 +35,9 @@ export async function POST(request: Request) {
   }
   if (!process.env.GEMINI_API_KEY) {
     return Response.json({ error: "Planner is unavailable" }, { status: 503 });
+  }
+  if (!(await allow(request, "plan", 10, 60))) {
+    return Response.json({ error: "Too many requests" }, { status: 429 });
   }
 
   try {

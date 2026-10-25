@@ -1,3 +1,4 @@
+import { PromptPanel } from "@/components/PromptPanel";
 import type { ModelProfile } from "@/lib/match";
 
 function Pick({
@@ -50,9 +51,11 @@ export function StageCard({
   index,
   stage,
   category,
+  categoryKey,
 }: {
   index: number;
   stage: { name: string; goal: string; action: string };
+  categoryKey: string;
   category: {
     slug: string;
     emoji: string;
@@ -84,6 +87,15 @@ export function StageCard({
         <Pick model={category.leader} label="#1" slug={category.slug} featured />
         <Pick model={category.runner_up} label="Alternative" slug={category.slug} />
         <Pick model={category.open_source_pick} label="Open source" slug={category.slug} />
+      </div>
+      <div className="mt-4">
+        <PromptPanel
+          query={stage.action}
+          categoryKey={categoryKey}
+          modelName={category.leader.name}
+          provider={category.leader.provider}
+          href={category.leader.direct_link}
+        />
       </div>
     </article>
   );

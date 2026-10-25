@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { buildPayloads } from "./freshness.mjs";
+import { checkPrompt } from "../lib/prompt-rules.mjs";
 
 const MODELS = new URL("../lib/models.json", import.meta.url);
 const HISTORY = new URL("../lib/history.json", import.meta.url);
@@ -254,6 +255,29 @@ function selfCheck() {
     ).some((error) => error.includes("does not match")),
     "a task must match a real category",
   );
+
+  const promptOpts = {
+    query: "Fix the bug",
+    target: "Alpha",
+    targetProvider: "Test",
+    names: ["Beta", "Alpha"],
+    providers: ["OpenAI", "Test"],
+    boards: ["LMArena Code"],
+  };
+  const sample = [
+    "Role: Helper",
+    "Task: Fix the bug",
+    "Context: [file]",
+    "Output format: a patch",
+    "Tone: Plain and direct.",
+    "Constraints: Show the smallest change.",
+  ].join("\n");
+  assert(checkPrompt(sample, promptOpts).length === 0, `a plain prompt should pass: ${checkPrompt(sample, promptOpts).join("; ")}`);
+  assert(checkPrompt(`${sample}\nIt costs $20.`, promptOpts).some((error) => error.includes("price")), "a price should fail");
+  assert(checkPrompt(sample.replace("Helper", "Use Beta"), promptOpts).some((error) => error.includes("Beta")), "another model should fail");
+  assert(checkPrompt(`${sample}\nScore 99.`, promptOpts).some((error) => error.includes("99")), "a number outside the request should fail");
+  assert(checkPrompt("Here is the finished essay.", promptOpts).some((error) => error.includes("not instructions")), "content is not a prompt");
+  assert(checkPrompt(`${sample}\n1. Read it.\n2. Fix it.`, promptOpts).length === 0, "step numbers are allowed");
 
   console.log("fact-check self-check ok");
 }
