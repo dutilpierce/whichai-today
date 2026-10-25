@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     item("/data", "daily", 0.5),
     item("/free", "daily", 0.6),
     item("/prompt-builder", "monthly", 0.5),
+    item("/suggest", "monthly", 0.3),
     ...Object.keys(guidesFile.guides).map((assistant) => item(`/prompts/${assistant}`, "monthly", 0.5)),
     item("/embed", "weekly", 0.4),
     item("/tasks", "weekly", 0.6),

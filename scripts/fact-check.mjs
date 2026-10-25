@@ -401,6 +401,7 @@ try {
     "/data": "../app/data/page.tsx",
     "/free": "../app/free/page.tsx",
     "/prompt-builder": "../app/prompt-builder/page.tsx",
+    "/suggest": "../app/suggest/page.tsx",
   })) {
     try {
       files[path] = await readFile(new URL(relative, import.meta.url), "utf8");

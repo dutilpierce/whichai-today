@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useRef, useState } from "react";
+import { Feedback } from "@/components/Feedback";
 import { ModelCard } from "@/components/ModelCard";
 import { OptionsPanel } from "@/components/OptionsPanel";
 import { PromptPanel } from "@/components/PromptPanel";
@@ -11,6 +12,7 @@ import { intentNotice, matchIntent, type UnrankedIntent } from "@/lib/intents";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
 import { bestInside, decodeChoice, encodeChoice, readSavedChoice, saveChoice, type Choice, DEFAULT_CHOICE } from "@/lib/options";
+import { sensitiveKind, sensitiveLine } from "@/lib/sensitive";
 
 type PlanStage = {
   name: string;
@@ -50,6 +52,8 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [choice, setChoice] = useState<Choice>(DEFAULT_CHOICE);
+  const [recommendations, setRecommendations] = useState(0);
+  const [feedbackOn, setFeedbackOn] = useState(false);
   const requestId = useRef(0);
 
   function utmSearch(extra?: Record<string, string>) {
@@ -205,9 +209,31 @@ function encodePlan(value: Plan) {
     fetch("/api/event", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ intent }),
+      body: JSON.stringify({ type: "notranked", intent }),
     }).catch(() => {});
   }, [intent]);
+
+  useEffect(() => {
+    if (!categoryKey) return;
+    fetch("/api/event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type: "result", category: categoryKey }),
+    }).catch(() => {});
+  }, [categoryKey]);
+
+  useEffect(() => {
+    fetch("/api/stats")
+      .then((res) => res.json())
+      .then((data) => {
+        if (!data?.enabled) return;
+        setFeedbackOn(true);
+        if (typeof data.recommendations === "number" && data.recommendations > 0) {
+          setRecommendations(data.recommendations);
+        }
+      })
+      .catch(() => {});
+  }, []);
 
   async function onPlan(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -366,6 +392,9 @@ function encodePlan(value: Plan) {
         </form>
         ) : null}
         {mode === "quick" ? <OptionsPanel choice={choice} onChange={updateChoice} /> : null}
+        {recommendations > 0 ? (
+          <p className="mt-3 text-xs text-zinc-500">{recommendations} recommendations given</p>
+        ) : null}
         {mode === "plan" ? (
         <form onSubmit={onPlan} className="mt-4 flex flex-col gap-3">
           <textarea
@@ -474,14 +503,25 @@ function encodePlan(value: Plan) {
                 label="Best Open Source"
               />
             </div>
-            <PromptPanel
-              query={query}
-              categoryKey={categoryKey ?? ""}
-              modelName={category.leader.name}
-              provider={category.leader.provider}
-              href={category.leader.direct_link}
-              share
-            />
+            {sensitiveKind(query, categoryKey ?? "") === "crisis" ? (
+              <p className="text-sm leading-6 text-amber-200">{sensitiveLine("crisis")}</p>
+            ) : (
+              <>
+                {sensitiveLine(sensitiveKind(query, categoryKey ?? "")) ? (
+                  <p className="text-sm leading-6 text-amber-200">{sensitiveLine(sensitiveKind(query, categoryKey ?? ""))}</p>
+                ) : null}
+                <PromptPanel
+                  query={query}
+                  categoryKey={categoryKey ?? ""}
+                  modelName={category.leader.name}
+                  provider={category.leader.provider}
+                  href={category.leader.direct_link}
+                  share
+                />
+              </>
+            )}
+            <p className="text-xs text-zinc-500">No affiliate links. No paid placement.</p>
+            {feedbackOn ? <Feedback category={categoryKey ?? ""} query={query} /> : null}
           </section>
         )}
 

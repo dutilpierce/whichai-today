@@ -1,5 +1,6 @@
 import { PromptPanel } from "@/components/PromptPanel";
 import type { ModelProfile } from "@/lib/match";
+import { sensitiveKind, sensitiveLine } from "@/lib/sensitive";
 
 function Pick({
   model,
@@ -89,13 +90,24 @@ export function StageCard({
         <Pick model={category.open_source_pick} label="Open source" slug={category.slug} />
       </div>
       <div className="mt-4">
-        <PromptPanel
-          query={stage.action}
-          categoryKey={categoryKey}
-          modelName={category.leader.name}
-          provider={category.leader.provider}
-          href={category.leader.direct_link}
-        />
+        {sensitiveKind(stage.action, categoryKey) === "crisis" ? (
+          <p className="text-sm leading-6 text-amber-200">{sensitiveLine("crisis")}</p>
+        ) : (
+          <>
+            {sensitiveLine(sensitiveKind(stage.action, categoryKey)) ? (
+              <p className="mb-3 text-sm leading-6 text-amber-200">
+                {sensitiveLine(sensitiveKind(stage.action, categoryKey))}
+              </p>
+            ) : null}
+            <PromptPanel
+              query={stage.action}
+              categoryKey={categoryKey}
+              modelName={category.leader.name}
+              provider={category.leader.provider}
+              href={category.leader.direct_link}
+            />
+          </>
+        )}
       </div>
     </article>
   );

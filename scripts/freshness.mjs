@@ -14,6 +14,7 @@ const STATIC_PAGES = {
   "/data": "app/data/page.tsx",
   "/free": "app/free/page.tsx",
   "/prompt-builder": "app/prompt-builder/page.tsx",
+  "/suggest": "app/suggest/page.tsx",
 };
 
 function slugify(name) {

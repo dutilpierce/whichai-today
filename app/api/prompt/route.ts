@@ -2,6 +2,7 @@ import { generateJson } from "@/lib/gemini";
 import { checkPrompt } from "@/lib/prompt-rules.mjs";
 import { assemblePrompt, isCategoryKey, isTweak, tweakNotes } from "@/lib/prompt-text";
 import { knownModel, promptKey, promptRulesInput } from "@/lib/prompt";
+import { sensitiveKind } from "@/lib/sensitive";
 import { allow, cached } from "@/lib/store";
 
 const MODEL = process.env.PROMPT_MODEL ?? "gemini-3.5-flash-lite";
@@ -36,6 +37,8 @@ export async function POST(request: Request) {
   if (!query || !isCategoryKey(category) || !knownModel(target)) {
     return Response.json({ prompt: null });
   }
+  const kind = sensitiveKind(query, category);
+  if (kind === "crisis") return Response.json({ prompt: null });
   if (!process.env.GEMINI_API_KEY) {
     return Response.json({ prompt: null });
   }
@@ -54,6 +57,7 @@ export async function POST(request: Request) {
           "Use [brackets] for anything the user still has to fill in.",
           "Keep Role, Task, Context, Output format, Tone, and Constraints as separate fields.",
           tweaks.length ? `Apply these changes, in order: ${tweakNotes(tweaks)}` : "",
+          kind ? "The task is sensitive. The constraints must say the answer is educational and not personalized advice." : "",
         ]
           .filter(Boolean)
           .join(" "),
@@ -79,7 +83,7 @@ export async function POST(request: Request) {
         context: clean(data.context) || "[Add any files, examples, or details still needed]",
         format: clean(data.format) || "[Say what the answer should look like]",
         tone: clean(data.tone) || "Plain and direct.",
-        constraints: clean(data.constraints) || "Follow only what the user asked.",
+        constraints: `${clean(data.constraints) || "Follow only what the user asked."}${kind ? " Educational, not personalized advice." : ""}`,
       });
       return checkPrompt(text, { ...rules, query }).length === 0 ? text : null;
     });

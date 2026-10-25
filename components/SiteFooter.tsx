@@ -11,7 +11,7 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
       <div className="flex flex-wrap items-center justify-between gap-3">
         <p>
           Rankings compiled from LMArena, Artificial Analysis, Vals AI, and
-          SWE-bench, last reviewed {reviewed}.
+          SWE-bench, last reviewed {reviewed}. No affiliate links. No paid placement.
         </p>
         <nav className="flex items-center gap-4" aria-label="Site">
           <a href="/alerts" className="text-zinc-400 hover:text-white">
@@ -36,6 +36,9 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
           </a>
           <a href="/methodology" className="text-zinc-400 hover:text-white">
             Methodology
+          </a>
+          <a href="/suggest" className="text-zinc-400 hover:text-white">
+            Suggest
           </a>
           <a href="/about" className="text-zinc-400 hover:text-white">
             About

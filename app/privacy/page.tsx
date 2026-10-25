@@ -49,6 +49,11 @@ export default function PrivacyPage() {
             Rankings, prices, and privacy defaults on the cards come from public pages.
             Each card links the source.
           </p>
+          <p>
+            A thumbs-down and a suggestion store the category and up to 300 characters of what you typed.
+            A thumbs-up stores only the category. These notes are not used to change a ranking automatically,
+            and they are not used to train a model. The recommendation counter stores a number, not a person.
+          </p>
         </div>
       </main>
     </div>

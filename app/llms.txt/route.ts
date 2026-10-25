@@ -41,6 +41,7 @@ https://whichai.today/privacy
 https://whichai.today/data
 https://whichai.today/free
 https://whichai.today/prompt-builder
+https://whichai.today/suggest
 https://whichai.today/prompts/claude
 https://whichai.today/prompts/chatgpt
 https://whichai.today/prompts/gemini

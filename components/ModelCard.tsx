@@ -164,6 +164,11 @@ export function ModelCard({
           ) : null}
           <Detail label="When not to use it">{model.when_not}</Detail>
           <Detail label="Starter prompt">{model.starter_prompt}</Detail>
+          <Detail label="Something off?">
+            <a href="/suggest" className="text-emerald-300 hover:text-emerald-200">
+              Suggest a model, app, or correction
+            </a>
+          </Detail>
         </dl>
       </details>
     </article>

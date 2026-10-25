@@ -72,6 +72,10 @@ export async function cached(key: string, seconds: number, load: () => Promise<s
   return value;
 }
 
+export function storageEnabled() {
+  return Boolean(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
+}
+
 export async function incr(key: string) {
   const client = redis();
   if (!client) return;
@@ -79,5 +83,29 @@ export async function incr(key: string) {
     await client.incr(key);
   } catch (error) {
     console.error("count skipped", error);
+  }
+}
+
+export async function readCount(key: string) {
+  const client = redis();
+  if (!client) return 0;
+  try {
+    const value = await client.get<number | string>(key);
+    const count = typeof value === "number" ? value : Number(value);
+    return Number.isFinite(count) && count > 0 ? count : 0;
+  } catch (error) {
+    console.error("count read skipped", error);
+    return 0;
+  }
+}
+
+export async function pushNote(key: string, value: string) {
+  const client = redis();
+  if (!client) return;
+  try {
+    await client.lpush(key, value);
+    await client.ltrim(key, 0, 99);
+  } catch (error) {
+    console.error("note skipped", error);
   }
 }

@@ -198,7 +198,7 @@
     },
     "/privacy": {
       "changed": "2026-10-25",
-      "hash": "f481365cbe4222c6"
+      "hash": "4bfdfd63cbc5300c"
     },
     "/alerts": {
       "changed": "2026-10-24",
@@ -223,6 +223,10 @@
     "/prompt-builder": {
       "changed": "2026-10-25",
       "hash": "7f542337409199f7"
+    },
+    "/suggest": {
+      "changed": "2026-10-25",
+      "hash": "b829b70199c10f27"
     }
   }
 }
