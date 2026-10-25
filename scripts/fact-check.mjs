@@ -41,6 +41,23 @@ export function checkTasks(tasks, models, providers) {
   return errors;
 }
 
+export function checkGuides(guides, tasks) {
+  const errors = [];
+  const slugs = new Set((tasks?.tasks ?? []).map((task) => task.slug));
+  for (const [slug, guide] of Object.entries(guides?.guides ?? {})) {
+    const tips = guide?.tips ?? [];
+    if (tips.length < 5 || tips.length > 8) errors.push(`${slug} needs 5 to 8 tips`);
+    for (const tip of tips) {
+      if (!tip?.text?.trim()) errors.push(`${slug} has an empty tip`);
+      if (!String(tip?.source_url ?? "").startsWith("https://")) errors.push(`${slug} tip has no source`);
+    }
+    for (const task of guide?.tasks ?? []) {
+      if (!slugs.has(task)) errors.push(`${slug} links missing task ${task}`);
+    }
+  }
+  return errors;
+}
+
 export function checkFreshness(paths, freshness, today) {
   const errors = [];
   for (const path of paths) {
@@ -332,6 +349,10 @@ function selfCheck() {
   assert(staleApp.some((error) => error.includes("no source")), "an app price needs a source");
   assert(staleApp.some((error) => error.includes("not a tracked model")), "an app model must be tracked");
   assert(checkApps({ apps: [] }, models, today).length === 0, "an empty app list should pass");
+  assert(
+    checkGuides({ guides: { demo: { tips: [{ text: "", source_url: "" }], tasks: ["missing"] } } }, { tasks: [] }).some((error) => error.includes("5 to 8")),
+    "a short prompt guide should fail",
+  );
 
   console.log("fact-check self-check ok");
 }
@@ -364,6 +385,12 @@ try {
   } catch {
     tasks = null;
   }
+  let guides = null;
+  try {
+    guides = JSON.parse(await readFile(new URL("../lib/prompt-guides.json", import.meta.url), "utf8"));
+  } catch {
+    guides = null;
+  }
   const files = {};
   for (const [path, relative] of Object.entries({
     "/about": "../app/about/page.tsx",
@@ -373,6 +400,7 @@ try {
     "/embed": "../app/embed/page.tsx",
     "/data": "../app/data/page.tsx",
     "/free": "../app/free/page.tsx",
+    "/prompt-builder": "../app/prompt-builder/page.tsx",
   })) {
     try {
       files[path] = await readFile(new URL(relative, import.meta.url), "utf8");
@@ -380,9 +408,10 @@ try {
       // The page does not exist yet.
     }
   }
-  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held });
+  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides });
   result.errors.push(...checkFreshness(Object.keys(payloads), freshness, today));
   if (tasks) result.errors.push(...checkTasks(tasks, models, providers));
+  if (guides) result.errors.push(...checkGuides(guides, tasks));
 } catch (error) {
   result.errors.push(error instanceof Error ? error.message : "freshness.json is missing");
 }

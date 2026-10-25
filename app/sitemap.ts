@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
 import { pageDates } from "@/lib/freshness";
 import { categoryEntries } from "@/lib/picks";
+import guidesFile from "@/lib/prompt-guides.json";
 import tasksFile from "@/lib/tasks.json";
 
 function item(path: string, changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"], priority: number) {
@@ -22,6 +23,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     item("/privacy", "monthly", 0.3),
     item("/data", "daily", 0.5),
     item("/free", "daily", 0.6),
+    item("/prompt-builder", "monthly", 0.5),
+    ...Object.keys(guidesFile.guides).map((assistant) => item(`/prompts/${assistant}`, "monthly", 0.5)),
     item("/embed", "weekly", 0.4),
     item("/tasks", "weekly", 0.6),
     ...tasksFile.tasks.map((task) => item(`/tasks/${task.slug}`, "daily", 0.6)),

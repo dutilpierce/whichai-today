@@ -1,0 +1,46 @@
+{
+  "guides": {
+    "claude": {
+      "name": "Claude",
+      "provider": "Anthropic",
+      "source_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices",
+      "tips": [
+        { "text": "Be specific about the output format and the constraints. If you want more than the bare task, say so.", "source_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices" },
+        { "text": "Give the context a new coworker would need: who it is for, and what done looks like.", "source_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices" },
+        { "text": "Show an example of the output you want, in the format you want it back.", "source_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices" },
+        { "text": "Put a long document in XML tags so the instruction and the source stay separate.", "source_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices" },
+        { "text": "Give Claude a role when the job needs a point of view, such as a careful editor.", "source_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices" },
+        { "text": "Say how long the answer should be, and ask it to skip the preamble if you only want the result.", "source_url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-4-best-practices" }
+      ],
+      "tasks": ["debug-code", "python-script", "review-a-contract", "blog-post", "cover-letter", "math-homework"]
+    },
+    "chatgpt": {
+      "name": "ChatGPT",
+      "provider": "OpenAI",
+      "source_url": "https://developers.openai.com/api/docs/guides/prompt-engineering",
+      "tips": [
+        { "text": "Put standing instructions, such as tone and a correct example, where they outrank the one-off request.", "source_url": "https://developers.openai.com/api/docs/guides/prompt-engineering" },
+        { "text": "Separate identity, instructions, and examples instead of one undifferentiated block.", "source_url": "https://developers.openai.com/api/docs/guides/prompt-engineering" },
+        { "text": "Markdown and XML both work for marking off sections of a long prompt.", "source_url": "https://developers.openai.com/api/docs/guides/prompt-engineering" },
+        { "text": "Include the context the answer depends on, instead of assuming the model already has it.", "source_url": "https://developers.openai.com/api/docs/guides/prompt-engineering" },
+        { "text": "Say the format, the length, and what to leave out. Current models follow specific instructions.", "source_url": "https://developers.openai.com/api/docs/guides/prompt-engineering" },
+        { "text": "Keep a copy of a prompt that worked. Behavior can change when the model changes.", "source_url": "https://developers.openai.com/api/docs/guides/prompt-engineering" }
+      ],
+      "tasks": ["build-a-website", "sql-queries", "excel-formulas", "linkedin-post", "product-description", "analyze-a-spreadsheet"]
+    },
+    "gemini": {
+      "name": "Gemini",
+      "provider": "Google",
+      "source_url": "https://ai.google.dev/gemini-api/docs/prompting-strategies",
+      "tips": [
+        { "text": "Say whether the input is a question, a task to perform, or text to finish.", "source_url": "https://ai.google.dev/gemini-api/docs/prompting-strategies" },
+        { "text": "State the constraints: how long, what to include, and what to leave out.", "source_url": "https://ai.google.dev/gemini-api/docs/prompting-strategies" },
+        { "text": "Name the response format, such as a list or a table.", "source_url": "https://ai.google.dev/gemini-api/docs/prompting-strategies" },
+        { "text": "Add a few examples when the format is easy to miss, and keep those examples in one format.", "source_url": "https://ai.google.dev/gemini-api/docs/prompting-strategies" },
+        { "text": "Add the background the answer needs before you ask for it.", "source_url": "https://ai.google.dev/gemini-api/docs/prompting-strategies" },
+        { "text": "Break a large job into parts instead of one crowded instruction.", "source_url": "https://ai.google.dev/gemini-api/docs/prompting-strategies" }
+      ],
+      "tasks": ["meeting-notes", "explain-for-an-exam", "plan-a-trip", "summarize-a-pdf", "summarize-a-paper", "sort-support-tickets"]
+    }
+  }
+}

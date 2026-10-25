@@ -25,6 +25,9 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
           <a href="/embed" className="text-zinc-400 hover:text-white">
             Embed
           </a>
+          <a href="/prompt-builder" className="text-zinc-400 hover:text-white">
+            Prompt builder
+          </a>
           <a href="/free" className="text-zinc-400 hover:text-white">
             Free
           </a>

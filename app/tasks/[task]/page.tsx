@@ -90,6 +90,9 @@ export default async function TaskPage({
           <a href={`/${category.slug}`} className="text-emerald-300 hover:text-emerald-200">
             {category.emoji} More on {category.display_name}
           </a>
+          <a href="/prompt-builder" className="ml-4 text-zinc-400 hover:text-white">
+            Prompt builder
+          </a>
         </p>
       </main>
     </div>

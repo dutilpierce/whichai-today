@@ -13,6 +13,7 @@ const STATIC_PAGES = {
   "/embed": "app/embed/page.tsx",
   "/data": "app/data/page.tsx",
   "/free": "app/free/page.tsx",
+  "/prompt-builder": "app/prompt-builder/page.tsx",
 };
 
 function slugify(name) {
@@ -45,7 +46,7 @@ function entryKind(entry) {
   return entry.type === "methodology" ? "methodology" : "change";
 }
 
-export function buildPayloads({ models, history, providers, archive, tasks, files, held }) {
+export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides }) {
   const skip = new Set(held?.pages ?? []);
   const pages = {};
   const categories = Object.values(models.categories);
@@ -140,6 +141,10 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
   }
   if ((tasks?.tasks ?? []).length) put("/tasks", tasks.tasks.map((task) => task.slug));
 
+  for (const [slug, guide] of Object.entries(guides?.guides ?? {})) {
+    put(`/prompts/${slug}`, { tips: guide.tips, tasks: guide.tasks, provider: guide.provider });
+  }
+
   for (const [path, text] of Object.entries(files ?? {})) {
     if (typeof text === "string") put(path, { source: text });
   }
@@ -188,7 +193,13 @@ async function main() {
       // The page does not exist yet.
     }
   }
-  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held });
+  let guides = null;
+  try {
+    guides = JSON.parse(await readFile(new URL("lib/prompt-guides.json", ROOT), "utf8"));
+  } catch {
+    guides = null;
+  }
+  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides });
   const existing = (await readJson(FRESHNESS)) ?? { pages: {} };
   const today = (models.last_updated ?? new Date().toISOString()).slice(0, 10);
   const next = applyFreshness(existing, payloads, today);

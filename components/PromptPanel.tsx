@@ -181,6 +181,11 @@ export function PromptPanel({
         ))}
       </ul>
       {hint ? <p className="mt-2 text-xs text-zinc-500">{hint}</p> : null}
+      <p className="mt-3 text-xs">
+        <a href="/prompt-builder" className="text-zinc-400 hover:text-white">
+          Open the prompt builder
+        </a>
+      </p>
     </div>
   );
 }

@@ -40,6 +40,10 @@ https://whichai.today/alerts
 https://whichai.today/privacy
 https://whichai.today/data
 https://whichai.today/free
+https://whichai.today/prompt-builder
+https://whichai.today/prompts/claude
+https://whichai.today/prompts/chatgpt
+https://whichai.today/prompts/gemini
 https://whichai.today/embed
 ${pages}
 
