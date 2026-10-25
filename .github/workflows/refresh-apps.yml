@@ -1,0 +1,66 @@
+name: Refresh app facts
+
+on:
+  schedule:
+    - cron: "0 11 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-apps
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Kill switch
+        id: kill
+        run: node scripts/kill-switch.mjs
+
+      - name: Research apps
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/refresh-apps.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Freshness
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/freshness.mjs
+
+      - name: Fact-check
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/fact-check.mjs
+
+      - name: Publish if anything changed
+        if: steps.kill.outputs.publish == 'true'
+        run: |
+          if git diff --quiet -- lib/apps.json lib/freshness.json; then
+            echo "Apps unchanged."
+          else
+            git config user.name "whichai-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add lib/apps.json lib/freshness.json
+            git commit -m "Refresh app facts for $(date -u +%Y-%m-%d)."
+            git push
+          fi
+
+      - name: Ping search engines
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/indexnow.mjs
+
+      - name: Tell the owner
+        if: failure()
+        run: node scripts/notify-owner.mjs "The app refresh was held back. Check the Actions log."
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}

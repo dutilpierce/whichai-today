@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { appsOffering, offerFor, planPrice } from "@/lib/apps";
 import providers from "@/lib/providers.json";
 import { held } from "@/lib/held";
 import { ACCESS_LABEL, leaderBadge, modelSlug } from "@/lib/picks";
@@ -141,6 +142,26 @@ export function ModelCard({
               "Privacy default not checked for this provider yet."
             )}
           </Detail>
+          {appsOffering(model.name).slice(0, 3).length ? (
+            <Detail label="Apps that offer this model">
+              <ul className="flex flex-col gap-2">
+                {appsOffering(model.name).slice(0, 3).map((app) => {
+                  const offer = offerFor(app, model.name);
+                  return (
+                    <li key={app.slug}>
+                      <a href={app.link} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                        {app.name}
+                      </a>
+                      {": "}
+                      {offer.offered?.plan ?? offer.plan?.name}
+                      {offer.plan ? `, ${planPrice(offer.plan.price_usd_month)}` : ""}
+                      {`, free tier ${offer.free ? "yes" : "no"}, ${app.skill}`}
+                    </li>
+                  );
+                })}
+              </ul>
+            </Detail>
+          ) : null}
           <Detail label="When not to use it">{model.when_not}</Detail>
           <Detail label="Starter prompt">{model.starter_prompt}</Detail>
         </dl>

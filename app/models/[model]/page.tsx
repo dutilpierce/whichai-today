@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { FaqList } from "@/components/FaqList";
 import { Freshness } from "@/components/Freshness";
 import { JsonLd } from "@/components/JsonLd";
+import { appsOffering, offerFor, planPrice } from "@/lib/apps";
 import { modelBySlug, modelRecords, historyMentioning } from "@/lib/catalog";
 import { ACCESS_LABEL, formatDay, historyBlurb } from "@/lib/picks";
 import { faqNode, modelFaqs, pageGraph } from "@/lib/schema";
@@ -102,6 +103,36 @@ export default async function ModelPage({
             </dd>
           </div>
         </dl>
+
+        {appsOffering(found.name).length ? (
+          <>
+            <h2 className="mt-12 text-2xl font-semibold text-white">Apps that offer this model</h2>
+            <ul className="mt-4 flex flex-col gap-3">
+              {appsOffering(found.name).map((app) => {
+                const offer = offerFor(app, found.name);
+                return (
+                  <li key={app.slug} className="text-sm leading-6 text-zinc-300">
+                    <a href={app.link} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                      {app.name}
+                    </a>
+                    {": "}
+                    {offer.offered?.plan ?? offer.plan?.name}
+                    {offer.plan ? `, ${planPrice(offer.plan.price_usd_month)}` : ""}
+                    {`, free tier ${offer.free ? "yes" : "no"}, ${app.skill}.`}
+                    {offer.plan?.source_url ? (
+                      <>
+                        {" "}
+                        <a href={offer.plan.source_url} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                          Source
+                        </a>
+                      </>
+                    ) : null}
+                  </li>
+                );
+              })}
+            </ul>
+          </>
+        ) : null}
 
         <h2 className="mt-12 text-2xl font-semibold text-white">Where it ranks</h2>
         {found.roles.length ? (

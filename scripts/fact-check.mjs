@@ -126,6 +126,34 @@ export function checkData(models, history, providers, today) {
   return { errors, facts, pages: [...new Set(pages)] };
 }
 
+export function checkApps(apps, models, today) {
+  const errors = [];
+  const known = new Set();
+  for (const category of Object.values(models.categories ?? {})) {
+    for (const slot of SLOTS) known.add(category[slot]?.name);
+  }
+  const seen = new Set();
+  for (const app of apps?.apps ?? []) {
+    const slug = app?.slug || "app";
+    if (!app?.slug || seen.has(app.slug)) errors.push(`${slug} is missing or duplicated`);
+    seen.add(app.slug);
+    if (!app.checked || daysSince(app.checked, today) > FRESH_DAYS) {
+      errors.push(`${slug} was last checked more than ${FRESH_DAYS} days ago`);
+    }
+    if (!["Beginner", "Some setup", "Technical"].includes(app.skill)) errors.push(`${slug} skill is invalid`);
+    for (const plan of app.plans ?? []) {
+      if (typeof plan.price_usd_month === "number" && !plan.source_url) {
+        errors.push(`${slug} price has no source`);
+      }
+    }
+    if (app.privacy && !app.privacy.source_url) errors.push(`${slug} privacy has no source`);
+    for (const model of app.models ?? []) {
+      if (!known.has(model.name)) errors.push(`${slug} lists ${model.name}, which is not a tracked model`);
+    }
+  }
+  return errors;
+}
+
 async function checkLink(url) {
   try {
     const res = await fetch(url, {
@@ -143,8 +171,13 @@ async function checkLink(url) {
   }
 }
 
-export async function checkLinks(models, providers) {
+export async function checkLinks(models, providers, apps = { apps: [] }) {
   const urls = new Set();
+  for (const app of apps.apps ?? []) {
+    if (app.link) urls.add(app.link);
+    if (app.privacy?.source_url) urls.add(app.privacy.source_url);
+    for (const plan of app.plans ?? []) if (plan.source_url) urls.add(plan.source_url);
+  }
   for (const privacy of Object.values(providers)) {
     if (privacy.source_url) urls.add(privacy.source_url);
   }
@@ -279,6 +312,27 @@ function selfCheck() {
   assert(checkPrompt("Here is the finished essay.", promptOpts).some((error) => error.includes("not instructions")), "content is not a prompt");
   assert(checkPrompt(`${sample}\n1. Read it.\n2. Fix it.`, promptOpts).length === 0, "step numbers are allowed");
 
+  const staleApp = checkApps(
+    {
+      apps: [
+        {
+          slug: "demo",
+          skill: "Beginner",
+          checked: "2026-01-01",
+          plans: [{ name: "Plus", price_usd_month: 20, source_url: "" }],
+          models: [{ name: "Nope", plan: "Plus" }],
+          privacy: { source_url: "" },
+        },
+      ],
+    },
+    models,
+    today,
+  );
+  assert(staleApp.some((error) => error.includes("last checked")), "a stale app should fail");
+  assert(staleApp.some((error) => error.includes("no source")), "an app price needs a source");
+  assert(staleApp.some((error) => error.includes("not a tracked model")), "an app model must be tracked");
+  assert(checkApps({ apps: [] }, models, today).length === 0, "an empty app list should pass");
+
   console.log("fact-check self-check ok");
 }
 
@@ -292,6 +346,13 @@ const models = JSON.parse(await readFile(MODELS, "utf8"));
 const history = JSON.parse(await readFile(HISTORY, "utf8"));
 const providers = JSON.parse(await readFile(PROVIDERS, "utf8"));
 const result = checkData(models, history, providers, today);
+let apps = { apps: [] };
+try {
+  apps = JSON.parse(await readFile(new URL("../lib/apps.json", import.meta.url), "utf8"));
+} catch {
+  apps = { apps: [] };
+}
+result.errors.push(...checkApps(apps, models, today));
 
 try {
   const freshness = JSON.parse(await readFile(new URL("../lib/freshness.json", import.meta.url), "utf8"));
@@ -335,7 +396,7 @@ try {
 }
 
 if (process.argv.includes("--links")) {
-  const links = await checkLinks(models, providers);
+  const links = await checkLinks(models, providers, apps);
   result.errors.push(...links.errors);
   for (const warning of links.warnings) console.warn(`warning: ${warning}`);
 }

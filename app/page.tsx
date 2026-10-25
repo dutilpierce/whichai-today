@@ -5,6 +5,7 @@ import { ModelCard } from "@/components/ModelCard";
 import { PromptPanel } from "@/components/PromptPanel";
 import { StageCard } from "@/components/StageCard";
 import { Thinking } from "@/components/Thinking";
+import { appsWithCapability } from "@/lib/apps";
 import { intentNotice, matchIntent, type UnrankedIntent } from "@/lib/intents";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
@@ -233,6 +234,17 @@ function encodePlan(value: Plan) {
   const category = categoryKey
     ? models.categories[categoryKey as keyof typeof models.categories]
     : null;
+  const capable = intent
+    ? appsWithCapability(
+        intent === "image" || intent === "design"
+          ? "image_generation"
+          : intent === "video"
+            ? "video_generation"
+            : intent === "presentation"
+              ? "presentations"
+              : "voice",
+      ).slice(0, 3)
+    : [];
 
   async function copyPlanLink() {
     if (!plan) return;
@@ -399,6 +411,18 @@ function encodePlan(value: Plan) {
             <p className="mt-2 text-sm leading-6 text-zinc-400">
               A text model is not the answer for this. Rankings will appear here once a public board exists.
             </p>
+            {capable.length ? (
+              <ul className="mt-4 flex flex-col gap-2 text-sm text-zinc-300">
+                {capable.map((app) => (
+                  <li key={app.slug}>
+                    <a href={app.link} target="_blank" rel="noopener" className="text-emerald-300 hover:text-emerald-200">
+                      {app.name}
+                    </a>{" "}
+                    includes this, from its plan page.
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </section>
         )}
 
