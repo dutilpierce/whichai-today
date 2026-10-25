@@ -179,6 +179,78 @@
       "starter_prompt": "Sketch a trip for this place and these interests. Keep each day loose, and list what I should confirm.",
       "caution": "Do not treat hours, prices, or visa rules as current. Confirm them with the official source.",
       "measured": "The general board measures everyday chat, not live travel availability."
+    },
+    {
+      "slug": "logo",
+      "title": "making a logo",
+      "category": "images",
+      "tip": "Describe the subject, the colors, and where the logo will be used. Ask for one clear version, not a sheet of options.",
+      "starter_prompt": "Make one logo for this name and this use. Keep it simple enough to read at a small size.",
+      "caution": "A generated logo can resemble an existing mark. Check it before you print or register it.",
+      "measured": "The image board measures preference on generated pictures, not trademark clearance."
+    },
+    {
+      "slug": "product-photo",
+      "title": "making a product photo",
+      "category": "images",
+      "tip": "Name the product, the background, and the angle. Ask for one photo a shopper could understand.",
+      "starter_prompt": "Make one product photo of this item on a plain background. Keep the shape accurate.",
+      "caution": "Do not present a generated photo as a picture of a product you have not made.",
+      "measured": "The image board measures picture preference, not whether the photo matches a physical product."
+    },
+    {
+      "slug": "thumbnail",
+      "title": "making a thumbnail",
+      "category": "images",
+      "tip": "Say the subject and the few words that must be readable. Ask for one thumbnail, not a poster.",
+      "starter_prompt": "Make one thumbnail for this topic. Leave the title readable and the subject large.",
+      "caution": "Do not imply a person said or did something they did not.",
+      "measured": "The image board measures picture preference, not click rate."
+    },
+    {
+      "slug": "edit-a-photo",
+      "title": "editing a photo",
+      "category": "images",
+      "tip": "Say what must stay the same and what should change. Ask for one edit.",
+      "starter_prompt": "Edit this photo as described. Change only what I named, and leave the rest alone.",
+      "caution": "Do not edit a photo of a real person into something they did not do.",
+      "measured": "The image board is mostly text-to-image. It is a weak proxy for editing an existing photo."
+    },
+    {
+      "slug": "short-ad",
+      "title": "making a short ad",
+      "category": "video",
+      "tip": "Give the product, the one point, and the length in words. Ask for a single shot, not a campaign.",
+      "starter_prompt": "Make a short ad clip for this product. Show the product and one reason to care.",
+      "caution": "Do not invent a claim about price, health, or a customer result.",
+      "measured": "The video board measures short generated clips, not whether an ad converts."
+    },
+    {
+      "slug": "animate-an-image",
+      "title": "animating an image",
+      "category": "video",
+      "tip": "Say which part should move and which part must stay still.",
+      "starter_prompt": "Animate this still image. Move only what I named, and keep the rest stable.",
+      "caution": "Do not animate a real person into an action they did not do.",
+      "measured": "The video board measures generated clips. It is a weak proxy for animating one still image."
+    },
+    {
+      "slug": "research-report",
+      "title": "writing a research report",
+      "category": "research",
+      "tip": "Ask for the sources first, then the summary. Say what would change your mind.",
+      "starter_prompt": "Research this question. List the sources, then the answer, then what is still uncertain.",
+      "caution": "Open every source. A confident paragraph can cite a page that does not say that.",
+      "measured": "The search board measures answers with web search, not a finished research paper."
+    },
+    {
+      "slug": "fact-check-a-claim",
+      "title": "fact-checking a claim",
+      "category": "research",
+      "tip": "Paste the claim and ask what would confirm it and what would refute it.",
+      "starter_prompt": "Check this claim. Name a source that supports it, a source that disputes it, and what is still unknown.",
+      "caution": "Do not treat the model's verdict as the last word. Read the sources.",
+      "measured": "The search board measures search answers, not a formal fact-check."
     }
   ]
 }

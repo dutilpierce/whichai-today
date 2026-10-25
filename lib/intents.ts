@@ -1,3 +1,5 @@
+import models from "./models.json";
+
 export const UNRANKED_INTENTS = ["image", "video", "design", "presentation", "voice"] as const;
 
 export type UnrankedIntent = (typeof UNRANKED_INTENTS)[number];
@@ -62,5 +64,13 @@ export function matchIntent(query: string): UnrankedIntent | null {
       best = intent.id;
     }
   }
+  if (categoryForIntent(best)) return null;
   return best;
+}
+
+/** When a board exists, the intent is a category, not a "not ranked" notice. */
+export function categoryForIntent(intent: string | null | undefined) {
+  if (intent === "image" && "images" in models.categories) return "images";
+  if (intent === "video" && "video" in models.categories) return "video";
+  return null;
 }

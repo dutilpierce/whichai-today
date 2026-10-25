@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-10-24",
-      "hash": "e1e86cd21a853552"
+      "changed": "2026-10-25",
+      "hash": "5d412fd15e246e26"
     },
     "/coding": {
       "changed": "2026-10-24",
@@ -27,6 +27,18 @@
     "/general": {
       "changed": "2026-10-24",
       "hash": "7a98b401da056f94"
+    },
+    "/images": {
+      "changed": "2026-10-25",
+      "hash": "a1673addf85ff202"
+    },
+    "/video": {
+      "changed": "2026-10-25",
+      "hash": "d87f435496c214dd"
+    },
+    "/research": {
+      "changed": "2026-10-25",
+      "hash": "4783eaadd416e970"
     },
     "/models/claude-opus-5-5": {
       "changed": "2026-10-24",
@@ -68,6 +80,42 @@
       "changed": "2026-10-24",
       "hash": "5dac9c1fc32775ae"
     },
+    "/models/gpt-image-2-5-sunburst": {
+      "changed": "2026-10-25",
+      "hash": "cab2f9d2563f5a79"
+    },
+    "/models/grok-imagine-image-2-0": {
+      "changed": "2026-10-25",
+      "hash": "5f6179c0b44e2e3e"
+    },
+    "/models/qwen-image": {
+      "changed": "2026-10-25",
+      "hash": "2cf7ce3996680f5c"
+    },
+    "/models/gemini-omni-1-1-flash": {
+      "changed": "2026-10-25",
+      "hash": "b1ad1afc02ec49cb"
+    },
+    "/models/dreamina-seedance-2-0": {
+      "changed": "2026-10-25",
+      "hash": "30a26e82d27cccbd"
+    },
+    "/models/wan-2-2-a14b": {
+      "changed": "2026-10-25",
+      "hash": "bc8aa479e6e8855c"
+    },
+    "/models/gpt-5-6-sol": {
+      "changed": "2026-10-25",
+      "hash": "3c0839511ec6b6c5"
+    },
+    "/models/claude-opus-4-6": {
+      "changed": "2026-10-25",
+      "hash": "93aef31add886298"
+    },
+    "/models/diffbot-small-xl": {
+      "changed": "2026-10-25",
+      "hash": "52d6e9665edf955f"
+    },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-10-24",
       "hash": "b9e2f1c865453372"
@@ -88,9 +136,21 @@
       "changed": "2026-10-24",
       "hash": "3c4d74bd85d8ae8a"
     },
+    "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
+      "changed": "2026-10-25",
+      "hash": "00bd91744d93ff56"
+    },
+    "/compare/gemini-omni-1-1-flash-vs-dreamina-seedance-2-0": {
+      "changed": "2026-10-25",
+      "hash": "412afe6bfedd3114"
+    },
+    "/compare/gpt-5-6-sol-vs-claude-opus-4-6": {
+      "changed": "2026-10-25",
+      "hash": "50db62d2094a1d39"
+    },
     "/changes": {
-      "changed": "2026-10-24",
-      "hash": "2ed77223cc7ddba4"
+      "changed": "2026-10-25",
+      "hash": "34220fa4d9f9ba29"
     },
     "/changes/2026-10-24-writing": {
       "changed": "2026-10-24",
@@ -176,21 +236,53 @@
       "changed": "2026-10-24",
       "hash": "4aed5980b34617ef"
     },
+    "/tasks/logo": {
+      "changed": "2026-10-25",
+      "hash": "1a0b4b63a19d004f"
+    },
+    "/tasks/product-photo": {
+      "changed": "2026-10-25",
+      "hash": "6998b83f1189cfca"
+    },
+    "/tasks/thumbnail": {
+      "changed": "2026-10-25",
+      "hash": "3bb31caf786c8894"
+    },
+    "/tasks/edit-a-photo": {
+      "changed": "2026-10-25",
+      "hash": "aea41eb0b952b44a"
+    },
+    "/tasks/short-ad": {
+      "changed": "2026-10-25",
+      "hash": "f31e5202d272811c"
+    },
+    "/tasks/animate-an-image": {
+      "changed": "2026-10-25",
+      "hash": "f2d4bd31bba84256"
+    },
+    "/tasks/research-report": {
+      "changed": "2026-10-25",
+      "hash": "6ba59ed3174b39d8"
+    },
+    "/tasks/fact-check-a-claim": {
+      "changed": "2026-10-25",
+      "hash": "58a5edbc31df77e0"
+    },
     "/tasks": {
-      "changed": "2026-10-24",
-      "hash": "a79cb575575a5826"
+      "changed": "2026-10-25",
+      "hash": "f58c1ecc23d6e71e"
     },
     "/prompts/claude": {
       "changed": "2026-10-25",
-      "hash": "9d5aa7cda04e0f7c"
+      "hash": "457f5113dd7d6944"
     },
     "/prompts/chatgpt": {
       "changed": "2026-10-25",
-      "hash": "834648e8d273bc34"
+      "hash": "355507faad9fbf14"
     },
     "/prompts/gemini": {
       "changed": "2026-10-25",
-      "hash": "7f7b55151680084d"
+      "hash": "637fb64d5f7fa39b"
     },
     "/about": {
       "changed": "2026-10-24",

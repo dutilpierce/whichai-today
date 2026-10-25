@@ -49,6 +49,27 @@
       "date": "2026-10-24",
       "type": "methodology",
       "evidence": "Writing now ranks on LMArena Creative Writing instead of the general text board. Claude Opus 5.5 leads that board (1520)."
+    },
+    {
+      "category": "images",
+      "leader": "GPT-Image-2.5 Sunburst",
+      "previous": null,
+      "date": "2026-10-25",
+      "evidence": "LMArena Text-to-Image 1425."
+    },
+    {
+      "category": "video",
+      "leader": "Gemini Omni 1.1 Flash",
+      "previous": null,
+      "date": "2026-10-25",
+      "evidence": "LMArena Text-to-Video 1516."
+    },
+    {
+      "category": "research",
+      "leader": "GPT-5.6 Sol",
+      "previous": null,
+      "date": "2026-10-25",
+      "evidence": "LMArena Search 1261."
     }
   ]
 }

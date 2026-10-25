@@ -8,7 +8,7 @@ import { PromptPanel } from "@/components/PromptPanel";
 import { StageCard } from "@/components/StageCard";
 import { Thinking } from "@/components/Thinking";
 import { appsWithCapability } from "@/lib/apps";
-import { intentNotice, matchIntent, type UnrankedIntent } from "@/lib/intents";
+import { categoryForIntent, intentNotice, matchIntent, type UnrankedIntent } from "@/lib/intents";
 import { matchCategory } from "@/lib/match";
 import models from "@/lib/models.json";
 import { bestInside, decodeChoice, encodeChoice, readSavedChoice, saveChoice, type Choice, DEFAULT_CHOICE } from "@/lib/options";
@@ -120,7 +120,9 @@ export default function Home() {
         body: JSON.stringify({ query }),
       });
       const data = await res.json();
-      if (data?.intent && data.intent !== "none") nextIntent = data.intent;
+      const covered = categoryForIntent(data?.intent);
+      if (covered) next = covered;
+      else if (data?.intent && data.intent !== "none") nextIntent = data.intent;
       else if (data?.category in models.categories) next = data.category;
     } catch {}
     if (id !== requestId.current) return;
@@ -189,6 +191,11 @@ function encodePlan(value: Plan) {
       .then((res) => res.json())
       .then((data) => {
         if (id !== requestId.current) return;
+        const covered = categoryForIntent(data?.intent);
+        if (covered) {
+          setCategoryKey(covered);
+          return;
+        }
         if (data?.intent && data.intent !== "none") {
           setIntent(data.intent);
           return;

@@ -143,7 +143,10 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
   if ((tasks?.tasks ?? []).length) put("/tasks", tasks.tasks.map((task) => task.slug));
 
   for (const [slug, guide] of Object.entries(guides?.guides ?? {})) {
-    put(`/prompts/${slug}`, { tips: guide.tips, tasks: guide.tasks, provider: guide.provider });
+    const leads = Object.values(models.categories)
+      .filter((category) => category.leader?.provider === guide.provider)
+      .map((category) => category.slug);
+    put(`/prompts/${slug}`, { tips: guide.tips, tasks: guide.tasks, provider: guide.provider, leads });
   }
 
   for (const [path, text] of Object.entries(files ?? {})) {

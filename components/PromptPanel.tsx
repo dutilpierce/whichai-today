@@ -101,10 +101,19 @@ export function PromptPanel({
     if (share) writeTweaks([]);
   }
 
+  function track(type: "copy" | "open") {
+    fetch("/api/event", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ type, category: categoryKey }),
+    }).catch(() => {});
+  }
+
   async function copy() {
     try {
       await navigator.clipboard.writeText(text);
       setCopied(true);
+      track("copy");
       window.setTimeout(() => setCopied(false), 2000);
     } catch {
       setCopied(false);
@@ -147,7 +156,13 @@ export function PromptPanel({
         <button type="button" onClick={copy} className="font-medium text-emerald-300 hover:text-emerald-200">
           {copied ? "Copied" : "Copy"}
         </button>
-        <a href={href} target="_blank" rel="noopener" className="font-medium text-zinc-300 hover:text-white">
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener"
+          onClick={() => track("open")}
+          className="font-medium text-zinc-300 hover:text-white"
+        >
           Open {provider}
         </a>
         {past.length > 0 ? (
