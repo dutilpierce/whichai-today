@@ -342,11 +342,11 @@
     },
     "/about": {
       "changed": "2026-10-25",
-      "hash": "94c097fdcdbc70f9"
+      "hash": "161d7eb3d7c5fca4"
     },
     "/privacy": {
       "changed": "2026-10-25",
-      "hash": "4bfdfd63cbc5300c"
+      "hash": "a014cc4dc9527a6a"
     },
     "/alerts": {
       "changed": "2026-10-24",
@@ -366,23 +366,23 @@
     },
     "/free": {
       "changed": "2026-10-25",
-      "hash": "de4e6e862ddbc2ac"
+      "hash": "9af82089cd489a4f"
     },
     "/prompt-builder": {
       "changed": "2026-10-25",
-      "hash": "7f542337409199f7"
+      "hash": "ddeb8e10eb2d7cae"
     },
     "/suggest": {
       "changed": "2026-10-25",
-      "hash": "b829b70199c10f27"
+      "hash": "0dd84c2a788dc41d"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-10-25",
-      "hash": "36d865e334a41cab"
+      "hash": "fa23f258a9ee008a"
     },
     "/pick": {
       "changed": "2026-10-25",
-      "hash": "7325b347e7938321"
+      "hash": "edddbb3103f5f850"
     },
     "/for/students": {
       "changed": "2026-10-25",
@@ -431,6 +431,78 @@
     "/pick/money": {
       "changed": "2026-10-25",
       "hash": "b434d212a9484c0f"
+    },
+    "/apps/chatgpt": {
+      "changed": "2026-10-25",
+      "hash": "d975b965bb62cb81"
+    },
+    "/apps/claude": {
+      "changed": "2026-10-25",
+      "hash": "d57a90368f2d7b4f"
+    },
+    "/apps/gemini": {
+      "changed": "2026-10-25",
+      "hash": "ee064847d7fd0f0a"
+    },
+    "/apps/copilot": {
+      "changed": "2026-10-25",
+      "hash": "f361336a02f8a71f"
+    },
+    "/apps/perplexity": {
+      "changed": "2026-10-25",
+      "hash": "e29a11e4c6cfda4c"
+    },
+    "/apps/cursor": {
+      "changed": "2026-10-25",
+      "hash": "465d873835a65869"
+    },
+    "/apps/github-copilot": {
+      "changed": "2026-10-25",
+      "hash": "3ef67d2c0a91d623"
+    },
+    "/apps/claude-code": {
+      "changed": "2026-10-25",
+      "hash": "502ef5cdc5eabdb2"
+    },
+    "/apps/codex": {
+      "changed": "2026-10-25",
+      "hash": "dc130bfee9c84180"
+    },
+    "/apps/midjourney": {
+      "changed": "2026-10-25",
+      "hash": "b89645c400be3a07"
+    },
+    "/apps/canva": {
+      "changed": "2026-10-25",
+      "hash": "ab28a3fbaa0c79c8"
+    },
+    "/apps/ollama": {
+      "changed": "2026-10-25",
+      "hash": "f3aa5b890752067b"
+    },
+    "/vs/chatgpt-vs-claude": {
+      "changed": "2026-10-25",
+      "hash": "d693262057704491"
+    },
+    "/vs/claude-vs-gemini": {
+      "changed": "2026-10-25",
+      "hash": "c7242ac24e853aac"
+    },
+    "/vs/chatgpt-vs-gemini": {
+      "changed": "2026-10-25",
+      "hash": "9b36cde6c86b5012"
+    },
+    "/vs/perplexity-vs-chatgpt": {
+      "changed": "2026-10-25",
+      "hash": "27182c5cbeba1e7f"
+    },
+    "/vs/copilot-vs-chatgpt": {
+      "changed": "2026-10-25",
+      "hash": "268337cab3db367c"
+    },
+    "/vs/cursor-vs-github-copilot": {
+      "changed": "2026-10-25",
+      "hash": "f55a7b5b26fb97ef"
     }
   }
 }

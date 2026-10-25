@@ -80,7 +80,7 @@ export default function HubPage() {
         </p>
         <ul className="mt-4 flex flex-col gap-3">
           {STACKS.map((stack) => {
-            const total = stackTotal(stack.slugs, apps);
+            const total = stackTotal(stack.slugs, apps, "preferFree" in stack && stack.preferFree);
             return (
               <li key={stack.id} className="rounded-2xl border border-zinc-800 px-4 py-3">
                 <p className="text-white">{stack.name}</p>

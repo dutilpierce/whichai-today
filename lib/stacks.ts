@@ -24,10 +24,11 @@ export const STACKS = [
     name: "Privacy-first",
     slugs: ["ollama"],
     note: "A local runner, so the work can stay on your machine.",
+    preferFree: true,
   },
 ];
 
-export function stackTotal(slugs: string[], apps: AppRecord[] = appList()) {
+export function stackTotal(slugs: string[], apps: AppRecord[] = appList(), preferFree = false) {
   if (slugs.length === 0) return { label: "$0/month", ready: true };
   let total = 0;
   for (const slug of slugs) {
@@ -36,6 +37,7 @@ export function stackTotal(slugs: string[], apps: AppRecord[] = appList()) {
       .map((plan) => plan.price_usd_month)
       .filter((price): price is number => typeof price === "number");
     if (!app || prices.length === 0) return { label: "Not added up. A price is not stored yet.", ready: false };
+    if (preferFree && prices.includes(0)) continue;
     const paid = prices.filter((price) => price > 0);
     total += paid.length ? Math.min(...paid) : 0;
   }
