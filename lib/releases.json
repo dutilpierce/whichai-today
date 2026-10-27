@@ -27,14 +27,15 @@
       "provider": "OpenAI",
       "kind": "feature",
       "status": "available",
-      "summary": "OpenAI introduced the Decisions API to help developers build more responsive AI applications.",
+      "summary": "A new API endpoint that returns quick typed answers, like a yes-or-no probability or a pick from fixed options, instead of free text.",
       "features": [
         "API",
-        "Decision making",
-        "App development"
+        "Classification",
+        "Routing",
+        "Fast"
       ],
-      "evidence": "Build more responsive apps with the Decisions API",
-      "source_url": "https://openai.com/index/build-more-responsive-apps-with-the-decisions-api/"
+      "evidence": "Build more responsive apps with the Decisions API. It returns the probability a condition is true, a choice from a fixed set, or a score against a rubric.",
+      "source_url": "https://openai.com/index/decisions-api/"
     },
     {
       "id": "2026-10-15-mistral-ai-timestral",
@@ -70,7 +71,24 @@
         "Multimodal"
       ],
       "evidence": "Gemini 4 Argon is now globally available to developers and enterprises via the Gemini API, and to Google AI subscribers in Google Antigravity, the Gemini app, and AI Mode in Search.",
-      "source_url": "https://blog.google/technology/ai/gemini-4-argon/"
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/build-with-gemini-4-argon/"
+    },
+    {
+      "id": "2026-10-07-anthropic-claude-haiku-5-5",
+      "date": "2026-10-07",
+      "added": "2026-10-27",
+      "name": "Claude Haiku 5.5",
+      "provider": "Anthropic",
+      "kind": "update",
+      "status": "available",
+      "summary": "Anthropic calls it the cheapest, fastest, and most capable small model it has released, at a much lower price than Haiku 4.5.",
+      "features": [
+        "Fast",
+        "Low cost",
+        "Subagents"
+      ],
+      "evidence": "Introducing Claude Haiku 5.5: the cheapest, fastest, and most capable small model we have ever released. Haiku 5.5 is available at a much lower price than Haiku 4.5.",
+      "source_url": "https://www.anthropic.com/claude-haiku-5-5"
     },
     {
       "id": "2026-10-06-mistral-ai-mistral-large-4",
@@ -88,7 +106,7 @@
         "Preview"
       ],
       "evidence": "Today, we're launching a public preview of Mistral Large 4... ML4 is a 1 trillion-parameter natively multimodal model with 52 billion active parameters.",
-      "source_url": "https://mistral.ai/news/introducing-mistral-large-4/"
+      "source_url": "https://mistral.ai/news/mistral-large-4/"
     },
     {
       "id": "2026-09-29-openai-dots",
@@ -145,6 +163,23 @@
       "source_url": "https://www.anthropic.com/news/claude-sonnet-5-5"
     },
     {
+      "id": "2026-09-22-anthropic-claude-opus-5-5",
+      "date": "2026-09-22",
+      "added": "2026-10-27",
+      "name": "Claude Opus 5.5",
+      "provider": "Anthropic",
+      "kind": "update",
+      "status": "available",
+      "summary": "The first Claude 5.5 model performs at Fable 5.1 level on most work and costs 40% less to run than Opus 5.",
+      "features": [
+        "Agentic coding",
+        "Knowledge work",
+        "Lower cost"
+      ],
+      "evidence": "It performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5. Input and output tokens are $4 and $20 per million, 20% less than Opus 5.",
+      "source_url": "https://www.anthropic.com/claude-opus-5-5"
+    },
+    {
       "id": "2026-09-22-openai-gpt-6-sol-and-luna",
       "date": "2026-09-22",
       "added": "2026-10-27",
@@ -178,7 +213,7 @@
         "Reasoning"
       ],
       "evidence": "Today, we're introducing two new models that bring advancements in near real-time reasoning to more effectively enable voice agents and make conversing with AI feel more intuitive and intelligent. Gemini 3.8 Live... Gemini 3.8 Live Extended Thinking",
-      "source_url": "https://blog.google/technology/ai/gemini-3-8-live/"
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
     },
     {
       "id": "2026-09-03-openai-gpt-6-astra",
@@ -196,7 +231,7 @@
         "Computer use"
       ],
       "evidence": "Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, and science.",
-      "source_url": "https://openai.com/index/gpt-6-astra-a-new-generation-of-intelligence/"
+      "source_url": "https://openai.com/index/gpt-6-astra/"
     }
   ]
 }

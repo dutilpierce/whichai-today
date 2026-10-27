@@ -51,7 +51,7 @@ Search the web for official AI releases from the last ${days} days. Count:
 - new open-weights models
 - major features or launches in well-known AI apps and APIs (for example a new agent mode, memory, a new plan, or a much larger context window)
 
-Skip rumors, leaks, benchmarks alone, funding news, minor bug fixes, and anything without an official announcement from the company itself (its blog, newsroom, docs changelog, or model card). Use the company's own page as source_url, not a news article.
+Skip rumors, leaks, benchmarks alone, funding news, minor bug fixes, and anything without an official announcement from the company itself (its blog, newsroom, docs changelog, or model card). Use the company's own page as source_url, not a news article. Copy source_url exactly from a search result you actually found. Never build or guess a URL from the product name; leave the release out if you cannot find its official page.
 
 Already listed, do not repeat these:
 ${recent.length ? recent.map((entry) => `- ${entry.provider}: ${entry.name} (${entry.date})`).join("\n") : "- nothing yet"}
@@ -137,6 +137,28 @@ export function mergeReleases(existing, incoming, today) {
   return { entries, added };
 }
 
+const LINK_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
+// A missing page means the URL was guessed. Hosts that block bots (403, 429) or time out get the benefit of the doubt.
+export function deadLink(status, code) {
+  if (code === "ENOTFOUND") return true;
+  if (status === 403 || status === 429) return false;
+  return typeof status === "number" && status >= 400;
+}
+
+async function sourceIsDead(url) {
+  try {
+    const res = await fetch(url, {
+      redirect: "follow",
+      signal: AbortSignal.timeout(20_000),
+      headers: { "User-Agent": LINK_AGENT },
+    });
+    return deadLink(res.status);
+  } catch (error) {
+    return deadLink(undefined, error?.cause?.code || error?.code);
+  }
+}
+
 async function research(today, recent, days) {
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
@@ -199,6 +221,9 @@ function selfCheck() {
   rejects({ features: [] }, "an entry needs at least one feature");
   rejects({ features: ["A feature name that is far too long"] }, "a long feature should fail");
   rejects({ summary: "" }, "an empty summary should fail");
+  assert(deadLink(404) && deadLink(410) && deadLink(500), "a missing page is a dead link");
+  assert(!deadLink(200) && !deadLink(403) && !deadLink(429), "a blocked host is not a dead link");
+  assert(deadLink(undefined, "ENOTFOUND") && !deadLink(undefined, "ETIMEDOUT"), "a missing domain is dead, a timeout is not");
   assert(validateEntry(raw({ date: "2026-09-01" }), today, 60).date === "2026-09-01", "a backfill window should allow older entries");
   assert(
     validateEntry(raw({ features: ["Vision", "Reasoning", "Tools", "Voice", "Video"] }), today).features.length === 4,
@@ -265,11 +290,18 @@ if (isMain) {
 
   const valid = [];
   for (const entry of raw) {
+    let checked;
     try {
-      valid.push(validateEntry(entry, today, maxAge));
+      checked = validateEntry(entry, today, maxAge);
     } catch (error) {
       console.warn(`skipped: ${error.message}`);
+      continue;
     }
+    if (await sourceIsDead(checked.source_url)) {
+      console.warn(`skipped: ${checked.provider} ${checked.name} source ${checked.source_url} does not load`);
+      continue;
+    }
+    valid.push(checked);
   }
 
   const merged = mergeReleases(releases, valid, today);
