@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-27T15:01:52Z",
+  "last_checked": "2026-10-27T22:08:52Z",
   "entries": [
     {
       "id": "2026-10-26-openai-gpt-6-1-terra",
@@ -20,6 +20,24 @@
       "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/"
     },
     {
+      "id": "2026-10-23-moonshot-ai-kimi-k3-1-pro",
+      "date": "2026-10-23",
+      "added": "2026-10-27",
+      "name": "Kimi K3.1 Pro",
+      "provider": "Moonshot AI",
+      "kind": "update",
+      "status": "available",
+      "summary": "Moonshot AI released Kimi K3.1 Pro, an updated multimodal reasoning model with a 1M context window and improved coding capabilities.",
+      "features": [
+        "Reasoning",
+        "Coding",
+        "1M context",
+        "Multimodal"
+      ],
+      "evidence": "Kimi K3.1 Pro is a post-trained version of Kimi K3, with substantially larger post-training compute... tool calling, and a 1M-token context window.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnEsyUGhc3RnjyOjMAp4j4XFqa0DSnQbV6uYPZTECYTQwfcLhxF_MwN8kf7p3JJdl5sQB5GOdLYk1jlPav8s255LpE7pitCB0dNW_RGET2jqYq-DVdTwTaMpW2aw=="
+    },
+    {
       "id": "2026-10-22-openai-decisions-api",
       "date": "2026-10-22",
       "added": "2026-10-27",
@@ -36,6 +54,42 @@
       ],
       "evidence": "Build more responsive apps with the Decisions API. It returns the probability a condition is true, a choice from a fixed set, or a score against a rubric.",
       "source_url": "https://openai.com/index/decisions-api/"
+    },
+    {
+      "id": "2026-10-21-anthropic-claude-duet",
+      "date": "2026-10-21",
+      "added": "2026-10-27",
+      "name": "Claude Duet",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Anthropic launched Claude Duet in research preview, an app where Claude operates as a proactive personal agent across connected tools.",
+      "features": [
+        "Proactive agent",
+        "Personal assistant",
+        "Preview",
+        "Tool integrations"
+      ],
+      "evidence": "Claude Duet is a new app where Claude works as a proactive agent. The research preview opens by waitlist today for Pro and Max subscribers in the US.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxC4_ZCB74QTaOY-TGrltygKualTdNIzSn_ztH-SFnZRlPrsqBiVzOlaEST0TAG80o9ECWCATaljHmr2VC33KX2WteAv2OMlCN3Wm6HCHK6oO222RSLsFThO3tk-QezBdU0ipqViQ="
+    },
+    {
+      "id": "2026-10-21-recursive-flint",
+      "date": "2026-10-21",
+      "added": "2026-10-27",
+      "name": "Flint",
+      "provider": "Recursive",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Recursive introduced Flint, an open-weight 40B mixture-of-experts model activating 2.5B parameters per token for fast local coding agents.",
+      "features": [
+        "Coding",
+        "Open weights",
+        "MoE",
+        "Local inference"
+      ],
+      "evidence": "We're introducing Recursive Flint, a mixture-of-experts (MoE) model built for fast agentic coding on local hardware. Flint has 40 billion total parameters and activates just 2.5 billion per token.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQET0pTJenxGcnKZa9XJhMYCmGfpbu6IY3b5WlTTP3Oo_PzkNVN6hPqkHxgtA91kXhdyskPN1S0bOLkwiVSO98Z2oLMfaodrgFwVRVjK7N5tuccNLvgvzodkcxGpUfT0E4RH0dqMp09RPgIjOiR3xA=="
     },
     {
       "id": "2026-10-15-mistral-ai-timestral",
