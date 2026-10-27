@@ -1,4 +1,202 @@
 {
-  "last_checked": null,
-  "entries": []
+  "last_checked": "2026-10-27T15:01:52Z",
+  "entries": [
+    {
+      "id": "2026-10-26-openai-gpt-6-1-terra",
+      "date": "2026-10-26",
+      "added": "2026-10-27",
+      "name": "GPT-6.1 Terra",
+      "provider": "OpenAI",
+      "kind": "update",
+      "status": "available",
+      "summary": "OpenAI launched GPT-6.1 Terra, combining visual reasoning and computer use with 50% lower standard API prices.",
+      "features": [
+        "Vision",
+        "Computer use",
+        "Work and Codex",
+        "Low cost"
+      ],
+      "evidence": "We're introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing... Its standard API prices are 50% lower than those of GPT-5.6 Terra and GPT-6.1 Sol",
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/"
+    },
+    {
+      "id": "2026-10-22-openai-decisions-api",
+      "date": "2026-10-22",
+      "added": "2026-10-27",
+      "name": "Decisions API",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI introduced the Decisions API to help developers build more responsive AI applications.",
+      "features": [
+        "API",
+        "Decision making",
+        "App development"
+      ],
+      "evidence": "Build more responsive apps with the Decisions API",
+      "source_url": "https://openai.com/index/build-more-responsive-apps-with-the-decisions-api/"
+    },
+    {
+      "id": "2026-10-15-mistral-ai-timestral",
+      "date": "2026-10-15",
+      "added": "2026-10-27",
+      "name": "Timestral",
+      "provider": "Mistral AI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Mistral AI released Timestral, an open-weight foundation model family delivering zero-shot probabilistic forecasting for multivariate time series.",
+      "features": [
+        "Time series",
+        "Forecasting",
+        "Zero-shot",
+        "Open weights"
+      ],
+      "evidence": "Today, we're releasing Timestral, our first family of time-series foundation models. Our largest model, at just 209M parameters, ranks first on all three of the field's main public benchmarks",
+      "source_url": "https://mistral.ai/news/timestral/"
+    },
+    {
+      "id": "2026-10-13-google-gemini-4-argon",
+      "date": "2026-10-13",
+      "added": "2026-10-27",
+      "name": "Gemini 4 Argon",
+      "provider": "Google",
+      "kind": "model",
+      "status": "available",
+      "summary": "Google released Gemini 4 Argon, a frontier model delivering advanced performance in software engineering, cybersecurity, and enterprise knowledge work.",
+      "features": [
+        "Reasoning",
+        "Coding",
+        "Cybersecurity",
+        "Multimodal"
+      ],
+      "evidence": "Gemini 4 Argon is now globally available to developers and enterprises via the Gemini API, and to Google AI subscribers in Google Antigravity, the Gemini app, and AI Mode in Search.",
+      "source_url": "https://blog.google/technology/ai/gemini-4-argon/"
+    },
+    {
+      "id": "2026-10-06-mistral-ai-mistral-large-4",
+      "date": "2026-10-06",
+      "added": "2026-10-27",
+      "name": "Mistral Large 4",
+      "provider": "Mistral AI",
+      "kind": "model",
+      "status": "preview",
+      "summary": "Mistral AI launched a preview of Mistral Large 4, a 1-trillion parameter multimodal model with 52 billion active parameters.",
+      "features": [
+        "1T parameters",
+        "Multimodal",
+        "Agentic",
+        "Preview"
+      ],
+      "evidence": "Today, we're launching a public preview of Mistral Large 4... ML4 is a 1 trillion-parameter natively multimodal model with 52 billion active parameters.",
+      "source_url": "https://mistral.ai/news/introducing-mistral-large-4/"
+    },
+    {
+      "id": "2026-09-29-openai-dots",
+      "date": "2026-09-29",
+      "added": "2026-10-27",
+      "name": "Dots",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI introduced Dots, persistent always-on AI agents in ChatGPT powered by GPT-6 Astra for long-running work.",
+      "features": [
+        "Agents",
+        "Always-on",
+        "ChatGPT",
+        "Integrations"
+      ],
+      "evidence": "We're introducing dots: always-on agents in ChatGPT that can take on ongoing work and keep making progress between conversations. Powered by GPT-6 Astra",
+      "source_url": "https://openai.com/index/introducing-dots/"
+    },
+    {
+      "id": "2026-09-29-openai-gpt-6-1-sol",
+      "date": "2026-09-29",
+      "added": "2026-10-27",
+      "name": "GPT-6.1 Sol",
+      "provider": "OpenAI",
+      "kind": "update",
+      "status": "available",
+      "summary": "OpenAI launched GPT-6.1 Sol, bringing near-Astra intelligence for coding and computer use at one-fifth the token price.",
+      "features": [
+        "Reasoning",
+        "Coding",
+        "Computer use",
+        "Work and Codex"
+      ],
+      "evidence": "GPT-6.1 Sol is available starting today to all Plus, Pro, Business, Enterprise, and Edu users in ChatGPT Work and Codex... at one-fifth of Astra's standard API input and output token prices.",
+      "source_url": "https://openai.com/index/introducing-gpt-6-1-sol/"
+    },
+    {
+      "id": "2026-09-28-anthropic-claude-sonnet-5-5",
+      "date": "2026-09-28",
+      "added": "2026-10-27",
+      "name": "Claude Sonnet 5.5",
+      "provider": "Anthropic",
+      "kind": "update",
+      "status": "available",
+      "summary": "Anthropic released Claude Sonnet 5.5, which runs over 30% faster and costs up to 30% less than Claude Sonnet 5.",
+      "features": [
+        "Fast inference",
+        "Agentic coding",
+        "Vision",
+        "Design"
+      ],
+      "evidence": "It's a clear upgrade over Claude Sonnet 5, runs 30%+ faster, and costs up to 30% less for most work.",
+      "source_url": "https://www.anthropic.com/news/claude-sonnet-5-5"
+    },
+    {
+      "id": "2026-09-22-openai-gpt-6-sol-and-luna",
+      "date": "2026-09-22",
+      "added": "2026-10-27",
+      "name": "GPT-6 Sol and Luna",
+      "provider": "OpenAI",
+      "kind": "model",
+      "status": "available",
+      "summary": "OpenAI launched GPT-6 Sol and Luna, bringing frontier intelligence to everyday work with lower latency and reduced API pricing.",
+      "features": [
+        "Reasoning",
+        "Work and Codex",
+        "API",
+        "Efficient"
+      ],
+      "evidence": "GPT-6 Sol and Luna roll out today in ChatGPT Work and Codex for Plus, Pro, Business, Enterprise, and Edu users. Both are also available in the API.",
+      "source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+    },
+    {
+      "id": "2026-09-15-google-gemini-3-8-live",
+      "date": "2026-09-15",
+      "added": "2026-10-27",
+      "name": "Gemini 3.8 Live",
+      "provider": "Google",
+      "kind": "model",
+      "status": "available",
+      "summary": "Google introduced Gemini 3.8 Live and Extended Thinking to enable near real-time reasoning for voice agents.",
+      "features": [
+        "Voice",
+        "Real-time",
+        "Speech-to-speech",
+        "Reasoning"
+      ],
+      "evidence": "Today, we're introducing two new models that bring advancements in near real-time reasoning to more effectively enable voice agents and make conversing with AI feel more intuitive and intelligent. Gemini 3.8 Live... Gemini 3.8 Live Extended Thinking",
+      "source_url": "https://blog.google/technology/ai/gemini-3-8-live/"
+    },
+    {
+      "id": "2026-09-03-openai-gpt-6-astra",
+      "date": "2026-09-03",
+      "added": "2026-10-27",
+      "name": "GPT-6 Astra",
+      "provider": "OpenAI",
+      "kind": "model",
+      "status": "available",
+      "summary": "OpenAI released GPT-6 Astra, featuring frontier reasoning, coding, cybersecurity, and computer use capabilities.",
+      "features": [
+        "Reasoning",
+        "Coding",
+        "Cybersecurity",
+        "Computer use"
+      ],
+      "evidence": "Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, and science.",
+      "source_url": "https://openai.com/index/gpt-6-astra-a-new-generation-of-intelligence/"
+    }
+  ]
 }
