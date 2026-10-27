@@ -43,6 +43,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...tasksFile.tasks.map((task) => item(`/tasks/${task.slug}`, "daily", 0.6)),
     ...categoryEntries().map(([, category]) => item(`/${category.slug}`, "daily", 0.7)),
     item("/changes", "daily", 0.6),
+    item("/releases", "hourly", 0.8),
     ...modelRecords().map((model) => item(`/models/${model.slug}`, "daily", 0.6)),
     ...compareRecords().map((record) => item(`/compare/${record.pair}`, "daily", 0.6)),
     ...[...confirmedChanges(), ...methodologyUpdates()].map((change) =>

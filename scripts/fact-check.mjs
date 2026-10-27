@@ -3,6 +3,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildPayloads } from "./freshness.mjs";
 import { checkPrompt } from "../lib/prompt-rules.mjs";
+import { validateEntry } from "./refresh-releases.mjs";
 
 const MODELS = new URL("../lib/models.json", import.meta.url);
 const HISTORY = new URL("../lib/history.json", import.meta.url);
@@ -242,6 +243,26 @@ export function checkApps(apps, models, today, archive = { models: [] }) {
   return errors;
 }
 
+export function checkReleases(releases, today) {
+  const errors = [];
+  const ids = new Set();
+  for (const entry of releases?.entries ?? []) {
+    const label = entry?.id || "release";
+    if (!entry?.id || ids.has(entry.id)) errors.push(`${label} is missing or duplicated`);
+    ids.add(entry?.id);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(entry?.added ?? "") || entry.added > today) errors.push(`${label} added date is invalid`);
+    else if (entry.date > entry.added) errors.push(`${label} was added before its release date`);
+    try {
+      validateEntry(entry, entry.added ?? today, Infinity);
+    } catch (error) {
+      errors.push(`${label}: ${error.message}`);
+    }
+  }
+  const dates = (releases?.entries ?? []).map((entry) => entry?.date ?? "");
+  if (dates.some((date, index) => index > 0 && date > dates[index - 1])) errors.push("releases are not newest first");
+  return errors;
+}
+
 const LINK_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
 
 export function linkStatus(status) {
@@ -279,8 +300,9 @@ async function checkLink(url) {
   return { warn: `${url} did not load` };
 }
 
-export async function checkLinks(models, providers, apps = { apps: [] }) {
+export async function checkLinks(models, providers, apps = { apps: [] }, releases = { entries: [] }) {
   const urls = new Set();
+  for (const entry of releases.entries ?? []) if (entry.source_url) urls.add(entry.source_url);
   for (const app of apps.apps ?? []) {
     if (app.link) urls.add(app.link);
     if (app.privacy?.source_url) urls.add(app.privacy.source_url);
@@ -458,6 +480,41 @@ function selfCheck() {
   const timeout = new Error("timeout");
   timeout.code = "ETIMEDOUT";
   assert(linkFailure(timeout).warn && !linkFailure(timeout).fail, "a timeout should warn");
+  const release = {
+    id: "2026-10-26-test-alpha-2",
+    date: "2026-10-26",
+    added: "2026-10-26",
+    name: "Alpha 2",
+    provider: "Test",
+    kind: "model",
+    status: "available",
+    summary: "Alpha 2 handles a 1M token context.",
+    features: ["1M context"],
+    evidence: "A context window of 1M tokens.",
+    source_url: "https://example.com/alpha-2",
+  };
+  assert(checkReleases({ entries: [release] }, "2026-10-27").length === 0, "a clean release should pass");
+  assert(
+    checkReleases({ entries: [{ ...release, summary: "Alpha 2 is 40% faster." }] }, "2026-10-27").some((error) => error.includes("40")),
+    "a release number missing from the evidence should fail",
+  );
+  assert(
+    checkReleases({ entries: [release, release] }, "2026-10-27").some((error) => error.includes("duplicated")),
+    "a duplicate release id should fail",
+  );
+  assert(
+    checkReleases({ entries: [{ ...release, added: "2026-10-30" }] }, "2026-10-27").some((error) => error.includes("added date")),
+    "a future added date should fail",
+  );
+  assert(
+    checkReleases({ entries: [{ ...release, id: "a", date: "2026-10-20", added: "2026-10-20" }, { ...release, id: "b" }] }, "2026-10-27").some((error) => error.includes("newest first")),
+    "releases out of order should fail",
+  );
+  assert(
+    checkReleases({ entries: [{ ...release, date: "2026-01-01", added: "2026-01-02" }] }, "2026-10-27").length === 0,
+    "an old release stays valid",
+  );
+
   const missingHost = new Error("missing");
   missingHost.code = "ENOTFOUND";
   assert(linkFailure(missingHost).fail, "a missing domain should fail");
@@ -488,6 +545,13 @@ try {
   archive = { models: [] };
 }
 result.errors.push(...checkApps(apps, models, today, archive));
+let releases = { entries: [] };
+try {
+  releases = JSON.parse(await readFile(new URL("../lib/releases.json", import.meta.url), "utf8"));
+} catch {
+  releases = { entries: [] };
+}
+result.errors.push(...checkReleases(releases, today));
 
 try {
   const freshness = JSON.parse(await readFile(new URL("../lib/freshness.json", import.meta.url), "utf8"));
@@ -538,6 +602,7 @@ try {
     audiences,
     picker,
     apps,
+    releases,
   });
   if (tasks) result.errors.push(...checkPages(audiences, picker, tasks));
   result.errors.push(...checkFreshness(Object.keys(payloads), freshness, today));
@@ -559,7 +624,7 @@ try {
 result.errors.push(...(await titleProblems()));
 
 if (process.argv.includes("--links")) {
-  const links = await checkLinks(models, providers, apps);
+  const links = await checkLinks(models, providers, apps, releases);
   result.errors.push(...links.errors);
   for (const warning of links.warnings) console.warn(`warning: ${warning}`);
 }

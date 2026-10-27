@@ -1,0 +1,75 @@
+name: Refresh AI releases
+
+on:
+  schedule:
+    - cron: "15 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      since:
+        description: "Days to look back (use about 60 for a backfill)"
+        required: false
+        default: "7"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-rankings
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Kill switch
+        id: kill
+        run: node scripts/kill-switch.mjs
+
+      - name: Research new releases
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/refresh-releases.mjs --since "$SINCE"
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          SINCE: ${{ github.event.inputs.since || '7' }}
+
+      - name: Freshness
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/freshness.mjs
+
+      - name: Fact-check
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/fact-check.mjs
+
+      - name: Publish if a release was added
+        if: steps.kill.outputs.publish == 'true'
+        run: |
+          before=$(git show HEAD:lib/releases.json | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>console.log(JSON.parse(s).entries.map(e=>e.id).join(",")))')
+          after=$(node -e 'console.log(require("./lib/releases.json").entries.map(e=>e.id).join(","))')
+          if [ "$before" = "$after" ]; then
+            echo "No new releases."
+          else
+            git config user.name "whichai-bot"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add lib/releases.json lib/freshness.json
+            git commit -m "Add AI releases for $(date -u +%Y-%m-%d)."
+            git pull --rebase
+            git push
+          fi
+
+      - name: Ping search engines
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/indexnow.mjs
+
+      - name: Tell the owner
+        if: failure()
+        run: node scripts/notify-owner.mjs "The releases refresh was held back. Check the Actions log."
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}

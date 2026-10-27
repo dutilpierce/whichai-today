@@ -11,6 +11,7 @@ export function SiteHeader() {
   const path = usePathname();
   const prompt = current(path, "/prompt-builder");
   const guide = current(path, "/which-ai-should-i-use");
+  const releases = current(path, "/releases");
   const free = current(path, "/free");
 
   return (
@@ -34,6 +35,13 @@ export function SiteHeader() {
           className={guide ? "text-sm font-medium text-white" : "text-sm font-medium text-zinc-400 hover:text-white"}
         >
           Which AI
+        </a>
+        <a
+          href="/releases"
+          aria-current={releases ? "page" : undefined}
+          className={releases ? "text-sm font-medium text-white" : "text-sm font-medium text-zinc-400 hover:text-white"}
+        >
+          Releases
         </a>
         <a
           href="/free"

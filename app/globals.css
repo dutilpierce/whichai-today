@@ -86,10 +86,25 @@ body {
   }
 }
 
+.whichai-pulse {
+  animation: whichai-pulse 2.4s ease-out infinite;
+}
+
+@keyframes whichai-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .aurora-blob-emerald,
   .aurora-blob-teal,
-  .aurora-blob-cyan {
+  .aurora-blob-cyan,
+  .whichai-pulse {
     animation: none;
   }
 }

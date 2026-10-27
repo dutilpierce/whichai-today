@@ -58,7 +58,13 @@ const PAIRS = [
   ["cursor", "github-copilot", "cursor-vs-github-copilot"],
 ];
 
-export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps }) {
+function visibleRelease(entry) {
+  const next = { ...entry };
+  delete next.evidence;
+  return next;
+}
+
+export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases }) {
   const skip = new Set(held?.pages ?? []);
   const pages = {};
   const categories = Object.values(models.categories);
@@ -67,12 +73,17 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
     if (!skip.has(path)) pages[path] = payload;
   }
 
-  put("/", categories.map((category) => ({
-    slug: category.slug,
-    leader: visiblePick(category.leader),
-    runner_up: visiblePick(category.runner_up),
-    open_source_pick: visiblePick(category.open_source_pick),
-  })));
+  const releaseEntries = (releases?.entries ?? []).map(visibleRelease);
+  put("/", {
+    categories: categories.map((category) => ({
+      slug: category.slug,
+      leader: visiblePick(category.leader),
+      runner_up: visiblePick(category.runner_up),
+      open_source_pick: visiblePick(category.open_source_pick),
+    })),
+    releases: releaseEntries.slice(0, 8),
+  });
+  put("/releases", releaseEntries);
 
   for (const category of categories) {
     put(`/${category.slug}`, {
@@ -234,9 +245,14 @@ async function main() {
   const audiences = await readJson(new URL("lib/audiences.json", ROOT));
   const picker = await readJson(new URL("lib/picker.json", ROOT));
   const apps = (await readJson(new URL("lib/apps.json", ROOT))) ?? { apps: [] };
-  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps });
+  const releases = (await readJson(new URL("lib/releases.json", ROOT))) ?? { entries: [] };
+  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases });
   const existing = (await readJson(FRESHNESS)) ?? { pages: {} };
-  const today = (models.last_updated ?? new Date().toISOString()).slice(0, 10);
+  const today = [models.last_updated, releases.last_checked]
+    .filter(Boolean)
+    .map((value) => value.slice(0, 10))
+    .sort()
+    .at(-1) ?? new Date().toISOString().slice(0, 10);
   const next = applyFreshness(existing, payloads, today);
   await writeFile(FRESHNESS, `${JSON.stringify({ pages: next.pages }, null, 2)}\n`);
   await writeFile(INDEXNOW, `${JSON.stringify(next.urls, null, 2)}\n`);
@@ -280,6 +296,7 @@ function fixture() {
     tasks: null,
     files: {},
     held: { pages: [] },
+    releases: { entries: [] },
   };
 }
 
@@ -316,6 +333,18 @@ function selfCheck() {
       applied.urls.includes("https://whichai.today/compare/alpha-vs-delta") &&
       applied.urls.includes("https://whichai.today/models/delta"),
     "a new runner-up pings the category, compare, and model pages",
+  );
+
+  const released = structuredClone(base);
+  released.releases.entries.push({ id: "2026-10-25-test-alpha-2", name: "Alpha 2", evidence: "Quote." });
+  const withRelease = applyFreshness({ pages: seeded.pages }, buildPayloads(released), "2026-10-25");
+  assert(withRelease.pages["/"].changed === "2026-10-25", "a new release moves the home page");
+  assert(withRelease.pages["/releases"].changed === "2026-10-25", "a new release moves the releases page");
+  const evidenceOnly = structuredClone(released);
+  evidenceOnly.releases.entries[0].evidence = "Another quote.";
+  assert(
+    digest(buildPayloads(released)["/releases"]) === digest(buildPayloads(evidenceOnly)["/releases"]),
+    "release evidence is not shown, so it should not move the page",
   );
 
   console.log("freshness self-check ok");
