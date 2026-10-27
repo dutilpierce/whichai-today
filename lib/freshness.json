@@ -438,7 +438,7 @@
     },
     "/apps/chatgpt": {
       "changed": "2026-10-25",
-      "hash": "d975b965bb62cb81"
+      "hash": "d264351e9d5b63b2"
     },
     "/apps/claude": {
       "changed": "2026-10-25",
@@ -450,7 +450,7 @@
     },
     "/apps/copilot": {
       "changed": "2026-10-25",
-      "hash": "f361336a02f8a71f"
+      "hash": "961a29951fa568a7"
     },
     "/apps/perplexity": {
       "changed": "2026-10-25",
@@ -462,7 +462,7 @@
     },
     "/apps/github-copilot": {
       "changed": "2026-10-25",
-      "hash": "3ef67d2c0a91d623"
+      "hash": "a6f67021f4f39421"
     },
     "/apps/claude-code": {
       "changed": "2026-10-25",
@@ -470,7 +470,7 @@
     },
     "/apps/codex": {
       "changed": "2026-10-25",
-      "hash": "dc130bfee9c84180"
+      "hash": "6c4190fddd3e633f"
     },
     "/apps/midjourney": {
       "changed": "2026-10-25",

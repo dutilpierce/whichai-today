@@ -241,21 +241,41 @@ export function checkApps(apps, models, today) {
   return errors;
 }
 
+const LINK_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
+
+export function linkStatus(status) {
+  if (status === 403 || status === 429) return { warn: true };
+  if (status === 404 || status === 410 || status >= 400) return { fail: true };
+  return {};
+}
+
+export function linkFailure(error) {
+  const code = error?.cause?.code || error?.code;
+  if (code === "ENOTFOUND") return { fail: true, message: "could not be found" };
+  return { warn: true, message: "did not load" };
+}
+
 async function checkLink(url) {
-  try {
-    const res = await fetch(url, {
-      method: "GET",
-      redirect: "follow",
-      signal: AbortSignal.timeout(20_000),
-      headers: { "User-Agent": "WhichAI-fact-check" },
-    });
-    if (res.status === 403 || res.status === 429) return { warn: `${url} returned ${res.status}` };
-    if (res.status === 404 || res.status === 410 || res.status >= 400) return { fail: `${url} returned ${res.status}` };
-    return {};
-  } catch (error) {
-    const message = error?.cause?.code === "ENOTFOUND" ? "could not be found" : "did not load";
-    return { fail: `${url} ${message}` };
+  for (let attempt = 0; attempt < 2; attempt++) {
+    try {
+      const res = await fetch(url, {
+        method: "GET",
+        redirect: "follow",
+        signal: AbortSignal.timeout(20_000),
+        headers: { "User-Agent": LINK_AGENT },
+      });
+      const classified = linkStatus(res.status);
+      if (classified.fail) return { fail: `${url} returned ${res.status}` };
+      if (classified.warn) return { warn: `${url} returned ${res.status}` };
+      return {};
+    } catch (error) {
+      const kind = linkFailure(error);
+      if (kind.fail) return { fail: `${url} ${kind.message}` };
+      if (attempt === 0) continue;
+      return { warn: `${url} ${kind.message}` };
+    }
   }
+  return { warn: `${url} did not load` };
 }
 
 export async function checkLinks(models, providers, apps = { apps: [] }) {
@@ -424,6 +444,13 @@ function selfCheck() {
     "a short prompt guide should fail",
   );
   assert(bareBrand("WhichAI") && !bareBrand("WhichAI.today"), "a bare WhichAI title should fail");
+  assert(linkStatus(404).fail && !linkStatus(404).warn, "a 404 should fail");
+  const timeout = new Error("timeout");
+  timeout.code = "ETIMEDOUT";
+  assert(linkFailure(timeout).warn && !linkFailure(timeout).fail, "a timeout should warn");
+  const missingHost = new Error("missing");
+  missingHost.code = "ENOTFOUND";
+  assert(linkFailure(missingHost).fail, "a missing domain should fail");
 
   console.log("fact-check self-check ok");
 }

@@ -39,7 +39,7 @@
       "privacy": {
         "trains_by_default": "When you use our services for individuals (Free, Plus, Pro), we may use your content to train our models.",
         "opt_out": "Settings > Data controls > Improve the model for everyone",
-        "source_url": "https://help.openai.com/en/articles/7039948-how-your-data-is-used-to-improve-model-performance"
+        "source_url": "https://help.openai.com/en/articles/5722486-how-your-data-is-used-to-improve-model-performance"
       },
       "capabilities": {
         "web_search": true,
@@ -51,7 +51,7 @@
         "voice": true,
         "team_plan": true
       },
-      "checked": "2026-10-25"
+      "checked": "2026-10-27"
     },
     {
       "slug": "claude",
@@ -179,21 +179,21 @@
         {
           "name": "Copilot Free",
           "price_usd_month": 0,
-          "free_tier": "AI chat, web search, and image generation with daily limits",
-          "source_url": "https://www.microsoft.com/en-us/microsoft-copilot/pricing"
+          "free_tier": "A limited free version, subject to available capacity and limits.",
+          "source_url": "https://www.microsoft.com/en-us/copilot/pricing/individuals"
         },
         {
-          "name": "Copilot Pro",
-          "price_usd_month": 20,
+          "name": "Microsoft 365 Personal",
+          "price_usd_month": 9.99,
           "free_tier": "none",
-          "source_url": "https://www.microsoft.com/en-us/microsoft-copilot/pricing"
+          "source_url": "https://www.microsoft.com/en-us/copilot/pricing/individuals"
         }
       ],
       "skill": "Beginner",
       "privacy": {
         "trains_by_default": "AI model training applies to our consumer Copilot experience.",
         "opt_out": "Profile icon > profile name > Privacy > Training on conversation activity",
-        "source_url": "https://support.microsoft.com/en-us/topic/microsoft-copilot-privacy-controls-d7606cb8-2895-4eb4-b976-b60580795c47"
+        "source_url": "https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-controls"
       },
       "capabilities": {
         "web_search": true,
@@ -205,7 +205,7 @@
         "voice": true,
         "team_plan": true
       },
-      "checked": "2026-10-25"
+      "checked": "2026-10-27"
     },
     {
       "slug": "perplexity",
@@ -436,7 +436,7 @@
       "privacy": {
         "trains_by_default": "For individual subscribers—Copilot Free, Copilot Pro, Copilot Pro+, and Copilot Max users—GitHub may use Copilot interaction data, including prompts (inputs), suggestions (outputs), and code snippets generated during Copilot sessions to train and improve AI models, in accordance with our GitHub General Privacy Statement and applicable user settings.",
         "opt_out": "In the upper-right corner of any page on GitHub, click your profile picture, select Copilot settings, and set 'Allow GitHub to use my data for AI model training' to Disabled.",
-        "source_url": "https://docs.github.com/en/copilot/managing-copilot/managing-github-copilot-in-your-account/managing-github-copilot-policies-as-an-individual-subscriber"
+        "source_url": "https://docs.github.com/en/copilot/how-tos/manage-your-account/manage-policies"
       },
       "capabilities": {
         "web_search": true,
@@ -564,7 +564,7 @@
       "privacy": {
         "trains_by_default": "When you use our services for individuals (Free, Plus, Pro), we may use your content to train our models.",
         "opt_out": "Settings > Data controls > Improve the model for everyone",
-        "source_url": "https://help.openai.com/en/articles/7730892-data-controls-in-chatgpt"
+        "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt"
       },
       "capabilities": {
         "web_search": true,
@@ -576,7 +576,7 @@
         "voice": true,
         "team_plan": true
       },
-      "checked": "2026-10-25"
+      "checked": "2026-10-27"
     },
     {
       "slug": "midjourney",
