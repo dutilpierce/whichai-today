@@ -213,12 +213,13 @@ export function checkData(models, history, providers, today) {
   return { errors, facts, pages: [...new Set(pages)] };
 }
 
-export function checkApps(apps, models, today) {
+export function checkApps(apps, models, today, archive = { models: [] }) {
   const errors = [];
   const known = new Set();
   for (const category of Object.values(models.categories ?? {})) {
     for (const slot of SLOTS) known.add(category[slot]?.name);
   }
+  for (const model of archive.models ?? []) known.add(model?.name);
   const seen = new Set();
   for (const app of apps?.apps ?? []) {
     const slug = app?.slug || "app";
@@ -438,6 +439,15 @@ function selfCheck() {
   assert(staleApp.some((error) => error.includes("last checked")), "a stale app should fail");
   assert(staleApp.some((error) => error.includes("no source")), "an app price needs a source");
   assert(staleApp.some((error) => error.includes("not a tracked model")), "an app model must be tracked");
+  assert(
+    checkApps(
+      { apps: [{ slug: "kept", skill: "Beginner", checked: today, models: [{ name: "Retired", plan: "Free" }] }] },
+      models,
+      today,
+      { models: [{ name: "Retired" }] },
+    ).length === 0,
+    "an archived model should still be allowed on an app",
+  );
   assert(checkApps({ apps: [] }, models, today).length === 0, "an empty app list should pass");
   assert(
     checkGuides({ guides: { demo: { tips: [{ text: "", source_url: "" }], tasks: ["missing"] } } }, { tasks: [] }).some((error) => error.includes("5 to 8")),
@@ -471,11 +481,16 @@ try {
 } catch {
   apps = { apps: [] };
 }
-result.errors.push(...checkApps(apps, models, today));
+let archive = { models: [] };
+try {
+  archive = JSON.parse(await readFile(new URL("../lib/archive.json", import.meta.url), "utf8"));
+} catch {
+  archive = { models: [] };
+}
+result.errors.push(...checkApps(apps, models, today, archive));
 
 try {
   const freshness = JSON.parse(await readFile(new URL("../lib/freshness.json", import.meta.url), "utf8"));
-  const archive = JSON.parse(await readFile(new URL("../lib/archive.json", import.meta.url), "utf8"));
   const held = JSON.parse(await readFile(HELD, "utf8"));
   let tasks = null;
   try {
