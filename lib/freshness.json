@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-10-25",
-      "hash": "8bfb01ce6b169b54"
+      "changed": "2026-10-27",
+      "hash": "7c061a5cdc93b29d"
     },
     "/coding": {
       "changed": "2026-10-24",
@@ -21,16 +21,16 @@
       "hash": "6ebc414ebf14961d"
     },
     "/speed": {
-      "changed": "2026-10-25",
-      "hash": "3db2eede7e1b0e2e"
+      "changed": "2026-10-27",
+      "hash": "20a7397c70b8dcfb"
     },
     "/general": {
       "changed": "2026-10-24",
       "hash": "7a98b401da056f94"
     },
     "/images": {
-      "changed": "2026-10-25",
-      "hash": "9266405d28f88138"
+      "changed": "2026-10-27",
+      "hash": "0c66f94732d54eda"
     },
     "/video": {
       "changed": "2026-10-25",
@@ -65,12 +65,12 @@
       "hash": "55bc44f329b6aae2"
     },
     "/models/gemini-3-5-flash-lite": {
-      "changed": "2026-10-24",
-      "hash": "76483610b240df66"
+      "changed": "2026-10-27",
+      "hash": "f070934e919748a7"
     },
     "/models/claude-haiku-5-5": {
-      "changed": "2026-10-24",
-      "hash": "1fe06bff48a1a23d"
+      "changed": "2026-10-27",
+      "hash": "a7c194725aaa7e07"
     },
     "/models/deepseek-v4-1-flash": {
       "changed": "2026-10-25",
@@ -81,12 +81,12 @@
       "hash": "5dac9c1fc32775ae"
     },
     "/models/gpt-image-2-5-sunburst": {
-      "changed": "2026-10-25",
-      "hash": "0f65ac541f0545ce"
+      "changed": "2026-10-27",
+      "hash": "21de7fbb66bdfb73"
     },
     "/models/grok-imagine-image-2-0": {
-      "changed": "2026-10-25",
-      "hash": "ba6c594384f1a6a4"
+      "changed": "2026-10-27",
+      "hash": "8860bbc70ca34bb4"
     },
     "/models/qwen-image-2-1": {
       "changed": "2026-10-25",
@@ -133,16 +133,16 @@
       "hash": "46dde1304775de7b"
     },
     "/compare/gemini-3-5-flash-lite-vs-claude-haiku-5-5": {
-      "changed": "2026-10-24",
-      "hash": "130ad7d8d961f793"
+      "changed": "2026-10-27",
+      "hash": "6e9cafabf13b1a0b"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
       "changed": "2026-10-24",
       "hash": "3c4d74bd85d8ae8a"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
-      "changed": "2026-10-25",
-      "hash": "7cc8b4c003236bf1"
+      "changed": "2026-10-27",
+      "hash": "9e450780c0bf698e"
     },
     "/compare/gemini-omni-1-1-flash-vs-dreamina-seedance-2-0": {
       "changed": "2026-10-25",
@@ -345,12 +345,12 @@
       "hash": "637fb64d5f7fa39b"
     },
     "/about": {
-      "changed": "2026-10-25",
-      "hash": "f7a92843ee5d1f3b"
+      "changed": "2026-10-27",
+      "hash": "8151964587fd2dda"
     },
     "/privacy": {
-      "changed": "2026-10-25",
-      "hash": "dcc63a0818276543"
+      "changed": "2026-10-27",
+      "hash": "23948cd645542aca"
     },
     "/alerts": {
       "changed": "2026-10-25",
@@ -369,24 +369,24 @@
       "hash": "428c9f9be242f936"
     },
     "/free": {
-      "changed": "2026-10-25",
-      "hash": "67336832aa006862"
+      "changed": "2026-10-27",
+      "hash": "2b1c85595bdc3a33"
     },
     "/prompt-builder": {
-      "changed": "2026-10-25",
-      "hash": "9d055e0cf28387b6"
+      "changed": "2026-10-27",
+      "hash": "ee9249346c103af7"
     },
     "/suggest": {
-      "changed": "2026-10-25",
-      "hash": "4bd59326ca9f695f"
+      "changed": "2026-10-27",
+      "hash": "bdff6f75ce638e1f"
     },
     "/which-ai-should-i-use": {
-      "changed": "2026-10-25",
-      "hash": "90b5b0f032cc0435"
+      "changed": "2026-10-27",
+      "hash": "97e7706341ae61ec"
     },
     "/pick": {
-      "changed": "2026-10-25",
-      "hash": "27346a309fe8184f"
+      "changed": "2026-10-27",
+      "hash": "92b24adae81994d7"
     },
     "/for/students": {
       "changed": "2026-10-25",
