@@ -18,6 +18,8 @@ export function PromptPanel({
   provider,
   href,
   share = false,
+  primary = false,
+  disabled = false,
 }: {
   query: string;
   categoryKey: string;
@@ -25,6 +27,8 @@ export function PromptPanel({
   provider: string;
   href: string;
   share?: boolean;
+  primary?: boolean;
+  disabled?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const [tweaks, setTweaks] = useState<TweakId[]>([]);
@@ -127,13 +131,21 @@ export function PromptPanel({
   };
 
   if (!open) {
+    const solid = disabled
+      ? "inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-zinc-950 opacity-40"
+      : "inline-flex items-center gap-2 rounded-full bg-emerald-500 px-6 py-3 text-base font-semibold text-zinc-950 hover:bg-emerald-400";
+    const outlined =
+      "rounded-full border border-emerald-500/60 px-4 py-2 text-sm font-semibold text-emerald-300 hover:bg-emerald-500/10";
     return (
       <button
         type="button"
-        onClick={() => setOpen(true)}
-        className="self-start text-sm font-medium text-zinc-300 hover:text-white"
+        disabled={disabled}
+        onClick={() => {
+          if (!disabled) setOpen(true);
+        }}
+        className={`self-start ${primary ? solid : outlined}`}
       >
-        Get a ready prompt for this task
+        {primary ? "Get my prompt \u2192" : "Get a ready prompt for this task"}
       </button>
     );
   }

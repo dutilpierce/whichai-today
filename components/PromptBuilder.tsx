@@ -99,14 +99,22 @@ export function PromptBuilder() {
           </button>
         ))}
       </div>
-      {query ? (
-        <div className="mt-6">
+      <div className="mt-6">
+        {query ? (
           <p className="mb-2 text-xs text-zinc-500">
             {chosen ? modelName : `${modelName}, today's best for this`}
           </p>
-          <PromptPanel query={query} categoryKey={categoryKey} modelName={modelName} provider={provider} href={href} />
-        </div>
-      ) : null}
+        ) : null}
+        <PromptPanel
+          query={query}
+          categoryKey={categoryKey}
+          modelName={modelName}
+          provider={provider}
+          href={href}
+          primary
+          disabled={!query}
+        />
+      </div>
     </div>
   );
 }
