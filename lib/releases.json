@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-10-27T22:08:52Z",
+  "last_checked": "2026-10-28T05:32:22Z",
   "entries": [
+    {
+      "id": "2026-10-27-inclusionai-ling-3-1-flash-1019",
+      "date": "2026-10-27",
+      "added": "2026-10-28",
+      "name": "Ling-3.1-flash-1019",
+      "provider": "InclusionAI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "An upgraded 560B open MoE model with 25B active parameters and 1M context, featuring improved reasoning and real-world agentic capabilities.",
+      "features": [
+        "Open weights",
+        "MoE",
+        "1M context",
+        "Reasoning"
+      ],
+      "evidence": "We introduce Ling-3.1-flash-1019, an upgraded version of Ling-3.1-flash, with 560B total parameters, 25B active parameters per token, and a 1M-token context window.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3QMduDKSvYEhIqciTB1CNHAV_w5fxysces5yoa-jj8R3kFWb8pkGiuSNoZps6t0HWn5OMpcLuc5tJaO50C4IamSJFwMw6Z59t5ruDHTterucQXzRoxMiYe4Pcn76d7oJZ8eOxvefLu2u19Ok="
+    },
     {
       "id": "2026-10-26-openai-gpt-6-1-terra",
       "date": "2026-10-26",
@@ -20,6 +38,24 @@
       "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/"
     },
     {
+      "id": "2026-10-23-nvidia-nemotron-3-5-bolt-e4b-4gb",
+      "date": "2026-10-23",
+      "added": "2026-10-28",
+      "name": "Nemotron 3.5 Bolt E4B 4GB",
+      "provider": "NVIDIA",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "An open small language model optimized for conversational agents, fitting in about 4GB of memory with 64K context support.",
+      "features": [
+        "Open weights",
+        "Conversational",
+        "64K context",
+        "Edge AI"
+      ],
+      "evidence": "Today, we're excited to release Nemotron 3.5 Bolt E4B 4GB — our latest open small language model optimized for speed and intelligence per GB in conversational agents... 64k context: accommodate conversation history, instructions, tool definitions, retrieved information and application state",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrGN3hOCaBUOXGW1pFvwq6dAx2b1kEajcy_UiZhRtfbNPyckL1SNxwQCOLkZ9y5l4AyJQsfXNxWgR5WaiqxpfjxyYnp4cXauHdzMadSTLu9_gCHnoif3Z_Kdvc97XFGNC7MvtpY1-CWePP4MkGzlPi8gZmwVyxQPRtYtrrWAhkEkA="
+    },
+    {
       "id": "2026-10-23-moonshot-ai-kimi-k3-1-pro",
       "date": "2026-10-23",
       "added": "2026-10-27",
@@ -36,6 +72,24 @@
       ],
       "evidence": "Kimi K3.1 Pro is a post-trained version of Kimi K3, with substantially larger post-training compute... tool calling, and a 1M-token context window.",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnEsyUGhc3RnjyOjMAp4j4XFqa0DSnQbV6uYPZTECYTQwfcLhxF_MwN8kf7p3JJdl5sQB5GOdLYk1jlPav8s255LpE7pitCB0dNW_RGET2jqYq-DVdTwTaMpW2aw=="
+    },
+    {
+      "id": "2026-10-22-canva-canva-craft",
+      "date": "2026-10-22",
+      "added": "2026-10-28",
+      "name": "Canva Craft",
+      "provider": "Canva",
+      "kind": "model",
+      "status": "available",
+      "summary": "Canva's first in-house image foundation model, generating high-quality 2K resolution images across any aspect ratio via Canva and public API.",
+      "features": [
+        "Image generation",
+        "2K resolution",
+        "Design",
+        "API"
+      ],
+      "evidence": "Today, we're unveiling Canva Craft, our first state-of-the-art image generation model, developed and trained by Canva Research... Available now in Canva and to developers through our public API, Craft generates stunning, high-quality images at 2K resolution in any aspect ratio.",
+      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcWJg2tJS-Mq4lr2lpHhoQMWW5epLZZ4zAPsaytd3GmxgnbWV7iMvhK5fq3duxSLOKqyBrKwIfGsnY1Vtd03YjFR_ukqKPMyfyb0ezIAbOXBNhmrSx7wUzrOP4BmBruVrFZv6Wpw=="
     },
     {
       "id": "2026-10-22-openai-decisions-api",
