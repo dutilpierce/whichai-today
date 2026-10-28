@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-28T12:43:57Z",
+  "last_checked": "2026-10-28T22:30:33Z",
   "entries": [
     {
       "id": "2026-10-27-google-genie-4",
@@ -36,6 +36,24 @@
       ],
       "evidence": "We introduce Ling-3.1-flash-1019, an upgraded version of Ling-3.1-flash, with 560B total parameters, 25B active parameters per token, and a 1M-token context window.",
       "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3QMduDKSvYEhIqciTB1CNHAV_w5fxysces5yoa-jj8R3kFWb8pkGiuSNoZps6t0HWn5OMpcLuc5tJaO50C4IamSJFwMw6Z59t5ruDHTterucQXzRoxMiYe4Pcn76d7oJZ8eOxvefLu2u19Ok="
+    },
+    {
+      "id": "2026-10-27-liquid-ai-lfm3",
+      "date": "2026-10-27",
+      "added": "2026-10-28",
+      "name": "LFM3",
+      "provider": "Liquid AI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Liquid AI released LFM3, a family of six 2B-class open-weight models spanning text, vision, audio, and decision-making on edge devices.",
+      "features": [
+        "Open weights",
+        "Tri-hybrid architecture",
+        "Multimodal",
+        "256K context"
+      ],
+      "evidence": "The first release is six 2B-class open-weight models — text, vision, audio, omni, and two decision models — all branched from a single LFM3-1.7B-Base backbone trained on 22T tokens. The headline change is a tri-hybrid architecture... carries a 256K-token context window",
+      "source_url": "https://www.liquid.ai/blog/lfm3"
     },
     {
       "id": "2026-10-26-openai-gpt-6-1-terra",
