@@ -1,12 +1,12 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-10-28",
-      "hash": "e7955590031305bd"
+      "changed": "2026-10-29",
+      "hash": "ef9fa259e834fbcc"
     },
     "/releases": {
-      "changed": "2026-10-28",
-      "hash": "24f84138fc7a4a96"
+      "changed": "2026-10-29",
+      "hash": "43cc178ba29f677f"
     },
     "/coding": {
       "changed": "2026-10-24",
