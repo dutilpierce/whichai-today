@@ -274,6 +274,7 @@ if (isMain && process.argv.includes("--self-check")) {
 
 if (isMain && process.argv.includes("--fix-sources")) {
   const releases = JSON.parse(await readFile(RELEASES_FILE, "utf8"));
+  let fixed = 0;
   for (const entry of releases.entries) {
     if (!redirectHost(entry.source_url)) continue;
     const source = await resolveSource(entry.source_url);
@@ -283,8 +284,9 @@ if (isMain && process.argv.includes("--fix-sources")) {
     }
     console.log(`resolved: ${entry.id} -> ${source.url}`);
     entry.source_url = source.url;
+    fixed++;
   }
-  await writeFile(RELEASES_FILE, `${JSON.stringify(releases, null, 2)}
+  if (fixed) await writeFile(RELEASES_FILE, `${JSON.stringify(releases, null, 2)}
 `);
   process.exit(0);
 }

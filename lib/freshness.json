@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-10-29",
-      "hash": "ef9fa259e834fbcc"
+      "hash": "eaaf558e1436d78d"
     },
     "/releases": {
       "changed": "2026-10-29",
-      "hash": "43cc178ba29f677f"
+      "hash": "c52b0013d4cba9ca"
     },
     "/coding": {
       "changed": "2026-10-24",
@@ -124,37 +124,61 @@
       "changed": "2026-10-25",
       "hash": "2c994d24b91301e2"
     },
-    "/compare/claude-opus-5-5-vs-gpt-6-astra": {
-      "changed": "2026-10-24",
-      "hash": "b9e2f1c865453372"
-    },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
-      "changed": "2026-10-24",
-      "hash": "3764e9df2a5f8b25"
+      "changed": "2026-10-29",
+      "hash": "4522a0d51e2b48a2"
+    },
+    "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
+      "changed": "2026-10-29",
+      "hash": "452634bae7fde16d"
+    },
+    "/compare/claude-opus-4-6-vs-gpt-5-6-sol": {
+      "changed": "2026-10-29",
+      "hash": "a32bf3dac96be3dc"
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
-      "changed": "2026-10-24",
-      "hash": "46dde1304775de7b"
+      "changed": "2026-10-29",
+      "hash": "82ff097f4e43cba7"
     },
-    "/compare/gemini-3-5-flash-lite-vs-claude-haiku-5-5": {
-      "changed": "2026-10-27",
-      "hash": "6e9cafabf13b1a0b"
+    "/compare/claude-opus-5-5-vs-gpt-6-astra": {
+      "changed": "2026-10-29",
+      "hash": "67c409095a681377"
+    },
+    "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-1-flash": {
+      "changed": "2026-10-29",
+      "hash": "35ae5d528db3004e"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
-      "changed": "2026-10-24",
-      "hash": "3c4d74bd85d8ae8a"
+      "changed": "2026-10-29",
+      "hash": "6fe976f47b29684b"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
-      "changed": "2026-10-27",
-      "hash": "9e450780c0bf698e"
+      "changed": "2026-10-29",
+      "hash": "466e3610ee8b13ff"
     },
-    "/compare/gemini-omni-1-1-flash-vs-dreamina-seedance-2-0": {
-      "changed": "2026-10-25",
-      "hash": "412afe6bfedd3114"
+    "/compare": {
+      "changed": "2026-10-29",
+      "hash": "60a0b7f6998b1224"
     },
-    "/compare/gpt-5-6-sol-vs-claude-opus-4-6": {
-      "changed": "2026-10-25",
-      "hash": "50db62d2094a1d39"
+    "/releases/2026-10-13-google-gemini-4-argon": {
+      "changed": "2026-10-29",
+      "hash": "6836921d1efbc54d"
+    },
+    "/releases/2026-10-07-anthropic-claude-haiku-5-5": {
+      "changed": "2026-10-29",
+      "hash": "a92f0296ef144e32"
+    },
+    "/releases/2026-09-29-openai-gpt-6-1-sol": {
+      "changed": "2026-10-29",
+      "hash": "e05f08dafbc8fabe"
+    },
+    "/releases/2026-09-22-anthropic-claude-opus-5-5": {
+      "changed": "2026-10-29",
+      "hash": "c20d8b58aa1e9b12"
+    },
+    "/releases/2026-09-03-openai-gpt-6-astra": {
+      "changed": "2026-10-29",
+      "hash": "df8fb68804a9c69d"
     },
     "/changes": {
       "changed": "2026-10-25",
@@ -349,20 +373,20 @@
       "hash": "637fb64d5f7fa39b"
     },
     "/about": {
-      "changed": "2026-10-27",
-      "hash": "8151964587fd2dda"
+      "changed": "2026-10-29",
+      "hash": "80fc4ff4ef2fe118"
     },
     "/privacy": {
-      "changed": "2026-10-27",
-      "hash": "23948cd645542aca"
+      "changed": "2026-10-29",
+      "hash": "dcc63a0818276543"
     },
     "/alerts": {
       "changed": "2026-10-25",
       "hash": "80525339aced29d3"
     },
     "/methodology": {
-      "changed": "2026-10-25",
-      "hash": "2a8d3c489efdc497"
+      "changed": "2026-10-29",
+      "hash": "1cebb6afc801c908"
     },
     "/embed": {
       "changed": "2026-10-25",
@@ -373,24 +397,24 @@
       "hash": "428c9f9be242f936"
     },
     "/free": {
-      "changed": "2026-10-27",
-      "hash": "2b1c85595bdc3a33"
+      "changed": "2026-10-29",
+      "hash": "0e7ed2c14aca2863"
     },
     "/prompt-builder": {
-      "changed": "2026-10-27",
-      "hash": "ee9249346c103af7"
+      "changed": "2026-10-29",
+      "hash": "9d055e0cf28387b6"
     },
     "/suggest": {
-      "changed": "2026-10-27",
-      "hash": "bdff6f75ce638e1f"
+      "changed": "2026-10-29",
+      "hash": "4bd59326ca9f695f"
     },
     "/which-ai-should-i-use": {
-      "changed": "2026-10-27",
-      "hash": "97e7706341ae61ec"
+      "changed": "2026-10-29",
+      "hash": "003f17168d5fa79c"
     },
     "/pick": {
-      "changed": "2026-10-27",
-      "hash": "92b24adae81994d7"
+      "changed": "2026-10-29",
+      "hash": "be5d73cab7f9c12d"
     },
     "/for/students": {
       "changed": "2026-10-25",
