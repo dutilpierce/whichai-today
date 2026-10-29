@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-10-28T22:30:33Z",
+  "last_checked": "2026-10-29T05:40:23Z",
   "entries": [
+    {
+      "id": "2026-10-28-nvidia-nemotron-3-5-transcribe",
+      "date": "2026-10-28",
+      "added": "2026-10-29",
+      "name": "Nemotron 3.5 Transcribe",
+      "provider": "NVIDIA",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "NVIDIA released Nemotron 3.5 Transcribe, an open-weights speech model supporting promptable multilingual transcription, speaker attribution, and translation across 40 languages.",
+      "features": [
+        "Open weights",
+        "Speech recognition",
+        "Diarization",
+        "40 languages"
+      ],
+      "evidence": "We introduce Nemotron 3.5 Transcribe, an open speech LLM for intelligent transcription: a single model that transcribes 40 languages verbatim or in written form, with context, speaker attribution, and word timestamps, selected with a natural language instruction.",
+      "source_url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+    },
     {
       "id": "2026-10-27-google-genie-4",
       "date": "2026-10-27",
