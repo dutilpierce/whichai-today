@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-10-29T05:40:23Z",
+  "last_checked": "2026-10-29T12:53:40Z",
   "entries": [
+    {
+      "id": "2026-10-28-google-gemini-4-carbon",
+      "date": "2026-10-28",
+      "added": "2026-10-29",
+      "name": "Gemini 4 Carbon",
+      "provider": "Google",
+      "kind": "model",
+      "status": "preview",
+      "summary": "Google announced Gemini 4 Carbon, its strongest frontier model with state-of-the-art cybersecurity, agentic coding, and long horizon capabilities.",
+      "features": [
+        "Cybersecurity",
+        "Agentic coding",
+        "Long horizon",
+        "Frontier model"
+      ],
+      "evidence": "Today, we're announcing the next frontier model: Gemini 4 Carbon, our strongest model with state-of-the-art cybersecurity and long horizon capabilities.",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+    },
     {
       "id": "2026-10-28-nvidia-nemotron-3-5-transcribe",
       "date": "2026-10-28",
@@ -18,6 +36,24 @@
       ],
       "evidence": "We introduce Nemotron 3.5 Transcribe, an open speech LLM for intelligent transcription: a single model that transcribes 40 languages verbatim or in written form, with context, speaker attribution, and word timestamps, selected with a natural language instruction.",
       "source_url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+    },
+    {
+      "id": "2026-10-28-rime-prism",
+      "date": "2026-10-28",
+      "added": "2026-10-29",
+      "name": "Prism",
+      "provider": "Rime",
+      "kind": "model",
+      "status": "available",
+      "summary": "Rime launched Prism, a conversational speech-to-speech model responding in about 500ms with an inspectable text layer for running guardrails.",
+      "features": [
+        "Speech-to-speech",
+        "500ms latency",
+        "Enterprise voice",
+        "Tool calling"
+      ],
+      "evidence": "Prism responds to user audio in about 500ms, faster than the most comparably intelligent model, with tool calls happening in parallel to speech, and an inspectable text layer to run guardrails over before the model speaks.",
+      "source_url": "https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise"
     },
     {
       "id": "2026-10-27-google-genie-4",
