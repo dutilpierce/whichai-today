@@ -1,6 +1,59 @@
 {
-  "last_checked": "2026-10-29T12:53:40Z",
+  "last_checked": "2026-10-29T22:42:00Z",
   "entries": [
+    {
+      "id": "2026-10-29-mistral-ai-mistral-large-4-le-chonk",
+      "date": "2026-10-29",
+      "added": "2026-10-29",
+      "name": "Mistral Large 4 (Le Chonk)",
+      "provider": "Mistral AI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Mistral released the open weights of its one-trillion-parameter multimodal model with enhancements in coding, defensive cybersecurity, and reasoning efficiency.",
+      "features": [
+        "Open weights",
+        "1T parameters",
+        "Multimodal",
+        "Cybersecurity"
+      ],
+      "evidence": "Earlier this month, we released Mistral Large 4 (Le Chonk), our flagship 1-trillion-parameter, natively multimodal model, in public preview... Today, we're releasing the weights of this improved Mistral Large 4.",
+      "source_url": "https://mistral.ai/news/mistral-large-4-oss/"
+    },
+    {
+      "id": "2026-10-28-apex-intelligence-apex-35b-v1-0",
+      "date": "2026-10-28",
+      "added": "2026-10-29",
+      "name": "Apex-35B-V1.0",
+      "provider": "Apex Intelligence",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Apex Intelligence released its first model, a 35-billion-parameter general-purpose sparse mixture-of-experts model built through automated AI research.",
+      "features": [
+        "Open weights",
+        "35B parameters",
+        "MoE",
+        "Reasoning"
+      ],
+      "evidence": "Today, Apex Intelligence is releasing its first model, Apex-35B-V1.0. This 35B general-purpose model is based on Qwen3.6-35B-A3B and has been further developed through mid-training and post-training.",
+      "source_url": "https://www.apexin.com/apex-35b/"
+    },
+    {
+      "id": "2026-10-28-github-copilot-fusion",
+      "date": "2026-10-28",
+      "added": "2026-10-29",
+      "name": "Copilot Fusion",
+      "provider": "GitHub",
+      "kind": "feature",
+      "status": "available",
+      "summary": "GitHub made Copilot Fusion generally available, automatically routing and orchestrating multiple AI models across different execution patterns for coding tasks.",
+      "features": [
+        "Model routing",
+        "Multi-model",
+        "Coding"
+      ],
+      "evidence": "GitHub Copilot Fusion is generally available. Instead of picking a model for each task, choose Copilot Fusion and let Copilot intelligently route and orchestrate which models it uses for you.",
+      "source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/"
+    },
     {
       "id": "2026-10-28-google-gemini-4-carbon",
       "date": "2026-10-28",
@@ -126,6 +179,24 @@
       ],
       "evidence": "We're introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing... Its standard API prices are 50% lower than those of GPT-5.6 Terra and GPT-6.1 Sol",
       "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/"
+    },
+    {
+      "id": "2026-10-23-moonshot-ai-kimi-k3-1-pro-highspeed",
+      "date": "2026-10-23",
+      "added": "2026-10-29",
+      "name": "Kimi K3.1 Pro Highspeed",
+      "provider": "Moonshot AI",
+      "kind": "update",
+      "status": "available",
+      "summary": "Moonshot AI launched a high-speed variant of Kimi K3.1 Pro offering the same intelligence at approximately two to three times the speed.",
+      "features": [
+        "High speed",
+        "1M context",
+        "Vision",
+        "Reasoning"
+      ],
+      "evidence": "kimi-k3.1-pro-highspeed, The high-speed variant of Kimi K3.1 Pro — same intelligence, about 2-3× the speed.",
+      "source_url": "https://platform.kimi.ai/docs/models"
     },
     {
       "id": "2026-10-23-minimax-minimax-m3-1-flash",
