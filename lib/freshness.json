@@ -2,7 +2,7 @@
   "pages": {
     "/": {
       "changed": "2026-10-29",
-      "hash": "eaaf558e1436d78d"
+      "hash": "9657cf60f2d5fefa"
     },
     "/releases": {
       "changed": "2026-10-29",
@@ -29,8 +29,8 @@
       "hash": "20a7397c70b8dcfb"
     },
     "/general": {
-      "changed": "2026-10-24",
-      "hash": "7a98b401da056f94"
+      "changed": "2026-10-29",
+      "hash": "c1302c6d42e2651a"
     },
     "/images": {
       "changed": "2026-10-27",
@@ -61,8 +61,8 @@
       "hash": "615b36f865c87092"
     },
     "/models/gemini-4-argon": {
-      "changed": "2026-10-24",
-      "hash": "35e7590a11b3a62e"
+      "changed": "2026-10-29",
+      "hash": "3def561500c987b8"
     },
     "/models/mimo-v2-6-pro": {
       "changed": "2026-10-24",
@@ -126,7 +126,7 @@
     },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
       "changed": "2026-10-29",
-      "hash": "4522a0d51e2b48a2"
+      "hash": "8be2c40881562ae2"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
       "changed": "2026-10-29",
@@ -138,7 +138,7 @@
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
       "changed": "2026-10-29",
-      "hash": "82ff097f4e43cba7"
+      "hash": "d807dcde36205e23"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-10-29",
@@ -150,7 +150,7 @@
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
       "changed": "2026-10-29",
-      "hash": "6fe976f47b29684b"
+      "hash": "e05f98e499edea4b"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
       "changed": "2026-10-29",
@@ -378,7 +378,7 @@
     },
     "/privacy": {
       "changed": "2026-10-29",
-      "hash": "dcc63a0818276543"
+      "hash": "23948cd645542aca"
     },
     "/alerts": {
       "changed": "2026-10-25",
@@ -402,11 +402,11 @@
     },
     "/prompt-builder": {
       "changed": "2026-10-29",
-      "hash": "9d055e0cf28387b6"
+      "hash": "ee9249346c103af7"
     },
     "/suggest": {
       "changed": "2026-10-29",
-      "hash": "4bd59326ca9f695f"
+      "hash": "bdff6f75ce638e1f"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-10-29",
