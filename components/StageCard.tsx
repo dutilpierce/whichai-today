@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PromptPanel } from "@/components/PromptPanel";
 import type { ModelProfile } from "@/lib/match";
 import { sensitiveKind, sensitiveLine } from "@/lib/sensitive";
@@ -41,9 +42,9 @@ function Pick({
       >
         Open {model.provider}
       </a>
-      <a href={`/${slug}`} className="mt-2 block text-xs text-zinc-400 hover:text-white">
+      <Link href={`/${slug}`} className="mt-2 block text-xs text-zinc-400 hover:text-white">
         Details
-      </a>
+      </Link>
     </div>
   );
 }
@@ -72,12 +73,12 @@ export function StageCard({
         <p className="text-xs font-semibold uppercase tracking-[0.16em] text-zinc-500">
           Stage {index}
         </p>
-        <a
+        <Link
           href={`/${category.slug}`}
           className="rounded-full bg-emerald-500/15 px-3 py-1 text-xs font-medium text-emerald-300 hover:bg-emerald-500/25"
         >
           {category.emoji} {category.display_name}
-        </a>
+        </Link>
       </div>
       <h2 className="mt-3 text-xl font-semibold tracking-tight text-white">
         {stage.name}

@@ -1,4 +1,4 @@
-import { compareByPair } from "@/lib/catalog";
+import { pairBySlug, verdictLine } from "@/lib/compare";
 import { ogContentType, ogImage, ogSize } from "@/lib/og";
 
 export const alt = "WhichAI.today comparison";
@@ -11,9 +11,9 @@ export default async function Image({
   params: Promise<{ pair: string }>;
 }) {
   const { pair } = await params;
-  const found = compareByPair(pair);
+  const record = pairBySlug(pair);
   return ogImage(
-    found ? `${found.leader.name} vs ${found.runner.name}` : "WhichAI.today",
-    found ? `Today's #1 and the alternative` : "Find the best AI model for the job.",
+    record ? `${record.a.name} vs ${record.b.name}` : "WhichAI.today",
+    record ? verdictLine(record) : "Find the best AI model for the job.",
   );
 }

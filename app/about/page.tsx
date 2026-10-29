@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
@@ -132,9 +133,9 @@ export default function AboutPage() {
             {categories.map(([key, category]) => (
               <tr key={key} className="border-t border-zinc-800">
                 <td className="px-4 py-3 text-zinc-200">
-                  <a href={`/${category.slug}`} className="hover:text-white">
+                  <Link href={`/${category.slug}`} className="hover:text-white">
                     {category.emoji} {category.display_name}
-                  </a>
+                  </Link>
                 </td>
                 <td className="px-4 py-3 text-white">{category.leader.name}</td>
                 <td className="px-4 py-3 text-zinc-300">
@@ -268,9 +269,9 @@ export default function AboutPage() {
           </>
         )}{" "}
         Corrections and changes to the ranking method are logged publicly on{" "}
-        <a href="/changes" className="text-white hover:text-emerald-200">
+        <Link href="/changes" className="text-white hover:text-emerald-200">
           Changes
-        </a>
+        </Link>
         .
       </p>
 
@@ -279,9 +280,9 @@ export default function AboutPage() {
       </h2>
       <p className="mt-4 text-base leading-7 text-zinc-300">
         The boards, the two-check rule, and the fact-check gate are on the{" "}
-        <a href="/methodology" className="text-white hover:text-emerald-200">
+        <Link href="/methodology" className="text-white hover:text-emerald-200">
           methodology page
-        </a>
+        </Link>
         . Benchmarks measure a public task, not your exact files. Rankings can lag a launch by a day, because the refresh runs once a day and only publishes answers that pass the checks.
       </p>
 

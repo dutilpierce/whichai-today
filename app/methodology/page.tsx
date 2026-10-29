@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import models from "@/lib/models.json";
 
@@ -28,9 +29,9 @@ export default function MethodologyPage() {
         <ul className="mt-4 flex flex-col gap-4">
           {categories.map((category) => (
             <li key={category.slug} className="text-sm leading-6 text-zinc-300">
-              <a href={`/${category.slug}`} className="text-white hover:text-emerald-200">
+              <Link href={`/${category.slug}`} className="text-white hover:text-emerald-200">
                 {category.display_name}
-              </a>
+              </Link>
               {": "}
               {category.primary_signal}. Also checked: {(category.sources ?? []).join(", ")}.
             </li>
@@ -47,7 +48,7 @@ export default function MethodologyPage() {
         <h2 className="mt-12 text-2xl font-semibold text-white">What gets published</h2>
         <p className="mt-4 text-base leading-7 text-zinc-300">
           A fact-check runs before any ranking is published. A number in a reason has to appear in the stored evidence or the price. The runner-up cannot outscore the leader on the primary board. Privacy and price notes older than 45 days are held, and the card says it is being re-checked instead of showing the stale line. A change in how a category is ranked is logged on{" "}
-          <a href="/changes" className="text-zinc-100 hover:text-white">Changes</a>
+          <Link href="/changes" className="text-zinc-100 hover:text-white">Changes</Link>
           {" "}as a methodology update and is not sent as an alert.
         </p>
         <p className="mt-4 text-base leading-7 text-zinc-300">

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Freshness } from "@/components/Freshness";
 import { appList, appsOffering } from "@/lib/apps";
@@ -57,9 +58,9 @@ export default function HubPage() {
                 return (
                   <tr key={key} className="border-t border-zinc-800 align-top">
                     <td className="py-3 pr-4">
-                      <a href={`/${category.slug}`} className="text-zinc-100 hover:text-white">
+                      <Link href={`/${category.slug}`} className="text-zinc-100 hover:text-white">
                         {category.emoji} {category.display_name}
-                      </a>
+                      </Link>
                     </td>
                     <td className="py-3 pr-4 text-white">{category.leader.name}</td>
                     <td className="py-3 pr-4">{row.free ? row.free.name : "No free option stored."}</td>
@@ -95,9 +96,9 @@ export default function HubPage() {
           ))}
         </ol>
         <p className="mt-8 text-sm">
-          <a href="/free" className="text-emerald-300 hover:text-emerald-200">Best free AI</a>
-          <a href="/pick" className="ml-4 text-zinc-400 hover:text-white">Not sure what to type?</a>
-          <a href="/tasks" className="ml-4 text-zinc-400 hover:text-white">Tasks</a>
+          <Link href="/free" className="text-emerald-300 hover:text-emerald-200">Best free AI</Link>
+          <Link href="/pick" className="ml-4 text-zinc-400 hover:text-white">Not sure what to type?</Link>
+          <Link href="/tasks" className="ml-4 text-zinc-400 hover:text-white">Tasks</Link>
         </p>
       </main>
     </div>

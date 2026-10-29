@@ -75,3 +75,7 @@ export function daysApart(from: string, to: string) {
   const end = new Date(`${to.slice(0, 10)}T12:00:00Z`).getTime();
   return Math.round((end - start) / 86400000);
 }
+
+export function releaseById(id: string) {
+  return releases.entries.find((entry) => entry.id === id) ?? null;
+}

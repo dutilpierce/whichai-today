@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Freshness } from "@/components/Freshness";
 import pickerFile from "@/lib/picker.json";
@@ -27,12 +28,12 @@ export default function PickPage() {
         <ul className="mt-8 flex flex-col gap-3">
           {pickerFile.topics.map((topic) => (
             <li key={topic.slug}>
-              <a
+              <Link
                 href={`/pick/${topic.slug}`}
                 className="block rounded-2xl border border-zinc-800 px-4 py-3 text-zinc-100 hover:border-zinc-600"
               >
                 {topic.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

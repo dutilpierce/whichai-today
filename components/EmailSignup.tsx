@@ -1,3 +1,4 @@
+import Link from "next/link";
 import site from "@/lib/site.json";
 
 export function EmailSignup() {
@@ -10,9 +11,9 @@ export function EmailSignup() {
         One email when a leader changes. Buttondown is the only service that
         holds the address, and it uses it only to send these alerts. Open and
         click tracking stay off.{" "}
-        <a href="/privacy" className="text-zinc-100 hover:text-white">
+        <Link href="/privacy" className="text-zinc-100 hover:text-white">
           Privacy
-        </a>
+        </Link>
       </p>
       {username ? (
         <form

@@ -1,33 +1,17 @@
 import type { NextConfig } from "next";
-import archiveFile from "./lib/archive.json";
-import models from "./lib/models.json";
+import { compareRedirects } from "./lib/pair-slugs";
+import pairsFile from "./lib/pairs.json";
 
-function slug(name: string) {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-}
-
-const currentPairs = new Set(
-  Object.values(models.categories).map(
-    (category) => `${slug(category.leader.name)}-vs-${slug(category.runner_up.name)}`,
-  ),
-);
-
-const retired = (archiveFile.retired_compares ?? []) as {
-  pair: string;
-  category_slug: string;
-}[];
+const appPairs = new Set(pairsFile.pairs.map((pair) => pair.slug));
 
 const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   async redirects() {
-    return retired
-      .filter((item) => !currentPairs.has(item.pair))
-      .map((item) => ({
-        source: `/compare/${item.pair}`,
-        destination: `/${item.category_slug}`,
-        permanent: true,
-      }));
+    const reversed = pairsFile.pairs
+      .map((pair) => ({ source: `/vs/${pair.right}-vs-${pair.left}`, destination: `/vs/${pair.slug}`, permanent: true }))
+      .filter((item) => !appPairs.has(item.source.slice(4)));
+    return [...compareRedirects(), ...reversed];
   },
   turbopack: {
     rules: {

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Freshness } from "@/components/Freshness";
@@ -80,9 +81,9 @@ export default async function PromptGuidePage({
           <ul className="mt-4 flex flex-col gap-2 text-sm text-zinc-300">
             {leads.map((category) => (
               <li key={category.slug}>
-                <a href={`/${category.slug}`} className="text-emerald-300 hover:text-emerald-200">
+                <Link href={`/${category.slug}`} className="text-emerald-300 hover:text-emerald-200">
                   {category.emoji} {category.display_name}
-                </a>
+                </Link>
                 : {category.leader.name}
               </li>
             ))}
@@ -94,9 +95,9 @@ export default async function PromptGuidePage({
         <ul className="mt-4 flex flex-col gap-2 text-sm">
           {tasks.map((task) => (
             <li key={task.slug}>
-              <a href={`/tasks/${task.slug}`} className="text-emerald-300 hover:text-emerald-200">
+              <Link href={`/tasks/${task.slug}`} className="text-emerald-300 hover:text-emerald-200">
                 Best AI for {task.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

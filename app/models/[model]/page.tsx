@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { FaqList } from "@/components/FaqList";
@@ -5,6 +6,7 @@ import { Freshness } from "@/components/Freshness";
 import { JsonLd } from "@/components/JsonLd";
 import { appsOffering, offerFor, planPrice } from "@/lib/apps";
 import { modelBySlug, modelRecords, historyMentioning } from "@/lib/catalog";
+import { pairsWith, releaseFor } from "@/lib/compare";
 import { ACCESS_LABEL, formatDay, historyBlurb } from "@/lib/picks";
 import { faqNode, modelFaqs, pageGraph } from "@/lib/schema";
 import providers from "@/lib/providers.json";
@@ -48,6 +50,8 @@ export default async function ModelPage({
   const log = historyMentioning(found.name);
   const access = "access" in found.profile ? found.profile.access : "";
   const faqs = modelFaqs(found, privacy);
+  const released = releaseFor(found.name);
+  const matchups = found.archived ? [] : pairsWith(slug, undefined, 8);
   const category = found.roles[0];
   const crumbs = [
     { name: "Home", path: "/" },
@@ -74,6 +78,16 @@ export default async function ModelPage({
           </p>
         ) : null}
         <dl className="mt-8 flex flex-col gap-4">
+          {released ? (
+            <div>
+              <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Released</dt>
+              <dd className="mt-1 text-sm leading-6 text-zinc-300">
+                <Link href={`/releases/${released.id}`} className="text-emerald-300 hover:text-emerald-200">
+                  {formatDay(released.date)}
+                </Link>
+              </dd>
+            </div>
+          ) : null}
           <div>
             <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-zinc-500">Cost</dt>
             <dd className="mt-1 text-sm leading-6 text-zinc-300">{found.profile.cost}</dd>
@@ -134,15 +148,33 @@ export default async function ModelPage({
           <ul className="mt-4 flex flex-col gap-2">
             {found.roles.map((role) => (
               <li key={`${role.slug}-${role.role}`}>
-                <a href={`/${role.slug}`} className="text-sm text-zinc-300 hover:text-white">
+                <Link href={`/${role.slug}`} className="text-sm text-zinc-300 hover:text-white">
                   {role.emoji} {role.display_name}: {role.role}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
         ) : (
           <p className="mt-4 text-sm text-zinc-400">It is not in any current category.</p>
         )}
+
+        {matchups.length ? (
+          <>
+            <h2 className="mt-12 text-2xl font-semibold text-white">Compare {found.name} with…</h2>
+            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+              {matchups.map(({ record, other }) => (
+                <li key={record.pair}>
+                  <Link
+                    href={`/compare/${record.pair}`}
+                    className="block rounded-xl border border-zinc-800 px-4 py-3 text-sm text-zinc-300 hover:border-zinc-700 hover:text-white"
+                  >
+                    {found.name} vs {other.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </>
+        ) : null}
 
         <h2 className="mt-12 text-2xl font-semibold text-white">Leader history</h2>
         {log.length ? (

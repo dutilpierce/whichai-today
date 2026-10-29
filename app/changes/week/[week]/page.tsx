@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { weekById, weekRecords } from "@/lib/catalog";
@@ -43,22 +44,22 @@ export default async function WeekPage({
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
       <main>
-        <a href="/changes" className="text-sm text-zinc-400 hover:text-white">
+        <Link href="/changes" className="text-sm text-zinc-400 hover:text-white">
           All changes
-        </a>
+        </Link>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           Leader changes, {found.week}
         </h1>
         <ul className="mt-8 flex flex-col gap-6">
           {found.changes.map((change) => (
             <li key={change.id}>
-              <a href={`/changes/${change.id}`} className="text-lg font-semibold text-white hover:text-emerald-200">
+              <Link href={`/changes/${change.id}`} className="text-lg font-semibold text-white hover:text-emerald-200">
                 {formatDay(change.date)}. {change.category.display_name}: {change.leader} overtook {change.previous}
-              </a>
+              </Link>
               <p className="mt-2 text-sm leading-6 text-zinc-300">{change.evidence}</p>
-              <a href={`/${change.slug}`} className="mt-2 inline-flex text-sm text-zinc-400 hover:text-white">
+              <Link href={`/${change.slug}`} className="mt-2 inline-flex text-sm text-zinc-400 hover:text-white">
                 {change.category.display_name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

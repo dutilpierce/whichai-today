@@ -124,10 +124,6 @@ export function modelSlug(name: string) {
     .replace(/^-|-$/g, "");
 }
 
-export function comparePair(leader: string, alternative: string) {
-  return `${modelSlug(leader)}-vs-${modelSlug(alternative)}`;
-}
-
 export function changeId(date: string, slug: string) {
   return `${date.slice(0, 10)}-${slug}`;
 }

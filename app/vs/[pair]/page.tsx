@@ -1,8 +1,12 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Freshness } from "@/components/Freshness";
+import { JsonLd } from "@/components/JsonLd";
 import { appList, planPrice, type AppRecord } from "@/lib/apps";
 import { categoryEntries } from "@/lib/picks";
+import { pageGraph } from "@/lib/schema";
 import pairsFile from "@/lib/pairs.json";
 import type { ModelProfile } from "@/lib/match";
 
@@ -33,18 +37,20 @@ export async function generateMetadata({
   if (!pair) return {};
   const left = appList().find((app) => app.slug === pair.left);
   const right = appList().find((app) => app.slug === pair.right);
-  const title = `${left?.name ?? pair.left} vs ${right?.name ?? pair.right}`;
+  const title = `${left?.name ?? pair.left} vs ${right?.name ?? pair.right}: which AI app should you use?`;
+  const description = `${pair.left_if} ${pair.right_if} Who wins each job today, with plans, free tiers, and privacy.`;
   return {
     title,
-    description: "Who wins each job today, from the stored rankings and the stored app plans.",
+    description,
     alternates: { canonical: `/vs/${slug}` },
     openGraph: {
       title,
-      description: "Who wins each job today.",
+      description,
       url: `https://whichai.today/vs/${slug}`,
       siteName: "WhichAI.today",
       type: "website",
     },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
@@ -96,10 +102,17 @@ export default async function VersusPage({ params }: { params: Promise<{ pair: s
   const right = appList().find((app) => app.slug === pair.right);
   if (!left || !right) notFound();
   const path = `/vs/${slug}`;
+  const crumbs = [
+    { name: "Home", path: "/" },
+    { name: "Compare", path: "/compare" },
+    { name: `${left.name} vs ${right.name}`, path },
+  ];
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+      <JsonLd data={pageGraph(path, crumbs, [])} />
       <main>
+        <Breadcrumbs crumbs={crumbs} />
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           {left.name} vs {right.name}
         </h1>
@@ -119,9 +132,9 @@ export default async function VersusPage({ params }: { params: Promise<{ pair: s
               {categoryEntries().map(([key, category]) => (
                 <tr key={key} className="border-t border-zinc-800">
                   <td className="py-3 pr-4">
-                    <a href={`/${category.slug}`} className="text-zinc-100 hover:text-white">
+                    <Link href={`/${category.slug}`} className="text-zinc-100 hover:text-white">
                       {category.display_name}
-                    </a>
+                    </Link>
                   </td>
                   <td className="py-3">
                     {winner(left, right, category.leader, category.runner_up, category.open_source_pick)}

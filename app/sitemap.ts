@@ -1,6 +1,9 @@
 import type { MetadataRoute } from "next";
 import { appList } from "@/lib/apps";
-import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
+import { confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
+import { indexedPairs } from "@/lib/compare";
+import { releaseIndexed } from "@/lib/release-rows";
+import { releaseEntries } from "@/lib/releases";
 import { pageDates } from "@/lib/freshness";
 import { categoryEntries } from "@/lib/picks";
 import audiencesFile from "@/lib/audiences.json";
@@ -44,8 +47,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryEntries().map(([, category]) => item(`/${category.slug}`, "daily", 0.7)),
     item("/changes", "daily", 0.6),
     item("/releases", "hourly", 0.8),
+    ...releaseEntries().filter(releaseIndexed).map((entry) => item(`/releases/${entry.id}`, "monthly", 0.5)),
     ...modelRecords().map((model) => item(`/models/${model.slug}`, "daily", 0.6)),
-    ...compareRecords().map((record) => item(`/compare/${record.pair}`, "daily", 0.6)),
+    item("/compare", "daily", 0.8),
+    ...indexedPairs().map((record) => item(`/compare/${record.pair}`, "daily", 0.7)),
     ...[...confirmedChanges(), ...methodologyUpdates()].map((change) =>
       item(`/changes/${change.id}`, "monthly", 0.5),
     ),

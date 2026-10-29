@@ -4,7 +4,10 @@ import audiencesFile from "@/lib/audiences.json";
 import pairsFile from "@/lib/pairs.json";
 import pickerFile from "@/lib/picker.json";
 import tasksFile from "@/lib/tasks.json";
-import { compareRecords, confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
+import { confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
+import { indexedPairs } from "@/lib/compare";
+import { releaseIndexed } from "@/lib/release-rows";
+import { releaseEntries } from "@/lib/releases";
 
 export function GET() {
   const reviewed = models.last_updated.slice(0, 10);
@@ -18,7 +21,9 @@ export function GET() {
   const pages = [
     ...Object.values(models.categories).map((category) => `https://whichai.today/${category.slug}`),
     ...modelRecords().map((model) => `https://whichai.today/models/${model.slug}`),
-    ...compareRecords().map((item) => `https://whichai.today/compare/${item.pair}`),
+    "https://whichai.today/compare",
+    ...indexedPairs().map((item) => `https://whichai.today/compare/${item.pair}`),
+    ...releaseEntries().filter(releaseIndexed).map((entry) => `https://whichai.today/releases/${entry.id}`),
     "https://whichai.today/changes",
     ...confirmedChanges().map((change) => `https://whichai.today/changes/${change.id}`),
     ...methodologyUpdates().map((change) => `https://whichai.today/changes/${change.id}`),

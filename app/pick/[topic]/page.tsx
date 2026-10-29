@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Freshness } from "@/components/Freshness";
@@ -42,20 +43,20 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
       <main>
-        <a href="/pick" className="text-sm text-zinc-400 hover:text-white">
+        <Link href="/pick" className="text-sm text-zinc-400 hover:text-white">
           Back
-        </a>
+        </Link>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{topic.name}</h1>
         <Freshness path={path} />
         <ul className="mt-8 flex flex-col gap-3">
           {topic.goals.map((goal) => (
             <li key={goal.task}>
-              <a
+              <Link
                 href={`/tasks/${goal.task}`}
                 className="block rounded-2xl border border-zinc-800 px-4 py-3 text-zinc-100 hover:border-zinc-600"
               >
                 {goal.label}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { confirmedChanges, methodologyUpdates, trackingStart, weekRecords } from "@/lib/catalog";
 import { changeTitle, formatDay } from "@/lib/picks";
@@ -33,9 +34,9 @@ export default function ChangesPage() {
           <ul className="mt-8 flex flex-col gap-4">
             {changes.map((change) => (
               <li key={change.id}>
-                <a href={`/changes/${change.id}`} className="text-base text-zinc-100 hover:text-white">
+                <Link href={`/changes/${change.id}`} className="text-base text-zinc-100 hover:text-white">
                   {formatDay(change.date)}. {changeTitle(change, change.slug)}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -53,9 +54,9 @@ export default function ChangesPage() {
             <ul className="mt-4 flex flex-col gap-4">
               {methods.map((change) => (
                 <li key={change.id}>
-                  <a href={`/changes/${change.id}`} className="text-base text-zinc-100 hover:text-white">
+                  <Link href={`/changes/${change.id}`} className="text-base text-zinc-100 hover:text-white">
                     {formatDay(change.date)}. {changeTitle(change, change.slug)}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -67,9 +68,9 @@ export default function ChangesPage() {
             <ul className="mt-4 flex flex-col gap-2">
               {weeks.map((week) => (
                 <li key={week.week}>
-                  <a href={`/changes/week/${week.week}`} className="text-sm text-zinc-300 hover:text-white">
+                  <Link href={`/changes/week/${week.week}`} className="text-sm text-zinc-300 hover:text-white">
                     Week of {week.week}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

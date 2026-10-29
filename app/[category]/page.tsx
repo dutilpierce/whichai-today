@@ -1,10 +1,11 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ModelCard } from "@/components/ModelCard";
 import { CiteThis } from "@/components/CiteThis";
 import { EmailSignup } from "@/components/EmailSignup";
-import { FaqList } from "@/components/FaqList";
 import { Freshness } from "@/components/Freshness";
+import { pairUrl } from "@/lib/compare";
 import { JsonLd } from "@/components/JsonLd";
 import models from "@/lib/models.json";
 import { pageDates } from "@/lib/freshness";
@@ -100,6 +101,12 @@ export default async function CategoryPage({
             <ModelCard model={category.runner_up} label="Top Alternative" />
             <ModelCard model={category.open_source_pick} label="Best Open Source" />
           </div>
+          <Link
+            href={pairUrl(category.leader.name, category.runner_up.name)}
+            className="rounded-2xl border border-zinc-800 px-4 py-3 text-sm text-zinc-300 hover:border-zinc-700 hover:text-white"
+          >
+            {category.leader.name} vs {category.runner_up.name}: full head-to-head →
+          </Link>
         </div>
         <div className="mt-8">
           <EmailSignup />
@@ -117,15 +124,15 @@ export default async function CategoryPage({
         </ul>
         <p className="mt-4 text-sm text-zinc-400">
           A new number one has to show up on two daily checks before it replaces the current leader.{" "}
-          <a href="/alerts" className="text-zinc-200 hover:text-white">
+          <Link href="/alerts" className="text-zinc-200 hover:text-white">
             Get alerts
-          </a>
+          </Link>
           .
         </p>
         <p className="mt-8 text-sm">
-          <a href={`/embed#${category.slug}`} className="text-zinc-200 hover:text-white">
+          <Link href={`/embed#${category.slug}`} className="text-zinc-200 hover:text-white">
             Put this on your site
-          </a>
+          </Link>
         </p>
 
         <CiteThis
@@ -148,9 +155,9 @@ export default async function CategoryPage({
             <ul className="mt-4 flex flex-col gap-2">
               {related.map((task) => (
                 <li key={task.slug}>
-                  <a href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
+                  <Link href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
                     Best AI for {task.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -161,9 +168,9 @@ export default async function CategoryPage({
         <ul className="mt-4 flex flex-col gap-2">
           {others.map(([, item]) => (
             <li key={item.slug}>
-              <a href={`/${item.slug}`} className="text-sm text-zinc-300 hover:text-white">
+              <Link href={`/${item.slug}`} className="text-sm text-zinc-300 hover:text-white">
                 {item.emoji} {item.display_name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

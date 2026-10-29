@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import models from "@/lib/models.json";
 import { shortLabel } from "@/lib/picks";
@@ -37,9 +38,9 @@ export default function TasksPage() {
                 .filter((task) => "capability" in task && task.capability)
                 .map((task) => (
                   <li key={task.slug}>
-                    <a href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
+                    <Link href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
                       Best AI for {task.title}
-                    </a>
+                    </Link>
                   </li>
                 ))}
             </ul>
@@ -48,16 +49,16 @@ export default function TasksPage() {
         {groups.map(({ category, tasks }) => (
           <section key={category.slug} className="mt-10">
             <h2 className="text-xl font-semibold text-white">
-              <a href={`/${category.slug}`} className="hover:text-emerald-200">
+              <Link href={`/${category.slug}`} className="hover:text-emerald-200">
                 {category.emoji} {shortLabel(category.slug)}
-              </a>
+              </Link>
             </h2>
             <ul className="mt-3 flex flex-col gap-2">
               {tasks.map((task) => (
                 <li key={task.slug}>
-                  <a href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
+                  <Link href={`/tasks/${task.slug}`} className="text-sm text-zinc-300 hover:text-white">
                     Best AI for {task.title}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

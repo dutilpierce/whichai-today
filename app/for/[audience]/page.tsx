@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Freshness } from "@/components/Freshness";
@@ -59,15 +60,15 @@ export default async function AudiencePage({ params }: { params: Promise<{ audie
         <ul className="mt-3 flex flex-col gap-2">
           {tasks.map((task) => (
             <li key={task!.slug}>
-              <a href={`/tasks/${task!.slug}`} className="text-sm text-zinc-300 hover:text-white">
+              <Link href={`/tasks/${task!.slug}`} className="text-sm text-zinc-300 hover:text-white">
                 Best AI for {task!.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
         <p className="mt-8 text-sm">
-          <a href="/free" className="text-emerald-300 hover:text-emerald-200">Best free AI</a>
-          <a href="/which-ai-should-i-use" className="ml-4 text-zinc-400 hover:text-white">Which AI should I use</a>
+          <Link href="/free" className="text-emerald-300 hover:text-emerald-200">Best free AI</Link>
+          <Link href="/which-ai-should-i-use" className="ml-4 text-zinc-400 hover:text-white">Which AI should I use</Link>
         </p>
       </main>
     </div>

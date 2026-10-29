@@ -203,7 +203,7 @@ export function checkData(models, history, providers, today) {
     if (leaderScore !== null && runnerScore !== null && runnerScore > leaderScore) {
       fail(`${key} runner-up scores higher than the leader on ${signal}`, { kind: "cost", model: category.leader.name });
       pages.push(`/${category.slug}`);
-      pages.push(`/compare/${slugify(category.leader.name)}-vs-${slugify(category.runner_up.name)}`);
+      pages.push(`/compare/${[slugify(category.leader.name), slugify(category.runner_up.name)].sort().join("-vs-")}`);
     }
     const latest = latestEntry(history, key);
     if (!latest || latest.leader !== category.leader.name) {

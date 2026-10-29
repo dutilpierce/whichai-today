@@ -64,7 +64,7 @@ function visibleRelease(entry) {
   return next;
 }
 
-export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases }) {
+export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases, site }) {
   const skip = new Set(held?.pages ?? []);
   const pages = {};
   const categories = Object.values(models.categories);
@@ -126,18 +126,44 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
     });
   }
 
-  const compares = new Map();
+  // Mirrors lib/pair-slugs.ts and lib/compare.ts: same-kind pairs, alphabetical slug, indexed pairs only.
+  const MEDIA = { images: "image", video: "video" };
+  const kinds = new Map();
   for (const category of categories) {
-    const pair = `${slugify(category.leader.name)}-vs-${slugify(category.runner_up.name)}`;
-    const existing = compares.get(pair) ?? {
-      leader: visiblePick(category.leader),
-      runner: visiblePick(category.runner_up),
-      categories: [],
-    };
-    existing.categories.push(category.slug);
-    compares.set(pair, existing);
+    for (const slot of SLOTS) {
+      const slug = slugify(category[slot].name);
+      kinds.set(slug, new Set([...(kinds.get(slug) ?? []), MEDIA[category.slug] ?? "text"]));
+    }
   }
-  for (const [pair, payload] of compares) put(`/compare/${pair}`, payload);
+  const modality = (slug) => (kinds.get(slug).size === 1 ? [...kinds.get(slug)][0] : "text");
+  const popular = new Set(
+    categories.map((category) => [slugify(category.leader.name), slugify(category.runner_up.name)].sort().join("-vs-")),
+  );
+  const tracked = [...kinds.keys()].sort();
+  const headToHeads = [];
+  for (let i = 0; i < tracked.length; i++) {
+    for (let j = i + 1; j < tracked.length; j++) {
+      const [left, right] = [tracked[i], tracked[j]];
+      if (modality(left) !== modality(right)) continue;
+      const a = byModel.get(left);
+      const b = byModel.get(right);
+      const shared = a.slots.some((item) => b.slots.some((other) => other.category === item.category));
+      if (!shared) continue;
+      const pair = `${left}-vs-${right}`;
+      headToHeads.push(pair);
+      if (site?.compare_index !== "shared" && !popular.has(pair)) continue;
+      put(`/compare/${pair}`, {
+        a: { ...a, privacy: providers[a.provider] ?? null },
+        b: { ...b, privacy: providers[b.provider] ?? null },
+        released: releaseEntries.filter((entry) => [left, right].includes(slugify(entry.name))).map((entry) => entry.id),
+      });
+    }
+  }
+  put("/compare", headToHeads);
+
+  for (const entry of releaseEntries) {
+    if (byModel.get(slugify(entry.name))?.slots.length) put(`/releases/${entry.id}`, entry);
+  }
 
   const logged = (history.entries ?? []).map((entry) => ({
     ...entry,
@@ -246,7 +272,8 @@ async function main() {
   const picker = await readJson(new URL("lib/picker.json", ROOT));
   const apps = (await readJson(new URL("lib/apps.json", ROOT))) ?? { apps: [] };
   const releases = (await readJson(new URL("lib/releases.json", ROOT))) ?? { entries: [] };
-  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases });
+  const site = await readJson(new URL("lib/site.json", ROOT));
+  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases, site });
   const existing = (await readJson(FRESHNESS)) ?? { pages: {} };
   const today = [models.last_updated, releases.last_checked]
     .filter(Boolean)
@@ -327,6 +354,10 @@ function selfCheck() {
   const applied = applyFreshness({ pages: seeded.pages }, next, "2026-10-25");
   assert(applied.pages["/coding"].changed === "2026-10-25", "a new runner-up moves the category date");
   assert(applied.pages["/compare/alpha-vs-delta"], "a new runner-up moves the compare page");
+  assert(!applied.pages["/compare/delta-vs-alpha"], "a pair has one page, in alphabetical order");
+  assert(!applied.pages["/compare/alpha-vs-gamma"], "only today's #1 against the alternative is listed by default");
+  const wide = buildPayloads({ ...moved, site: { compare_index: "shared" } });
+  assert(wide["/compare/alpha-vs-gamma"], "compare_index shared lists every head-to-head");
   assert(applied.pages["/models/delta"], "a new runner-up moves the model page");
   assert(
     applied.urls.includes("https://whichai.today/coding") &&
@@ -340,6 +371,11 @@ function selfCheck() {
   const withRelease = applyFreshness({ pages: seeded.pages }, buildPayloads(released), "2026-10-25");
   assert(withRelease.pages["/"].changed === "2026-10-25", "a new release moves the home page");
   assert(withRelease.pages["/releases"].changed === "2026-10-25", "a new release moves the releases page");
+  assert(!withRelease.pages["/releases/2026-10-25-test-alpha-2"], "a release of a model we don't rank gets no listed page");
+  const rankedRelease = structuredClone(base);
+  rankedRelease.releases.entries.push({ id: "2026-10-25-test-alpha", name: "Alpha", evidence: "Quote." });
+  const withRanked = applyFreshness({ pages: seeded.pages }, buildPayloads(rankedRelease), "2026-10-25");
+  assert(withRanked.urls.includes("https://whichai.today/releases/2026-10-25-test-alpha"), "a release of a ranked model pings its own page");
   const evidenceOnly = structuredClone(released);
   evidenceOnly.releases.entries[0].evidence = "Another quote.";
   assert(

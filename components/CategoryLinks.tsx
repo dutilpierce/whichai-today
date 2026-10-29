@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import models from "@/lib/models.json";
 
@@ -10,13 +11,13 @@ export function CategoryLinks() {
   return (
     <nav className="flex flex-wrap gap-x-4 gap-y-2" aria-label="Categories">
       {Object.values(models.categories).map((category) => (
-        <a
+        <Link
           key={category.slug}
           href={`/${category.slug}`}
           className="text-zinc-400 hover:text-white"
         >
           {category.emoji} {category.display_name}
-        </a>
+        </Link>
       ))}
     </nav>
   );

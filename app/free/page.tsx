@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { Freshness } from "@/components/Freshness";
 import { freeAndPaid } from "@/lib/options";
@@ -44,9 +45,9 @@ export default function FreePage() {
                 return (
                   <tr key={key} className="border-t border-zinc-800 align-top">
                     <td className="py-3 pr-4">
-                      <a href={`/${category.slug}`} className="text-zinc-100 hover:text-white">
+                      <Link href={`/${category.slug}`} className="text-zinc-100 hover:text-white">
                         {category.emoji} {category.display_name}
-                      </a>
+                      </Link>
                     </td>
                     <td className="py-3 pr-4">
                       {row.free ? (

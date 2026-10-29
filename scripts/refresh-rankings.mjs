@@ -315,20 +315,12 @@ function slugify(name) {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
-function pairFor(category) {
-  return `${slugify(category.leader.name)}-vs-${slugify(category.runner_up.name)}`;
-}
-
 const models = JSON.parse(await readFile(MODELS_FILE, "utf8"));
 const history = JSON.parse(await readFile(HISTORY_FILE, "utf8"));
-const archive = JSON.parse(await readFile(ARCHIVE_FILE, "utf8").catch(() => '{"models":[],"retired_compares":[]}'));
+const archive = JSON.parse(await readFile(ARCHIVE_FILE, "utf8").catch(() => '{"models":[]}'));
 const today = new Date().toISOString().slice(0, 10);
 const changes = [];
 let failures = 0;
-const beforePairs = Object.values(models.categories).map((category) => ({
-  slug: category.slug,
-  pair: pairFor(category),
-}));
 const beforeProfiles = new Map();
 for (const category of Object.values(models.categories)) {
   for (const slot of SLOTS) {
@@ -363,15 +355,8 @@ if (failures < Object.keys(models.categories).length) {
 }
 
 const afterNames = new Set();
-const afterPairs = new Set();
 for (const category of Object.values(models.categories)) {
-  afterPairs.add(pairFor(category));
   for (const slot of SLOTS) afterNames.add(category[slot].name);
-}
-for (const item of beforePairs) {
-  if (afterPairs.has(item.pair)) continue;
-  if (archive.retired_compares.some((retired) => retired.pair === item.pair)) continue;
-  archive.retired_compares.push({ pair: item.pair, category_slug: item.slug });
 }
 for (const [name, pick] of beforeProfiles) {
   if (afterNames.has(name)) continue;

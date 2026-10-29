@@ -1,7 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CHECKS, TWEAKS, fieldValue, firstHint, isTweak, templatePrompt, type TweakId } from "@/lib/prompt-text";
+
+// The shared panel only mounts in the browser, after a result appears, so a shared link can be read on first render.
+function linkedTweaks(share: boolean): TweakId[] {
+  if (!share || typeof window === "undefined") return [];
+  return (new URLSearchParams(window.location.search).get("tw") ?? "").split(",").filter(isTweak);
+}
 
 function writeTweaks(tweaks: string[]) {
   const params = new URLSearchParams(window.location.search);
@@ -30,27 +37,21 @@ export function PromptPanel({
   primary?: boolean;
   disabled?: boolean;
 }) {
-  const [open, setOpen] = useState(false);
-  const [tweaks, setTweaks] = useState<TweakId[]>([]);
-  const [text, setText] = useState("");
+  const [tweaks, setTweaks] = useState<TweakId[]>(() => linkedTweaks(share));
+  const [open, setOpen] = useState(() => linkedTweaks(share).length > 0);
+  // Written text belongs to one query; a new query shows its template until the written prompt arrives.
+  const [written, setWritten] = useState<{ key: string; text: string } | null>(null);
   const [past, setPast] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const skip = useRef(false);
-
-  useEffect(() => {
-    if (!share) return;
-    const raw = new URLSearchParams(window.location.search).get("tw") ?? "";
-    const next = raw.split(",").filter(isTweak);
-    if (!next.length) return;
-    setTweaks(next);
-    setOpen(true);
-  }, [share]);
+  const key = `${categoryKey}|${query}`;
+  const template = templatePrompt(query, categoryKey);
+  const text = written?.key === key ? written.text : template;
 
   useEffect(() => {
     if (!open || !query.trim()) return;
-    const template = templatePrompt(query, categoryKey);
-    if (tweaks.length === 0) setText(template);
+    const asked = `${categoryKey}|${query}`;
     if (skip.current) {
       skip.current = false;
       return;
@@ -66,12 +67,10 @@ export function PromptPanel({
       .then((res) => (res.ok ? res.json() : null))
       .then((data) => {
         if (cancelled) return;
-        if (typeof data?.prompt === "string" && data.prompt.trim()) setText(data.prompt);
-        else setText((current) => current || template);
+        if (typeof data?.prompt === "string" && data.prompt.trim()) setWritten({ key: asked, text: data.prompt });
       })
-      .catch(() => {
-        if (!cancelled) setText((current) => current || template);
-      })
+      // A failed request keeps whatever is showing: the template, or the last written prompt.
+      .catch(() => {})
       .finally(() => {
         if (!cancelled) setLoading(false);
       });
@@ -90,7 +89,7 @@ export function PromptPanel({
 
   function undo() {
     const previous = past[past.length - 1];
-    if (previous) setText(previous);
+    if (previous) setWritten({ key, text: previous });
     setPast((items) => items.slice(0, -1));
     const next = tweaks.slice(0, -1);
     skip.current = true;
@@ -101,7 +100,7 @@ export function PromptPanel({
   function reset() {
     setPast([]);
     setTweaks([]);
-    setText(templatePrompt(query, categoryKey));
+    setWritten(null);
     if (share) writeTweaks([]);
   }
 
@@ -209,9 +208,9 @@ export function PromptPanel({
       </ul>
       {hint ? <p className="mt-2 text-xs text-zinc-500">{hint}</p> : null}
       <p className="mt-3 text-xs">
-        <a href="/prompt-builder" className="text-zinc-400 hover:text-white">
+        <Link href="/prompt-builder" className="text-zinc-400 hover:text-white">
           Open the prompt builder
-        </a>
+        </Link>
       </p>
     </div>
   );

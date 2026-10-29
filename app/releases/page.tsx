@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { CopyFeedLink } from "@/components/CopyFeedLink";
 import { RelativeDay } from "@/components/RelativeDay";
@@ -51,9 +52,9 @@ export default function ReleasesPage() {
               Last checked <RelativeDay date={checked} lower />.
             </span>
           ) : null}
-          <a href="/methodology" className="text-zinc-300 hover:text-white">
+          <Link href="/methodology" className="text-zinc-300 hover:text-white">
             How we check
-          </a>
+          </Link>
         </p>
 
         {rows.length ? (

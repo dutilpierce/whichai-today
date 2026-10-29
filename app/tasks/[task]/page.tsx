@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CopyText } from "@/components/CopyText";
@@ -108,17 +109,17 @@ export default async function TaskPage({
         )}
         <p className="mt-8 text-sm">
           {category ? (
-            <a href={`/${category.slug}`} className="text-emerald-300 hover:text-emerald-200">
+            <Link href={`/${category.slug}`} className="text-emerald-300 hover:text-emerald-200">
               {category.emoji} More on {category.display_name}
-            </a>
+            </Link>
           ) : (
-            <a href="/which-ai-should-i-use" className="text-emerald-300 hover:text-emerald-200">
+            <Link href="/which-ai-should-i-use" className="text-emerald-300 hover:text-emerald-200">
               Which AI should I use
-            </a>
+            </Link>
           )}
-          <a href="/prompt-builder" className="ml-4 text-zinc-400 hover:text-white">
+          <Link href="/prompt-builder" className="ml-4 text-zinc-400 hover:text-white">
             Prompt builder
-          </a>
+          </Link>
         </p>
       </main>
     </div>

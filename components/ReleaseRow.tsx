@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { NewBadge } from "@/components/RelativeDay";
 import { KIND_LABEL, STATUS_LABEL, monogram, providerHue, sourceHost, type Release } from "@/lib/releases";
 
@@ -29,7 +30,11 @@ export function ReleaseRow({ entry, anchor = false }: { entry: ReleaseRowData; a
       </span>
       <div className="min-w-0 flex-1">
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
-          <h3 className="text-base font-semibold text-white">{entry.name}</h3>
+          <h3 className="text-base font-semibold text-white">
+            <Link href={`/releases/${entry.id}`} className="hover:text-emerald-200">
+              {entry.name}
+            </Link>
+          </h3>
           <span className="text-sm text-zinc-500">{entry.provider}</span>
           <span className={`rounded-full px-2 py-0.5 text-xs font-medium ${KIND_STYLE[entry.kind]}`}>
             {KIND_LABEL[entry.kind]}
@@ -58,9 +63,9 @@ export function ReleaseRow({ entry, anchor = false }: { entry: ReleaseRowData; a
             Source: {host} ↗
           </a>
           {entry.ranked ? (
-            <a href={`/models/${entry.ranked}`} className="text-zinc-400 hover:text-white">
+            <Link href={`/models/${entry.ranked}`} className="text-zinc-400 hover:text-white">
               See where it ranks →
-            </a>
+            </Link>
           ) : null}
         </div>
       </div>

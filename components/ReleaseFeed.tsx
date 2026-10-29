@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { RelativeDay } from "@/components/RelativeDay";
 import { ReleaseRow, type ReleaseRowData } from "@/components/ReleaseRow";
 import { groupByDay } from "@/lib/releases";
@@ -68,15 +69,15 @@ export function ReleaseFeed({ entries }: { entries: ReleaseRowData[] }) {
             What AI companies just shipped, newest first. Checked every 6 hours.
           </p>
         </div>
-        <a href="/releases" className="text-sm font-medium text-emerald-300 hover:text-emerald-200">
+        <Link href="/releases" className="text-sm font-medium text-emerald-300 hover:text-emerald-200">
           See full timeline →
-        </a>
+        </Link>
       </div>
       <ReleaseDays entries={entries} mobileRows={MOBILE_ROWS} />
       <p className="mt-6 text-sm">
-        <a href="/releases" className="text-zinc-300 hover:text-white">
+        <Link href="/releases" className="text-zinc-300 hover:text-white">
           All releases, filters, and the RSS feed →
-        </a>
+        </Link>
       </p>
     </section>
   );

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CategoryLinks } from "@/components/CategoryLinks";
 import models from "@/lib/models.json";
 import { formatDay } from "@/lib/picks";
@@ -14,32 +15,35 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
           SWE-bench, last reviewed {reviewed}. No affiliate links. No paid placement.
         </p>
         <nav className="flex flex-wrap items-center gap-x-4 gap-y-2" aria-label="Site">
-          <a href="/about" className="text-zinc-400 hover:text-white">
+          <Link href="/about" className="text-zinc-400 hover:text-white">
             About
-          </a>
-          <a href="/privacy" className="text-zinc-400 hover:text-white">
+          </Link>
+          <Link href="/privacy" className="text-zinc-400 hover:text-white">
             Privacy
-          </a>
-          <a href="/methodology" className="text-zinc-400 hover:text-white">
+          </Link>
+          <Link href="/methodology" className="text-zinc-400 hover:text-white">
             Methodology
-          </a>
-          <a href="/data" className="text-zinc-400 hover:text-white">
+          </Link>
+          <Link href="/data" className="text-zinc-400 hover:text-white">
             Data
-          </a>
+          </Link>
+          <Link href="/compare" className="text-zinc-400 hover:text-white">
+            Compare
+          </Link>
           {includeChanges ? (
-            <a href="/changes" className="text-zinc-400 hover:text-white">
+            <Link href="/changes" className="text-zinc-400 hover:text-white">
               Changes
-            </a>
+            </Link>
           ) : null}
-          <a href="/alerts" className="text-zinc-400 hover:text-white">
+          <Link href="/alerts" className="text-zinc-400 hover:text-white">
             Get alerts
-          </a>
-          <a href="/suggest" className="text-zinc-400 hover:text-white">
+          </Link>
+          <Link href="/suggest" className="text-zinc-400 hover:text-white">
             Suggest
-          </a>
-          <a href="/embed" className="text-zinc-400 hover:text-white">
+          </Link>
+          <Link href="/embed" className="text-zinc-400 hover:text-white">
             Embed
-          </a>
+          </Link>
         </nav>
       </div>
     </footer>

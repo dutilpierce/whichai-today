@@ -1,4 +1,5 @@
 import { pageDates } from "./freshness";
+import type { Cell, ComparePairRecord } from "./compare";
 import { changeTitle, formatDay, modelSlug } from "./picks";
 
 export type Faq = { question: string; answer: string };
@@ -121,39 +122,58 @@ export function modelFaqs(
   return faqs;
 }
 
-export function compareFaqs(found: {
-  leader: Named & { cost: string; primary_score: number | null; benchmark_context: string };
-  runner: Named & { cost: string; primary_score: number | null };
-  categories: {
-    display_name: string;
-    primary_signal: string;
-    leader: { primary_score: number | null };
-    runner_up: { primary_score: number | null };
-  }[];
-}, privacyFor: (provider: string) => { trains_by_default: string } | undefined) {
-  const faqs: Faq[] = found.categories.map((category) => {
-    const leaderScore = category.leader.primary_score;
-    const runnerScore = category.runner_up.primary_score;
-    const scores =
-      leaderScore !== null && runnerScore !== null
-        ? ` ${found.leader.name} scores ${leaderScore} and ${found.runner.name} scores ${runnerScore} on that signal.`
-        : "";
+function cellText(name: string, cell: Cell) {
+  if (!cell) return `${name} is not in today's top three`;
+  return `${name} is the ${cell.label === "#1" ? "#1 pick" : `${cell.label.toLowerCase()} pick`}${cell.score !== null ? ` (${cell.score})` : ""}`;
+}
+
+export function compareFaqs(
+  record: ComparePairRecord,
+  privacyFor: (provider: string) => { trains_by_default: string } | undefined,
+  released: { a: string | null; b: string | null },
+) {
+  const { a, b } = record;
+  const faqs: Faq[] = record.rows.map((row) => {
+    const winner = row.winner === "a" ? a.name : b.name;
     return {
-      question: `Which is better for ${category.display_name.toLowerCase()}, ${found.leader.name} or ${found.runner.name}?`,
-      answer: `${found.leader.name} leads ${category.display_name.toLowerCase()} on ${category.primary_signal}.${scores}`,
+      question: `Is ${a.name} or ${b.name} better for ${row.display_name.toLowerCase()}?`,
+      answer: `${winner} ranks ahead for ${row.display_name.toLowerCase()} on ${row.signal}. ${cellText(a.name, row.a)}; ${cellText(b.name, row.b)}.`,
     };
   });
   faqs.push({
-    question: "Which is cheaper?",
-    answer: `${found.leader.name} costs ${found.leader.cost} ${found.runner.name} costs ${found.runner.cost} These are the stored prices, not a guess about which plan is cheaper for you.`,
+    question: `Which is cheaper, ${a.name} or ${b.name}?`,
+    answer: `${a.name}: ${a.profile.cost} ${b.name}: ${b.profile.cost}`,
   });
-  const leaderPrivacy = privacyFor(found.leader.provider);
-  const runnerPrivacy = privacyFor(found.runner.provider);
   faqs.push({
-    question: "Which is more private?",
-    answer: `${found.leader.name}: ${leaderPrivacy?.trains_by_default ?? "Privacy default not checked."} ${found.runner.name}: ${runnerPrivacy?.trains_by_default ?? "Privacy default not checked."}`,
+    question: `Can I use ${a.name} or ${b.name} for free?`,
+    answer: `${a.name}: ${a.profile.free_tier} ${b.name}: ${b.profile.free_tier}`,
+  });
+  if (released.a && released.b && released.a !== released.b) {
+    const [newer, older] = released.a > released.b ? [a, b] : [b, a];
+    faqs.push({
+      question: `Which is newer, ${a.name} or ${b.name}?`,
+      answer: `${newer.name} was released on ${formatDay(newer === a ? released.a : released.b)}, after ${older.name} on ${formatDay(newer === a ? released.b : released.a)}.`,
+    });
+  }
+  const leftPrivacy = privacyFor(a.provider);
+  const rightPrivacy = privacyFor(b.provider);
+  faqs.push({
+    question: `Which is more private, ${a.name} or ${b.name}?`,
+    answer: `${a.name} (${a.provider}): ${leftPrivacy?.trains_by_default ?? "Privacy default not checked."} ${b.name} (${b.provider}): ${rightPrivacy?.trains_by_default ?? "Privacy default not checked."}`,
   });
   return faqs;
+}
+
+export function releaseArticle(release: { name: string; provider: string; date: string; summary: string }, path: string) {
+  return {
+    "@type": "NewsArticle",
+    headline: `${release.name}: release date and what's new`,
+    description: release.summary,
+    datePublished: release.date.slice(0, 10),
+    dateModified: pageDates(path).changed,
+    author: { "@type": "Organization", name: "WhichAI.today", url: "https://whichai.today" },
+    about: { "@type": "SoftwareApplication", name: release.name, applicationCategory: "AI model", author: { "@type": "Organization", name: release.provider } },
+  };
 }
 
 export function changeArticle(

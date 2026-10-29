@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
@@ -50,9 +51,9 @@ export default async function ChangePage({
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
       <JsonLd data={pageGraph(path, crumbs, [changeArticle(change, change.slug, path)])} />
       <main>
-        <a href="/changes" className="text-sm text-zinc-400 hover:text-white">
+        <Link href="/changes" className="text-sm text-zinc-400 hover:text-white">
           All changes
-        </a>
+        </Link>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
           {changeTitle(change, change.slug)}
         </h1>
@@ -68,9 +69,9 @@ export default async function ChangePage({
           </p>
         )}
         <p className="mt-6">
-          <a href={`/${change.slug}`} className="text-sm font-medium text-emerald-300 hover:text-emerald-200">
+          <Link href={`/${change.slug}`} className="text-sm font-medium text-emerald-300 hover:text-emerald-200">
             {change.category.emoji} {change.category.display_name}
-          </a>
+          </Link>
         </p>
       </main>
     </div>

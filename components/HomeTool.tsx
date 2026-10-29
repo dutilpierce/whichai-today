@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { FormEvent, type ReactNode, useEffect, useRef, useState } from "react";
 import { Feedback } from "@/components/Feedback";
 import { ModelCard } from "@/components/ModelCard";
@@ -156,11 +157,14 @@ function encodePlan(value: Plan) {
     }
   }
 
+  // Restores a shared link once, after hydration. The home page is prerendered without the URL, so this state
+  // cannot be read during render without a hydration mismatch; React's documented answer is an effect.
   useEffect(() => {
     const hash = window.location.hash;
     if (hash.startsWith("#plan=")) {
       const restored = decodePlan(decodeURIComponent(hash.slice("#plan=".length)));
       if (restored) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- see the comment above this effect
         setMode("plan");
         setPlan(restored);
         return;
@@ -325,7 +329,7 @@ function encodePlan(value: Plan) {
       <style>{`@keyframes whichai-fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}`}</style>
       <p className="mx-auto mt-4 flex w-full max-w-3xl flex-wrap items-center justify-between gap-2 px-4">
         {latest ? (
-          <a
+          <Link
             href={`/releases#${latest.id}`}
             className="group inline-flex max-w-full items-center gap-2 rounded-full border border-emerald-500/30 bg-zinc-900/80 px-3 py-1 text-xs text-zinc-200 hover:border-emerald-400/60 hover:text-white"
           >
@@ -336,7 +340,7 @@ function encodePlan(value: Plan) {
               · <RelativeDay date={latest.date} />
             </span>
             <span aria-hidden className="shrink-0 text-zinc-400 transition group-hover:translate-x-0.5">→</span>
-          </a>
+          </Link>
         ) : (
           <span />
         )}
@@ -409,9 +413,9 @@ function encodePlan(value: Plan) {
         ) : null}
         {mode === "quick" ? (
           <p className="mt-3 text-sm text-zinc-500">
-            <a href="/pick" className="text-zinc-300 hover:text-white">
+            <Link href="/pick" className="text-zinc-300 hover:text-white">
               Not sure what to type?
-            </a>
+            </Link>
           </p>
         ) : null}
         {mode === "quick" ? <OptionsPanel choice={choice} onChange={updateChoice} /> : null}
@@ -443,7 +447,7 @@ function encodePlan(value: Plan) {
           {categories.map(([key, item]) => {
             const selected = key === categoryKey;
             return (
-              <a
+              <Link
                 key={key}
                 href={`/${item.slug}`}
                 onClick={(event) => {
@@ -454,7 +458,7 @@ function encodePlan(value: Plan) {
                 className={selected ? pillSelected : pillRest}
               >
                 {item.emoji} {item.display_name}
-              </a>
+              </Link>
             );
           })}
         </div>
@@ -504,9 +508,9 @@ function encodePlan(value: Plan) {
               <p>
                 {category.emoji} {category.display_name}
               </p>
-              <a href={`/${category.slug}`} className="text-zinc-300 hover:text-white">
+              <Link href={`/${category.slug}`} className="text-zinc-300 hover:text-white">
                 More on {category.display_name}
-              </a>
+              </Link>
               <button type="button" onClick={copyLink} className="text-zinc-300 hover:text-white">
                 {copied ? "Copied" : "Copy link"}
               </button>

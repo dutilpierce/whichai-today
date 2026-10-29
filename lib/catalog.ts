@@ -5,7 +5,6 @@ import { held } from "./held";
 import type { ModelProfile } from "./match";
 import {
   changeId,
-  comparePair,
   entryKind,
   isoWeek,
   modelSlug,
@@ -22,14 +21,8 @@ export type ArchivedModel = {
   access: string;
 };
 
-export type RetiredCompare = {
-  pair: string;
-  category_slug: string;
-};
-
 const archive = archiveFile as {
   models: ArchivedModel[];
-  retired_compares: RetiredCompare[];
 };
 
 export function isHeld(path: string) {
@@ -43,7 +36,6 @@ const ROLES = [
 ] as const;
 
 type Role = { slug: string; display_name: string; emoji: string; role: string };
-type Category = (typeof models.categories)[keyof typeof models.categories];
 
 export function currentModels() {
   const map = new Map<
@@ -101,36 +93,6 @@ export function modelRecords() {
 
 export function modelBySlug(slug: string) {
   return modelRecords().find((model) => model.slug === slug) ?? null;
-}
-
-export function compareRecords() {
-  const map = new Map<
-    string,
-    {
-      pair: string;
-      leader: ModelProfile;
-      runner: ModelProfile;
-      categories: Category[];
-    }
-  >();
-
-  for (const category of Object.values(models.categories)) {
-    const pair = comparePair(category.leader.name, category.runner_up.name);
-    const existing = map.get(pair) ?? {
-      pair,
-      leader: category.leader as ModelProfile,
-      runner: category.runner_up as ModelProfile,
-      categories: [] as Category[],
-    };
-    existing.categories.push(category);
-    map.set(pair, existing);
-  }
-
-  return [...map.values()].filter((item) => !isHeld(`/compare/${item.pair}`));
-}
-
-export function compareByPair(pair: string) {
-  return compareRecords().find((item) => item.pair === pair) ?? null;
 }
 
 function mapChange(entry: (typeof history.entries)[number]) {

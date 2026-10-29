@@ -17,7 +17,7 @@
         "Gemini steering"
       ],
       "evidence": "Today, we're announcing our research on Genie 4, our new world model that brings unprecedented realism and native audio to real-time interactive simulation... With Genie 4, you can set an event in motion and steer scenes in real time using natural language",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEy9uQKrAymb2OKXUiIYctbD2fGBmiWD-Y8amFN7g3gdvs1rRkfA_NO_DpbnrTAXJUYd-jMpUapcqb0Cj59OWRqa3tQkMrXRjTjpIUKaOJBjGa8bnjsJLG_lgTf-s7jEpr26GOgj4Xk3N1xSUDjM1W8qLYKEN7brnm5CYShDhVp7f8vfn63ckeUemcjmNz9tAn3Sro="
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
     },
     {
       "id": "2026-10-27-inclusionai-ling-3-1-flash-1019",
@@ -35,7 +35,7 @@
         "Reasoning"
       ],
       "evidence": "We introduce Ling-3.1-flash-1019, an upgraded version of Ling-3.1-flash, with 560B total parameters, 25B active parameters per token, and a 1M-token context window.",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQG3QMduDKSvYEhIqciTB1CNHAV_w5fxysces5yoa-jj8R3kFWb8pkGiuSNoZps6t0HWn5OMpcLuc5tJaO50C4IamSJFwMw6Z59t5ruDHTterucQXzRoxMiYe4Pcn76d7oJZ8eOxvefLu2u19Ok="
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.1-flash-1019"
     },
     {
       "id": "2026-10-26-openai-gpt-6-1-terra",
@@ -71,7 +71,7 @@
         "1M context"
       ],
       "evidence": "Approximately 428B total; 23B activated per token; Inputs / output: Text, image, and video inputs; text output; Context window: Up to 1,000,000 tokens",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGHcL_YOFCJJ4BTqeJFg--KgGuqwwMOzsDLT4YPdcmD56hBzZL_9SgNSyj1bwna8bSeCzLincxx3nnscpVwA3WTRjdx5ZBFMQO_Lhz1YcBzEvNBTkVO2770KQ8Whmnz_9myg4Ze0vy90A=="
+      "source_url": "https://huggingface.co/MiniMaxAI/MiniMax-M3.1-Flash"
     },
     {
       "id": "2026-10-23-nvidia-nemotron-3-5-bolt-e4b-4gb",
@@ -89,7 +89,7 @@
         "Edge AI"
       ],
       "evidence": "Today, we're excited to release Nemotron 3.5 Bolt E4B 4GB — our latest open small language model optimized for speed and intelligence per GB in conversational agents... 64k context: accommodate conversation history, instructions, tool definitions, retrieved information and application state",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGrGN3hOCaBUOXGW1pFvwq6dAx2b1kEajcy_UiZhRtfbNPyckL1SNxwQCOLkZ9y5l4AyJQsfXNxWgR5WaiqxpfjxyYnp4cXauHdzMadSTLu9_gCHnoif3Z_Kdvc97XFGNC7MvtpY1-CWePP4MkGzlPi8gZmwVyxQPRtYtrrWAhkEkA="
+      "source_url": "https://research.nvidia.com/labs/nemotron/NVIDIA-Nemotron-3.5-Bolt-E4B-4GB/"
     },
     {
       "id": "2026-10-23-moonshot-ai-kimi-k3-1-pro",
@@ -107,7 +107,7 @@
         "Multimodal"
       ],
       "evidence": "Kimi K3.1 Pro is a post-trained version of Kimi K3, with substantially larger post-training compute... tool calling, and a 1M-token context window.",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQGnEsyUGhc3RnjyOjMAp4j4XFqa0DSnQbV6uYPZTECYTQwfcLhxF_MwN8kf7p3JJdl5sQB5GOdLYk1jlPav8s255LpE7pitCB0dNW_RGET2jqYq-DVdTwTaMpW2aw=="
+      "source_url": "https://www.kimi.ai/blog/kimi-k3-1-pro"
     },
     {
       "id": "2026-10-22-canva-canva-craft",
@@ -125,7 +125,7 @@
         "API"
       ],
       "evidence": "Today, we're unveiling Canva Craft, our first state-of-the-art image generation model, developed and trained by Canva Research... Available now in Canva and to developers through our public API, Craft generates stunning, high-quality images at 2K resolution in any aspect ratio.",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQEcWJg2tJS-Mq4lr2lpHhoQMWW5epLZZ4zAPsaytd3GmxgnbWV7iMvhK5fq3duxSLOKqyBrKwIfGsnY1Vtd03YjFR_ukqKPMyfyb0ezIAbOXBNhmrSx7wUzrOP4BmBruVrFZv6Wpw=="
+      "source_url": "https://www.canva.com/newsroom/news/canva-craft/"
     },
     {
       "id": "2026-10-22-openai-decisions-api",
@@ -161,7 +161,7 @@
         "Multilingual"
       ],
       "evidence": "Two model variants available: rerank-v5.0-pro... rerank-v5.0-fast... Context Focus: An optional capability that returns the most relevant passages within each document... Extended context length: 32k token context window",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHT1PTeu7l_ez-L655g6WgarUNmwQWUsSes6p_2-li6Nxj2cLz5MNdBCAiKTu64WneXyibYjd8DLL2hfC-YR2YJF_6w2WRVPS1HfqiDZ43T9WbqL02yYY6KJ1vPUmQK3Sx4IPea"
+      "source_url": "https://docs.cohere.com/v2/changelog/rerank-v5"
     },
     {
       "id": "2026-10-21-anthropic-claude-duet",
@@ -179,7 +179,7 @@
         "Tool integrations"
       ],
       "evidence": "Claude Duet is a new app where Claude works as a proactive agent. The research preview opens by waitlist today for Pro and Max subscribers in the US.",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQHxC4_ZCB74QTaOY-TGrltygKualTdNIzSn_ztH-SFnZRlPrsqBiVzOlaEST0TAG80o9ECWCATaljHmr2VC33KX2WteAv2OMlCN3Wm6HCHK6oO222RSLsFThO3tk-QezBdU0ipqViQ="
+      "source_url": "https://claude.com/resources/articles/claude-duet"
     },
     {
       "id": "2026-10-21-recursive-flint",
@@ -197,7 +197,7 @@
         "Local inference"
       ],
       "evidence": "We're introducing Recursive Flint, a mixture-of-experts (MoE) model built for fast agentic coding on local hardware. Flint has 40 billion total parameters and activates just 2.5 billion per token.",
-      "source_url": "https://vertexaisearch.cloud.google.com/grounding-api-redirect/AUZIYQET0pTJenxGcnKZa9XJhMYCmGfpbu6IY3b5WlTTP3Oo_PzkNVN6hPqkHxgtA91kXhdyskPN1S0bOLkwiVSO98Z2oLMfaodrgFwVRVjK7N5tuccNLvgvzodkcxGpUfT0E4RH0dqMp09RPgIjOiR3xA=="
+      "source_url": "https://recursive.com/updates/introducing-recursive-flint"
     },
     {
       "id": "2026-10-15-mistral-ai-timestral",

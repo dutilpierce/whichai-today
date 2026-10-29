@@ -1,6 +1,6 @@
 import { currentModels } from "./catalog";
 import { modelSlug } from "./picks";
-import { releaseEntries } from "./releases";
+import { releaseEntries, type Release } from "./releases";
 import type { ReleaseRowData } from "@/components/ReleaseRow";
 
 // Rows for the page, without the evidence quote, and linked to a model page when we rank that model.
@@ -14,4 +14,10 @@ export function releaseRows(limit?: number): ReleaseRowData[] {
       const slug = modelSlug(entry.name);
       return { ...rest, ranked: ranked.has(slug) ? slug : null };
     });
+}
+
+// Only releases of models we rank get their own search listing; the rest are a near copy of their timeline row.
+export function releaseIndexed(entry: Pick<Release, "name">) {
+  const slug = modelSlug(entry.name);
+  return currentModels().some((model) => model.slug === slug);
 }

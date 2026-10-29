@@ -146,16 +146,26 @@ export function deadLink(status, code) {
   return typeof status === "number" && status >= 400;
 }
 
-async function sourceIsDead(url) {
+// Search results hand back short-lived redirect links. Store where they land, never the redirect itself.
+export function redirectHost(url) {
+  try {
+    return new URL(url).hostname.endsWith("vertexaisearch.cloud.google.com");
+  } catch {
+    return true;
+  }
+}
+
+async function resolveSource(url) {
   try {
     const res = await fetch(url, {
       redirect: "follow",
       signal: AbortSignal.timeout(20_000),
       headers: { "User-Agent": LINK_AGENT },
     });
-    return deadLink(res.status);
+    const final = res.url || url;
+    return { dead: deadLink(res.status) || redirectHost(final), url: final };
   } catch (error) {
-    return deadLink(undefined, error?.cause?.code || error?.code);
+    return { dead: deadLink(undefined, error?.cause?.code || error?.code) || redirectHost(url), url };
   }
 }
 
@@ -246,6 +256,12 @@ function selfCheck() {
     "entries should be newest first",
   );
 
+  assert(
+    redirectHost("https://vertexaisearch.cloud.google.com/grounding-api-redirect/abc") &&
+      !redirectHost("https://blog.google/a/"),
+    "a search redirect link should never be stored as a source",
+  );
+
   console.log("refresh-releases self-check ok");
 }
 
@@ -253,6 +269,23 @@ const isMain = process.argv[1]?.replaceAll("\\", "/").endsWith("scripts/refresh-
 
 if (isMain && process.argv.includes("--self-check")) {
   selfCheck();
+  process.exit(0);
+}
+
+if (isMain && process.argv.includes("--fix-sources")) {
+  const releases = JSON.parse(await readFile(RELEASES_FILE, "utf8"));
+  for (const entry of releases.entries) {
+    if (!redirectHost(entry.source_url)) continue;
+    const source = await resolveSource(entry.source_url);
+    if (source.dead) {
+      console.warn(`unresolved: ${entry.id} ${entry.source_url}`);
+      continue;
+    }
+    console.log(`resolved: ${entry.id} -> ${source.url}`);
+    entry.source_url = source.url;
+  }
+  await writeFile(RELEASES_FILE, `${JSON.stringify(releases, null, 2)}
+`);
   process.exit(0);
 }
 
@@ -297,11 +330,12 @@ if (isMain) {
       console.warn(`skipped: ${error.message}`);
       continue;
     }
-    if (await sourceIsDead(checked.source_url)) {
+    const source = await resolveSource(checked.source_url);
+    if (source.dead) {
       console.warn(`skipped: ${checked.provider} ${checked.name} source ${checked.source_url} does not load`);
       continue;
     }
-    valid.push(checked);
+    valid.push({ ...checked, source_url: source.url });
   }
 
   const merged = mergeReleases(releases, valid, today);

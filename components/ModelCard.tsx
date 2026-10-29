@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 import { appsOffering, offerFor, planPrice } from "@/lib/apps";
 import providers from "@/lib/providers.json";
@@ -64,9 +65,9 @@ export function ModelCard({
             : "mt-3 text-xl font-semibold tracking-tight text-white"
         }
       >
-        <a href={`/models/${modelSlug(model.name)}`} className="hover:text-emerald-200">
+        <Link href={`/models/${modelSlug(model.name)}`} className="hover:text-emerald-200">
           {model.name}
-        </a>
+        </Link>
       </h2>
       <p className="mt-1 text-sm text-zinc-400">{model.provider}</p>
       <p className="mt-3 text-sm leading-6 text-zinc-200">{model.where_to_get}</p>
@@ -165,9 +166,9 @@ export function ModelCard({
           <Detail label="When not to use it">{model.when_not}</Detail>
           <Detail label="Starter prompt">{model.starter_prompt}</Detail>
           <Detail label="Something off?">
-            <a href="/suggest" className="text-emerald-300 hover:text-emerald-200">
+            <Link href="/suggest" className="text-emerald-300 hover:text-emerald-200">
               Suggest a model, app, or correction
-            </a>
+            </Link>
           </Detail>
         </dl>
       </details>
