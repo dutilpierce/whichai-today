@@ -13,6 +13,14 @@
         {
           "name": "GPT-6.1 Sol",
           "plan": "Plus"
+        },
+        {
+          "name": "GPT-Image-2.5 Sunburst",
+          "plan": "Plus"
+        },
+        {
+          "name": "GPT-5.6 Sol",
+          "plan": "Plus"
         }
       ],
       "plans": [
@@ -129,6 +137,10 @@
         {
           "name": "Gemini 4 Argon",
           "plan": "Google AI Pro"
+        },
+        {
+          "name": "Gemini Omni 1.1 Flash",
+          "plan": "Google AI Plus"
         }
       ],
       "plans": [

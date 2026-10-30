@@ -238,6 +238,9 @@ export function checkApps(apps, models, today, archive = { models: [] }) {
     if (app.privacy && !app.privacy.source_url) errors.push(`${slug} privacy has no source`);
     for (const model of app.models ?? []) {
       if (!known.has(model.name)) errors.push(`${slug} lists ${model.name}, which is not a tracked model`);
+      if (!(app.plans ?? []).some((plan) => plan.name === model.plan)) {
+        errors.push(`${slug} puts ${model.name} on ${model.plan}, which is not one of its plans`);
+      }
     }
   }
   return errors;
@@ -463,7 +466,36 @@ function selfCheck() {
   assert(staleApp.some((error) => error.includes("not a tracked model")), "an app model must be tracked");
   assert(
     checkApps(
-      { apps: [{ slug: "kept", skill: "Beginner", checked: today, models: [{ name: "Retired", plan: "Free" }] }] },
+      {
+        apps: [
+          {
+            slug: "demo",
+            skill: "Beginner",
+            checked: today,
+            plans: [{ name: "Plus", price_usd_month: null }],
+            models: [{ name: "Retired", plan: "Ultra" }],
+          },
+        ],
+      },
+      models,
+      today,
+      { models: [{ name: "Retired" }] },
+    ).some((error) => error.includes("not one of its plans")),
+    "an app model must sit on one of the app's plans",
+  );
+  assert(
+    checkApps(
+      {
+        apps: [
+          {
+            slug: "kept",
+            skill: "Beginner",
+            checked: today,
+            plans: [{ name: "Free", price_usd_month: null }],
+            models: [{ name: "Retired", plan: "Free" }],
+          },
+        ],
+      },
       models,
       today,
       { models: [{ name: "Retired" }] },

@@ -9,7 +9,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: refresh-apps
+  group: refresh-rankings
   cancel-in-progress: false
 
 jobs:
