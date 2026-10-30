@@ -15,6 +15,9 @@ const SHORT: Record<string, string> = {
   reasoning: "Reasoning",
   speed: "Speed",
   general: "General",
+  images: "Images",
+  video: "Video",
+  research: "Research",
 };
 
 const H1: Record<string, string> = {
