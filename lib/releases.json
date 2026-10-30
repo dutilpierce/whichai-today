@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-29T22:42:00Z",
+  "last_checked": "2026-10-30T05:40:00Z",
   "entries": [
     {
       "id": "2026-10-29-mistral-ai-mistral-large-4-le-chonk",
@@ -18,6 +18,24 @@
       ],
       "evidence": "Earlier this month, we released Mistral Large 4 (Le Chonk), our flagship 1-trillion-parameter, natively multimodal model, in public preview... Today, we're releasing the weights of this improved Mistral Large 4.",
       "source_url": "https://mistral.ai/news/mistral-large-4-oss/"
+    },
+    {
+      "id": "2026-10-28-anthropic-artifacts-for-legal-work",
+      "date": "2026-10-28",
+      "added": "2026-10-30",
+      "name": "Artifacts for legal work",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Anthropic added a gallery of ready-to-use interactive artifacts to Claude for Legal for tasks like contract review and regulatory tracking.",
+      "features": [
+        "Claude for Legal",
+        "Artifacts",
+        "Contract review",
+        "Claude Enterprise"
+      ],
+      "evidence": "Claude for Legal now includes ready-to-use artifacts for legal work that teams can adapt with their own data and connectors, and share across the business.",
+      "source_url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work"
     },
     {
       "id": "2026-10-28-apex-intelligence-apex-35b-v1-0",
@@ -163,6 +181,23 @@
       "source_url": "https://www.liquid.ai/blog/lfm3"
     },
     {
+      "id": "2026-10-26-anthropic-claude-for-nonprofits-plugin",
+      "date": "2026-10-26",
+      "added": "2026-10-30",
+      "name": "Claude for Nonprofits plugin",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Anthropic launched a dedicated plugin for verified nonprofits featuring specialized workflow skills for fundraising, grant research, marketing, and hiring.",
+      "features": [
+        "Claude plugin",
+        "Nonprofits",
+        "Fundraising skills"
+      ],
+      "evidence": "Our new Claude for Nonprofits plugin brings new skills to every verified nonprofit organization, taking on the operational work that stretches small teams across fundraising, marketing, and hiring.",
+      "source_url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits"
+    },
+    {
       "id": "2026-10-26-openai-gpt-6-1-terra",
       "date": "2026-10-26",
       "added": "2026-10-27",
@@ -179,6 +214,23 @@
       ],
       "evidence": "We're introducing GPT-6.1 Terra, a fast, efficient model that combines detailed visual reasoning and precise computer use alongside clearer, more natural writing... Its standard API prices are 50% lower than those of GPT-5.6 Terra and GPT-6.1 Sol",
       "source_url": "https://openai.com/index/introducing-gpt-6-1-terra/"
+    },
+    {
+      "id": "2026-10-23-anthropic-unified-claude-for-enterprise",
+      "date": "2026-10-23",
+      "added": "2026-10-30",
+      "name": "Unified Claude for Enterprise",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Anthropic rolled out the unified chat and Cowork experience to Claude Enterprise alongside role-based access controls and an Efficient mode.",
+      "features": [
+        "Claude Enterprise",
+        "Claude Cowork",
+        "Efficient mode"
+      ],
+      "evidence": "The same unified Claude experience is now generally available for Claude Enterprise plans. Chat and Cowork are now one Claude on web, desktop, and mobile",
+      "source_url": "https://claude.com/resources/articles/unified-claude-enterprise"
     },
     {
       "id": "2026-10-23-moonshot-ai-kimi-k3-1-pro-highspeed",
