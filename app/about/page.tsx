@@ -11,49 +11,6 @@ const reviewed = new Date(models.last_updated).toLocaleDateString("en-US", {
   timeZone: "UTC",
 });
 
-const coding = models.categories.coding;
-
-const faqs = [
-  {
-    question: "Which AI is best for coding right now?",
-    answer: `As of ${reviewed}, ${coding.leader.name} from ${coding.leader.provider} leads coding. ${coding.leader.why} The closest alternative is ${coding.runner_up.name} (${coding.runner_up.provider}), and the best open-weights option is ${coding.open_source_pick.name}.`,
-  },
-  {
-    question: "Is ChatGPT or Claude better?",
-    answer:
-      "Neither wins every job. Claude models currently lead coding and long-document work, while other models lead general chat, speed, or price. WhichAI.today picks by task instead of crowning one brand.",
-  },
-  {
-    question: "How often do the rankings change?",
-    answer:
-      "A scheduled job researches public leaderboards every day. A new number one has to come up on two checks in a row before it replaces the current leader, so a one-day blip does not flip the pick. Big launches usually reshuffle a category every few weeks, not every hour.",
-  },
-  {
-    question: "Is WhichAI.today free?",
-    answer:
-      "Yes. There is no account and no paywall. You type a task or describe a project and get today's picks, with links to the model providers.",
-  },
-  {
-    question: "What is an open-weights model?",
-    answer:
-      "An open-weights model publishes its weights so you can download and run it yourself, often on your own hardware. That matters when client data, source code, or contracts cannot leave your network. Every category on WhichAI.today includes one.",
-  },
-  {
-    question: "Which AI should I use to summarize a long document?",
-    answer: `Use the Legal & Long Documents pick. Right now that is ${models.categories.legal_analysis.leader.name}, chosen for reading dense sources such as contracts, filings, transcripts, and earnings calls without dropping details.`,
-  },
-  {
-    question: "Can one project need more than one model?",
-    answer:
-      "Yes. A product launch might need a coding model for the app, a writing model for the launch copy, and a long-document model for the terms. Plan a project splits the work into stages and assigns today's pick to each stage.",
-  },
-  {
-    question: "Where do the recommendations come from?",
-    answer:
-      "Public, independent evaluations: LMArena human-preference votes, the Artificial Analysis Intelligence Index, Vals AI LegalBench, SWE-bench, GPQA, and Humanity's Last Exam. The plain-English reasons cite the benchmark behind each pick.",
-  },
-];
-
 export const metadata: Metadata = {
   title: "Why the right AI model matters",
   description:
@@ -76,14 +33,6 @@ export default function AboutPage() {
               url: "https://whichai.today/about",
               description: metadata.description,
               isPartOf: { "@type": "WebSite", url: "https://whichai.today" },
-            },
-            {
-              "@type": "FAQPage",
-              mainEntity: faqs.map((faq) => ({
-                "@type": "Question",
-                name: faq.question,
-                acceptedAnswer: { "@type": "Answer", text: faq.answer },
-              })),
             },
           ],
         }}
@@ -286,17 +235,13 @@ export default function AboutPage() {
         . Benchmarks measure a public task, not your exact files. Rankings can lag a launch by a day, because the refresh runs once a day and only publishes answers that pass the checks.
       </p>
 
-      <h2 className="mt-12 text-2xl font-semibold tracking-tight text-white">
-        Questions people ask
-      </h2>
-      <div className="mt-6 flex flex-col gap-6">
-        {faqs.map((faq) => (
-          <section key={faq.question}>
-            <h3 className="text-lg font-semibold text-white">{faq.question}</h3>
-            <p className="mt-2 text-base leading-7 text-zinc-300">{faq.answer}</p>
-          </section>
-        ))}
-      </div>
+      <p className="mt-8 text-base leading-7 text-zinc-300">
+        Common questions about choosing a model, writing a prompt, and privacy are on the{" "}
+        <Link href="/faq" className="text-white hover:text-emerald-200">
+          FAQ
+        </Link>
+        .
+      </p>
     </div>
   );
 }

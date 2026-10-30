@@ -7,6 +7,7 @@ const INDEXNOW = new URL("../indexnow-urls.json", import.meta.url);
 const SLOTS = ["leader", "runner_up", "open_source_pick"];
 const STATIC_PAGES = {
   "/about": "app/about/page.tsx",
+  "/faq": "app/faq/page.tsx",
   "/privacy": "app/privacy/page.tsx",
   "/alerts": "app/alerts/page.tsx",
   "/methodology": "app/methodology/page.tsx",
@@ -198,7 +199,25 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
   }
 
   for (const [path, text] of Object.entries(files ?? {})) {
-    if (typeof text === "string") put(path, { source: text });
+    if (typeof text !== "string") continue;
+    if (path === "/faq") {
+      put(path, {
+        source: text,
+        picks: categories.map((category) => ({
+          leader: category.leader?.name,
+          alternative: category.runner_up?.name,
+          open: category.open_source_pick?.name,
+          provider: category.leader?.provider,
+          checked: category.leader?.checked,
+          why: category.leader?.why,
+        })),
+        providers,
+        history: history?.entries ?? [],
+        plans: (apps?.apps ?? []).map((app) => ({ slug: app.slug, plans: app.plans })),
+      });
+      continue;
+    }
+    put(path, { source: text });
   }
 
   for (const audience of audiences?.audiences ?? []) put(`/for/${audience.slug}`, audience);

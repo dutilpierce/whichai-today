@@ -25,6 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     item("/", "daily", 1),
     item("/about", "monthly", 0.8),
+    item("/faq", "daily", 0.7),
     item("/methodology", "monthly", 0.6),
     item("/alerts", "weekly", 0.5),
     item("/privacy", "monthly", 0.3),

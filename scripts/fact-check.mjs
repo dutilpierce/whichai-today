@@ -571,6 +571,7 @@ try {
   const files = {};
   for (const [path, relative] of Object.entries({
     "/about": "../app/about/page.tsx",
+    "/faq": "../app/faq/page.tsx",
     "/privacy": "../app/privacy/page.tsx",
     "/alerts": "../app/alerts/page.tsx",
     "/methodology": "../app/methodology/page.tsx",

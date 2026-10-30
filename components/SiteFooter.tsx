@@ -18,6 +18,9 @@ export function SiteFooter({ includeChanges = false }: { includeChanges?: boolea
           <Link href="/about" className="text-zinc-400 hover:text-white">
             About
           </Link>
+          <Link href="/faq" className="text-zinc-400 hover:text-white">
+            FAQ
+          </Link>
           <Link href="/privacy" className="text-zinc-400 hover:text-white">
             Privacy
           </Link>

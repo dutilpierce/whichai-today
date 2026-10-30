@@ -99,6 +99,7 @@ export default function HubPage() {
           <Link href="/free" className="text-emerald-300 hover:text-emerald-200">Best free AI</Link>
           <Link href="/pick" className="ml-4 text-zinc-400 hover:text-white">Not sure what to type?</Link>
           <Link href="/tasks" className="ml-4 text-zinc-400 hover:text-white">Tasks</Link>
+          <Link href="/faq" className="ml-4 text-zinc-400 hover:text-white">FAQ</Link>
         </p>
       </main>
     </div>

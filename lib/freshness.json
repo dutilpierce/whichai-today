@@ -373,12 +373,16 @@
       "hash": "637fb64d5f7fa39b"
     },
     "/about": {
-      "changed": "2026-10-29",
-      "hash": "80fc4ff4ef2fe118"
+      "changed": "2026-10-30",
+      "hash": "634c6213f4e2b1f8"
+    },
+    "/faq": {
+      "changed": "2026-10-30",
+      "hash": "6e0e0113d1c475d7"
     },
     "/privacy": {
-      "changed": "2026-10-29",
-      "hash": "23948cd645542aca"
+      "changed": "2026-10-30",
+      "hash": "dcc63a0818276543"
     },
     "/alerts": {
       "changed": "2026-10-25",
@@ -402,15 +406,15 @@
     },
     "/prompt-builder": {
       "changed": "2026-10-29",
-      "hash": "ee9249346c103af7"
+      "hash": "513f842af30ab966"
     },
     "/suggest": {
-      "changed": "2026-10-29",
-      "hash": "bdff6f75ce638e1f"
+      "changed": "2026-10-30",
+      "hash": "4bd59326ca9f695f"
     },
     "/which-ai-should-i-use": {
-      "changed": "2026-10-29",
-      "hash": "003f17168d5fa79c"
+      "changed": "2026-10-30",
+      "hash": "31061daeaa9b53bf"
     },
     "/pick": {
       "changed": "2026-10-29",
