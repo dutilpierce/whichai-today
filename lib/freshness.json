@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-10-30",
-      "hash": "d54910a2418e23a1"
+      "hash": "ed20d572b9e1d541"
     },
     "/releases": {
       "changed": "2026-10-30",
-      "hash": "7187879599e3381d"
+      "hash": "91bd6e19ffbc8f4c"
     },
     "/coding": {
       "changed": "2026-10-24",
@@ -374,15 +374,15 @@
     },
     "/about": {
       "changed": "2026-10-30",
-      "hash": "634c6213f4e2b1f8"
+      "hash": "fd9c66488998f4b9"
     },
     "/faq": {
       "changed": "2026-10-30",
-      "hash": "6e0e0113d1c475d7"
+      "hash": "cd982acfe303ddcf"
     },
     "/privacy": {
       "changed": "2026-10-30",
-      "hash": "dcc63a0818276543"
+      "hash": "23948cd645542aca"
     },
     "/alerts": {
       "changed": "2026-10-25",
@@ -405,16 +405,16 @@
       "hash": "0e7ed2c14aca2863"
     },
     "/prompt-builder": {
-      "changed": "2026-10-29",
-      "hash": "513f842af30ab966"
+      "changed": "2026-10-30",
+      "hash": "a3e874ecdba05b3f"
     },
     "/suggest": {
       "changed": "2026-10-30",
-      "hash": "4bd59326ca9f695f"
+      "hash": "bdff6f75ce638e1f"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-10-30",
-      "hash": "31061daeaa9b53bf"
+      "hash": "5e747a9404cc06ec"
     },
     "/pick": {
       "changed": "2026-10-29",

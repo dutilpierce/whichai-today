@@ -1,6 +1,23 @@
 {
-  "last_checked": "2026-10-30T05:40:00Z",
+  "last_checked": "2026-10-30T12:46:26Z",
   "entries": [
+    {
+      "id": "2026-10-29-frontiersmind-lumma-fev-v2",
+      "date": "2026-10-29",
+      "added": "2026-10-30",
+      "name": "Lumma-Fev-v2",
+      "provider": "FrontiersMind",
+      "kind": "update",
+      "status": "available",
+      "summary": "FrontiersMind released Lumma-Fev-v2 decision models that score options in a single forward pass without generating text.",
+      "features": [
+        "Decision model",
+        "8k context",
+        "Open weights"
+      ],
+      "evidence": "Today we are releasing Lumma-Fev-4B-v2 and Lumma-Fev-27B-v2... returns a probability for every option in one forward pass. It never generates text, so there is nothing to parse... 8,192, tokens of context",
+      "source_url": "https://huggingface.co/blog/FrontiersMind/lumma-fev-27b-v2"
+    },
     {
       "id": "2026-10-29-mistral-ai-mistral-large-4-le-chonk",
       "date": "2026-10-29",
@@ -36,6 +53,41 @@
       ],
       "evidence": "Claude for Legal now includes ready-to-use artifacts for legal work that teams can adapt with their own data and connectors, and share across the business.",
       "source_url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work"
+    },
+    {
+      "id": "2026-10-28-particle-ai-particle-1",
+      "date": "2026-10-28",
+      "added": "2026-10-30",
+      "name": "Particle-1",
+      "provider": "Particle AI",
+      "kind": "model",
+      "status": "available",
+      "summary": "Particle AI launched Particle-1, a model post-trained on DeepSeek V4.1 Flash using roughly 45% fewer tokens on average for software engineering.",
+      "features": [
+        "Coding",
+        "Reasoning",
+        "Token efficiency"
+      ],
+      "evidence": "Particle-1, post-trained on DeepSeek V4.1 Flash, sees large improvements in token efficiency using around ~45% fewer tokens on average across a wide variety of tasks.",
+      "source_url": "https://particle.ai/blog/introducing-particle-1"
+    },
+    {
+      "id": "2026-10-28-speridlabs-idol",
+      "date": "2026-10-28",
+      "added": "2026-10-30",
+      "name": "Idol",
+      "provider": "Speridlabs",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Speridlabs released Idol, an open model turning one picture into a 3D Gaussian splat with up to 1,048,576 Gaussians.",
+      "features": [
+        "Image-to-3D",
+        "Gaussian splatting",
+        "Open weights",
+        "7.2 GB VRAM"
+      ],
+      "evidence": "Idol turns one picture of an object into a 3D Gaussian splat... generates up to 1,048,576 Gaussians, written as a standard 3DGS .ply . It runs on consumer GPUs, using 7.2 GB of VRAM",
+      "source_url": "https://huggingface.co/speridlabs/idol"
     },
     {
       "id": "2026-10-28-apex-intelligence-apex-35b-v1-0",
