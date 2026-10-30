@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-10-29T12:00:00Z",
+  "last_updated": "2026-10-30T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -55,7 +55,7 @@
         "sources_agreeing": 3,
         "sources_checked": 4,
         "primary_score": 1813,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -74,13 +74,13 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": 1786.1,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "Kimi K3",
         "provider": "Moonshot AI",
         "why": "A massive open-weight model delivering near-frontier coding performance that you can self-host for total privacy.",
-        "benchmark_context": "88.2% on SWE-bench Pro V2 HARD.",
+        "benchmark_context": "88.2% on SWE-bench Pro V2 HARD",
         "direct_link": "https://huggingface.co/moonshotai/Kimi-K3",
         "where_to_get": "Download weights on Hugging Face, or select Kimi K3 in the Kimi web app.",
         "access": "free_limited",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -167,7 +167,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +186,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +205,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -279,13 +279,13 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1520,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
         "provider": "Google",
-        "why": "A close second on the writing board, and still the leader for general chat.",
-        "benchmark_context": "LMArena Creative Writing 1512",
+        "why": "A close second on the writing board, with strong drafting and versatile tone control.",
+        "benchmark_context": "LMArena Creative Writing 1517",
         "direct_link": "https://gemini.google.com",
         "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
         "access": "paid",
@@ -297,8 +297,8 @@
         "pick_if": "Pick this when you want a strong draft and already use Gemini.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1512,
-        "checked": "2026-10-29"
+        "primary_score": 1517,
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +317,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -387,7 +387,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 61.4,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -406,7 +406,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -425,7 +425,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 49.4,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -515,7 +515,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -523,7 +523,11 @@
         "Artificial Analysis output speed",
         "Artificial Analysis latency",
         "Artificial Analysis price"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Celeris-1",
+        "since": "2026-10-30"
+      }
     },
     "general": {
       "display_name": "General & Everyday",
@@ -568,7 +572,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1520,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
@@ -587,7 +591,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -606,7 +610,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
@@ -652,7 +656,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1427,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
@@ -671,7 +675,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1317,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -690,7 +694,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1223,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       }
     },
     "video": {
@@ -725,12 +729,12 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1516,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "Dreamina Seedance 2.0",
         "provider": "ByteDance",
-        "why": "A high-scoring video model from another provider, with a large vote count.",
+        "why": "A high-scoring video model from another provider with a large vote count.",
         "benchmark_context": "LMArena Text-to-Video 1479.",
         "direct_link": "https://dreamina.capcut.com",
         "where_to_get": "Dreamina, then select Seedance 2.0.",
@@ -744,7 +748,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1479,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "Wan 2.2 A14B",
@@ -763,7 +767,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1132,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       }
     },
     "research": {
@@ -798,7 +802,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1261,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "runner_up": {
         "name": "Claude Opus 4.6",
@@ -817,7 +821,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1251,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
@@ -836,7 +840,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1023,
-        "checked": "2026-10-29"
+        "checked": "2026-10-30"
       }
     }
   }

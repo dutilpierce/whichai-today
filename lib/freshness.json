@@ -2,23 +2,23 @@
   "pages": {
     "/": {
       "changed": "2026-10-30",
-      "hash": "ed20d572b9e1d541"
+      "hash": "9ffc93ac86159b5d"
     },
     "/releases": {
       "changed": "2026-10-30",
       "hash": "91bd6e19ffbc8f4c"
     },
     "/coding": {
-      "changed": "2026-10-24",
-      "hash": "a57aae4a4069bd09"
+      "changed": "2026-10-30",
+      "hash": "13468a9de3244449"
     },
     "/legal": {
       "changed": "2026-10-24",
       "hash": "7f6dbd12f50f9621"
     },
     "/writing": {
-      "changed": "2026-10-24",
-      "hash": "8ff3e78e7eefe547"
+      "changed": "2026-10-30",
+      "hash": "fae2d54959ff3a5a"
     },
     "/reasoning": {
       "changed": "2026-10-24",
@@ -37,8 +37,8 @@
       "hash": "0c66f94732d54eda"
     },
     "/video": {
-      "changed": "2026-10-25",
-      "hash": "d87f435496c214dd"
+      "changed": "2026-10-30",
+      "hash": "2fcae25f71ea6186"
     },
     "/research": {
       "changed": "2026-10-25",
@@ -53,16 +53,16 @@
       "hash": "8b79bfac81bfaf09"
     },
     "/models/kimi-k3": {
-      "changed": "2026-10-24",
-      "hash": "bae14b6ffbfc749a"
+      "changed": "2026-10-30",
+      "hash": "17c52fff525fd773"
     },
     "/models/claude-fable-5-1": {
       "changed": "2026-10-24",
       "hash": "615b36f865c87092"
     },
     "/models/gemini-4-argon": {
-      "changed": "2026-10-29",
-      "hash": "3def561500c987b8"
+      "changed": "2026-10-30",
+      "hash": "1997f8e40c4a5c9e"
     },
     "/models/mimo-v2-6-pro": {
       "changed": "2026-10-24",
@@ -101,8 +101,8 @@
       "hash": "b1ad1afc02ec49cb"
     },
     "/models/dreamina-seedance-2-0": {
-      "changed": "2026-10-25",
-      "hash": "30a26e82d27cccbd"
+      "changed": "2026-10-30",
+      "hash": "9d090f56e3677cc4"
     },
     "/models/wan-2-2-a14b": {
       "changed": "2026-10-25",
@@ -125,8 +125,8 @@
       "hash": "2c994d24b91301e2"
     },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
-      "changed": "2026-10-29",
-      "hash": "8be2c40881562ae2"
+      "changed": "2026-10-30",
+      "hash": "0c066152688a9978"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
       "changed": "2026-10-29",
@@ -137,20 +137,20 @@
       "hash": "a32bf3dac96be3dc"
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
-      "changed": "2026-10-29",
-      "hash": "d807dcde36205e23"
+      "changed": "2026-10-30",
+      "hash": "19743c55eb71a10f"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-10-29",
       "hash": "67c409095a681377"
     },
     "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-1-flash": {
-      "changed": "2026-10-29",
-      "hash": "35ae5d528db3004e"
+      "changed": "2026-10-30",
+      "hash": "41b8c3af7bdb83e8"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
-      "changed": "2026-10-29",
-      "hash": "e05f98e499edea4b"
+      "changed": "2026-10-30",
+      "hash": "9b48a8fa5c48d017"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
       "changed": "2026-10-29",
@@ -378,7 +378,7 @@
     },
     "/faq": {
       "changed": "2026-10-30",
-      "hash": "cd982acfe303ddcf"
+      "hash": "13e8b8bc00ea3964"
     },
     "/privacy": {
       "changed": "2026-10-30",
@@ -414,7 +414,7 @@
     },
     "/which-ai-should-i-use": {
       "changed": "2026-10-30",
-      "hash": "5e747a9404cc06ec"
+      "hash": "52084c9801aea3da"
     },
     "/pick": {
       "changed": "2026-10-29",
@@ -469,16 +469,16 @@
       "hash": "b434d212a9484c0f"
     },
     "/apps/chatgpt": {
-      "changed": "2026-10-25",
-      "hash": "d264351e9d5b63b2"
+      "changed": "2026-10-30",
+      "hash": "fca0d2c15d45587e"
     },
     "/apps/claude": {
-      "changed": "2026-10-25",
-      "hash": "d57a90368f2d7b4f"
+      "changed": "2026-10-30",
+      "hash": "e9097b7c3cca5d85"
     },
     "/apps/gemini": {
-      "changed": "2026-10-25",
-      "hash": "ee064847d7fd0f0a"
+      "changed": "2026-10-30",
+      "hash": "0cd13a92cb74d10c"
     },
     "/apps/copilot": {
       "changed": "2026-10-25",
@@ -489,16 +489,16 @@
       "hash": "e29a11e4c6cfda4c"
     },
     "/apps/cursor": {
-      "changed": "2026-10-25",
-      "hash": "465d873835a65869"
+      "changed": "2026-10-30",
+      "hash": "74ca97054d22c946"
     },
     "/apps/github-copilot": {
       "changed": "2026-10-25",
       "hash": "a6f67021f4f39421"
     },
     "/apps/claude-code": {
-      "changed": "2026-10-25",
-      "hash": "502ef5cdc5eabdb2"
+      "changed": "2026-10-30",
+      "hash": "2f66c9eddd3ed1d4"
     },
     "/apps/codex": {
       "changed": "2026-10-25",

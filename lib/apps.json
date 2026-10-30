@@ -78,6 +78,10 @@
         {
           "name": "Claude Fable 5.1",
           "plan": "Pro"
+        },
+        {
+          "name": "Claude Opus 4.6",
+          "plan": "Pro"
         }
       ],
       "plans": [
@@ -319,6 +323,14 @@
         {
           "name": "Kimi K3",
           "plan": "Premium"
+        },
+        {
+          "name": "DeepSeek V4.1 Flash",
+          "plan": "Premium"
+        },
+        {
+          "name": "GPT-5.6 Sol",
+          "plan": "Premium"
         }
       ],
       "plans": [
@@ -478,6 +490,10 @@
         },
         {
           "name": "Claude Haiku 5.5",
+          "plan": "Pro"
+        },
+        {
+          "name": "Claude Opus 4.6",
           "plan": "Pro"
         }
       ],
@@ -737,5 +753,6 @@
       },
       "checked": "2026-10-25"
     }
-  ]
+  ],
+  "tracked": []
 }
