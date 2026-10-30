@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-30T12:46:26Z",
+  "last_checked": "2026-10-30T22:14:42Z",
   "entries": [
     {
       "id": "2026-10-29-frontiersmind-lumma-fev-v2",
@@ -53,6 +53,24 @@
       ],
       "evidence": "Claude for Legal now includes ready-to-use artifacts for legal work that teams can adapt with their own data and connectors, and share across the business.",
       "source_url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work"
+    },
+    {
+      "id": "2026-10-28-openai-texting-your-dot",
+      "date": "2026-10-28",
+      "added": "2026-10-30",
+      "name": "Texting your dot",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "OpenAI launched a beta feature allowing ChatGPT Pro users to communicate with their Dot agents using iMessage or RCS.",
+      "features": [
+        "Agent texting",
+        "iMessage",
+        "RCS",
+        "ChatGPT Pro"
+      ],
+      "evidence": "Texting your dot is starting to roll out in beta to Pro users in the U.S.. Your dot is now just a text away. Reach your dot safely and securely, through iMessage or RCS.",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
     },
     {
       "id": "2026-10-28-particle-ai-particle-1",
