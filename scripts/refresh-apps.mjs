@@ -48,6 +48,32 @@ function trackedNames(models) {
   return names;
 }
 
+function jobLines(models) {
+  return Object.values(models.categories)
+    .map(
+      (category) =>
+        `- ${category.display_name}: #1 ${category.leader.name}, runner-up ${category.runner_up.name}, open-weights ${category.open_source_pick.name}`,
+    )
+    .join("\n");
+}
+
+/** Tracked names the apps were not researched against yet. A file with no list counts every name as new. */
+export function newNames(names, previous) {
+  const seen = new Set(previous?.tracked ?? []);
+  return [...names].filter((name) => !seen.has(name));
+}
+
+/** Add the mappings a fresh answer found for new names to the stored app, and change nothing else. */
+export function addMappings(stored, fresh, added) {
+  const wanted = new Set(added);
+  const plans = new Set((stored.plans ?? []).map((plan) => plan.name));
+  const listed = new Set((stored.models ?? []).map((model) => model.name));
+  const extra = (fresh.models ?? []).filter(
+    (model) => wanted.has(model.name) && !listed.has(model.name) && plans.has(model.plan),
+  );
+  return extra.length ? { ...stored, models: [...stored.models, ...extra] } : stored;
+}
+
 export function validateApp(result, seed, today, names) {
   const app = {
     slug: seed.slug,
@@ -77,14 +103,6 @@ export function validateApp(result, seed, today, names) {
     app.capabilities[capability] = result.capabilities[capability];
   }
 
-  for (const model of result?.models ?? []) {
-    const name = String(model?.name ?? "").trim();
-    const plan = String(model?.plan ?? "").trim();
-    if (!name || !plan) continue;
-    if (!names.has(name)) throw new Error(`${seed.slug} lists ${name}, which is not a tracked model`);
-    app.models.push({ name, plan });
-  }
-
   for (const plan of result?.plans ?? []) {
     const name = String(plan?.name ?? "").trim();
     const freeTier = String(plan?.free_tier ?? "").trim();
@@ -99,27 +117,45 @@ export function validateApp(result, seed, today, names) {
     app.plans.push({ name, price_usd_month: price, free_tier: freeTier, source_url: source });
   }
   if (!app.plans.length) throw new Error(`${seed.slug} has no plans`);
+
+  const planNames = new Set(app.plans.map((plan) => plan.name));
+  for (const model of result?.models ?? []) {
+    const name = String(model?.name ?? "").trim();
+    const plan = String(model?.plan ?? "").trim();
+    if (!name || !plan) continue;
+    if (!names.has(name)) throw new Error(`${seed.slug} lists ${name}, which is not a tracked model`);
+    if (!planNames.has(plan)) {
+      console.warn(`apps: ${seed.slug} dropped ${name}, its plan "${plan}" is not one of the plans`);
+      continue;
+    }
+    if (!app.models.some((item) => item.name === name)) app.models.push({ name, plan });
+  }
   return app;
 }
 
-function prompt(today, seed, names) {
+function prompt(today, seed, names, jobs) {
   return `Today is ${today}. Look up the official pages for ${seed.name} by ${seed.maker} (${seed.link}).
 
+Go through every tracked model below, including the image, video, and search models, and check whether ${seed.name} lets a user pick or use it. List each one it offers, with the cheapest plan that includes it. Leave out the ones it does not offer.
+
+Tracked models by job:
+${jobs}
+
 Return ONLY JSON, no markdown:
-{"models":[{"name":"one of the tracked names","plan":"the plan that includes it"}],"plans":[{"name":"plan name","price_usd_month":20,"free_tier":"what a free plan includes and its notable limit, or none","source_url":"https official pricing page"}],"skill":"Beginner or Some setup or Technical","privacy":{"trains_by_default":"one sentence from the provider","opt_out":"where the switch is","source_url":"https official privacy page"},"capabilities":{"web_search":true,"file_upload":true,"image_generation":false,"video_generation":false,"presentations":false,"code_editing":false,"voice":false,"team_plan":true}}
+{"models":[{"name":"one of the tracked names","plan":"the cheapest plan that includes it, spelled exactly as one of the plan names below"}],"plans":[{"name":"plan name","price_usd_month":20,"free_tier":"what a free plan includes and its notable limit, or none","source_url":"https official pricing page"}],"skill":"Beginner or Some setup or Technical","privacy":{"trains_by_default":"one sentence from the provider","opt_out":"where the switch is","source_url":"https official privacy page"},"capabilities":{"web_search":true,"file_upload":true,"image_generation":false,"video_generation":false,"presentations":false,"code_editing":false,"voice":false,"team_plan":true}}
 
 Tracked model names, use none of the others: ${[...names].join(", ")}.
 price_usd_month is the monthly USD price, 0 for a free plan, or null if it is not a flat monthly price. Do not invent a price. If you are not sure, use null and still give the source_url. Beginner means a chat website. Technical means an editor, CLI, or API. Some setup is in between. Capabilities are yes/no facts about the product, not wishes.`;
 }
 
-async function research(today, seed, names) {
+async function research(today, seed, names, jobs) {
   const res = await fetch(
     `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
     {
       method: "POST",
       headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY },
       body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: prompt(today, seed, names) }] }],
+        contents: [{ role: "user", parts: [{ text: prompt(today, seed, names, jobs) }] }],
         tools: [{ google_search: {} }],
       }),
       signal: AbortSignal.timeout(90_000),
@@ -210,6 +246,32 @@ function selfCheck() {
     unknown = true;
   }
   assert(unknown, "an untracked model should fail");
+
+  const misplanned = validateApp(
+    {
+      skill: "Beginner",
+      privacy: { trains_by_default: "On.", opt_out: "Settings.", source_url: "https://example.com/privacy" },
+      capabilities: Object.fromEntries(CAPABILITIES.map((key) => [key, false])),
+      models: [{ name: "Alpha", plan: "Ultra" }],
+      plans: [{ name: "Plus", price_usd_month: 20, free_tier: "Limited.", source_url: "https://example.com/pricing" }],
+    },
+    seed,
+    "2026-10-25",
+    names,
+  );
+  assert(misplanned.models.length === 0, "a model on a plan the app does not have should be dropped");
+
+  assert(newNames(new Set(["Alpha", "Beta"]), { tracked: ["Alpha"] }).join() === "Beta", "only untracked names are new");
+  assert(newNames(new Set(["Alpha"]), {}).join() === "Alpha", "a file with no list treats every name as new");
+
+  const stored = { slug: "demo", plans: [{ name: "Plus" }], models: [{ name: "Alpha", plan: "Plus" }], checked: "2026-10-01" };
+  const merged = addMappings(
+    stored,
+    { models: [{ name: "Alpha", plan: "Pro" }, { name: "Beta", plan: "Plus" }, { name: "Gamma", plan: "Ultra" }] },
+    ["Beta", "Gamma"],
+  );
+  assert(merged.models.map((model) => model.name).join() === "Alpha,Beta", "only new names on known plans are added");
+  assert(merged.models[0].plan === "Plus" && merged.checked === "2026-10-01", "stored facts stay as they were");
   console.log("apps self-check ok");
 }
 
@@ -218,20 +280,35 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10);
   const models = JSON.parse(await readFile(MODELS_FILE, "utf8"));
   const names = trackedNames(models);
+  const jobs = jobLines(models);
   const previous = JSON.parse(await readFile(APPS_FILE, "utf8"));
   const kept = new Map((previous.apps ?? []).map((app) => [app.slug, app]));
+  // --missing runs after each rankings refresh: it only adds apps for models that just became tracked.
+  const missing = process.argv.includes("--missing");
+  const added = newNames(names, previous);
+  if (missing && !added.length) {
+    console.log("apps: every tracked model was already researched");
+    return;
+  }
+  if (missing) console.log(`apps: looking for ${added.join(", ")}`);
   const apps = [];
+  let failed = false;
   for (const seed of APP_SEEDS) {
     try {
-      apps.push(await research(today, seed, names));
-      console.log(`apps: ${seed.slug} updated`);
+      const fresh = await research(today, seed, names, jobs);
+      const stored = kept.get(seed.slug);
+      apps.push(missing && stored ? addMappings(stored, fresh, added) : fresh);
+      console.log(`apps: ${seed.slug} ${missing ? "checked" : "updated"}`);
     } catch (error) {
+      failed = true;
       console.warn(`apps: ${seed.slug} kept previous (${error instanceof Error ? error.message : error})`);
       if (kept.has(seed.slug)) apps.push(kept.get(seed.slug));
     }
   }
-  await writeFile(APPS_FILE, `${JSON.stringify({ apps }, null, 2)}\n`);
-  await warnGuideLinks();
+  // A failed app keeps the old list, so the next run looks for the same names again.
+  const tracked = failed ? (previous.tracked ?? []) : [...names].sort();
+  await writeFile(APPS_FILE, `${JSON.stringify({ apps, tracked }, null, 2)}\n`);
+  if (!missing) await warnGuideLinks();
   console.log(`apps: ${apps.length} written`);
 }
 
