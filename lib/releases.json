@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-30T22:14:42Z",
+  "last_checked": "2026-10-31T05:30:09Z",
   "entries": [
     {
       "id": "2026-10-29-frontiersmind-lumma-fev-v2",
@@ -195,6 +195,42 @@
       ],
       "evidence": "Prism responds to user audio in about 500ms, faster than the most comparably intelligent model, with tool calls happening in parallel to speech, and an inspectable text layer to run guardrails over before the model speaks.",
       "source_url": "https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise"
+    },
+    {
+      "id": "2026-10-27-apple-apple-creator-studio-ai-features",
+      "date": "2026-10-27",
+      "added": "2026-10-31",
+      "name": "Apple Creator Studio AI features",
+      "provider": "Apple",
+      "kind": "feature",
+      "status": "announced",
+      "summary": "Apple introduced intelligent assistants for Logic Pro, Keynote, Pages, and Numbers, alongside Generate Fill in Pixelmator Pro.",
+      "features": [
+        "AI Assistant",
+        "Generate Fill",
+        "MCP support",
+        "Productivity"
+      ],
+      "evidence": "Apple today introduced transformative updates to Apple Creator Studio... new intelligence features in Logic Pro, Keynote, Pages, and Numbers.",
+      "source_url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/"
+    },
+    {
+      "id": "2026-10-27-baidu-unlimited-ocr-2",
+      "date": "2026-10-27",
+      "added": "2026-10-31",
+      "name": "Unlimited OCR 2",
+      "provider": "Baidu",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Baidu released Unlimited OCR 2, an open-weight model enabling unbounded long-document parsing via sparse reference sliding window attention.",
+      "features": [
+        "OCR",
+        "Open weights",
+        "Vision",
+        "Document parsing"
+      ],
+      "evidence": "We release Unlimited OCR 2, achieving unlimited-horizon parsing with SR-SWA.",
+      "source_url": "https://huggingface.co/baidu/Unlimited-OCR-2"
     },
     {
       "id": "2026-10-27-google-genie-4",
