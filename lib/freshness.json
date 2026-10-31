@@ -2,7 +2,7 @@
   "pages": {
     "/": {
       "changed": "2026-10-31",
-      "hash": "ae51e0712c7a009f"
+      "hash": "d627ef7dd8215214"
     },
     "/releases": {
       "changed": "2026-10-31",
@@ -25,12 +25,12 @@
       "hash": "6ebc414ebf14961d"
     },
     "/speed": {
-      "changed": "2026-10-27",
-      "hash": "20a7397c70b8dcfb"
+      "changed": "2026-10-31",
+      "hash": "cf53322bb3bddb35"
     },
     "/general": {
-      "changed": "2026-10-29",
-      "hash": "c1302c6d42e2651a"
+      "changed": "2026-10-31",
+      "hash": "b968b93b13f95877"
     },
     "/images": {
       "changed": "2026-10-27",
@@ -69,8 +69,8 @@
       "hash": "55bc44f329b6aae2"
     },
     "/models/gemini-3-5-flash-lite": {
-      "changed": "2026-10-27",
-      "hash": "f070934e919748a7"
+      "changed": "2026-10-31",
+      "hash": "9a57ce2193a19fd5"
     },
     "/models/claude-haiku-5-5": {
       "changed": "2026-10-27",
@@ -81,8 +81,8 @@
       "hash": "636efaff7e85d902"
     },
     "/models/gpt-6-1-sol": {
-      "changed": "2026-10-24",
-      "hash": "5dac9c1fc32775ae"
+      "changed": "2026-10-31",
+      "hash": "5719aa0ff99796c5"
     },
     "/models/gpt-image-2-5-sunburst": {
       "changed": "2026-10-27",
@@ -129,8 +129,8 @@
       "hash": "0c066152688a9978"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
-      "changed": "2026-10-29",
-      "hash": "452634bae7fde16d"
+      "changed": "2026-10-31",
+      "hash": "84ec403f134a4913"
     },
     "/compare/claude-opus-4-6-vs-gpt-5-6-sol": {
       "changed": "2026-10-29",
@@ -149,8 +149,8 @@
       "hash": "41b8c3af7bdb83e8"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
-      "changed": "2026-10-30",
-      "hash": "9b48a8fa5c48d017"
+      "changed": "2026-10-31",
+      "hash": "11bc1a6d364e89c5"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
       "changed": "2026-10-29",
@@ -377,8 +377,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-10-30",
-      "hash": "13e8b8bc00ea3964"
+      "changed": "2026-10-31",
+      "hash": "2862fdc2992143c8"
     },
     "/privacy": {
       "changed": "2026-10-30",
@@ -511,6 +511,10 @@
     "/apps/canva": {
       "changed": "2026-10-25",
       "hash": "ab28a3fbaa0c79c8"
+    },
+    "/apps/hugging-face": {
+      "changed": "2026-10-31",
+      "hash": "bb5cb67a435fba07"
     },
     "/apps/ollama": {
       "changed": "2026-10-25",

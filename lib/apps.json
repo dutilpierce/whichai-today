@@ -695,6 +695,81 @@
       "checked": "2026-10-25"
     },
     {
+      "slug": "hugging-face",
+      "name": "Hugging Face",
+      "maker": "Hugging Face",
+      "link": "https://huggingface.co",
+      "models": [
+        {
+          "name": "Kimi K3",
+          "plan": "Free"
+        },
+        {
+          "name": "MiMo-V2.6-Pro",
+          "plan": "Free"
+        },
+        {
+          "name": "DeepSeek V4.1 Flash",
+          "plan": "Free"
+        },
+        {
+          "name": "Qwen-Image-2.1",
+          "plan": "Free"
+        },
+        {
+          "name": "Wan 2.2 A14B",
+          "plan": "Free"
+        },
+        {
+          "name": "Diffbot-Small-XL",
+          "plan": "Free"
+        }
+      ],
+      "plans": [
+        {
+          "name": "Free",
+          "price_usd_month": 0,
+          "free_tier": "Access to public models and datasets, hosting for up to 2 ZeroGPU Spaces, and $0.10 in monthly serverless inference provider credits",
+          "source_url": "https://huggingface.co/pricing"
+        },
+        {
+          "name": "PRO",
+          "price_usd_month": 9,
+          "free_tier": "none",
+          "source_url": "https://huggingface.co/pricing"
+        },
+        {
+          "name": "Team",
+          "price_usd_month": 20,
+          "free_tier": "none",
+          "source_url": "https://huggingface.co/pricing"
+        },
+        {
+          "name": "Enterprise",
+          "price_usd_month": 50,
+          "free_tier": "none",
+          "source_url": "https://huggingface.co/pricing"
+        }
+      ],
+      "skill": "Technical",
+      "privacy": {
+        "trains_by_default": "Hugging Face does not store any user data for training purposes.",
+        "opt_out": "Not applicable; user request payloads and tokens are not used for model training",
+        "source_url": "https://huggingface.co/privacy"
+      },
+      "capabilities": {
+        "web_search": true,
+        "file_upload": true,
+        "image_generation": true,
+        "video_generation": true,
+        "presentations": false,
+        "code_editing": true,
+        "voice": false,
+        "team_plan": true
+      },
+      "checked": "2026-10-31"
+    },
+    {
       "slug": "ollama",
       "name": "Ollama",
       "maker": "Ollama",
