@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-31T05:30:09Z",
+  "last_checked": "2026-10-31T12:17:51Z",
   "entries": [
     {
       "id": "2026-10-29-frontiersmind-lumma-fev-v2",
@@ -35,6 +35,24 @@
       ],
       "evidence": "Earlier this month, we released Mistral Large 4 (Le Chonk), our flagship 1-trillion-parameter, natively multimodal model, in public preview... Today, we're releasing the weights of this improved Mistral Large 4.",
       "source_url": "https://mistral.ai/news/mistral-large-4-oss/"
+    },
+    {
+      "id": "2026-10-28-microsoft-microsoft-copilot-harness",
+      "date": "2026-10-28",
+      "added": "2026-10-31",
+      "name": "Microsoft Copilot harness",
+      "provider": "Microsoft",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Microsoft introduced the Copilot harness in Foundry Agent Service in public preview, providing a managed execution system for multi-model AI agents.",
+      "features": [
+        "Agent harness",
+        "MCP support",
+        "Tool calling",
+        "Public preview"
+      ],
+      "evidence": "Today, we're introducing the Microsoft Copilot harness in Foundry Agent Service in public preview. It gives developers a fully managed way to build agents that reason, use tools, and complete complex, long-running tasks.",
+      "source_url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/"
     },
     {
       "id": "2026-10-28-anthropic-artifacts-for-legal-work",
@@ -285,6 +303,24 @@
       ],
       "evidence": "The first release is six 2B-class open-weight models — text, vision, audio, omni, and two decision models — all branched from a single LFM3-1.7B-Base backbone trained on 22T tokens. The headline change is a tri-hybrid architecture... carries a 256K-token context window",
       "source_url": "https://www.liquid.ai/blog/lfm3"
+    },
+    {
+      "id": "2026-10-26-microsoft-azure-ai-speech-llm-09-2026",
+      "date": "2026-10-26",
+      "added": "2026-10-31",
+      "name": "Azure AI Speech LLM 09-2026",
+      "provider": "Microsoft",
+      "kind": "update",
+      "status": "available",
+      "summary": "Microsoft updated Azure AI Speech LLM with 25 additional languages, up to 2x faster processing, and improved transcription accuracy.",
+      "features": [
+        "Speech-to-text",
+        "25 new languages",
+        "2x faster",
+        "Multilingual"
+      ],
+      "evidence": "LLM Speech 09-2026 expands Azure AI Speech to 25 additional languages... LLM Speech 09-2026 delivers up to 2x faster processing than 2607, returning transcripts sooner for high-volume and time-sensitive workloads",
+      "source_url": "https://devblogs.microsoft.com/foundry/announcing-azure-ai-speech-llm-09-2026/"
     },
     {
       "id": "2026-10-26-anthropic-claude-for-nonprofits-plugin",
