@@ -1,6 +1,41 @@
 {
-  "last_checked": "2026-10-31T12:17:51Z",
+  "last_checked": "2026-10-31T21:28:18Z",
   "entries": [
+    {
+      "id": "2026-10-30-openai-gpt-6-rosalind-research",
+      "date": "2026-10-30",
+      "added": "2026-10-31",
+      "name": "GPT-6 Rosalind Research",
+      "provider": "OpenAI",
+      "kind": "model",
+      "status": "preview",
+      "summary": "OpenAI introduced GPT-6 Rosalind Research, bringing GPT-6 reasoning capabilities and biological tool use to multistep life sciences research.",
+      "features": [
+        "Life sciences",
+        "Reasoning",
+        "Scientific tools"
+      ],
+      "evidence": "GPT-6 Rosalind Research brings GPT-6 reasoning capabilities to multistep life sciences research, with safeguards designed for biological work.",
+      "source_url": "https://help.openai.com/en/articles/9624314-model-release-notes"
+    },
+    {
+      "id": "2026-10-29-ibm-granite-switch-4-1-1",
+      "date": "2026-10-29",
+      "added": "2026-10-31",
+      "name": "Granite Switch 4.1.1",
+      "provider": "IBM",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "IBM released Granite Switch 4.1.1, featuring an updated 10-language speech-to-text model and updated decision weights.",
+      "features": [
+        "Open weights",
+        "Speech-to-Text",
+        "Decisions",
+        "Multilingual"
+      ],
+      "evidence": "Granite Switch 4.1.1 is a patch release... Updated Granite Speech ASR model — multilingual speech-to-text across 10 languages... Updated Decision adapter in granitelib-core",
+      "source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1"
+    },
     {
       "id": "2026-10-29-frontiersmind-lumma-fev-v2",
       "date": "2026-10-29",
