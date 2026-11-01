@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-10-31T21:28:18Z",
+  "last_checked": "2026-11-01T05:55:26Z",
   "entries": [
     {
       "id": "2026-10-30-openai-gpt-6-rosalind-research",
@@ -17,6 +17,23 @@
       ],
       "evidence": "GPT-6 Rosalind Research brings GPT-6 reasoning capabilities to multistep life sciences research, with safeguards designed for biological work.",
       "source_url": "https://help.openai.com/en/articles/9624314-model-release-notes"
+    },
+    {
+      "id": "2026-10-29-openai-gpt-6-luna-october-29-2026-update",
+      "date": "2026-10-29",
+      "added": "2026-11-01",
+      "name": "GPT-6 Luna (October 29, 2026 update)",
+      "provider": "OpenAI",
+      "kind": "update",
+      "status": "available",
+      "summary": "OpenAI updated GPT-6 Luna in ChatGPT to provide more concise responses and reduce overly agreeable language.",
+      "features": [
+        "Concise responses",
+        "Less agreeable",
+        "ChatGPT"
+      ],
+      "evidence": "Today, we're introducing an update to GPT-6 Luna, which we released in ChatGPT on October 7. The updated model provides more concise responses and reduces overly agreeable language.",
+      "source_url": "https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum"
     },
     {
       "id": "2026-10-29-ibm-granite-switch-4-1-1",
