@@ -88,7 +88,7 @@
         {
           "name": "Free",
           "price_usd_month": 0,
-          "free_tier": "Includes chat on web, desktop, and mobile, web search, file creation, code execution, Artifacts, and Claude Slides/Docs, with usage limits that reset every 5 hours based on demand",
+          "free_tier": "Everyday chat, Projects, Artifacts, Slides, and web search, subject to rolling 5-hour session and daily usage caps",
           "source_url": "https://claude.ai/pricing"
         },
         {
@@ -104,17 +104,23 @@
           "source_url": "https://claude.ai/pricing"
         },
         {
+          "name": "Ultra",
+          "price_usd_month": 200,
+          "free_tier": "none",
+          "source_url": "https://claude.ai/pricing"
+        },
+        {
           "name": "Team",
-          "price_usd_month": null,
+          "price_usd_month": 25,
           "free_tier": "none",
           "source_url": "https://claude.ai/pricing"
         }
       ],
       "skill": "Beginner",
       "privacy": {
-        "trains_by_default": "Input and Output data may be used to train models and improve services unless users disable this setting in their account.",
+        "trains_by_default": "We will train new models using data from Free, Pro, Max, and Ultra accounts when this setting is on (including when you use Claude Code from these accounts).",
         "opt_out": "Settings > Privacy > Help Improve our AI models",
-        "source_url": "https://www.anthropic.com/legal/privacy"
+        "source_url": "https://privacy.anthropic.com"
       },
       "capabilities": {
         "web_search": true,
@@ -126,7 +132,7 @@
         "voice": true,
         "team_plan": true
       },
-      "checked": "2026-10-25"
+      "checked": "2026-11-01"
     },
     {
       "slug": "gemini",
@@ -139,38 +145,44 @@
           "plan": "Free"
         },
         {
-          "name": "Gemini 4 Argon",
-          "plan": "Google AI Pro"
-        },
-        {
           "name": "Gemini Omni 1.1 Flash",
           "plan": "Google AI Plus"
+        },
+        {
+          "name": "Gemini 4 Argon",
+          "plan": "Google AI Pro"
         }
       ],
       "plans": [
         {
           "name": "Free",
           "price_usd_month": 0,
-          "free_tier": "Access to standard Gemini models with compute limits resetting every 5 hours and 15 GB shared storage",
-          "source_url": "https://one.google.com/about/plans"
+          "free_tier": "Includes access to Gemini Flash-Lite, web search grounding, image generation, and Canvas workspace tools with baseline daily usage limits.",
+          "source_url": "https://one.google.com/about/google-ai-plans"
         },
         {
           "name": "Google AI Plus",
           "price_usd_month": 4.99,
           "free_tier": "none",
-          "source_url": "https://one.google.com/about/plans"
+          "source_url": "https://one.google.com/about/google-ai-plans"
         },
         {
           "name": "Google AI Pro",
           "price_usd_month": 19.99,
           "free_tier": "none",
-          "source_url": "https://one.google.com/about/plans"
+          "source_url": "https://one.google.com/about/google-ai-plans"
+        },
+        {
+          "name": "Google AI Ultra",
+          "price_usd_month": 99.99,
+          "free_tier": "none",
+          "source_url": "https://one.google.com/about/google-ai-plans"
         }
       ],
       "skill": "Beginner",
       "privacy": {
-        "trains_by_default": "When Gemini Apps Activity is on, Google collects your Gemini Apps activity and uses it to improve and develop Google products and services and machine-learning technologies.",
-        "opt_out": "Settings > Gemini Apps Activity (or Keep Activity toggle)",
+        "trains_by_default": "Google uses this data, consistent with our Privacy Policy, to provide, improve, and develop Google products and services and machine-learning technologies, including Google's enterprise products such as Google Cloud.",
+        "opt_out": "On gemini.google.com, open the left menu, select Activity (Keep Activity), and switch it off, or use Temporary chat.",
         "source_url": "https://support.google.com/gemini/answer/13594961"
       },
       "capabilities": {
@@ -183,7 +195,7 @@
         "voice": true,
         "team_plan": true
       },
-      "checked": "2026-10-25"
+      "checked": "2026-11-01"
     },
     {
       "slug": "copilot",
@@ -195,21 +207,27 @@
         {
           "name": "Copilot Free",
           "price_usd_month": 0,
-          "free_tier": "A limited free version, subject to available capacity and limits.",
-          "source_url": "https://www.microsoft.com/en-us/copilot/pricing/individuals"
+          "free_tier": "Web-grounded chat and 15 daily boosts for Designer image creation with standard response speeds during peak hours",
+          "source_url": "https://www.microsoft.com/en-us/microsoft-copilot"
         },
         {
-          "name": "Microsoft 365 Personal",
-          "price_usd_month": 9.99,
+          "name": "Copilot Pro",
+          "price_usd_month": 20,
           "free_tier": "none",
-          "source_url": "https://www.microsoft.com/en-us/copilot/pricing/individuals"
+          "source_url": "https://www.microsoft.com/en-us/store/b/copilotpro"
+        },
+        {
+          "name": "Microsoft 365 Copilot",
+          "price_usd_month": 30,
+          "free_tier": "none",
+          "source_url": "https://www.microsoft.com/en-us/microsoft-365-copilot/pricing"
         }
       ],
       "skill": "Beginner",
       "privacy": {
-        "trains_by_default": "AI model training applies to our consumer Copilot experience.",
-        "opt_out": "Profile icon > profile name > Privacy > Training on conversation activity",
-        "source_url": "https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-controls"
+        "trains_by_default": "Prompts, responses, and your file contents when using the Microsoft Copilot app aren't used to train foundation models.",
+        "opt_out": "Profile icon > Settings > Privacy > Model training",
+        "source_url": "https://support.microsoft.com/en-us/topic/microsoft-copilot-privacy-controls-bb7ed57e-3996-412e-9d26-6644bc8939c5"
       },
       "capabilities": {
         "web_search": true,
@@ -221,7 +239,7 @@
         "voice": true,
         "team_plan": true
       },
-      "checked": "2026-10-27"
+      "checked": "2026-11-01"
     },
     {
       "slug": "perplexity",
@@ -617,32 +635,32 @@
           "name": "Basic Plan",
           "price_usd_month": 10,
           "free_tier": "none",
-          "source_url": "https://docs.midjourney.com/docs/plans"
+          "source_url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans"
         },
         {
           "name": "Standard Plan",
           "price_usd_month": 30,
           "free_tier": "none",
-          "source_url": "https://docs.midjourney.com/docs/plans"
+          "source_url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans"
         },
         {
           "name": "Pro Plan",
           "price_usd_month": 60,
           "free_tier": "none",
-          "source_url": "https://docs.midjourney.com/docs/plans"
+          "source_url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans"
         },
         {
           "name": "Mega Plan",
           "price_usd_month": 120,
           "free_tier": "none",
-          "source_url": "https://docs.midjourney.com/docs/plans"
+          "source_url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans"
         }
       ],
       "skill": "Some setup",
       "privacy": {
-        "trains_by_default": "This Policy applies to Personal Data that Midjourney collects, uses, and discloses about You and which may include data collected through the process of training Midjourney machine learning algorithms.",
-        "opt_out": "None",
-        "source_url": "https://docs.midjourney.com/docs/privacy-policy"
+        "trains_by_default": "Data from user interactions with the AI model, including user inputs and prompts, is collected and used to train Midjourney models.",
+        "opt_out": "none",
+        "source_url": "https://docs.midjourney.com/hc/en-us/articles/32410884848909-Privacy-Policy"
       },
       "capabilities": {
         "web_search": false,
@@ -654,7 +672,7 @@
         "voice": false,
         "team_plan": false
       },
-      "checked": "2026-10-25"
+      "checked": "2026-11-01"
     },
     {
       "slug": "canva",
@@ -666,20 +684,20 @@
         {
           "name": "Canva Free",
           "price_usd_month": 0,
-          "free_tier": "1.6M+ free templates, 4.7M+ free photos, graphics, and audio, 5GB cloud storage, 1 Brand Kit with up to 3 colors, and limited to 20 AI uses per month",
-          "source_url": "https://www.canva.com/pricing"
+          "free_tier": "Includes over 1 million free templates, 5 GB of cloud storage, and up to 20 AI uses per month.",
+          "source_url": "https://www.canva.com/pricing/"
         },
         {
           "name": "Canva Pro",
           "price_usd_month": 15,
           "free_tier": "none",
-          "source_url": "https://www.canva.com/pricing"
+          "source_url": "https://www.canva.com/pricing/"
         }
       ],
-      "skill": "Technical",
+      "skill": "Beginner",
       "privacy": {
         "trains_by_default": "We may analyze your activity, content, media uploads and related data in your account to provide and customize the Service, including generating and storing that data as Memories, and to train our algorithms, models and AI products and services using machine learning to develop, improve and provide our Service.",
-        "opt_out": "Privacy controls page under account privacy settings",
+        "opt_out": "Account Settings under Privacy controls",
         "source_url": "https://www.canva.com/policies/privacy-policy/"
       },
       "capabilities": {
@@ -692,7 +710,7 @@
         "voice": false,
         "team_plan": true
       },
-      "checked": "2026-10-25"
+      "checked": "2026-11-01"
     },
     {
       "slug": "hugging-face",
@@ -729,7 +747,7 @@
         {
           "name": "Free",
           "price_usd_month": 0,
-          "free_tier": "Access to public models and datasets, hosting for up to 2 ZeroGPU Spaces, and $0.10 in monthly serverless inference provider credits",
+          "free_tier": "Access to public model and dataset repositories, community Spaces with CPU Basic and ZeroGPU hardware, and monthly free inference credits; limits include lower compute queue priorities and rate limits",
           "source_url": "https://huggingface.co/pricing"
         },
         {
@@ -754,7 +772,7 @@
       "skill": "Technical",
       "privacy": {
         "trains_by_default": "Hugging Face does not store any user data for training purposes.",
-        "opt_out": "Not applicable; user request payloads and tokens are not used for model training",
+        "opt_out": "Repository Settings > Set repository visibility to Private",
         "source_url": "https://huggingface.co/privacy"
       },
       "capabilities": {
@@ -763,11 +781,11 @@
         "image_generation": true,
         "video_generation": true,
         "presentations": false,
-        "code_editing": true,
+        "code_editing": false,
         "voice": false,
         "team_plan": true
       },
-      "checked": "2026-10-31"
+      "checked": "2026-11-01"
     },
     {
       "slug": "ollama",

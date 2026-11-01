@@ -377,8 +377,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-10-31",
-      "hash": "2862fdc2992143c8"
+      "changed": "2026-11-01",
+      "hash": "084f7d3b283d0450"
     },
     "/privacy": {
       "changed": "2026-10-30",
@@ -473,16 +473,16 @@
       "hash": "fca0d2c15d45587e"
     },
     "/apps/claude": {
-      "changed": "2026-10-30",
-      "hash": "e9097b7c3cca5d85"
+      "changed": "2026-11-01",
+      "hash": "2f1c453b48cf584d"
     },
     "/apps/gemini": {
-      "changed": "2026-10-30",
-      "hash": "0cd13a92cb74d10c"
+      "changed": "2026-11-01",
+      "hash": "cafa131f7bb2a355"
     },
     "/apps/copilot": {
-      "changed": "2026-10-25",
-      "hash": "961a29951fa568a7"
+      "changed": "2026-11-01",
+      "hash": "7b1f903db58c0473"
     },
     "/apps/perplexity": {
       "changed": "2026-10-25",
@@ -505,16 +505,16 @@
       "hash": "6c4190fddd3e633f"
     },
     "/apps/midjourney": {
-      "changed": "2026-10-25",
-      "hash": "b89645c400be3a07"
+      "changed": "2026-11-01",
+      "hash": "1c753e766114e89f"
     },
     "/apps/canva": {
-      "changed": "2026-10-25",
-      "hash": "ab28a3fbaa0c79c8"
+      "changed": "2026-11-01",
+      "hash": "6365251af1e4b0c0"
     },
     "/apps/hugging-face": {
-      "changed": "2026-10-31",
-      "hash": "bb5cb67a435fba07"
+      "changed": "2026-11-01",
+      "hash": "2e56b82ae7ad6759"
     },
     "/apps/ollama": {
       "changed": "2026-10-25",
