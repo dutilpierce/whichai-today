@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-01T05:55:26Z",
+  "last_checked": "2026-11-02T05:55:05Z",
   "entries": [
     {
       "id": "2026-10-30-openai-gpt-6-rosalind-research",
@@ -355,6 +355,24 @@
       ],
       "evidence": "The first release is six 2B-class open-weight models — text, vision, audio, omni, and two decision models — all branched from a single LFM3-1.7B-Base backbone trained on 22T tokens. The headline change is a tri-hybrid architecture... carries a 256K-token context window",
       "source_url": "https://www.liquid.ai/blog/lfm3"
+    },
+    {
+      "id": "2026-10-26-tencent-hy-simulmt-30b-a3b",
+      "date": "2026-10-26",
+      "added": "2026-11-02",
+      "name": "Hy-SimulMT-30B-A3B",
+      "provider": "Tencent",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Tencent released an open-weight model for real-time bidirectional Chinese and English simultaneous speech translation.",
+      "features": [
+        "Speech translation",
+        "Open weights",
+        "Chinese-English",
+        "30B parameters"
+      ],
+      "evidence": "Hy-SimulMT is a real-time simultaneous translation model developed by Tencent Hunyuan, supporting bidirectional speech-to-speech translation between Chinese and English. Hy-SimulMT-30B-A3B, Hunyuan simultaneous translation model, translation-only output. License: apache-2.0",
+      "source_url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B"
     },
     {
       "id": "2026-10-26-microsoft-azure-ai-speech-llm-09-2026",
