@@ -1,6 +1,42 @@
 {
-  "last_checked": "2026-11-02T05:55:05Z",
+  "last_checked": "2026-11-02T15:40:04Z",
   "entries": [
+    {
+      "id": "2026-10-30-diffuspace-clover-35b-a3b-preview",
+      "date": "2026-10-30",
+      "added": "2026-11-02",
+      "name": "Clover-35B-A3B-Preview",
+      "provider": "DiffuSpace",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "DiffuSpace released Clover-35B-A3B-Preview, an open-source diffusion language model combining a 35B mixture-of-experts architecture with a 128K context window.",
+      "features": [
+        "Diffusion LLM",
+        "35B MoE",
+        "128K context",
+        "Open weights"
+      ],
+      "evidence": "Clover combines a 35B-parameter mixture-of-experts backbone with approximately 3B active parameters per token, block diffusion generation, and a 128K context window.",
+      "source_url": "https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview"
+    },
+    {
+      "id": "2026-10-30-nvidia-deepseek-v4-1-flash-1017-nvfp4",
+      "date": "2026-10-30",
+      "added": "2026-11-02",
+      "name": "DeepSeek-V4.1-Flash-1017-NVFP4",
+      "provider": "NVIDIA",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "NVIDIA released an NVFP4 quantized version of DeepSeek-V4.1-Flash-1017 supporting multimodal input and a 1M token context window.",
+      "features": [
+        "Quantized",
+        "Multimodal",
+        "1M context",
+        "Open weights"
+      ],
+      "evidence": "The NVIDIA DeepSeek-V4.1-Flash-1017 NVFP4 model is the quantized version of DeepSeek AI's DeepSeek-V4.1-Flash-1017 model... support for contexts of up to one million tokens.",
+      "source_url": "https://huggingface.co/nvidia/DeepSeek-V4.1-Flash-1017-NVFP4"
+    },
     {
       "id": "2026-10-30-openai-gpt-6-rosalind-research",
       "date": "2026-10-30",
