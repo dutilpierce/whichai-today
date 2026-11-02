@@ -18,6 +18,9 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -43,16 +46,7 @@ jobs:
 
       - name: Publish if anything changed
         if: steps.kill.outputs.publish == 'true'
-        run: |
-          if git diff --quiet -- lib/apps.json lib/freshness.json; then
-            echo "Apps unchanged."
-          else
-            git config user.name "whichai-bot"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add lib/apps.json lib/freshness.json
-            git commit -m "Refresh app facts for $(date -u +%Y-%m-%d)."
-            git push
-          fi
+        run: bash scripts/publish.sh "Refresh app facts for $(date -u +%Y-%m-%d)." lib/apps.json lib/freshness.json
 
       - name: Ping search engines
         if: steps.kill.outputs.publish == 'true'

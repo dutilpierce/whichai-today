@@ -117,9 +117,18 @@ const held = JSON.parse(await readFile(HELD, "utf8"));
 const today = new Date().toISOString().slice(0, 10);
 const results = [];
 
+async function askOrSkip(label, prompt) {
+  try {
+    return await ask(prompt);
+  } catch (error) {
+    console.warn(`${label}: skipped (${error instanceof Error ? error.message : "request failed"})`);
+    return [];
+  }
+}
+
 const privacyPrompt = `Today is ${today}. Check each privacy sentence against its source URL. Do not rewrite the sentence. status is match only if the sentence is still accurate, mismatch if it is not, unsure if you cannot tell. Return ONLY JSON: {"results":[{"kind":"privacy","id":"provider name","status":"match","note":"short"}]}
 ${JSON.stringify(providers, null, 2)}`;
-results.push(...(await ask(privacyPrompt)).map((item) => ({ ...item, kind: "privacy" })));
+results.push(...(await askOrSkip("privacy", privacyPrompt)).map((item) => ({ ...item, kind: "privacy" })));
 
 for (const [key, category] of Object.entries(models.categories)) {
   const picks = ["leader", "runner_up", "open_source_pick"].map((slot) => ({
@@ -131,7 +140,7 @@ for (const [key, category] of Object.entries(models.categories)) {
   }));
   const prompt = `Today is ${today}. For each model, check cost and free_tier against the provider page at direct_link. Do not rewrite them. status is match, mismatch, or unsure. Return ONLY JSON: {"results":[{"kind":"cost","id":"model name","status":"match","note":"short"}]}
 ${JSON.stringify(picks, null, 2)}`;
-  const found = await ask(prompt);
+  const found = await askOrSkip(key, prompt);
   results.push(...found.map((item) => ({ ...item, kind: "cost" })));
   console.log(`${key}: checked ${found.length} picks`);
 }

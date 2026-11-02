@@ -14,6 +14,9 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -37,11 +40,7 @@ jobs:
           if git diff --quiet -- lib/models.json lib/providers.json lib/held.json; then
             echo "Facts unchanged."
           else
-            git config user.name "whichai-bot"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add lib/models.json lib/providers.json lib/held.json
-            git commit -m "Re-check privacy, prices, and free tiers."
-            git push
+            bash scripts/publish.sh "Re-check privacy, prices, and free tiers." lib/models.json lib/providers.json lib/held.json
           fi
 
       - name: Fail if a fact was held
