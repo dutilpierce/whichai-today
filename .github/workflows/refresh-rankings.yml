@@ -3,6 +3,7 @@ name: Refresh model rankings
 on:
   schedule:
     - cron: "0 11 * * *"
+    - cron: "0 23 * * *"
   workflow_dispatch:
 
 permissions:
@@ -15,7 +16,7 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
         with:
@@ -30,37 +31,32 @@ jobs:
         id: kill
         run: node scripts/kill-switch.mjs
 
-      - name: Research current leaders
+      - name: Skip the evening run when today is already published
+        id: due
         if: steps.kill.outputs.publish == 'true'
+        run: node scripts/ranking-due.mjs
+
+      - name: Research current leaders
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
         run: node scripts/refresh-rankings.mjs
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Find apps for newly tracked models
-        if: steps.kill.outputs.publish == 'true'
-        continue-on-error: true
-        run: node scripts/refresh-apps.mjs --missing
-        env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-
       - name: Freshness
-        if: steps.kill.outputs.publish == 'true'
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
         run: node scripts/freshness.mjs
 
       - name: Fact-check
-        if: steps.kill.outputs.publish == 'true'
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
         run: node scripts/fact-check.mjs
 
-      - name: Publish if anything changed
-        if: steps.kill.outputs.publish == 'true'
-        run: bash scripts/publish.sh "Refresh model rankings for $(date -u +%Y-%m-%d)." lib/models.json lib/history.json lib/archive.json lib/apps.json lib/freshness.json
-
-      - name: Ping search engines
-        if: steps.kill.outputs.publish == 'true'
-        run: node scripts/indexnow.mjs
+      - name: Publish rankings
+        id: published
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
+        run: bash scripts/publish.sh "Refresh model rankings for $(date -u +%Y-%m-%d)." lib/models.json lib/history.json lib/archive.json lib/freshness.json
 
       - name: Post confirmed changes
-        if: steps.kill.outputs.publish == 'true'
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
         run: node scripts/post-changes.mjs
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -68,8 +64,37 @@ jobs:
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
 
+      - name: Ping search engines
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
+        run: node scripts/indexnow.mjs
+
+      - name: Find apps for newly tracked models
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
+        continue-on-error: true
+        run: node scripts/refresh-apps.mjs --missing
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Freshness after apps
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
+        run: node scripts/freshness.mjs
+
+      - name: Fact-check apps
+        id: apps-check
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
+        continue-on-error: true
+        run: node scripts/fact-check.mjs
+
+      - name: Publish app updates
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true' && steps.apps-check.outcome == 'success'
+        run: bash scripts/publish.sh "Add apps for newly tracked models on $(date -u +%Y-%m-%d)." lib/apps.json lib/freshness.json
+
+      - name: Ping search engines after apps
+        if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true' && steps.apps-check.outcome == 'success'
+        run: node scripts/indexnow.mjs
+
       - name: Tell the owner
-        if: failure()
+        if: failure() && steps.published.outcome != 'success'
         run: node scripts/notify-owner.mjs "The ranking refresh was held back. Check the Actions log."
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
