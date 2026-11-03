@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-03T14:03:56Z",
+  "last_checked": "2026-11-03T23:15:52Z",
   "entries": [
+    {
+      "id": "2026-11-03-flower-labs-endeavor-1-1",
+      "date": "2026-11-03",
+      "added": "2026-11-03",
+      "name": "Endeavor 1.1",
+      "provider": "Flower Labs",
+      "kind": "update",
+      "status": "preview",
+      "summary": "Flower Labs launched Endeavor 1.1, introducing native multimodal image inputs, dedicated EU GPU inference, and improved reasoning and coding performance.",
+      "features": [
+        "Multimodal",
+        "EU inference",
+        "Agentic reasoning",
+        "Thinking traces"
+      ],
+      "evidence": "Version 1.1 is a significant step forward from Endeavor 1.0, with stronger reasoning for demanding agent work, new EU inference, and multimodal capabilities.",
+      "source_url": "https://flower.ai/blog/2026-11-03-introducing-endeavor-1.1"
+    },
     {
       "id": "2026-11-02-deep-principle-hydrogen-1-0",
       "date": "2026-11-02",
@@ -18,6 +36,24 @@
       ],
       "evidence": "Hydrogen-1.0 is a scientific problem-solving and research assistance model developed by Deep Principle based on GLM-5.3 with a 1M tokens context length and BF16 model weights of approximately 753 billion parameters.",
       "source_url": "https://huggingface.co/deep-principle/Hydrogen-1.0"
+    },
+    {
+      "id": "2026-11-01-meituan-longcat-2-5",
+      "date": "2026-11-01",
+      "added": "2026-11-03",
+      "name": "LongCat-2.5",
+      "provider": "Meituan",
+      "kind": "update",
+      "status": "available",
+      "summary": "Meituan launched LongCat-2.5, a 1.6-trillion-parameter native multimodal mixture-of-experts model optimized for visual coding and long-horizon agentic tasks.",
+      "features": [
+        "Multimodal",
+        "1.6T parameters",
+        "Visual coding",
+        "Agentic tasks"
+      ],
+      "evidence": "With 1.6 trillion total parameters and approximately 48 billion activated per token, it builds on LongCat-2.0 with stronger native visual understanding and agentic coding.",
+      "source_url": "https://longcat.ai/blog/longcat-2.5"
     },
     {
       "id": "2026-11-01-nace-ai-drex-max-v1",
