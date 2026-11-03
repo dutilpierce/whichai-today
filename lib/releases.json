@@ -1,6 +1,42 @@
 {
-  "last_checked": "2026-11-02T15:40:04Z",
+  "last_checked": "2026-11-03T00:54:43Z",
   "entries": [
+    {
+      "id": "2026-11-02-deep-principle-hydrogen-1-0",
+      "date": "2026-11-02",
+      "added": "2026-11-03",
+      "name": "Hydrogen-1.0",
+      "provider": "Deep Principle",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Deep Principle released Hydrogen-1.0, an open-weight 753-billion-parameter scientific research model based on GLM-5.3 with a 1-million-token context window.",
+      "features": [
+        "Open weights",
+        "Science",
+        "1M context",
+        "753B parameters"
+      ],
+      "evidence": "Hydrogen-1.0 is a scientific problem-solving and research assistance model developed by Deep Principle based on GLM-5.3 with a 1M tokens context length and BF16 model weights of approximately 753 billion parameters.",
+      "source_url": "https://huggingface.co/deep-principle/Hydrogen-1.0"
+    },
+    {
+      "id": "2026-11-01-nace-ai-drex-max-v1",
+      "date": "2026-11-01",
+      "added": "2026-11-03",
+      "name": "Drex Max v1",
+      "provider": "Nace AI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Nace AI released Drex Max v1, an open-weight 27-billion-parameter multimodal decision model that outputs option probabilities in a single forward pass.",
+      "features": [
+        "Open weights",
+        "Decision model",
+        "27B parameters",
+        "Multimodal"
+      ],
+      "evidence": "Drex Max is a dense 27B-parameter model with a 255-way readout head, and is released under the Nace.AI Open RAIL-M license, taking text, JSON, and images to return option probabilities in one forward pass.",
+      "source_url": "https://huggingface.co/nace-ai/drex-max-v1"
+    },
     {
       "id": "2026-10-30-diffuspace-clover-35b-a3b-preview",
       "date": "2026-10-30",
