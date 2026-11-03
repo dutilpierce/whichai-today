@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-03T00:54:43Z",
+  "last_checked": "2026-11-03T14:03:56Z",
   "entries": [
     {
       "id": "2026-11-02-deep-principle-hydrogen-1-0",
@@ -89,6 +89,24 @@
       ],
       "evidence": "GPT-6 Rosalind Research brings GPT-6 reasoning capabilities to multistep life sciences research, with safeguards designed for biological work.",
       "source_url": "https://help.openai.com/en/articles/9624314-model-release-notes"
+    },
+    {
+      "id": "2026-10-29-servicenow-apriel-voice-27b-preview",
+      "date": "2026-10-29",
+      "added": "2026-11-03",
+      "name": "Apriel Voice 27B Preview",
+      "provider": "ServiceNow",
+      "kind": "open_weights",
+      "status": "preview",
+      "summary": "ServiceNow released an open 27B speech-language model combining speech understanding, reasoning, and tool use built on a Gemma 4 backbone.",
+      "features": [
+        "Speech understanding",
+        "Tool use",
+        "Multimodal",
+        "Open weights"
+      ],
+      "evidence": "Apriel Voice 27B Preview understands spoken requests, reasons over conversational context, and generates text responses and tool calls through a shared Gemma 4 backbone. It adds a speech interface while retaining text and image input capabilities.",
+      "source_url": "https://huggingface.co/ServiceNow-AI/Apriel-Voice-27B-preview"
     },
     {
       "id": "2026-10-29-openai-gpt-6-luna-october-29-2026-update",
