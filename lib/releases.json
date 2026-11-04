@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-03T23:15:52Z",
+  "last_checked": "2026-11-04T14:24:38Z",
   "entries": [
     {
       "id": "2026-11-03-flower-labs-endeavor-1-1",
@@ -18,6 +18,23 @@
       ],
       "evidence": "Version 1.1 is a significant step forward from Endeavor 1.0, with stronger reasoning for demanding agent work, new EU inference, and multimodal capabilities.",
       "source_url": "https://flower.ai/blog/2026-11-03-introducing-endeavor-1.1"
+    },
+    {
+      "id": "2026-11-02-anthropic-message-threads",
+      "date": "2026-11-02",
+      "added": "2026-11-04",
+      "name": "Message threads",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Anthropic launched message threads in beta on the Messages API to store conversations server-side and reduce latency in long agent loops.",
+      "features": [
+        "Messages API",
+        "Agent loops",
+        "Beta"
+      ],
+      "evidence": "Long conversations and agent loops on the Messages API can now send smaller requests and get a lower time to first token with message threads, in beta with the message-threads-2026-08-12 beta header. The API keeps the conversation on the server, so each later request sends only the new messages.",
+      "source_url": "https://platform.claude.com/docs/en/build-with-claude/message-threads"
     },
     {
       "id": "2026-11-02-deep-principle-hydrogen-1-0",
