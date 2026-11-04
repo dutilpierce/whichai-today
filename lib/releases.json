@@ -1,6 +1,58 @@
 {
-  "last_checked": "2026-11-04T14:24:38Z",
+  "last_checked": "2026-11-04T23:37:16Z",
   "entries": [
+    {
+      "id": "2026-11-04-adobe-cx-enterprise-coworker",
+      "date": "2026-11-04",
+      "added": "2026-11-04",
+      "name": "CX Enterprise Coworker",
+      "provider": "Adobe",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Adobe made its agentic CX Enterprise Coworker available within AI platforms including ChatGPT, Claude, Databricks Genie, Gemini for business, and Copilot.",
+      "features": [
+        "Agentic workflows",
+        "MCP integrations",
+        "Multi-agent"
+      ],
+      "evidence": "Adobe CX Enterprise Coworker, the industry's leading agentic teammate for customer experience orchestration, is now available within leading AI platforms including ChatGPT (as a plugin), Claude, Databricks Genie, Gemini for business and Microsoft Copilot",
+      "source_url": "https://news.adobe.com/news/2026/11/adobe-integrates-agentic-cx-enterprise-coworker-into-ai-platforms"
+    },
+    {
+      "id": "2026-11-04-openai-daybreak-red-in-aws-govcloud",
+      "date": "2026-11-04",
+      "added": "2026-11-04",
+      "name": "Daybreak Red in AWS GovCloud",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI made Daybreak Red and GPT-5.6 Cyber available in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.",
+      "features": [
+        "Cybersecurity",
+        "Amazon Bedrock",
+        "GovCloud"
+      ],
+      "evidence": "Building on the availability of Daybreak models on Amazon Bedrock, GPT‑5.6 Cyber is now available to approved customers in AWS GovCloud (US-East)",
+      "source_url": "https://openai.com/index/daybreak-red-aws-govcloud/"
+    },
+    {
+      "id": "2026-11-04-tencent-hy4",
+      "date": "2026-11-04",
+      "added": "2026-11-04",
+      "name": "Hy4",
+      "provider": "Tencent",
+      "kind": "model",
+      "status": "available",
+      "summary": "Tencent released Hy4, its latest-generation large language model featuring visual understanding and computer-use capabilities alongside improved reasoning.",
+      "features": [
+        "Multimodal",
+        "Computer use",
+        "Reasoning",
+        "Agentic tasks"
+      ],
+      "evidence": "Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world's leading open-source AI models.",
+      "source_url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    },
     {
       "id": "2026-11-03-flower-labs-endeavor-1-1",
       "date": "2026-11-03",
@@ -89,6 +141,40 @@
       ],
       "evidence": "Drex Max is a dense 27B-parameter model with a 255-way readout head, and is released under the Nace.AI Open RAIL-M license, taking text, JSON, and images to return option probabilities in one forward pass.",
       "source_url": "https://huggingface.co/nace-ai/drex-max-v1"
+    },
+    {
+      "id": "2026-10-30-google-computer-use",
+      "date": "2026-10-30",
+      "added": "2026-11-04",
+      "name": "Computer Use",
+      "provider": "Google",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Google released the Computer Use tool to general availability across the Gemini Interactions and GenerateContent APIs.",
+      "features": [
+        "Computer use",
+        "Interactions API",
+        "General availability"
+      ],
+      "evidence": "Released the Computer Use tool to general availability (GA) across the Interactions and GenerateContent APIs.",
+      "source_url": "https://aistudio.google.com/docs/changelog?auto_signin=false"
+    },
+    {
+      "id": "2026-10-30-google-gemini-deck-wide-editing-in-slides",
+      "date": "2026-10-30",
+      "added": "2026-11-04",
+      "name": "Gemini deck-wide editing in Slides",
+      "provider": "Google",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Google Slides now lets users edit multiple slides or an entire presentation at once using prompts in the Gemini side panel.",
+      "features": [
+        "Google Slides",
+        "Bulk presentation edit",
+        "Styling consistency"
+      ],
+      "evidence": "You can now use Gemini in Google Slides to edit multiple slides or an entire presentation at once. With a single prompt in the Slides side panel, you can update content throughout a deck, refresh visual styles in bulk, or match the style of another presentation.",
+      "source_url": "https://www.google.com/sorry/index?continue=https://workspaceupdates.googleblog.com/2026/10/edit-entire-presentations-with-gemini-in-Google-Slides.html&q=EgQEmkwSGIiEr9cGIi1VYeRSIE8ZapdBdC6aQNKW72PTZRp9We9Aq87ftkvyhbrDLnx0cdBiAX_GCdEyAnJSWgFDYLve75OO9IrYaQ"
     },
     {
       "id": "2026-10-30-diffuspace-clover-35b-a3b-preview",
