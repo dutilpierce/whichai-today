@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-04T23:37:16Z",
+  "last_checked": "2026-11-05T06:36:38Z",
   "entries": [
+    {
+      "id": "2026-11-04-openai-images-2-6",
+      "date": "2026-11-04",
+      "added": "2026-11-05",
+      "name": "Images 2.6",
+      "provider": "OpenAI",
+      "kind": "update",
+      "status": "available",
+      "summary": "OpenAI released Images 2.6 across ChatGPT, Codex, and the API, generating images 50% faster and introducing animated GIF creation.",
+      "features": [
+        "Image generation",
+        "GIF creation",
+        "50% faster",
+        "Image editing"
+      ],
+      "evidence": "Images 2.6 generates images 50% faster than before. In the API, we offer GPT‑Image‑2.6 Flare and Sunburst... With this, you can bring motion to your images with GIFs",
+      "source_url": "https://openai.com/index/introducing-images-2-6/"
+    },
     {
       "id": "2026-11-04-adobe-cx-enterprise-coworker",
       "date": "2026-11-04",
