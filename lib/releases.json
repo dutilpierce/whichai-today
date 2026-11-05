@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-05T06:36:38Z",
+  "last_checked": "2026-11-05T19:53:00Z",
   "entries": [
+    {
+      "id": "2026-11-05-openai-gpt-6-cyber",
+      "date": "2026-11-05",
+      "added": "2026-11-05",
+      "name": "GPT-6 Cyber",
+      "provider": "OpenAI",
+      "kind": "model",
+      "status": "available",
+      "summary": "OpenAI launched GPT-6 Cyber, a specialized model for finding and fixing software vulnerabilities while reliably staying within authorized researcher scope.",
+      "features": [
+        "Cybersecurity",
+        "Vulnerability research",
+        "Scope alignment",
+        "Daybreak Red"
+      ],
+      "evidence": "We're introducing GPT‑6 Cyber, a major leap in security research: more capable at finding and fixing vulnerabilities, and far more reliable staying within the boundaries researchers set.",
+      "source_url": "https://openai.com/index/introducing-gpt-6-cyber/"
+    },
     {
       "id": "2026-11-04-openai-images-2-6",
       "date": "2026-11-04",
