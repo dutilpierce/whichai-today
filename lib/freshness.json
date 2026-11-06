@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-05",
-      "hash": "b14997e3a7db41d5"
+      "changed": "2026-11-06",
+      "hash": "0f4b3ed8239133ff"
     },
     "/releases": {
       "changed": "2026-11-05",
@@ -37,8 +37,8 @@
       "hash": "d2792f22c96d2651"
     },
     "/video": {
-      "changed": "2026-10-30",
-      "hash": "2fcae25f71ea6186"
+      "changed": "2026-11-06",
+      "hash": "56f09e0a3a9db846"
     },
     "/research": {
       "changed": "2026-10-25",
@@ -101,8 +101,8 @@
       "hash": "b1ad1afc02ec49cb"
     },
     "/models/dreamina-seedance-2-0": {
-      "changed": "2026-10-30",
-      "hash": "9d090f56e3677cc4"
+      "changed": "2026-11-06",
+      "hash": "0c38b550ce92a711"
     },
     "/models/wan-2-2-a14b": {
       "changed": "2026-10-25",
@@ -145,8 +145,8 @@
       "hash": "67c409095a681377"
     },
     "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-1-flash": {
-      "changed": "2026-10-30",
-      "hash": "41b8c3af7bdb83e8"
+      "changed": "2026-11-06",
+      "hash": "d51aba3bae347949"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
       "changed": "2026-10-31",
@@ -377,8 +377,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-05",
-      "hash": "8546eb3b6983264f"
+      "changed": "2026-11-06",
+      "hash": "44a696881c1fa4fa"
     },
     "/privacy": {
       "changed": "2026-10-30",
