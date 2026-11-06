@@ -1,6 +1,23 @@
 {
-  "last_checked": "2026-11-06T06:32:39Z",
+  "last_checked": "2026-11-06T19:19:05Z",
   "entries": [
+    {
+      "id": "2026-11-05-amazon-web-answer-on-amazon-bedrock-agentcore",
+      "date": "2026-11-05",
+      "added": "2026-11-06",
+      "name": "Web Answer on Amazon Bedrock AgentCore",
+      "provider": "Amazon",
+      "kind": "feature",
+      "status": "available",
+      "summary": "AWS made Web Answer generally available on Amazon Bedrock AgentCore, providing agents with synthesized, cited answers from current web sources.",
+      "features": [
+        "Web search",
+        "Citations",
+        "MCP tool"
+      ],
+      "evidence": "Today, we are announcing the general availability of Web Answer on Amazon Bedrock AgentCore. Web Answer is a managed tool that returns a synthesized, grounded, cited answer to a natural-language question in a single call",
+      "source_url": "https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/"
+    },
     {
       "id": "2026-11-05-google-gemini-omni-1-2-flash",
       "date": "2026-11-05",
@@ -18,6 +35,23 @@
       ],
       "evidence": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
       "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/"
+    },
+    {
+      "id": "2026-11-05-thinking-machines-lab-inkling-2-small",
+      "date": "2026-11-05",
+      "added": "2026-11-06",
+      "name": "Inkling 2 Small",
+      "provider": "Thinking Machines Lab",
+      "kind": "model",
+      "status": "available",
+      "summary": "Thinking Machines introduced Inkling 2 Small, a 594-billion parameter multimodal mixture-of-experts model supporting text and image inputs.",
+      "features": [
+        "594B parameters",
+        "Multimodal",
+        "MoE"
+      ],
+      "evidence": "It is a Mixture-of-Experts model with 594B total parameters, 17B active, and supports image inputs and variable effort... You can try Inkling 2 Small on Tinker Playground today.",
+      "source_url": "https://thinkingmachines.ai/news/inkling-2-small/"
     },
     {
       "id": "2026-11-05-openai-gpt-6-cyber",
@@ -106,6 +140,23 @@
       ],
       "evidence": "Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world's leading open-source AI models.",
       "source_url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    },
+    {
+      "id": "2026-11-03-sarvam-ai-sarvam-prism",
+      "date": "2026-11-03",
+      "added": "2026-11-06",
+      "name": "Sarvam Prism",
+      "provider": "Sarvam AI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Sarvam AI released open weights for Sarvam Prism, a fast decision model built on Sarvam 105B delivering 44 millisecond latency.",
+      "features": [
+        "Open weights",
+        "Decision model",
+        "44 ms latency"
+      ],
+      "evidence": "Today we are releasing Sarvam Prism, a System One decision model built on Sarvam 105B... The model scores 71.8 while responding in just 44 ms on B200 GPU... We are releasing Prism with open weights so that enterprises can train this calibrated base on their own data",
+      "source_url": "https://www.sarvam.ai/blogs/sarvam-prism"
     },
     {
       "id": "2026-11-03-flower-labs-endeavor-1-1",
