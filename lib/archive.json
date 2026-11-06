@@ -9,6 +9,16 @@
       "free_tier": "The weights are free to download.",
       "direct_link": "https://huggingface.co/Qwen",
       "access": "free_limited"
+    },
+    {
+      "name": "Gemini Omni 1.1 Flash",
+      "provider": "Google",
+      "slug": "gemini-omni-1-1-flash",
+      "where_to_get": "Gemini, then video, and select Omni 1.1 Flash.",
+      "cost": "Uses a Google AI plan. Check the plan page for the current price.",
+      "free_tier": "A free plan may not include this model.",
+      "direct_link": "https://gemini.google.com",
+      "access": "paid"
     }
   ]
 }

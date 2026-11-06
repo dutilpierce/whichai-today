@@ -70,6 +70,14 @@
       "previous": null,
       "date": "2026-10-25",
       "evidence": "LMArena Search 1261."
+    },
+    {
+      "category": "video",
+      "leader": "Gemini Omni 1.2 Flash",
+      "previous": "Gemini Omni 1.1 Flash",
+      "date": "2026-11-06",
+      "type": "change",
+      "evidence": "LMArena Text-to-Video 1541."
     }
   ]
 }

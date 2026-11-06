@@ -2,7 +2,7 @@
   "pages": {
     "/": {
       "changed": "2026-11-06",
-      "hash": "602aa65b75254c07"
+      "hash": "5ada607bd598ab3a"
     },
     "/releases": {
       "changed": "2026-11-06",
@@ -38,7 +38,7 @@
     },
     "/video": {
       "changed": "2026-11-06",
-      "hash": "56f09e0a3a9db846"
+      "hash": "b5c1f6972948f62f"
     },
     "/research": {
       "changed": "2026-10-25",
@@ -96,9 +96,9 @@
       "changed": "2026-10-25",
       "hash": "e76a51e49b019b53"
     },
-    "/models/gemini-omni-1-1-flash": {
-      "changed": "2026-10-25",
-      "hash": "b1ad1afc02ec49cb"
+    "/models/gemini-omni-1-2-flash": {
+      "changed": "2026-11-06",
+      "hash": "09da35022e5f0227"
     },
     "/models/dreamina-seedance-2-0": {
       "changed": "2026-11-06",
@@ -124,6 +124,10 @@
       "changed": "2026-10-25",
       "hash": "2c994d24b91301e2"
     },
+    "/models/gemini-omni-1-1-flash": {
+      "changed": "2026-11-06",
+      "hash": "215b40e619a57d68"
+    },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
       "changed": "2026-10-30",
       "hash": "0c066152688a9978"
@@ -144,9 +148,9 @@
       "changed": "2026-10-29",
       "hash": "67c409095a681377"
     },
-    "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-1-flash": {
+    "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-2-flash": {
       "changed": "2026-11-06",
-      "hash": "d51aba3bae347949"
+      "hash": "bcd2412233100bd4"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
       "changed": "2026-10-31",
@@ -157,8 +161,12 @@
       "hash": "e1cdbc9b3e0adae8"
     },
     "/compare": {
-      "changed": "2026-10-29",
-      "hash": "60a0b7f6998b1224"
+      "changed": "2026-11-06",
+      "hash": "687bbf2be0f67775"
+    },
+    "/releases/2026-11-05-google-gemini-omni-1-2-flash": {
+      "changed": "2026-11-06",
+      "hash": "6e84f102c0ea1274"
     },
     "/releases/2026-10-13-google-gemini-4-argon": {
       "changed": "2026-10-29",
@@ -181,12 +189,20 @@
       "hash": "df8fb68804a9c69d"
     },
     "/changes": {
-      "changed": "2026-10-25",
-      "hash": "34220fa4d9f9ba29"
+      "changed": "2026-11-06",
+      "hash": "788b6936089e6b11"
     },
     "/changes/2026-10-24-writing": {
       "changed": "2026-10-24",
       "hash": "099db9e32f2b4daf"
+    },
+    "/changes/2026-11-06-video": {
+      "changed": "2026-11-06",
+      "hash": "04dc0ae1f6af9c6a"
+    },
+    "/changes/week/2026-W45": {
+      "changed": "2026-11-06",
+      "hash": "630a1108cd9a7e05"
     },
     "/tasks/debug-code": {
       "changed": "2026-10-24",
@@ -378,7 +394,7 @@
     },
     "/faq": {
       "changed": "2026-11-06",
-      "hash": "44a696881c1fa4fa"
+      "hash": "157d7c7f9c25d38a"
     },
     "/privacy": {
       "changed": "2026-10-30",
