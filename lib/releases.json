@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-05T19:53:00Z",
+  "last_checked": "2026-11-06T06:32:39Z",
   "entries": [
+    {
+      "id": "2026-11-05-google-gemini-omni-1-2-flash",
+      "date": "2026-11-05",
+      "added": "2026-11-06",
+      "name": "Gemini Omni 1.2 Flash",
+      "provider": "Google",
+      "kind": "update",
+      "status": "available",
+      "summary": "Google released Gemini Omni 1.2 Flash, enabling native 15-second video generation and conversational editing with native audio at 30% lower pricing.",
+      "features": [
+        "Video generation",
+        "Video editing",
+        "Native audio",
+        "15s clips"
+      ],
+      "evidence": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
+      "source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/"
+    },
     {
       "id": "2026-11-05-openai-gpt-6-cyber",
       "date": "2026-11-05",
