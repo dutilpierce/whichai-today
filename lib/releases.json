@@ -1,6 +1,55 @@
 {
-  "last_checked": "2026-11-07T05:52:08Z",
+  "last_checked": "2026-11-07T12:53:31Z",
   "entries": [
+    {
+      "id": "2026-11-06-meta-specialized-models-for-muse-and-meta-ai",
+      "date": "2026-11-06",
+      "added": "2026-11-07",
+      "name": "Specialized models for Muse and Meta AI",
+      "provider": "Meta",
+      "kind": "update",
+      "status": "available",
+      "summary": "Meta released specialized models trained with Muse Wonder to bring Active Memory and Active Focus to Muse and Meta AI.",
+      "features": [
+        "Active Memory",
+        "Active Focus"
+      ],
+      "evidence": "Today, we're introducing specialized versions of our existing models, trained using Muse Wonder, and rolling them out to people who use Muse and Meta AI.",
+      "source_url": "https://research.meta.ai/blog/specialized-models-for-muse-and-metaai"
+    },
+    {
+      "id": "2026-11-05-anthropic-personal-finance-in-claude",
+      "date": "2026-11-05",
+      "added": "2026-11-07",
+      "name": "Personal Finance in Claude",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Anthropic launched a read-only personal finance feature in Claude allowing users to analyze linked bank accounts and spending.",
+      "features": [
+        "Personal finance",
+        "Read-only banking"
+      ],
+      "evidence": "Introducing Personal Finance in Claude... Connect the accounts you choose, and Claude answers your money questions in everyday language, from your own balances and transactions. Access is read-only",
+      "source_url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude"
+    },
+    {
+      "id": "2026-11-05-mistral-ai-mistral-studio-enterprise-agents-and-workflows",
+      "date": "2026-11-05",
+      "added": "2026-11-07",
+      "name": "Mistral Studio Enterprise Agents and Workflows",
+      "provider": "Mistral AI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Mistral AI expanded Mistral Studio with managed agents, workflow automation, and enterprise context to deploy business processes.",
+      "features": [
+        "Managed agents",
+        "Workflows",
+        "Enterprise context"
+      ],
+      "evidence": "Studio adds managed agents, multi-step workflow automation, observability dashboards, and enterprise context features such as organization-scoped memory and scoped system access.",
+      "source_url": "https://mistral.ai/news/build-with-studio/"
+    },
     {
       "id": "2026-11-05-amazon-web-answer-on-amazon-bedrock-agentcore",
       "date": "2026-11-05",
@@ -175,6 +224,23 @@
       ],
       "evidence": "Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world's leading open-source AI models.",
       "source_url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    },
+    {
+      "id": "2026-11-03-adobe-web-search-in-acrobat",
+      "date": "2026-11-03",
+      "added": "2026-11-07",
+      "name": "Web search in Acrobat",
+      "provider": "Adobe",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Adobe added web search to Acrobat AI Assistant to answer questions across documents and the web with citations.",
+      "features": [
+        "Web search",
+        "Citations",
+        "Document AI"
+      ],
+      "evidence": "AI Assistant in Acrobat can now answer questions from your documents and, when you want, the web. Citations make answer easys to verify.",
+      "source_url": "https://blog.adobe.com/en/publish/2026/11/03/web-search-now-available-in-acrobat"
     },
     {
       "id": "2026-11-03-openai-gpt-6-1-terra-in-dots",
