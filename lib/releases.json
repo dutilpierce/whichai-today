@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-07T12:53:31Z",
+  "last_checked": "2026-11-07T21:44:55Z",
   "entries": [
     {
       "id": "2026-11-06-meta-specialized-models-for-muse-and-meta-ai",
@@ -32,6 +32,23 @@
       ],
       "evidence": "Introducing Personal Finance in Claude... Connect the accounts you choose, and Claude answers your money questions in everyday language, from your own balances and transactions. Access is read-only",
       "source_url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude"
+    },
+    {
+      "id": "2026-11-05-baidu-ernie-5-5-flash-base",
+      "date": "2026-11-05",
+      "added": "2026-11-07",
+      "name": "ERNIE 5.5 Flash Base",
+      "provider": "Baidu",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Baidu released open weights for ERNIE 5.5 Flash Base, a 280B MoE foundation model activating 14B parameters.",
+      "features": [
+        "Open weights",
+        "280B MoE",
+        "1M context"
+      ],
+      "evidence": "ERNIE 5.5 Flash is an efficient sparse Mixture-of-Experts (MoE) language model with 280B total parameters and 14B activated per token, pre-trained from scratch on 33.5T tokens with a training context of up to 128K; fine-tuning and inference support a 1M-token context.",
+      "source_url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base"
     },
     {
       "id": "2026-11-05-mistral-ai-mistral-studio-enterprise-agents-and-workflows",
