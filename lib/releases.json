@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-06T19:19:05Z",
+  "last_checked": "2026-11-07T05:52:08Z",
   "entries": [
     {
       "id": "2026-11-05-amazon-web-answer-on-amazon-bedrock-agentcore",
@@ -72,6 +72,41 @@
       "source_url": "https://openai.com/index/introducing-gpt-6-cyber/"
     },
     {
+      "id": "2026-11-04-github-github-copilot-in-xcode-s-coding-assistant",
+      "date": "2026-11-04",
+      "added": "2026-11-07",
+      "name": "GitHub Copilot in Xcode's coding assistant",
+      "provider": "GitHub",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "GitHub released a public preview integrating GitHub Copilot directly into Xcode's built-in coding assistant starting with Xcode 27.3 beta.",
+      "features": [
+        "Xcode integration",
+        "Coding assistant",
+        "Public preview"
+      ],
+      "evidence": "You can now work with GitHub Copilot directly in Xcode's built-in coding assistant, bringing Copilot into your native Xcode workflow. The integration is now in public preview, available starting with Xcode 27.3 beta.",
+      "source_url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/"
+    },
+    {
+      "id": "2026-11-04-ricursive-intelligence-ripple-65b-preview",
+      "date": "2026-11-04",
+      "added": "2026-11-07",
+      "name": "Ripple-65B Preview",
+      "provider": "Ricursive Intelligence",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Ricursive Intelligence released Ripple-65B Preview, an open-weight 65B dense model for agentic coding and reasoning supporting a 1M context window.",
+      "features": [
+        "Coding",
+        "Reasoning",
+        "1M context",
+        "Open weights"
+      ],
+      "evidence": "Ricursive Intelligence introduces Ripple-65B Preview, a 65B parameter dense Transformer model pretrained on 12 trillion tokens with support for up to 1Mi (1,048,576 tokens) of context. Ripple-65B Preview delivers strong results on agentic coding, scoring 80.52 on TerminalBench 2.1",
+      "source_url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
+    },
+    {
       "id": "2026-11-04-openai-images-2-6",
       "date": "2026-11-04",
       "added": "2026-11-05",
@@ -140,6 +175,22 @@
       ],
       "evidence": "Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world's leading open-source AI models.",
       "source_url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    },
+    {
+      "id": "2026-11-03-openai-gpt-6-1-terra-in-dots",
+      "date": "2026-11-03",
+      "added": "2026-11-07",
+      "name": "GPT-6.1 Terra in dots",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI added GPT-6.1 Terra to the models powering dots, enabling agents to select different models across tasks.",
+      "features": [
+        "Agents",
+        "Model selection"
+      ],
+      "evidence": "Update on November 3, 2026: We're expanding the family of frontier models that power dots to include GPT‑6.1 Terra. Your dot can draw on different models for different parts of its work.",
+      "source_url": "https://openai.com/index/introducing-dots/"
     },
     {
       "id": "2026-11-03-sarvam-ai-sarvam-prism",
