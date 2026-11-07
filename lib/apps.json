@@ -151,6 +151,10 @@
         {
           "name": "Gemini 4 Argon",
           "plan": "Google AI Pro"
+        },
+        {
+          "name": "Gemini Omni 1.2 Flash",
+          "plan": "Google AI Plus"
         }
       ],
       "plans": [
@@ -348,6 +352,10 @@
         },
         {
           "name": "GPT-5.6 Sol",
+          "plan": "Premium"
+        },
+        {
+          "name": "Claude Opus 4.6",
           "plan": "Premium"
         }
       ],

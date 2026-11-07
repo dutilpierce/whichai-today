@@ -493,8 +493,8 @@
       "hash": "2f1c453b48cf584d"
     },
     "/apps/gemini": {
-      "changed": "2026-11-01",
-      "hash": "cafa131f7bb2a355"
+      "changed": "2026-11-07",
+      "hash": "eae4f43b7b4da03f"
     },
     "/apps/copilot": {
       "changed": "2026-11-01",
@@ -505,8 +505,8 @@
       "hash": "e29a11e4c6cfda4c"
     },
     "/apps/cursor": {
-      "changed": "2026-10-30",
-      "hash": "74ca97054d22c946"
+      "changed": "2026-11-07",
+      "hash": "dd630a7165789105"
     },
     "/apps/github-copilot": {
       "changed": "2026-11-06",
