@@ -325,7 +325,11 @@
         "LMArena Creative Writing",
         "LMArena Text overall",
         "EQ-Bench Creative Writing"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Gemini 4 Argon",
+        "since": "2026-11-07"
+      }
     },
     "reasoning_math": {
       "display_name": "Reasoning, Math & Science",
@@ -837,6 +841,10 @@
         "sources_checked": 1,
         "primary_score": 1023,
         "checked": "2026-11-07"
+      },
+      "pending_leader": {
+        "name": "Qwen3.8-Max",
+        "since": "2026-11-07"
       }
     }
   }
