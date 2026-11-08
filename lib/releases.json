@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-07T21:44:55Z",
+  "last_checked": "2026-11-08T05:55:02Z",
   "entries": [
     {
       "id": "2026-11-06-meta-specialized-models-for-muse-and-meta-ai",
@@ -16,6 +16,24 @@
       ],
       "evidence": "Today, we're introducing specialized versions of our existing models, trained using Muse Wonder, and rolling them out to people who use Muse and Meta AI.",
       "source_url": "https://research.meta.ai/blog/specialized-models-for-muse-and-metaai"
+    },
+    {
+      "id": "2026-11-05-preferred-networks-plamo-3-translate",
+      "date": "2026-11-05",
+      "added": "2026-11-08",
+      "name": "PLaMo 3 Translate",
+      "provider": "Preferred Networks",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Preferred Networks released open weights for PLaMo 3 Translate, an offline translation model family in four sizes up to 31B parameters.",
+      "features": [
+        "Translation",
+        "53 languages",
+        "Open weights",
+        "Edge AI"
+      ],
+      "evidence": "PFN today announced the open-weight release of PLaMo™ 3 Translate... Available in four sizes ranging from 0.8B to 31B parameters... across 53 languages",
+      "source_url": "https://www.preferred.jp/en/blog/tech/plamo-3-translate-weight-release"
     },
     {
       "id": "2026-11-05-anthropic-personal-finance-in-claude",
