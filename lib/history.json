@@ -78,6 +78,14 @@
       "date": "2026-11-06",
       "type": "change",
       "evidence": "LMArena Text-to-Video 1541."
+    },
+    {
+      "category": "writing_creative",
+      "leader": "Gemini 4 Argon",
+      "previous": "Claude Opus 5.5",
+      "date": "2026-11-08",
+      "type": "change",
+      "evidence": "LMArena Creative Writing 1525"
     }
   ]
 }

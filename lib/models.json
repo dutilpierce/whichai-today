@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-07T12:00:00Z",
+  "last_updated": "2026-11-08T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -55,7 +55,7 @@
         "sources_agreeing": 3,
         "sources_checked": 4,
         "primary_score": 1813,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -74,7 +74,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": 1786.1,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -167,7 +167,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +186,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +205,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -263,29 +263,10 @@
         "cover letter"
       ],
       "leader": {
-        "name": "Claude Opus 5.5",
-        "provider": "Anthropic",
-        "why": "Leads the writing-specific board, with a natural voice that avoids generic AI phrasing.",
-        "benchmark_context": "LMArena Creative Writing 1520",
-        "direct_link": "https://claude.ai",
-        "where_to_get": "Claude app, Pro plan ($20/month), choose Opus 5.5.",
-        "access": "paid",
-        "cost": "Pro is $20/month, or $17/month billed yearly. API is $4 per million input tokens and $20 per million output.",
-        "free_tier": "Not on the free plan. Opus needs Pro or Max.",
-        "when_not": "Skip it for high-volume captions. A faster model is enough and much cheaper.",
-        "starter_prompt": "Rewrite this email so it is shorter, warmer, and still says the same thing.",
-        "source_url": "https://lmarena.ai/",
-        "pick_if": "Pick this when the writing itself has to sound like a person.",
-        "sources_agreeing": 1,
-        "sources_checked": 1,
-        "primary_score": 1520,
-        "checked": "2026-11-07"
-      },
-      "runner_up": {
         "name": "Gemini 4 Argon",
         "provider": "Google",
-        "why": "A close second on the writing board, with strong drafting and versatile tone control.",
-        "benchmark_context": "LMArena Creative Writing 1517",
+        "why": "Leads the writing leaderboard with versatile tone control and strong drafting capability.",
+        "benchmark_context": "LMArena Creative Writing 1525",
         "direct_link": "https://gemini.google.com",
         "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
         "access": "paid",
@@ -297,8 +278,27 @@
         "pick_if": "Pick this when you want a strong draft and already use Gemini.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1517,
-        "checked": "2026-11-07"
+        "primary_score": 1525,
+        "checked": "2026-11-08"
+      },
+      "runner_up": {
+        "name": "Claude Opus 5.5",
+        "provider": "Anthropic",
+        "why": "A close second on the writing board, with a natural voice that avoids generic AI phrasing.",
+        "benchmark_context": "LMArena Creative Writing 1518",
+        "direct_link": "https://claude.ai",
+        "where_to_get": "Claude app, Pro plan ($20/month), choose Opus 5.5.",
+        "access": "paid",
+        "cost": "Pro is $20/month, or $17/month billed yearly. API is $4 per million input tokens and $20 per million output.",
+        "free_tier": "Not on the free plan. Opus needs Pro or Max.",
+        "when_not": "Skip it for high-volume captions. A faster model is enough and much cheaper.",
+        "starter_prompt": "Rewrite this email so it is shorter, warmer, and still says the same thing.",
+        "source_url": "https://lmarena.ai/",
+        "pick_if": "Pick this when the writing itself has to sound like a person.",
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "primary_score": 1518,
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +317,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -325,11 +325,7 @@
         "LMArena Creative Writing",
         "LMArena Text overall",
         "EQ-Bench Creative Writing"
-      ],
-      "pending_leader": {
-        "name": "Gemini 4 Argon",
-        "since": "2026-11-07"
-      }
+      ]
     },
     "reasoning_math": {
       "display_name": "Reasoning, Math & Science",
@@ -391,7 +387,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 61.4,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -410,7 +406,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -429,7 +425,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 49.4,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -481,7 +477,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 412,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "Claude Haiku 5.5",
@@ -500,7 +496,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 237,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "DeepSeek V4.1 Flash",
@@ -519,7 +515,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -572,7 +568,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1520,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
@@ -591,7 +587,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -610,7 +606,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
@@ -643,7 +639,7 @@
         "name": "GPT-Image-2.5 Sunburst",
         "provider": "OpenAI",
         "why": "Leads the public text-to-image board.",
-        "benchmark_context": "LMArena Text-to-Image 1427.",
+        "benchmark_context": "LMArena Text-to-Image 1429.",
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT, choose a Plus or Pro plan, and select GPT-Image-2.5 Sunburst.",
         "access": "paid",
@@ -655,14 +651,14 @@
         "pick_if": "Pick this when the picture has to look right the first time.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1427,
-        "checked": "2026-11-07"
+        "primary_score": 1429,
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
         "provider": "xAI",
         "why": "The strongest consumer image model from another provider on the board.",
-        "benchmark_context": "LMArena Text-to-Image 1317.",
+        "benchmark_context": "LMArena Text-to-Image 1318.",
         "direct_link": "https://grok.com",
         "where_to_get": "Grok, choose a Premium plan, and select Grok Imagine Image 2.0.",
         "access": "paid",
@@ -674,8 +670,8 @@
         "pick_if": "Pick this when you already use Grok.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1317,
-        "checked": "2026-11-07"
+        "primary_score": 1318,
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -694,7 +690,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1223,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       }
     },
     "video": {
@@ -729,7 +725,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1541,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "Dreamina Seedance 2.0",
@@ -748,7 +744,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1481,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "Wan 2.2 A14B",
@@ -767,7 +763,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1132,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       }
     },
     "research": {
@@ -802,7 +798,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1261,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "runner_up": {
         "name": "Claude Opus 4.6",
@@ -821,7 +817,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1251,
-        "checked": "2026-11-07"
+        "checked": "2026-11-08"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
@@ -840,11 +836,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1023,
-        "checked": "2026-11-07"
-      },
-      "pending_leader": {
-        "name": "Qwen3.8-Max",
-        "since": "2026-11-07"
+        "checked": "2026-11-08"
       }
     }
   }
