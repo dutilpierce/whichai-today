@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-08T05:55:02Z",
+  "last_checked": "2026-11-08T21:58:36Z",
   "entries": [
     {
       "id": "2026-11-06-meta-specialized-models-for-muse-and-meta-ai",
@@ -154,6 +154,24 @@
       ],
       "evidence": "We're introducing GPT‑6 Cyber, a major leap in security research: more capable at finding and fixing vulnerabilities, and far more reliable staying within the boundaries researchers set.",
       "source_url": "https://openai.com/index/introducing-gpt-6-cyber/"
+    },
+    {
+      "id": "2026-11-04-cognition-swe-2-flash",
+      "date": "2026-11-04",
+      "added": "2026-11-08",
+      "name": "SWE-2 Flash",
+      "provider": "Cognition",
+      "kind": "model",
+      "status": "available",
+      "summary": "Cognition introduced SWE-2 Flash, a fast, low-cost coding model available in Devin Desktop and CLI.",
+      "features": [
+        "Coding",
+        "Agents",
+        "Low cost",
+        "High speed"
+      ],
+      "evidence": "It is available today in Devin Desktop and CLI, at one-fifth the price and 3x the speed of its much larger sibling, SWE-2.",
+      "source_url": "https://cognition.com/blog/swe-2-flash"
     },
     {
       "id": "2026-11-04-github-github-copilot-in-xcode-s-coding-assistant",
