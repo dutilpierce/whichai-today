@@ -816,6 +816,10 @@
         {
           "name": "Kimi K3",
           "plan": "Pro"
+        },
+        {
+          "name": "MiMo-V2.6-Pro",
+          "plan": "Free"
         }
       ],
       "plans": [
