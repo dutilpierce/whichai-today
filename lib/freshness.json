@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-08",
-      "hash": "e1661bdc3d5328f3"
+      "changed": "2026-11-09",
+      "hash": "b19134485717004d"
     },
     "/releases": {
       "changed": "2026-11-08",
@@ -17,8 +17,8 @@
       "hash": "7f6dbd12f50f9621"
     },
     "/writing": {
-      "changed": "2026-11-08",
-      "hash": "f00c56c50596c835"
+      "changed": "2026-11-09",
+      "hash": "1b29d126ff3e2a63"
     },
     "/reasoning": {
       "changed": "2026-10-24",
@@ -33,8 +33,8 @@
       "hash": "b968b93b13f95877"
     },
     "/images": {
-      "changed": "2026-11-08",
-      "hash": "4dd83b3f01a14bb9"
+      "changed": "2026-11-09",
+      "hash": "e4c2df7a51d5244d"
     },
     "/video": {
       "changed": "2026-11-06",
@@ -45,8 +45,8 @@
       "hash": "fde25c146e803392"
     },
     "/models/claude-opus-5-5": {
-      "changed": "2026-11-08",
-      "hash": "548dca2636dcfdf3"
+      "changed": "2026-11-09",
+      "hash": "6c1c1050ceedb7b3"
     },
     "/models/gpt-6-astra": {
       "changed": "2026-10-24",
@@ -61,8 +61,8 @@
       "hash": "615b36f865c87092"
     },
     "/models/gemini-4-argon": {
-      "changed": "2026-11-08",
-      "hash": "56e4b84e3b6f139f"
+      "changed": "2026-11-09",
+      "hash": "28f39c581283fcef"
     },
     "/models/mimo-v2-6-pro": {
       "changed": "2026-10-24",
@@ -85,8 +85,8 @@
       "hash": "5719aa0ff99796c5"
     },
     "/models/gpt-image-2-5-sunburst": {
-      "changed": "2026-11-08",
-      "hash": "de7b44332532dfc0"
+      "changed": "2026-11-09",
+      "hash": "187e7b06187fe5a8"
     },
     "/models/grok-imagine-image-2-0": {
       "changed": "2026-11-08",
@@ -129,8 +129,8 @@
       "hash": "215b40e619a57d68"
     },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
-      "changed": "2026-11-08",
-      "hash": "e52c3b2e84b1c975"
+      "changed": "2026-11-09",
+      "hash": "e06fd7bd0226e317"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
       "changed": "2026-10-31",
@@ -141,24 +141,24 @@
       "hash": "a32bf3dac96be3dc"
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
-      "changed": "2026-11-08",
-      "hash": "b1cd7b13b864761e"
+      "changed": "2026-11-09",
+      "hash": "4ed6f6b21e7e39fb"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
-      "changed": "2026-11-08",
-      "hash": "4285319f744a8fa7"
+      "changed": "2026-11-09",
+      "hash": "7b88ee89a5d77581"
     },
     "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-2-flash": {
       "changed": "2026-11-06",
       "hash": "bcd2412233100bd4"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
-      "changed": "2026-11-08",
-      "hash": "f9f712a3be4164d6"
+      "changed": "2026-11-09",
+      "hash": "de984935ad45ee88"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
-      "changed": "2026-11-08",
-      "hash": "c9ce3eccd97fb238"
+      "changed": "2026-11-09",
+      "hash": "d40d8108470932bc"
     },
     "/compare": {
       "changed": "2026-11-06",
@@ -397,8 +397,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-08",
-      "hash": "412ea5c13761fc2b"
+      "changed": "2026-11-09",
+      "hash": "8734670246e3bc66"
     },
     "/privacy": {
       "changed": "2026-10-30",
