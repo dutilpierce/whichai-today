@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-08T21:58:36Z",
+  "last_checked": "2026-11-09T06:14:46Z",
   "entries": [
+    {
+      "id": "2026-11-06-cursor-voice-chat-with-agents",
+      "date": "2026-11-06",
+      "added": "2026-11-09",
+      "name": "Voice Chat with Agents",
+      "provider": "Cursor",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Developers can now have real-time two-way voice conversations with coding agents across the IDE, web, and iOS app.",
+      "features": [
+        "Voice chat",
+        "Two-way audio",
+        "IDE integration",
+        "iOS support"
+      ],
+      "evidence": "You can now talk with your agents in a realtime voice call. Describe a change out loud, ask what an agent is working on, and hear updates as the work moves forward. Voice chat works in the Agents Window, the IDE, on web, and in Cursor for iOS.",
+      "source_url": "https://cursor.com/changelog/voice-chat"
+    },
     {
       "id": "2026-11-06-meta-specialized-models-for-muse-and-meta-ai",
       "date": "2026-11-06",
@@ -16,6 +34,24 @@
       ],
       "evidence": "Today, we're introducing specialized versions of our existing models, trained using Muse Wonder, and rolling them out to people who use Muse and Meta AI.",
       "source_url": "https://research.meta.ai/blog/specialized-models-for-muse-and-metaai"
+    },
+    {
+      "id": "2026-11-05-cursor-build-live-apps",
+      "date": "2026-11-05",
+      "added": "2026-11-09",
+      "name": "Build Live Apps",
+      "provider": "Cursor",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Cursor cloud agents can now build, configure authentication and databases for, and host live web apps accessible via a shareable link.",
+      "features": [
+        "Web app deployment",
+        "Postgres database",
+        "Cursor SSO",
+        "Cloud agents"
+      ],
+      "evidence": "Now, you can build live apps directly in Cursor and share them with a link. Describe what you want to create and Cursor will handle the rest: build the app, set up a database, configure auth, and deploy it.",
+      "source_url": "https://cursor.com/changelog/build-live-apps"
     },
     {
       "id": "2026-11-05-preferred-networks-plamo-3-translate",
@@ -154,6 +190,24 @@
       ],
       "evidence": "We're introducing GPT‑6 Cyber, a major leap in security research: more capable at finding and fixing vulnerabilities, and far more reliable staying within the boundaries researchers set.",
       "source_url": "https://openai.com/index/introducing-gpt-6-cyber/"
+    },
+    {
+      "id": "2026-11-04-perplexity-teammates",
+      "date": "2026-11-04",
+      "added": "2026-11-09",
+      "name": "Teammates",
+      "provider": "Perplexity",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Perplexity launched persistent AI agents designed to autonomously manage long-running multi-agent projects and monitor connected workplace tools.",
+      "features": [
+        "Persistent agents",
+        "Multi-agent",
+        "Desktop and browser",
+        "Proactive monitoring"
+      ],
+      "evidence": "Today, we're launching teammates, personal agents that can take on that long-running work. They plan and coordinate projects, switch gears as priorities change, and present results for review.",
+      "source_url": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
     },
     {
       "id": "2026-11-04-cognition-swe-2-flash",
