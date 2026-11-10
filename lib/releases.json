@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-10T01:28:42Z",
+  "last_checked": "2026-11-10T14:46:53Z",
   "entries": [
     {
       "id": "2026-11-09-anthropic-claude-fable-5-2-and-claude-mythos-5-2",
@@ -243,6 +243,23 @@
       ],
       "evidence": "We're introducing GPT‑6 Cyber, a major leap in security research: more capable at finding and fixing vulnerabilities, and far more reliable staying within the boundaries researchers set.",
       "source_url": "https://openai.com/index/introducing-gpt-6-cyber/"
+    },
+    {
+      "id": "2026-11-04-celeris-celeris-1-1-decision",
+      "date": "2026-11-04",
+      "added": "2026-11-10",
+      "name": "Celeris-1.1 Decision",
+      "provider": "Celeris",
+      "kind": "update",
+      "status": "available",
+      "summary": "Celeris introduced Celeris-1.1 Decision, an ultra-low-latency diffusion-based decision model providing automated categorical choices in about 40 milliseconds.",
+      "features": [
+        "Decision model",
+        "Diffusion",
+        "Low latency"
+      ],
+      "evidence": "Introducing Celeris-1.1 Decision: the fastest decision model, at about 40 ms. 80.2% on jev-bench and 76.2% on typed-decisions",
+      "source_url": "https://celeris.ai/"
     },
     {
       "id": "2026-11-04-perplexity-teammates",
