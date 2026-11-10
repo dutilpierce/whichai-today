@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-10T14:46:53Z",
+  "last_checked": "2026-11-10T23:14:04Z",
   "entries": [
+    {
+      "id": "2026-11-10-openai-businesses-in-chatgpt",
+      "date": "2026-11-10",
+      "added": "2026-11-10",
+      "name": "Businesses in ChatGPT",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI launched Businesses in ChatGPT, enabling companies to claim profiles and deploy Business Agents to answer customer inquiries and showcase products.",
+      "features": [
+        "Business Agents",
+        "Shopify integration",
+        "Business profiles",
+        "Discovery topics"
+      ],
+      "evidence": "Businesses in ChatGPT helps people discover what businesses offer and learn more about them on ChatGPT... Your Business Agent answers questions with your product and policy information, using guidelines you control",
+      "source_url": "https://openai.com/business/businesses-in-chatgpt/"
+    },
     {
       "id": "2026-11-09-anthropic-claude-fable-5-2-and-claude-mythos-5-2",
       "date": "2026-11-09",
