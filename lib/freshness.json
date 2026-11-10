@@ -2,7 +2,7 @@
   "pages": {
     "/": {
       "changed": "2026-11-10",
-      "hash": "df6dbd08c06aa35f"
+      "hash": "e61d5e971a700998"
     },
     "/releases": {
       "changed": "2026-11-10",
@@ -29,8 +29,8 @@
       "hash": "cf53322bb3bddb35"
     },
     "/general": {
-      "changed": "2026-10-31",
-      "hash": "b968b93b13f95877"
+      "changed": "2026-11-10",
+      "hash": "7f6a76cb04e80258"
     },
     "/images": {
       "changed": "2026-11-09",
@@ -61,8 +61,8 @@
       "hash": "615b36f865c87092"
     },
     "/models/gemini-4-argon": {
-      "changed": "2026-11-09",
-      "hash": "28f39c581283fcef"
+      "changed": "2026-11-10",
+      "hash": "77005d2255376fb6"
     },
     "/models/mimo-v2-6-pro": {
       "changed": "2026-10-24",
@@ -81,8 +81,8 @@
       "hash": "636efaff7e85d902"
     },
     "/models/gpt-6-1-sol": {
-      "changed": "2026-10-31",
-      "hash": "5719aa0ff99796c5"
+      "changed": "2026-11-10",
+      "hash": "928fda11311c09f6"
     },
     "/models/gpt-image-2-5-sunburst": {
       "changed": "2026-11-09",
@@ -129,8 +129,8 @@
       "hash": "215b40e619a57d68"
     },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
-      "changed": "2026-11-09",
-      "hash": "e06fd7bd0226e317"
+      "changed": "2026-11-10",
+      "hash": "1efbd80e364efa59"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
       "changed": "2026-10-31",
@@ -141,8 +141,8 @@
       "hash": "a32bf3dac96be3dc"
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
-      "changed": "2026-11-09",
-      "hash": "4ed6f6b21e7e39fb"
+      "changed": "2026-11-10",
+      "hash": "41f19ffcef3b8c2b"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-11-09",
@@ -153,8 +153,8 @@
       "hash": "bcd2412233100bd4"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
-      "changed": "2026-11-09",
-      "hash": "de984935ad45ee88"
+      "changed": "2026-11-10",
+      "hash": "904b197efc47460f"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
       "changed": "2026-11-09",
@@ -397,8 +397,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-09",
-      "hash": "8734670246e3bc66"
+      "changed": "2026-11-10",
+      "hash": "04ce3cb5ecf1eb08"
     },
     "/privacy": {
       "changed": "2026-10-30",

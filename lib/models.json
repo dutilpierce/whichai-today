@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-09T12:00:00Z",
+  "last_updated": "2026-11-10T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -55,7 +55,7 @@
         "sources_agreeing": 3,
         "sources_checked": 4,
         "primary_score": 1813,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -74,7 +74,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": 1786.1,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -167,7 +167,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +186,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +205,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -279,7 +279,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1526,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "Claude Opus 5.5",
@@ -298,7 +298,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1517,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +317,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -387,7 +387,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 61.4,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -406,7 +406,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -425,7 +425,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 49.4,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -477,7 +477,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 412,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "Claude Haiku 5.5",
@@ -496,7 +496,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 237,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "DeepSeek V4.1 Flash",
@@ -515,7 +515,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -564,11 +564,11 @@
         "when_not": "Skip it for a narrow job another category already wins, such as code or contracts.",
         "starter_prompt": "Help me plan this. Ask one clarifying question, then give a short next step.",
         "source_url": "https://lmarena.ai/",
-        "pick_if": "Pick this for everyday questions that are not a specialist job.",
+        "pick_if": "Pick this when you have everyday questions that are not a specialist job.",
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1520,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
@@ -583,11 +583,11 @@
         "when_not": "Skip it if you only use the normal chat box. Sol is in Work and Codex for now.",
         "starter_prompt": "Turn this messy idea into a one-page plan with the first three tasks.",
         "source_url": "https://artificialanalysis.ai/",
-        "pick_if": "Pick this for everyday work you already do in ChatGPT.",
+        "pick_if": "Pick this when you prefer doing everyday work inside ChatGPT.",
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -606,7 +606,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
@@ -652,7 +652,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1428,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
@@ -671,7 +671,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1318,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -690,7 +690,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1223,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       }
     },
     "video": {
@@ -725,7 +725,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1541,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "Dreamina Seedance 2.0",
@@ -744,7 +744,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1481,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "Wan 2.2 A14B",
@@ -763,7 +763,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1132,
-        "checked": "2026-11-09"
+        "checked": "2026-11-10"
       }
     },
     "research": {
@@ -798,7 +798,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1261,
-        "checked": "2026-11-08"
+        "checked": "2026-11-10"
       },
       "runner_up": {
         "name": "Claude Opus 4.6",
@@ -817,7 +817,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1251,
-        "checked": "2026-11-08"
+        "checked": "2026-11-10"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
@@ -836,11 +836,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1023,
-        "checked": "2026-11-09"
-      },
-      "pending_leader": {
-        "name": "Qwen3.8-Max",
-        "since": "2026-11-09"
+        "checked": "2026-11-10"
       }
     }
   }
