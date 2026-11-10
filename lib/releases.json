@@ -1,6 +1,59 @@
 {
-  "last_checked": "2026-11-09T06:14:46Z",
+  "last_checked": "2026-11-10T01:28:42Z",
   "entries": [
+    {
+      "id": "2026-11-09-anthropic-claude-fable-5-2-and-claude-mythos-5-2",
+      "date": "2026-11-09",
+      "added": "2026-11-10",
+      "name": "Claude Fable 5.2 and Claude Mythos 5.2",
+      "provider": "Anthropic",
+      "kind": "update",
+      "status": "available",
+      "summary": "Anthropic upgraded Claude Fable and Claude Mythos with improved coding, reasoning, and vision, generating output 30 percent faster at lower prices.",
+      "features": [
+        "Coding",
+        "Reasoning",
+        "Vision",
+        "Fast mode"
+      ],
+      "evidence": "Claude Fable 5.2 and Claude Mythos 5.2 show improvements in areas like coding, reasoning, and vision... generate outputs up to 30% faster than Claude Fable 5.1 and Claude Mythos 5.1, and they're available at a lower price: $8 per million input tokens and $40 per million output tokens.",
+      "source_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+    },
+    {
+      "id": "2026-11-09-google-google-maps-in-ai-studio",
+      "date": "2026-11-09",
+      "added": "2026-11-10",
+      "name": "Google Maps in AI Studio",
+      "provider": "Google",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Google integrated Google Maps Platform into AI Studio, letting developers build geospatial applications with Gemini prompts, sandbox quotas, and no required credit card.",
+      "features": [
+        "Google AI Studio",
+        "Google Maps Platform",
+        "Gemini",
+        "Geospatial"
+      ],
+      "evidence": "You can now build apps powered by Google Maps Platform in Google AI Studio. Create a wide range of apps from store locators and route planners to cinematic 3D flyovers and real-time air quality monitors—in minutes, at no cost, and with no credit card required.",
+      "source_url": "https://developers.googleblog.com/from-prompt-to-app-build-with-google-maps-in-ai-studio/"
+    },
+    {
+      "id": "2026-11-09-openai-chatgpt-enterprise-in-aws-marketplace",
+      "date": "2026-11-09",
+      "added": "2026-11-10",
+      "name": "ChatGPT Enterprise in AWS Marketplace",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI launched ChatGPT Enterprise on AWS Marketplace, allowing organizations to purchase and manage seats directly through their existing AWS billing and spend commitments.",
+      "features": [
+        "ChatGPT Enterprise",
+        "AWS Marketplace",
+        "Procurement"
+      ],
+      "evidence": "Today, ChatGPT Enterprise is available through AWS Marketplace. The listing gives organizations a simpler way to discover, buy, and manage ChatGPT Enterprise using their existing AWS purchasing and billing relationship and to apply eligible spend toward their AWS commitments.",
+      "source_url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace/"
+    },
     {
       "id": "2026-11-06-cursor-voice-chat-with-agents",
       "date": "2026-11-06",
@@ -331,6 +384,24 @@
       ],
       "evidence": "Tencent today announced the release of Tencent Hy4, its latest-generation large language model, marking a significant leap in performance and capabilities that now ranks it among the world's leading open-source AI models.",
       "source_url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+    },
+    {
+      "id": "2026-11-03-google-guided-learning-in-google-classroom",
+      "date": "2026-11-03",
+      "added": "2026-11-10",
+      "name": "Guided Learning in Google Classroom",
+      "provider": "Google",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Google rolled out Guided Learning globally in Google Classroom, providing step-by-step AI coaching and curriculum scaffolding for students instead of direct answers.",
+      "features": [
+        "Google Classroom",
+        "Guided Learning",
+        "Education",
+        "Gemini"
+      ],
+      "evidence": "Guided Learning is globally available in Google Classroom, a central hub where teachers and students organize schoolwork... When a student starts a Guided Learning activity assigned by their teacher, it acts like a 1-1 study tool, anchored in class material to help them stay on task.",
+      "source_url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/"
     },
     {
       "id": "2026-11-03-adobe-web-search-in-acrobat",
