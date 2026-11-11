@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { FaqList } from "@/components/FaqList";
 import { JsonLd } from "@/components/JsonLd";
 import { currentModels } from "@/lib/catalog";
 import { pairsWith } from "@/lib/compare";
@@ -9,13 +10,15 @@ import { releaseIndexed } from "@/lib/release-rows";
 import { formatDay, modelSlug } from "@/lib/picks";
 import {
   KIND_LABEL,
+  daysApart,
   monogram,
   providerHue,
   releaseById,
   releaseEntries,
   sourceHost,
+  type Release,
 } from "@/lib/releases";
-import { pageGraph, releaseArticle } from "@/lib/schema";
+import { faqNode, pageGraph, releaseArticle, type Faq } from "@/lib/schema";
 
 export function generateStaticParams() {
   return releaseEntries().map((entry) => ({ id: entry.id }));
@@ -26,6 +29,77 @@ const AVAILABILITY = {
   preview: "In preview",
   announced: "Announced, not yet available",
 } as const;
+
+const ROLE_PHRASE: Record<string, string> = {
+  Leader: "#1 pick",
+  Alternative: "alternative pick",
+  "Open weights": "open-weights pick",
+};
+
+/** The model line without version numbers, so "Gemini Omni 1.2 Flash" and "Gemini Omni 1.1 Flash" match. */
+function familyName(name: string) {
+  return name
+    .toLowerCase()
+    .replace(/\d+(\.\d+)*/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function ReleaseList({ title, entries, withProvider = false }: { title: string; entries: Release[]; withProvider?: boolean }) {
+  if (!entries.length) return null;
+  return (
+    <section className="mt-10">
+      <h2 className="text-xl font-semibold text-white">{title}</h2>
+      <ul className="mt-4 flex flex-col gap-2">
+        {entries.map((entry) => (
+          <li key={entry.id} className="text-sm text-zinc-300">
+            <Link href={`/releases/${entry.id}`} className="hover:text-white">
+              {entry.name}
+            </Link>{" "}
+            <span className="text-zinc-500">
+              {withProvider ? `${entry.provider}, ` : ""}
+              {formatDay(entry.date)}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+function releaseFaqs(release: Release, ranked: ReturnType<typeof currentModels>[number] | null): Faq[] {
+  const when = formatDay(release.date);
+  const faqs: Faq[] = [
+    {
+      question: `When was ${release.name} released?`,
+      answer: `${release.provider} released ${release.name} on ${when}.`,
+    },
+    {
+      question: `Is ${release.name} available now?`,
+      answer:
+        release.status === "available"
+          ? `Yes. ${release.name} has been available since ${when}.`
+          : release.status === "preview"
+            ? `It is in preview. ${release.provider} opened ${release.name} to some users on ${when}.`
+            : `Not yet. ${release.provider} announced ${release.name} on ${when}, before it shipped.`,
+    },
+    {
+      question: `What's new in ${release.name}?`,
+      answer: release.summary,
+    },
+  ];
+  if (release.kind !== "feature") {
+    faqs.push({
+      question: `Where does ${release.name} rank?`,
+      answer: ranked?.roles.length
+        ? `${release.name} is today's ${ranked.roles
+            .map((role) => `${ROLE_PHRASE[role.role] ?? role.role} for ${role.display_name.toLowerCase()}`)
+            .join(", ")}, based on public leaderboards checked daily.`
+        : `${release.name} is not one of today's top three picks in any job this site ranks. The rankings are checked daily.`,
+    });
+  }
+  return faqs;
+}
 
 export async function generateMetadata({
   params,
@@ -62,10 +136,24 @@ export default async function ReleasePage({
   const index = entries.findIndex((entry) => entry.id === id);
   const newer = entries[index - 1] ?? null;
   const older = entries[index + 1] ?? null;
-  const sameProvider = entries.filter((entry) => entry.provider === release.provider && entry.id !== id).slice(0, 5);
+  const family = familyName(release.name);
+  const earlier = entries.filter(
+    (entry) =>
+      entry.provider === release.provider &&
+      entry.id !== id &&
+      entry.date <= release.date &&
+      familyName(entry.name) === family,
+  );
+  const sameProvider = entries
+    .filter((entry) => entry.provider === release.provider && entry.id !== id && !earlier.includes(entry))
+    .slice(0, 5);
+  const sameWeek = entries
+    .filter((entry) => entry.id !== id && entry.provider !== release.provider && Math.abs(daysApart(entry.date, release.date)) <= 3)
+    .slice(0, 6);
   const slug = modelSlug(release.name);
   const ranked = currentModels().find((model) => model.slug === slug) ?? null;
   const matchups = ranked ? pairsWith(ranked.slug, undefined, 4) : [];
+  const faqs = releaseFaqs(release, ranked);
   const hue = providerHue(release.provider);
   const path = `/releases/${id}`;
   const crumbs = [
@@ -76,7 +164,7 @@ export default async function ReleasePage({
 
   return (
     <div className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-      <JsonLd data={pageGraph(path, crumbs, [releaseArticle(release, path)])} />
+      <JsonLd data={pageGraph(path, crumbs, [releaseArticle(release, path), faqNode(faqs)])} />
       <main>
         <Breadcrumbs crumbs={crumbs} />
         <div className="flex items-center gap-3">
@@ -172,21 +260,11 @@ export default async function ReleasePage({
           </section>
         ) : null}
 
-        {sameProvider.length ? (
-          <section className="mt-10">
-            <h2 className="text-xl font-semibold text-white">More from {release.provider}</h2>
-            <ul className="mt-4 flex flex-col gap-2">
-              {sameProvider.map((entry) => (
-                <li key={entry.id} className="text-sm text-zinc-300">
-                  <Link href={`/releases/${entry.id}`} className="hover:text-white">
-                    {entry.name}
-                  </Link>{" "}
-                  <span className="text-zinc-500">{formatDay(entry.date)}</span>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
+        <ReleaseList title="Earlier versions" entries={earlier} />
+        <ReleaseList title={`More from ${release.provider}`} entries={sameProvider} />
+        <ReleaseList title="Released the same week" entries={sameWeek} withProvider />
+
+        <FaqList faqs={faqs} />
 
         <nav className="mt-12 grid gap-3 border-t border-zinc-800 pt-6 sm:grid-cols-2" aria-label="More releases">
           {older ? (

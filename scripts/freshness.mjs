@@ -50,6 +50,9 @@ function entryKind(entry) {
   return entry.type === "methodology" ? "methodology" : "change";
 }
 
+// Bump a page type's number when its template starts showing new content, so its dates move and IndexNow pings it.
+const LAYOUT = { apps: 2, releases: 2, pick: 2, for: 2 };
+
 const PAIRS = [
   ["chatgpt", "claude", "chatgpt-vs-claude"],
   ["claude", "gemini", "claude-vs-gemini"],
@@ -164,7 +167,7 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
 
   for (const entry of releaseEntries) {
     // Mirrors releaseIndexed in lib/release-rows.ts.
-    if (entry.kind !== "feature" || byModel.get(slugify(entry.name))?.slots.length) put(`/releases/${entry.id}`, entry);
+    if (entry.kind !== "feature" || byModel.get(slugify(entry.name))?.slots.length) put(`/releases/${entry.id}`, { ...entry, layout: LAYOUT.releases });
   }
 
   const logged = (history.entries ?? []).map((entry) => ({
@@ -221,12 +224,13 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
     put(path, { source: text });
   }
 
-  for (const audience of audiences?.audiences ?? []) put(`/for/${audience.slug}`, audience);
-  for (const topic of picker?.topics ?? []) put(`/pick/${topic.slug}`, topic);
+  for (const audience of audiences?.audiences ?? []) put(`/for/${audience.slug}`, { ...audience, layout: LAYOUT.for });
+  for (const topic of picker?.topics ?? []) put(`/pick/${topic.slug}`, { ...topic, layout: LAYOUT.pick });
 
   const appSlugs = new Set((apps?.apps ?? []).map((app) => app.slug));
   for (const app of apps?.apps ?? []) {
     put(`/apps/${app.slug}`, {
+      layout: LAYOUT.apps,
       plans: app.plans,
       privacy: app.privacy,
       capabilities: app.capabilities,

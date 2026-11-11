@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Freshness } from "@/components/Freshness";
+import { TaskPicks, taskPick } from "@/components/TaskPicks";
 import pickerFile from "@/lib/picker.json";
 
 export function generateStaticParams() {
@@ -20,13 +21,22 @@ export async function generateMetadata({
   const { topic: slug } = await params;
   const topic = findTopic(slug);
   if (!topic) return {};
+  const title = `${topic.name}: the best AI for each task`;
+  const picks = topic.goals
+    .map((goal) => {
+      const row = taskPick(goal.task);
+      return row?.pick ? `${goal.label.toLowerCase()}, ${row.pick}` : null;
+    })
+    .filter(Boolean)
+    .join("; ");
+  const description = `Today's picks: ${picks}. Each one comes with a ready prompt.`;
   return {
-    title: topic.name,
-    description: `Goals for ${topic.name}. Each one opens a task page.`,
+    title,
+    description,
     alternates: { canonical: `/pick/${slug}` },
     openGraph: {
-      title: topic.name,
-      description: `Goals for ${topic.name}.`,
+      title,
+      description,
       url: `https://whichai.today/pick/${slug}`,
       siteName: "WhichAI.today",
       type: "website",
@@ -48,18 +58,11 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
         </Link>
         <h1 className="mt-6 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{topic.name}</h1>
         <Freshness path={path} />
-        <ul className="mt-8 flex flex-col gap-3">
-          {topic.goals.map((goal) => (
-            <li key={goal.task}>
-              <Link
-                href={`/tasks/${goal.task}`}
-                className="block rounded-2xl border border-zinc-800 px-4 py-3 text-zinc-100 hover:border-zinc-600"
-              >
-                {goal.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <p className="mt-4 text-base leading-7 text-zinc-300">
+          The best AI is different for each of these. Here is today&apos;s pick for every task, with a tip on what to
+          give it. Each one opens a page with a prompt ready to copy.
+        </p>
+        <TaskPicks slugs={topic.goals.map((goal) => goal.task)} />
       </main>
     </div>
   );
