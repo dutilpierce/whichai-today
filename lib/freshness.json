@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-10",
-      "hash": "034ade08f2ca2838"
+      "changed": "2026-11-11",
+      "hash": "50adece379b9d2c2"
     },
     "/releases": {
       "changed": "2026-11-10",
@@ -21,8 +21,8 @@
       "hash": "1b29d126ff3e2a63"
     },
     "/reasoning": {
-      "changed": "2026-10-24",
-      "hash": "6ebc414ebf14961d"
+      "changed": "2026-11-11",
+      "hash": "60906d9317355a0c"
     },
     "/speed": {
       "changed": "2026-10-31",
@@ -33,16 +33,16 @@
       "hash": "7f6a76cb04e80258"
     },
     "/images": {
-      "changed": "2026-11-09",
-      "hash": "e4c2df7a51d5244d"
+      "changed": "2026-11-11",
+      "hash": "57bcffa2bfa4d7e6"
     },
     "/video": {
-      "changed": "2026-11-06",
-      "hash": "b5c1f6972948f62f"
+      "changed": "2026-11-11",
+      "hash": "cdb5c1d87a1a564c"
     },
     "/research": {
-      "changed": "2026-10-25",
-      "hash": "fde25c146e803392"
+      "changed": "2026-11-11",
+      "hash": "e4f6084fe0dc2a62"
     },
     "/models/claude-opus-5-5": {
       "changed": "2026-11-09",
@@ -65,8 +65,12 @@
       "hash": "77005d2255376fb6"
     },
     "/models/mimo-v2-6-pro": {
-      "changed": "2026-10-24",
-      "hash": "55bc44f329b6aae2"
+      "changed": "2026-11-11",
+      "hash": "dc4bb33009f9a50b"
+    },
+    "/models/kimi-k3-1-pro": {
+      "changed": "2026-11-11",
+      "hash": "d9245eda29b61fc9"
     },
     "/models/gemini-3-5-flash-lite": {
       "changed": "2026-10-31",
@@ -85,24 +89,24 @@
       "hash": "928fda11311c09f6"
     },
     "/models/gpt-image-2-5-sunburst": {
-      "changed": "2026-11-09",
-      "hash": "187e7b06187fe5a8"
+      "changed": "2026-11-11",
+      "hash": "de7b44332532dfc0"
     },
     "/models/grok-imagine-image-2-0": {
-      "changed": "2026-11-08",
-      "hash": "778f23688fdbad8a"
+      "changed": "2026-11-11",
+      "hash": "bb7da647ba967a1e"
     },
     "/models/qwen-image-2-1": {
       "changed": "2026-10-25",
       "hash": "e76a51e49b019b53"
     },
     "/models/gemini-omni-1-2-flash": {
-      "changed": "2026-11-06",
-      "hash": "09da35022e5f0227"
+      "changed": "2026-11-11",
+      "hash": "3032d11296b7dc19"
     },
     "/models/dreamina-seedance-2-0": {
-      "changed": "2026-11-06",
-      "hash": "0c38b550ce92a711"
+      "changed": "2026-11-11",
+      "hash": "d6234f5804abd3f9"
     },
     "/models/wan-2-2-a14b": {
       "changed": "2026-10-25",
@@ -117,8 +121,8 @@
       "hash": "93aef31add886298"
     },
     "/models/diffbot-small-xl": {
-      "changed": "2026-10-25",
-      "hash": "1a56f8619a2eb01d"
+      "changed": "2026-11-11",
+      "hash": "30280dcb0dd0431e"
     },
     "/models/qwen-image": {
       "changed": "2026-10-25",
@@ -149,24 +153,28 @@
       "hash": "7b88ee89a5d77581"
     },
     "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-2-flash": {
-      "changed": "2026-11-06",
-      "hash": "bcd2412233100bd4"
+      "changed": "2026-11-11",
+      "hash": "d9fb449c89e56ccf"
     },
     "/compare/gemini-4-argon-vs-gpt-6-1-sol": {
       "changed": "2026-11-10",
       "hash": "904b197efc47460f"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
-      "changed": "2026-11-09",
-      "hash": "d40d8108470932bc"
+      "changed": "2026-11-11",
+      "hash": "ab6da1ceaa8a2aec"
     },
     "/compare": {
-      "changed": "2026-11-06",
-      "hash": "687bbf2be0f67775"
+      "changed": "2026-11-11",
+      "hash": "006a928ae212609d"
     },
     "/releases/2026-11-05-google-gemini-omni-1-2-flash": {
       "changed": "2026-11-06",
       "hash": "6e84f102c0ea1274"
+    },
+    "/releases/2026-10-23-moonshot-ai-kimi-k3-1-pro": {
+      "changed": "2026-11-11",
+      "hash": "9a350b0ed29ab8b3"
     },
     "/releases/2026-10-13-google-gemini-4-argon": {
       "changed": "2026-10-29",
@@ -397,8 +405,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-10",
-      "hash": "04ce3cb5ecf1eb08"
+      "changed": "2026-11-11",
+      "hash": "f49af58e9f9ec290"
     },
     "/privacy": {
       "changed": "2026-10-30",

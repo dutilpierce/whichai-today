@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-10T12:00:00Z",
+  "last_updated": "2026-11-11T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -55,7 +55,7 @@
         "sources_agreeing": 3,
         "sources_checked": 4,
         "primary_score": 1813,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -74,7 +74,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": 1786.1,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -167,7 +167,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +186,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +205,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -279,7 +279,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1526,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "runner_up": {
         "name": "Claude Opus 5.5",
@@ -298,7 +298,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1517,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +317,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -406,26 +406,26 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
-        "name": "MiMo-V2.6-Pro",
-        "provider": "Xiaomi",
-        "why": "Matches some frontier proprietary models on hard reasoning at a fraction of the cost.",
-        "benchmark_context": "Humanity's Last Exam 49.4%.",
-        "direct_link": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
-        "where_to_get": "Download the MiMo-V2.6-Pro weights, or open Xiaomi AI Studio.",
+        "name": "Kimi K3.1 Pro",
+        "provider": "Moonshot AI",
+        "why": "Leads open-weight reasoning benchmarks while rivaling top proprietary models.",
+        "benchmark_context": "Humanity's Last Exam 52.5%.",
+        "direct_link": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+        "where_to_get": "Download the Kimi K3.1 Pro weights from Hugging Face, or open Kimi.ai.",
         "access": "free_limited",
-        "cost": "Weights are free under MIT. API is about $0.44 per million input tokens and $0.87 per million output.",
-        "free_tier": "The weights are free to download and run yourself.",
-        "when_not": "Skip it when you need the single highest exam score. The leader still leads that board.",
+        "cost": "Weights are free to download. API is $2 per million input tokens and $10 per million output.",
+        "free_tier": "The weights are free to download and run locally, and Kimi.ai offers limited free chat.",
+        "when_not": "Skip it if you lack multi-GPU cluster hardware to host massive parameter weights locally.",
         "starter_prompt": "Explain this concept with one example, then give me a harder practice problem.",
         "source_url": "https://artificialanalysis.ai/",
         "pick_if": "Pick this when the problem cannot leave your own machines.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 49.4,
-        "checked": "2026-11-10"
+        "primary_score": 52.5,
+        "checked": "2026-11-11"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -434,7 +434,11 @@
         "GPQA Diamond",
         "FrontierMath",
         "Artificial Analysis Intelligence Index"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Claude Fable 5.2",
+        "since": "2026-11-11"
+      }
     },
     "low_latency": {
       "display_name": "Speed & High Volume",
@@ -477,7 +481,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 412,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "runner_up": {
         "name": "Claude Haiku 5.5",
@@ -496,7 +500,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 237,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
         "name": "DeepSeek V4.1 Flash",
@@ -515,7 +519,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -587,7 +591,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -606,7 +610,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
@@ -614,7 +618,11 @@
         "LMArena Text overall",
         "Artificial Analysis Intelligence Index",
         "LMArena Text hard prompts"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Gemini 4 Carbon",
+        "since": "2026-11-11"
+      }
     },
     "images": {
       "display_name": "Images",
@@ -639,7 +647,7 @@
         "name": "GPT-Image-2.5 Sunburst",
         "provider": "OpenAI",
         "why": "Leads the public text-to-image board.",
-        "benchmark_context": "LMArena Text-to-Image 1428.",
+        "benchmark_context": "LMArena Text-to-Image 1429.",
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT, choose a Plus or Pro plan, and select GPT-Image-2.5 Sunburst.",
         "access": "paid",
@@ -651,14 +659,14 @@
         "pick_if": "Pick this when the picture has to look right the first time.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1428,
-        "checked": "2026-11-10"
+        "primary_score": 1429,
+        "checked": "2026-11-11"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
         "provider": "xAI",
         "why": "The strongest consumer image model from another provider on the board.",
-        "benchmark_context": "LMArena Text-to-Image 1318.",
+        "benchmark_context": "LMArena Text-to-Image 1319.",
         "direct_link": "https://grok.com",
         "where_to_get": "Grok, choose a Premium plan, and select Grok Imagine Image 2.0.",
         "access": "paid",
@@ -670,8 +678,8 @@
         "pick_if": "Pick this when you already use Grok.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1318,
-        "checked": "2026-11-10"
+        "primary_score": 1319,
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -690,7 +698,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1223,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       }
     },
     "video": {
@@ -712,7 +720,7 @@
         "name": "Gemini Omni 1.2 Flash",
         "provider": "Google",
         "why": "Leads the public text-to-video board.",
-        "benchmark_context": "LMArena Text-to-Video 1541.",
+        "benchmark_context": "LMArena Text-to-Video 1540.",
         "direct_link": "https://gemini.google.com",
         "where_to_get": "Gemini, then video, and select Omni 1.2 Flash.",
         "access": "paid",
@@ -724,14 +732,14 @@
         "pick_if": "Pick this when the clip has to look right the first time.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1541,
-        "checked": "2026-11-10"
+        "primary_score": 1540,
+        "checked": "2026-11-11"
       },
       "runner_up": {
         "name": "Dreamina Seedance 2.0",
         "provider": "ByteDance",
         "why": "A high-scoring video model from another provider with a large vote count.",
-        "benchmark_context": "LMArena Text-to-Video 1481.",
+        "benchmark_context": "LMArena Text-to-Video 1483.",
         "direct_link": "https://dreamina.capcut.com",
         "where_to_get": "Dreamina, then select Seedance 2.0.",
         "access": "paid",
@@ -743,8 +751,8 @@
         "pick_if": "Pick this when you want a strong alternative to the leader.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1481,
-        "checked": "2026-11-10"
+        "primary_score": 1483,
+        "checked": "2026-11-11"
       },
       "open_source_pick": {
         "name": "Wan 2.2 A14B",
@@ -763,7 +771,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1132,
-        "checked": "2026-11-10"
+        "checked": "2026-11-11"
       }
     },
     "research": {
@@ -822,8 +830,8 @@
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
         "provider": "Diffbot",
-        "why": "The open-weights model with a public score on the search board.",
-        "benchmark_context": "LMArena Search 1023. Apache 2.0 weights.",
+        "why": "The open-weights model with a verified score on the search leaderboard.",
+        "benchmark_context": "LMArena Search 1024. Apache 2.0 weights.",
         "direct_link": "https://huggingface.co/diffbot/Diffbot-Small-XL-2508",
         "where_to_get": "Diffbot, or the published weights for Diffbot-Small-XL on Hugging Face.",
         "access": "free_limited",
@@ -835,8 +843,12 @@
         "pick_if": "Pick this when the research stack has to use downloadable weights.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1023,
-        "checked": "2026-11-10"
+        "primary_score": 1024,
+        "checked": "2026-11-11"
+      },
+      "pending_leader": {
+        "name": "Qwen3.8-Max",
+        "since": "2026-11-11"
       }
     }
   }
