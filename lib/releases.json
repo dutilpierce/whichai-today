@@ -1,6 +1,60 @@
 {
-  "last_checked": "2026-11-11T06:04:09Z",
+  "last_checked": "2026-11-11T14:10:21Z",
   "entries": [
+    {
+      "id": "2026-11-10-anthropic-claude-sheets-and-whiteboards",
+      "date": "2026-11-10",
+      "added": "2026-11-11",
+      "name": "Claude Sheets and Whiteboards",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Anthropic introduced Sheets and Whiteboards artifact templates in beta, allowing users to collaborate on spreadsheets and brainstorming boards directly inside Claude.",
+      "features": [
+        "Spreadsheets",
+        "Whiteboards",
+        "Artifacts",
+        "Collaboration"
+      ],
+      "evidence": "The Sheets and Whiteboards templates are in beta on Pro, Max, Ultra, Team, and Enterprise plans. They're on by default on Team plans and off on Enterprise plans until an owner turns them on.",
+      "source_url": "https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them"
+    },
+    {
+      "id": "2026-11-10-google-cloud-gemini-for-healthcare",
+      "date": "2026-11-10",
+      "added": "2026-11-11",
+      "name": "Gemini for healthcare",
+      "provider": "Google Cloud",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Google Cloud launched Gemini for healthcare, an agentic solution orchestrating complex workflows across clinical, administrative, and insurance systems.",
+      "features": [
+        "Healthcare",
+        "Agentic AI",
+        "Clinical workflows",
+        "EHR integration"
+      ],
+      "evidence": "Today, we are announcing Gemini for healthcare. This purpose-built industry solution extends the universal Gemini agent... Working across clinical, financial, and administrative systems, it orchestrates multi-step tasks without forcing teams to switch applications",
+      "source_url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-for-healthcare"
+    },
+    {
+      "id": "2026-11-10-google-gemini-robotics-2-5",
+      "date": "2026-11-10",
+      "added": "2026-11-11",
+      "name": "Gemini Robotics 2.5",
+      "provider": "Google",
+      "kind": "update",
+      "status": "available",
+      "summary": "Google DeepMind introduced Gemini Robotics 2.5, an advanced vision-language-action model designed to control robots of any morphology for complex physical tasks.",
+      "features": [
+        "Robotics",
+        "VLA",
+        "Physical AI",
+        "Dexterity"
+      ],
+      "evidence": "Gemini Robotics 2.5: Our most advanced VLA model: capable of intelligently controlling any type of robot, from bi-arms to full humanoids... Controls robots of any shape or size, scaling its intelligence from arms to complex humanoid bodies",
+      "source_url": "https://deepmind.google/models/gemini-robotics/"
+    },
     {
       "id": "2026-11-10-openai-businesses-in-chatgpt",
       "date": "2026-11-10",
@@ -18,6 +72,24 @@
       ],
       "evidence": "Businesses in ChatGPT helps people discover what businesses offer and learn more about them on ChatGPT... Your Business Agent answers questions with your product and policy information, using guidelines you control",
       "source_url": "https://openai.com/business/businesses-in-chatgpt/"
+    },
+    {
+      "id": "2026-11-09-meta-muse-ember",
+      "date": "2026-11-09",
+      "added": "2026-11-11",
+      "name": "Muse Ember",
+      "provider": "Meta",
+      "kind": "model",
+      "status": "available",
+      "summary": "Meta released Muse Ember, a compact multimodal model built for fast, high-volume agentic execution, coding subtasks, and document processing.",
+      "features": [
+        "Multimodal",
+        "Reasoning",
+        "Fast execution",
+        "Agentic workflows"
+      ],
+      "evidence": "Today we're introducing Muse Ember in Muse Code and on Meta Model API. Built for fast, agentic execution at scale, Muse Ember handles coding tasks, tool calls, and document analysis, with support for text, image, audio, and video inputs.",
+      "source_url": "https://dev.meta.ai/resources/blog/build-with-muse-ember"
     },
     {
       "id": "2026-11-09-anthropic-claude-fable-5-2-and-claude-mythos-5-2",
