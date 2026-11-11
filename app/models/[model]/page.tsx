@@ -15,6 +15,12 @@ export function generateStaticParams() {
   return modelRecords().map((model) => ({ model: model.slug }));
 }
 
+const ROLE_PHRASE: Record<string, string> = {
+  Leader: "#1 pick",
+  Alternative: "alternative pick",
+  "Open weights": "open-weights pick",
+};
+
 export async function generateMetadata({
   params,
 }: {
@@ -23,10 +29,13 @@ export async function generateMetadata({
   const { model: slug } = await params;
   const found = modelBySlug(slug);
   if (!found) return {};
-  const title = found.name;
+  const title = found.archived ? found.name : `${found.name}: price, free tier, and where it ranks`;
+  const ranks = found.roles
+    .map((role) => `${ROLE_PHRASE[role.role] ?? role.role} for ${role.display_name.toLowerCase()}`)
+    .join(", ");
   const description = found.archived
     ? `${found.name} is not currently a pick on WhichAI.today. Its earlier record is kept here.`
-    : `${found.name} from ${found.provider} is a current WhichAI.today pick.`;
+    : `${found.name} from ${found.provider} is today's ${ranks}. ${found.profile.cost}`;
   const url = `https://whichai.today/models/${slug}`;
   return {
     title,

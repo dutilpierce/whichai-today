@@ -16,8 +16,10 @@ export function releaseRows(limit?: number): ReleaseRowData[] {
     });
 }
 
-// Only releases of models we rank get their own search listing; the rest are a near copy of their timeline row.
-export function releaseIndexed(entry: Pick<Release, "name">) {
+// Model launches get their own search listing, since people search for their release dates. Feature launches stay
+// off search unless we rank the model, because their page is a near copy of the timeline row.
+export function releaseIndexed(entry: Pick<Release, "name" | "kind">) {
+  if (entry.kind !== "feature") return true;
   const slug = modelSlug(entry.name);
   return currentModels().some((model) => model.slug === slug);
 }

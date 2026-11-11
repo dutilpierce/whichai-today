@@ -36,7 +36,8 @@ export async function generateMetadata({
   const release = releaseById(id);
   if (!release) return {};
   const title = `${release.name} release date, features & availability`;
-  const description = `${release.provider} released ${release.name} on ${formatDay(release.date)}. ${release.summary}`;
+  const what = release.features.length ? `What's new: ${release.features.join(", ")}.` : release.summary;
+  const description = `Released ${formatDay(release.date)} by ${release.provider}, ${AVAILABILITY[release.status].toLowerCase()}. ${what}`;
   const url = `https://whichai.today/releases/${id}`;
   return {
     title,

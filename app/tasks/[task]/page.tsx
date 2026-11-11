@@ -24,18 +24,22 @@ export async function generateMetadata({
   const task = tasksFile.tasks.find((item) => item.slug === slug);
   if (!task) return {};
   const title = `Best AI for ${task.title} right now`;
+  const leader = "capability" in task ? null : categoryBySlug(task.category)?.category.leader;
+  const description = leader
+    ? `For ${task.title}, use ${leader.name} from ${leader.provider} today, with a ready prompt to copy. ${task.tip}`
+    : `The AI apps that can handle ${task.title} today, with a ready prompt to copy. ${task.tip}`;
   return {
     title,
-    description: task.tip,
+    description,
     alternates: { canonical: `/tasks/${slug}` },
     openGraph: {
       title,
-      description: task.tip,
+      description,
       url: `https://whichai.today/tasks/${slug}`,
       siteName: "WhichAI.today",
       type: "website",
     },
-    twitter: { card: "summary_large_image", title, description: task.tip },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 

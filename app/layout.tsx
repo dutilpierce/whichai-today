@@ -22,6 +22,8 @@ const geistMono = Geist_Mono({
 });
 
 const sameAs = [site.bluesky_url, site.telegram_url, site.github_url].filter(Boolean);
+// How people search for the site by name.
+const ALTERNATE_NAMES = ["WhichAI", "Which AI"];
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://whichai.today"),
@@ -68,6 +70,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               {
                 "@type": "WebSite",
                 name: "WhichAI.today",
+                alternateName: ALTERNATE_NAMES,
                 url: "https://whichai.today",
                 description,
               },
@@ -87,6 +90,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
               {
                 "@type": "Organization",
                 name: "WhichAI.today",
+                alternateName: ALTERNATE_NAMES,
                 url: "https://whichai.today",
                 logo: "https://whichai.today/icon-512.png",
                 ...(sameAs.length ? { sameAs } : {}),

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Freshness } from "@/components/Freshness";
 import guidesFile from "@/lib/prompt-guides.json";
 import models from "@/lib/models.json";
+import { rankingMonth } from "@/lib/picks";
 import tasksFile from "@/lib/tasks.json";
 
 const guides = guidesFile.guides as Record<
@@ -29,8 +30,8 @@ export async function generateMetadata({
   const { assistant } = await params;
   const guide = guides[assistant];
   if (!guide) return {};
-  const title = `Best prompts for ${guide.name}`;
-  const description = `Practical prompting tips from ${guide.provider}'s official guide, plus task templates and where ${guide.name} leads today.`;
+  const title = `${guide.name} Prompts: Examples and Tips That Work (${rankingMonth()})`;
+  const description = `Copy-ready ${guide.name} prompt templates for common tasks, tips from ${guide.provider}'s official prompting guide, and where ${guide.name} leads today.`;
   return {
     title,
     description,

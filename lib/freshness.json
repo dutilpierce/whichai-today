@@ -168,13 +168,205 @@
       "changed": "2026-11-11",
       "hash": "006a928ae212609d"
     },
+    "/releases/2026-11-10-google-gemini-robotics-2-5": {
+      "changed": "2026-11-11",
+      "hash": "fce9a66102b05c21"
+    },
+    "/releases/2026-11-09-meta-muse-ember": {
+      "changed": "2026-11-11",
+      "hash": "3048c018a482245d"
+    },
+    "/releases/2026-11-09-anthropic-claude-fable-5-2-and-claude-mythos-5-2": {
+      "changed": "2026-11-11",
+      "hash": "6e1c2ba20c682060"
+    },
+    "/releases/2026-11-06-salesforce-koa-decisions": {
+      "changed": "2026-11-11",
+      "hash": "8be3c5d0f8a7bdfe"
+    },
+    "/releases/2026-11-06-meta-specialized-models-for-muse-and-meta-ai": {
+      "changed": "2026-11-11",
+      "hash": "82f71d532876fe16"
+    },
+    "/releases/2026-11-05-ant-group-ling-3-2-flash": {
+      "changed": "2026-11-11",
+      "hash": "b8b5e188214321de"
+    },
+    "/releases/2026-11-05-preferred-networks-plamo-3-translate": {
+      "changed": "2026-11-11",
+      "hash": "632a0efacfa28277"
+    },
+    "/releases/2026-11-05-baidu-ernie-5-5-flash-base": {
+      "changed": "2026-11-11",
+      "hash": "102b6fd68e669f11"
+    },
     "/releases/2026-11-05-google-gemini-omni-1-2-flash": {
       "changed": "2026-11-06",
       "hash": "6e84f102c0ea1274"
     },
+    "/releases/2026-11-05-thinking-machines-lab-inkling-2-small": {
+      "changed": "2026-11-11",
+      "hash": "e42aa0891bbf4f49"
+    },
+    "/releases/2026-11-05-openai-gpt-6-cyber": {
+      "changed": "2026-11-11",
+      "hash": "e75cb882f4d68209"
+    },
+    "/releases/2026-11-04-celeris-celeris-1-1-decision": {
+      "changed": "2026-11-11",
+      "hash": "81e480c7ca2e5af6"
+    },
+    "/releases/2026-11-04-cognition-swe-2-flash": {
+      "changed": "2026-11-11",
+      "hash": "9075d98c8af3075b"
+    },
+    "/releases/2026-11-04-ricursive-intelligence-ripple-65b-preview": {
+      "changed": "2026-11-11",
+      "hash": "9ee24e915d4d9239"
+    },
+    "/releases/2026-11-04-openai-images-2-6": {
+      "changed": "2026-11-11",
+      "hash": "b77095ae7d0ec8b5"
+    },
+    "/releases/2026-11-04-tencent-hy4": {
+      "changed": "2026-11-11",
+      "hash": "34590d037e0a83ad"
+    },
+    "/releases/2026-11-03-sarvam-ai-sarvam-prism": {
+      "changed": "2026-11-11",
+      "hash": "ecf6d31c1da00f4d"
+    },
+    "/releases/2026-11-03-flower-labs-endeavor-1-1": {
+      "changed": "2026-11-11",
+      "hash": "8e213c8492fd105e"
+    },
+    "/releases/2026-11-02-deep-principle-hydrogen-1-0": {
+      "changed": "2026-11-11",
+      "hash": "bfcec9817d6071a5"
+    },
+    "/releases/2026-11-01-meituan-longcat-2-5": {
+      "changed": "2026-11-11",
+      "hash": "5c9cc3a5de08ca89"
+    },
+    "/releases/2026-11-01-nace-ai-drex-max-v1": {
+      "changed": "2026-11-11",
+      "hash": "de309a1a1912fd71"
+    },
+    "/releases/2026-10-30-diffuspace-clover-35b-a3b-preview": {
+      "changed": "2026-11-11",
+      "hash": "f05c5679157422ae"
+    },
+    "/releases/2026-10-30-nvidia-deepseek-v4-1-flash-1017-nvfp4": {
+      "changed": "2026-11-11",
+      "hash": "93095328b66ec405"
+    },
+    "/releases/2026-10-30-openai-gpt-6-rosalind-research": {
+      "changed": "2026-11-11",
+      "hash": "08d95bc6c225bc1b"
+    },
+    "/releases/2026-10-29-servicenow-apriel-voice-27b-preview": {
+      "changed": "2026-11-11",
+      "hash": "50adbf80e55e70e6"
+    },
+    "/releases/2026-10-29-openai-gpt-6-luna-october-29-2026-update": {
+      "changed": "2026-11-11",
+      "hash": "67a51c81e0b1d41d"
+    },
+    "/releases/2026-10-29-ibm-granite-switch-4-1-1": {
+      "changed": "2026-11-11",
+      "hash": "4cf6b317c7ea52bc"
+    },
+    "/releases/2026-10-29-frontiersmind-lumma-fev-v2": {
+      "changed": "2026-11-11",
+      "hash": "4c9480f5539c9142"
+    },
+    "/releases/2026-10-29-mistral-ai-mistral-large-4-le-chonk": {
+      "changed": "2026-11-11",
+      "hash": "cfa79c1d281784fc"
+    },
+    "/releases/2026-10-28-particle-ai-particle-1": {
+      "changed": "2026-11-11",
+      "hash": "1a95bae5c786e8fd"
+    },
+    "/releases/2026-10-28-speridlabs-idol": {
+      "changed": "2026-11-11",
+      "hash": "37733326bc1c9375"
+    },
+    "/releases/2026-10-28-apex-intelligence-apex-35b-v1-0": {
+      "changed": "2026-11-11",
+      "hash": "b52b2f6660f3c98e"
+    },
+    "/releases/2026-10-28-google-gemini-4-carbon": {
+      "changed": "2026-11-11",
+      "hash": "9d30aba42cca704d"
+    },
+    "/releases/2026-10-28-nvidia-nemotron-3-5-transcribe": {
+      "changed": "2026-11-11",
+      "hash": "1d6871c389020d2e"
+    },
+    "/releases/2026-10-28-rime-prism": {
+      "changed": "2026-11-11",
+      "hash": "c323a7bb87dca23a"
+    },
+    "/releases/2026-10-27-baidu-unlimited-ocr-2": {
+      "changed": "2026-11-11",
+      "hash": "0b3d96bb29a0692b"
+    },
+    "/releases/2026-10-27-google-genie-4": {
+      "changed": "2026-11-11",
+      "hash": "acffea3d2b19bf87"
+    },
+    "/releases/2026-10-27-inclusionai-ling-3-1-flash-1019": {
+      "changed": "2026-11-11",
+      "hash": "b9bbb3747af1ac06"
+    },
+    "/releases/2026-10-27-liquid-ai-lfm3": {
+      "changed": "2026-11-11",
+      "hash": "0d023272c4503ee6"
+    },
+    "/releases/2026-10-26-tencent-hy-simulmt-30b-a3b": {
+      "changed": "2026-11-11",
+      "hash": "bcf7eac513a7765b"
+    },
+    "/releases/2026-10-26-microsoft-azure-ai-speech-llm-09-2026": {
+      "changed": "2026-11-11",
+      "hash": "a7cd9f8b63b7b0cb"
+    },
+    "/releases/2026-10-26-openai-gpt-6-1-terra": {
+      "changed": "2026-11-11",
+      "hash": "a147ba4cd9b56890"
+    },
+    "/releases/2026-10-23-moonshot-ai-kimi-k3-1-pro-highspeed": {
+      "changed": "2026-11-11",
+      "hash": "d68b1f9261f955cc"
+    },
+    "/releases/2026-10-23-minimax-minimax-m3-1-flash": {
+      "changed": "2026-11-11",
+      "hash": "7dccdb7ddcb47aa7"
+    },
+    "/releases/2026-10-23-nvidia-nemotron-3-5-bolt-e4b-4gb": {
+      "changed": "2026-11-11",
+      "hash": "72dc97c8342796e0"
+    },
     "/releases/2026-10-23-moonshot-ai-kimi-k3-1-pro": {
       "changed": "2026-11-11",
       "hash": "9a350b0ed29ab8b3"
+    },
+    "/releases/2026-10-22-canva-canva-craft": {
+      "changed": "2026-11-11",
+      "hash": "d3ada0c5491784e2"
+    },
+    "/releases/2026-10-21-cohere-rerank-5": {
+      "changed": "2026-11-11",
+      "hash": "d318661a5c28f710"
+    },
+    "/releases/2026-10-21-recursive-flint": {
+      "changed": "2026-11-11",
+      "hash": "cec33d61e580f015"
+    },
+    "/releases/2026-10-15-mistral-ai-timestral": {
+      "changed": "2026-11-11",
+      "hash": "74e8fe9d97be50be"
     },
     "/releases/2026-10-13-google-gemini-4-argon": {
       "changed": "2026-10-29",
@@ -184,13 +376,29 @@
       "changed": "2026-10-29",
       "hash": "a92f0296ef144e32"
     },
+    "/releases/2026-10-06-mistral-ai-mistral-large-4": {
+      "changed": "2026-11-11",
+      "hash": "8118e07400cd023e"
+    },
     "/releases/2026-09-29-openai-gpt-6-1-sol": {
       "changed": "2026-10-29",
       "hash": "e05f08dafbc8fabe"
     },
+    "/releases/2026-09-28-anthropic-claude-sonnet-5-5": {
+      "changed": "2026-11-11",
+      "hash": "07357a1638fe3174"
+    },
     "/releases/2026-09-22-anthropic-claude-opus-5-5": {
       "changed": "2026-10-29",
       "hash": "c20d8b58aa1e9b12"
+    },
+    "/releases/2026-09-22-openai-gpt-6-sol-and-luna": {
+      "changed": "2026-11-11",
+      "hash": "65e69ede804c00af"
+    },
+    "/releases/2026-09-15-google-gemini-3-8-live": {
+      "changed": "2026-11-11",
+      "hash": "a26f0c4e9c583479"
     },
     "/releases/2026-09-03-openai-gpt-6-astra": {
       "changed": "2026-10-29",
@@ -401,16 +609,16 @@
       "hash": "c603328873606732"
     },
     "/about": {
-      "changed": "2026-10-30",
-      "hash": "fd9c66488998f4b9"
+      "changed": "2026-11-11",
+      "hash": "634c6213f4e2b1f8"
     },
     "/faq": {
       "changed": "2026-11-11",
-      "hash": "f49af58e9f9ec290"
+      "hash": "98cf8e03e10937d2"
     },
     "/privacy": {
-      "changed": "2026-10-30",
-      "hash": "23948cd645542aca"
+      "changed": "2026-11-11",
+      "hash": "dcc63a0818276543"
     },
     "/alerts": {
       "changed": "2026-10-25",
@@ -433,16 +641,16 @@
       "hash": "0e7ed2c14aca2863"
     },
     "/prompt-builder": {
-      "changed": "2026-10-30",
-      "hash": "a3e874ecdba05b3f"
+      "changed": "2026-11-11",
+      "hash": "513f842af30ab966"
     },
     "/suggest": {
-      "changed": "2026-10-30",
-      "hash": "bdff6f75ce638e1f"
+      "changed": "2026-11-11",
+      "hash": "4bd59326ca9f695f"
     },
     "/which-ai-should-i-use": {
-      "changed": "2026-10-30",
-      "hash": "52084c9801aea3da"
+      "changed": "2026-11-11",
+      "hash": "981a262aeba99747"
     },
     "/pick": {
       "changed": "2026-10-29",

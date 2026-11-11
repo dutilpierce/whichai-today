@@ -27,6 +27,9 @@ const H1: Record<string, string> = {
   reasoning: "Best AI model for reasoning and math right now",
   speed: "Best AI model for speed and high volume right now",
   general: "Best all-round AI model right now",
+  images: "Best AI image generator right now",
+  video: "Best AI video generator right now",
+  research: "Best AI for research and web search right now",
 };
 
 export type HistoryEntry = {
@@ -73,6 +76,11 @@ export function formatDay(value: string) {
     year: "numeric",
     timeZone: "UTC",
   });
+}
+
+/** The month of the latest rankings, for titles that should read as current ("November 2026"). */
+export function rankingMonth() {
+  return new Date(models.last_updated).toLocaleDateString("en-US", { month: "long", year: "numeric", timeZone: "UTC" });
 }
 
 export function shortLabel(slug: string) {

@@ -163,7 +163,8 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
   put("/compare", headToHeads);
 
   for (const entry of releaseEntries) {
-    if (byModel.get(slugify(entry.name))?.slots.length) put(`/releases/${entry.id}`, entry);
+    // Mirrors releaseIndexed in lib/release-rows.ts.
+    if (entry.kind !== "feature" || byModel.get(slugify(entry.name))?.slots.length) put(`/releases/${entry.id}`, entry);
   }
 
   const logged = (history.entries ?? []).map((entry) => ({
@@ -386,11 +387,14 @@ function selfCheck() {
   );
 
   const released = structuredClone(base);
-  released.releases.entries.push({ id: "2026-10-25-test-alpha-2", name: "Alpha 2", evidence: "Quote." });
+  released.releases.entries.push({ id: "2026-10-25-test-alpha-2", name: "Alpha 2", kind: "feature", evidence: "Quote." });
   const withRelease = applyFreshness({ pages: seeded.pages }, buildPayloads(released), "2026-10-25");
   assert(withRelease.pages["/"].changed === "2026-10-25", "a new release moves the home page");
   assert(withRelease.pages["/releases"].changed === "2026-10-25", "a new release moves the releases page");
-  assert(!withRelease.pages["/releases/2026-10-25-test-alpha-2"], "a release of a model we don't rank gets no listed page");
+  assert(!withRelease.pages["/releases/2026-10-25-test-alpha-2"], "a feature launch for a model we don't rank gets no listed page");
+  const launch = structuredClone(base);
+  launch.releases.entries.push({ id: "2026-10-25-test-beta-2", name: "Beta 2", kind: "model", evidence: "Quote." });
+  assert(buildPayloads(launch)["/releases/2026-10-25-test-beta-2"], "a model launch gets a listed page even before we rank it");
   const rankedRelease = structuredClone(base);
   rankedRelease.releases.entries.push({ id: "2026-10-25-test-alpha", name: "Alpha", evidence: "Quote." });
   const withRanked = applyFreshness({ pages: seeded.pages }, buildPayloads(rankedRelease), "2026-10-25");

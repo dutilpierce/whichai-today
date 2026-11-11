@@ -11,7 +11,14 @@ const nextConfig: NextConfig = {
     const reversed = pairsFile.pairs
       .map((pair) => ({ source: `/vs/${pair.right}-vs-${pair.left}`, destination: `/vs/${pair.slug}`, permanent: true }))
       .filter((item) => !appPairs.has(item.source.slice(4)));
-    return [...compareRedirects(), ...reversed];
+    // One host for search engines: the bare domain.
+    const www = {
+      source: "/:path*",
+      has: [{ type: "host" as const, value: "www.whichai.today" }],
+      destination: "https://whichai.today/:path*",
+      permanent: true,
+    };
+    return [www, ...compareRedirects(), ...reversed];
   },
   turbopack: {
     rules: {

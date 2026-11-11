@@ -7,16 +7,18 @@ import { JsonLd } from "@/components/JsonLd";
 import { appList } from "@/lib/apps";
 import { coverage, planName, priceLabel, shortAnswer, useItIn, type CoverageRow, type Job, type Mark } from "@/lib/hub";
 import { freeAndPaid } from "@/lib/options";
-import { categoryEntries, leaderBadge, shortLabel } from "@/lib/picks";
+import { categoryEntries, leaderBadge, rankingMonth, shortLabel } from "@/lib/picks";
 import { faqNode, pageGraph } from "@/lib/schema";
 
+const metaTitle = `Which AI Should I Use? The Best AI for Every Task (${rankingMonth()})`;
+
 export const metadata: Metadata = {
-  title: "Which AI should I use",
+  title: metaTitle,
   description:
     "A straight answer: the best AI for each job today, where to use it and what it costs, what one subscription covers, and the best free and private options.",
   alternates: { canonical: "/which-ai-should-i-use" },
   openGraph: {
-    title: "Which AI should I use",
+    title: metaTitle,
     description: "Today's #1 model for each job, where to use it, and what one subscription gets you.",
     url: "https://whichai.today/which-ai-should-i-use",
     siteName: "WhichAI.today",

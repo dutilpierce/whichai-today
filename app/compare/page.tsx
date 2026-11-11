@@ -7,18 +7,21 @@ import { JsonLd } from "@/components/JsonLd";
 import { currentModels } from "@/lib/catalog";
 import { MODALITY_LABEL, pairsWith, popularPairs, sharedPairs, tally } from "@/lib/compare";
 import { trackedModels } from "@/lib/pair-slugs";
+import { rankingMonth } from "@/lib/picks";
 import { pageGraph } from "@/lib/schema";
 
 const title = "Compare AI models side by side";
 const description =
   "Pick any two AI models and see who ranks ahead for coding, writing, research, images, and video, plus price, free tier, and privacy. Checked daily.";
 
+const metaTitle = `Compare AI Models: Claude vs GPT vs Gemini, Side by Side (${rankingMonth()})`;
+
 export const metadata: Metadata = {
-  title,
+  title: metaTitle,
   description,
   alternates: { canonical: "/compare" },
-  openGraph: { title, description, url: "https://whichai.today/compare", siteName: "WhichAI.today", type: "website" },
-  twitter: { card: "summary_large_image", title, description },
+  openGraph: { title: metaTitle, description, url: "https://whichai.today/compare", siteName: "WhichAI.today", type: "website" },
+  twitter: { card: "summary_large_image", title: metaTitle, description },
 };
 
 export default function CompareHub() {
