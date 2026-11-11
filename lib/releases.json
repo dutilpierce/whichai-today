@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-10T23:14:04Z",
+  "last_checked": "2026-11-11T06:04:09Z",
   "entries": [
     {
       "id": "2026-11-10-openai-businesses-in-chatgpt",
@@ -73,6 +73,23 @@
       "source_url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace/"
     },
     {
+      "id": "2026-11-06-salesforce-koa-decisions",
+      "date": "2026-11-06",
+      "added": "2026-11-11",
+      "name": "Koa Decisions",
+      "provider": "Salesforce",
+      "kind": "model",
+      "status": "preview",
+      "summary": "Salesforce introduced Koa Decisions, a multimodal decision model built on Gemma that executes single-step routing choices in milliseconds.",
+      "features": [
+        "Multimodal",
+        "Routing",
+        "Decision model"
+      ],
+      "evidence": "The new version of Salesforce's decision model handles single-step decisions in milliseconds... built on Google's open-weight Gemma architecture and advancing Salesforce's HyperClassifier technology, the model processes multimodal inputs including text, images, and audio.",
+      "source_url": "https://www.salesforce.com/news/stories/koa-decisions-salesforce-decision-models/?bc=OTH"
+    },
+    {
       "id": "2026-11-06-cursor-voice-chat-with-agents",
       "date": "2026-11-06",
       "added": "2026-11-09",
@@ -105,6 +122,23 @@
       ],
       "evidence": "Today, we're introducing specialized versions of our existing models, trained using Muse Wonder, and rolling them out to people who use Muse and Meta AI.",
       "source_url": "https://research.meta.ai/blog/specialized-models-for-muse-and-metaai"
+    },
+    {
+      "id": "2026-11-05-ant-group-ling-3-2-flash",
+      "date": "2026-11-05",
+      "added": "2026-11-11",
+      "name": "Ling-3.2-flash",
+      "provider": "Ant Group",
+      "kind": "model",
+      "status": "available",
+      "summary": "Ant Group launched Ling-3.2-flash, a native multimodal mixture-of-experts model with 560B parameters and a 1-million-token context window.",
+      "features": [
+        "Multimodal",
+        "MoE",
+        "1M context"
+      ],
+      "evidence": "Ant Ling platform launched Ling-3.2-flash: a native multimodal model that understands text, images and video in one model, with 560 billion total parameters, 25 billion active per token, and a huge 1-million-token context window.",
+      "source_url": "https://developer.ant-ling.com/en/docs/getting-started/changelog/"
     },
     {
       "id": "2026-11-05-cursor-build-live-apps",
