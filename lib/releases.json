@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-11T14:10:21Z",
+  "last_checked": "2026-11-12T00:35:27Z",
   "entries": [
+    {
+      "id": "2026-11-11-alibaba-cloud-qwen4-max-preview",
+      "date": "2026-11-11",
+      "added": "2026-11-12",
+      "name": "Qwen4-Max-Preview",
+      "provider": "Alibaba Cloud",
+      "kind": "model",
+      "status": "preview",
+      "summary": "Alibaba Cloud released Qwen4-Max-Preview, a multimodal model with a 1M context window for coding, reasoning, and complex agentic tasks.",
+      "features": [
+        "Multimodal",
+        "Reasoning",
+        "1M context",
+        "Tool calling"
+      ],
+      "evidence": "Qwen4-Max-Preview is the next-generation flagship multimodal model in the Qwen family, combining text generation, image and video understanding, and deep reasoning... Context length, 1M tokens.",
+      "source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview"
+    },
     {
       "id": "2026-11-10-anthropic-claude-sheets-and-whiteboards",
       "date": "2026-11-10",

@@ -1,12 +1,12 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-11",
-      "hash": "7d725762fbf50d51"
+      "changed": "2026-11-12",
+      "hash": "ea694e25f0a73379"
     },
     "/releases": {
-      "changed": "2026-11-11",
-      "hash": "aa4ec7714b0c8d6c"
+      "changed": "2026-11-12",
+      "hash": "9bf0cb2688d12aa1"
     },
     "/coding": {
       "changed": "2026-10-30",
@@ -167,6 +167,10 @@
     "/compare": {
       "changed": "2026-11-11",
       "hash": "006a928ae212609d"
+    },
+    "/releases/2026-11-11-alibaba-cloud-qwen4-max-preview": {
+      "changed": "2026-11-12",
+      "hash": "dbb82033f8523051"
     },
     "/releases/2026-11-10-google-gemini-robotics-2-5": {
       "changed": "2026-11-11",
@@ -609,16 +613,16 @@
       "hash": "c603328873606732"
     },
     "/about": {
-      "changed": "2026-11-11",
-      "hash": "634c6213f4e2b1f8"
+      "changed": "2026-11-12",
+      "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-11",
-      "hash": "98cf8e03e10937d2"
+      "changed": "2026-11-12",
+      "hash": "f49af58e9f9ec290"
     },
     "/privacy": {
-      "changed": "2026-11-11",
-      "hash": "dcc63a0818276543"
+      "changed": "2026-11-12",
+      "hash": "23948cd645542aca"
     },
     "/alerts": {
       "changed": "2026-10-25",
@@ -641,12 +645,12 @@
       "hash": "0e7ed2c14aca2863"
     },
     "/prompt-builder": {
-      "changed": "2026-11-11",
-      "hash": "513f842af30ab966"
+      "changed": "2026-11-12",
+      "hash": "a3e874ecdba05b3f"
     },
     "/suggest": {
-      "changed": "2026-11-11",
-      "hash": "4bd59326ca9f695f"
+      "changed": "2026-11-12",
+      "hash": "bdff6f75ce638e1f"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-11-11",
