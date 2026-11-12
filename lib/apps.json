@@ -155,6 +155,10 @@
         {
           "name": "Gemini Omni 1.2 Flash",
           "plan": "Google AI Plus"
+        },
+        {
+          "name": "Gemini 4 Carbon",
+          "plan": "Google AI Ultra"
         }
       ],
       "plans": [
@@ -357,6 +361,14 @@
         {
           "name": "Claude Opus 4.6",
           "plan": "Premium"
+        },
+        {
+          "name": "Claude Fable 5.2",
+          "plan": "Premium"
+        },
+        {
+          "name": "Gemini 4 Carbon",
+          "plan": "Premium"
         }
       ],
       "plans": [
@@ -524,6 +536,10 @@
         },
         {
           "name": "Claude Opus 4.6",
+          "plan": "Pro"
+        },
+        {
+          "name": "Claude Fable 5.2",
           "plan": "Pro"
         }
       ],
@@ -756,6 +772,10 @@
         },
         {
           "name": "Diffbot-Small-XL",
+          "plan": "Free"
+        },
+        {
+          "name": "Kimi K3.1 Pro",
           "plan": "Free"
         }
       ],

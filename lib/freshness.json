@@ -749,8 +749,8 @@
       "hash": "15974ecd5636a1ed"
     },
     "/apps/gemini": {
-      "changed": "2026-11-11",
-      "hash": "0538a69caddbf1c1"
+      "changed": "2026-11-12",
+      "hash": "91f4e29adc611332"
     },
     "/apps/copilot": {
       "changed": "2026-11-11",
@@ -761,16 +761,16 @@
       "hash": "3e1a2ce7f5a8b5bb"
     },
     "/apps/cursor": {
-      "changed": "2026-11-11",
-      "hash": "a403d257d9b9a8e5"
+      "changed": "2026-11-12",
+      "hash": "d62dc5b841820da4"
     },
     "/apps/github-copilot": {
       "changed": "2026-11-11",
       "hash": "7e51c4c1f32cf70b"
     },
     "/apps/claude-code": {
-      "changed": "2026-11-11",
-      "hash": "df8ec2244a5302cd"
+      "changed": "2026-11-12",
+      "hash": "46ef7c65ae031803"
     },
     "/apps/codex": {
       "changed": "2026-11-11",
@@ -785,8 +785,8 @@
       "hash": "90e5343368dd05ad"
     },
     "/apps/hugging-face": {
-      "changed": "2026-11-11",
-      "hash": "6179b1d0aeb6c67e"
+      "changed": "2026-11-12",
+      "hash": "676e20caee5539a0"
     },
     "/apps/ollama": {
       "changed": "2026-11-11",
