@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-11-12",
-      "hash": "80058f3d187bab9c"
+      "hash": "345d795ecd88e904"
     },
     "/releases": {
       "changed": "2026-11-12",
-      "hash": "9bf0cb2688d12aa1"
+      "hash": "9e5901644d2d1c23"
     },
     "/coding": {
       "changed": "2026-11-12",
@@ -184,9 +184,21 @@
       "changed": "2026-11-12",
       "hash": "7c9445913f99ed46"
     },
+    "/releases/2026-11-12-google-gemini-4-hydrogen": {
+      "changed": "2026-11-12",
+      "hash": "bd1fdfeb4d25aae8"
+    },
     "/releases/2026-11-11-alibaba-cloud-qwen4-max-preview": {
       "changed": "2026-11-12",
       "hash": "dbb82033f8523051"
+    },
+    "/releases/2026-11-11-deepl-aure": {
+      "changed": "2026-11-12",
+      "hash": "85b795bf6e0abf8e"
+    },
+    "/releases/2026-11-11-google-deepmind-alphagenome-2": {
+      "changed": "2026-11-12",
+      "hash": "3b1a6d5ae4759d32"
     },
     "/releases/2026-11-10-google-gemini-robotics-2-5": {
       "changed": "2026-11-11",

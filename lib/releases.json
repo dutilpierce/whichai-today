@@ -1,6 +1,23 @@
 {
-  "last_checked": "2026-11-12T00:35:27Z",
+  "last_checked": "2026-11-12T23:32:30Z",
   "entries": [
+    {
+      "id": "2026-11-12-google-gemini-4-hydrogen",
+      "date": "2026-11-12",
+      "added": "2026-11-12",
+      "name": "Gemini 4 Hydrogen",
+      "provider": "Google",
+      "kind": "model",
+      "status": "available",
+      "summary": "Google released Gemini 4 Hydrogen, an execution model for agentic workflows with a 1 million-token context window.",
+      "features": [
+        "1M context",
+        "Coding",
+        "Agentic workflows"
+      ],
+      "evidence": "Gemini 4 Hydrogen is priced flat across its entire 1 million-token context window at $1.50 per million input tokens and $7.50 per million output tokens.",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+    },
     {
       "id": "2026-11-11-alibaba-cloud-qwen4-max-preview",
       "date": "2026-11-11",
@@ -18,6 +35,54 @@
       ],
       "evidence": "Qwen4-Max-Preview is the next-generation flagship multimodal model in the Qwen family, combining text generation, image and video understanding, and deep reasoning... Context length, 1M tokens.",
       "source_url": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview"
+    },
+    {
+      "id": "2026-11-11-databricks-always-on-genie",
+      "date": "2026-11-11",
+      "added": "2026-11-12",
+      "name": "Always-on Genie",
+      "provider": "Databricks",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Databricks introduced an always-on autonomous AI coworker that manages complex enterprise workflows across data and business systems.",
+      "features": [
+        "Autonomous agent",
+        "Enterprise workflows"
+      ],
+      "evidence": "Databricks today announced the second generation of Genie that changes how people get work done: Genie is now an always-on, autonomous agent for enterprise work.",
+      "source_url": "https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex"
+    },
+    {
+      "id": "2026-11-11-deepl-aure",
+      "date": "2026-11-11",
+      "added": "2026-11-12",
+      "name": "Aure",
+      "provider": "DeepL",
+      "kind": "model",
+      "status": "available",
+      "summary": "DeepL released Aure, a real-time voice translation model designed to preserve natural speech rhythm, intonation, and tone across eight languages.",
+      "features": [
+        "Voice translation",
+        "Real-time speech"
+      ],
+      "evidence": "Meet Aure, DeepL's most lifelike voice AI translation model yet, bringing natural tone and expressiveness to real-time multilingual conversations with DeepL Voice.",
+      "source_url": "https://www.deepl.com/en/press-release/aure-voice-ai-model"
+    },
+    {
+      "id": "2026-11-11-google-deepmind-alphagenome-2",
+      "date": "2026-11-11",
+      "added": "2026-11-12",
+      "name": "AlphaGenome 2",
+      "provider": "Google DeepMind",
+      "kind": "model",
+      "status": "available",
+      "summary": "Google DeepMind released AlphaGenome 2, a DNA sequence model trained on over 100 million single-cell profiles to predict variant impacts.",
+      "features": [
+        "Genomics",
+        "DNA sequence model"
+      ],
+      "evidence": "Trained on more than 100 million individual cell profiles across 68 tissues, AlphaGenome 2 identifies nearly twice as many gene expression-linked variants in specific human cell types as our previous model.",
+      "source_url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
     },
     {
       "id": "2026-11-10-anthropic-claude-sheets-and-whiteboards",
