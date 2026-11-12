@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-11T12:00:00Z",
+  "last_updated": "2026-11-12T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -61,7 +61,7 @@
         "name": "GPT-6 Astra",
         "provider": "OpenAI",
         "why": "Ranks near the frontier on SWE-bench and LMArena while integrating directly with OpenAI's Codex tooling.",
-        "benchmark_context": "LMArena Code 1786.1; 90.2% on SWE-bench Pro V2 HARD",
+        "benchmark_context": "LMArena Code 1764; 90.2% on SWE-bench Pro V2 HARD",
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT Plus ($20/month), then select GPT-6 Astra in Work or Codex.",
         "access": "paid",
@@ -73,8 +73,8 @@
         "pick_if": "Pick this when you already work in ChatGPT or Codex.",
         "sources_agreeing": 1,
         "sources_checked": 4,
-        "primary_score": 1786.1,
-        "checked": "2026-11-11"
+        "primary_score": 1764,
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -102,7 +102,11 @@
         "SWE-bench Pro",
         "LiveCodeBench",
         "Artificial Analysis Coding Index"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Claude Fable 5.2",
+        "since": "2026-11-12"
+      }
     },
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
@@ -167,7 +171,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +190,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +209,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -279,7 +283,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1526,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "runner_up": {
         "name": "Claude Opus 5.5",
@@ -298,7 +302,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1517,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +321,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -371,42 +375,42 @@
         "analyze"
       ],
       "leader": {
-        "name": "Claude Opus 5.5",
+        "name": "Claude Fable 5.2",
         "provider": "Anthropic",
-        "why": "Leads the hardest expert-level exam across every academic field.",
-        "benchmark_context": "Humanity's Last Exam 61.4%.",
+        "why": "Leads the hardest expert-level exams across advanced mathematics, physics, and multidisciplinary scientific reasoning.",
+        "benchmark_context": "Humanity's Last Exam 74.3%.",
         "direct_link": "https://claude.ai",
-        "where_to_get": "Claude app, Pro plan ($20/month), choose Opus 5.5.",
+        "where_to_get": "Claude app, Pro plan ($20/month) or higher, choose Claude Fable 5.2.",
         "access": "paid",
-        "cost": "Pro is $20/month, or $17 if billed yearly. API is $4 per million input tokens and $20 per million output.",
-        "free_tier": "Not on the free plan. Opus needs Pro or Max.",
-        "when_not": "Do not trust a proof you have not checked. Ask it to show the steps.",
-        "starter_prompt": "Solve this step by step, and mark any step you are not sure about.",
+        "cost": "Pro is $20/month, or $17 if billed yearly. API is $8 per million input tokens and $40 per million output.",
+        "free_tier": "Not on the free plan. Fable requires a paid plan or API access.",
+        "when_not": "Skip it for everyday questions or routine math where standard models are faster and cheaper.",
+        "starter_prompt": "Solve this step by step, citing theorems used and highlighting any potential edge cases.",
         "source_url": "https://artificialanalysis.ai/",
-        "pick_if": "Pick this for hard math, proofs, and expert questions.",
+        "pick_if": "Pick this for the most difficult graduate-level reasoning, advanced proofs, and scientific research.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 61.4,
-        "checked": "2026-11-10"
+        "primary_score": 74.3,
+        "checked": "2026-11-12"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
         "provider": "OpenAI",
-        "why": "Highest score on graduate-level science questions written by PhD experts.",
-        "benchmark_context": "#1 GPQA Diamond (96.1%).",
+        "why": "Saturates premier mathematics benchmarks while excelling at graduate-level scientific problems and complex proofs.",
+        "benchmark_context": "FrontierMath Tier 4 (98%).",
         "direct_link": "https://chatgpt.com",
-        "where_to_get": "ChatGPT Plus, then choose GPT-6 Astra in Work or Codex.",
+        "where_to_get": "ChatGPT Plus ($20/month), then select GPT-6 Astra.",
         "access": "paid",
-        "cost": "Needs a paid ChatGPT plan. API is $10 per million input tokens and $50 per million output.",
-        "free_tier": "Not on the free plan. Plus includes limited Astra use in Work and Codex.",
-        "when_not": "Skip it for a quick arithmetic check. A fast model is enough.",
+        "cost": "ChatGPT Plus is $20/month. API is $10 per million input tokens and $50 per million output.",
+        "free_tier": "Not on the free plan. Plus includes limited Astra access.",
+        "when_not": "Skip it for routine arithmetic or simple code scripts.",
         "starter_prompt": "Work this graduate-level question and cite the principle behind each step.",
-        "source_url": "https://artificialanalysis.ai/",
-        "pick_if": "Pick this for graduate-level science questions.",
+        "source_url": "https://epoch.ai/frontiermath",
+        "pick_if": "Pick this when tackling research-grade mathematics and specialized PhD-level science.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": null,
-        "checked": "2026-11-11"
+        "primary_score": 57.2,
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "Kimi K3.1 Pro",
@@ -425,7 +429,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 52.5,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -434,11 +438,7 @@
         "GPQA Diamond",
         "FrontierMath",
         "Artificial Analysis Intelligence Index"
-      ],
-      "pending_leader": {
-        "name": "Claude Fable 5.2",
-        "since": "2026-11-11"
-      }
+      ]
     },
     "low_latency": {
       "display_name": "Speed & High Volume",
@@ -481,7 +481,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 412,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "runner_up": {
         "name": "Claude Haiku 5.5",
@@ -500,7 +500,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 237,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "DeepSeek V4.1 Flash",
@@ -519,7 +519,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -556,23 +556,23 @@
         "what should"
       ],
       "leader": {
-        "name": "Gemini 4 Argon",
+        "name": "Gemini 4 Carbon",
         "provider": "Google",
         "why": "The highest-rated model overall in blind votes from millions of real users, across every kind of question.",
-        "benchmark_context": "LMArena Text overall 1520",
+        "benchmark_context": "LMArena Text overall 1526",
         "direct_link": "https://gemini.google.com",
-        "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
+        "where_to_get": "Gemini app, Google AI Ultra ($99.99/month), choose Gemini 4 Carbon.",
         "access": "paid",
-        "cost": "Google AI Pro is $19.99/month. API is $2 per million input tokens until Nov 30, 2026, then $4.",
+        "cost": "Google AI Ultra is $99.99/month. API is $2 per million input tokens and $10 per million output until Nov 30, 2026, then $4 and $20.",
         "free_tier": "Not on the free plan. Everyday Gemini on the free plan is a smaller Flash model.",
-        "when_not": "Skip it for a narrow job another category already wins, such as code or contracts.",
+        "when_not": "Skip it if you do not want an expensive Ultra subscription when cheaper models handle basic tasks.",
         "starter_prompt": "Help me plan this. Ask one clarifying question, then give a short next step.",
         "source_url": "https://lmarena.ai/",
-        "pick_if": "Pick this when you have everyday questions that are not a specialist job.",
-        "sources_agreeing": 1,
-        "sources_checked": 1,
-        "primary_score": 1520,
-        "checked": "2026-11-10"
+        "pick_if": "Pick this when you have everyday questions and want the deepest reasoning and highest-rated quality.",
+        "sources_agreeing": 3,
+        "sources_checked": 3,
+        "primary_score": 1526,
+        "checked": "2026-11-12"
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
@@ -591,7 +591,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -610,7 +610,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
@@ -618,11 +618,7 @@
         "LMArena Text overall",
         "Artificial Analysis Intelligence Index",
         "LMArena Text hard prompts"
-      ],
-      "pending_leader": {
-        "name": "Gemini 4 Carbon",
-        "since": "2026-11-11"
-      }
+      ]
     },
     "images": {
       "display_name": "Images",
@@ -660,7 +656,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1429,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
@@ -679,7 +675,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1319,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -698,7 +694,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1223,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       }
     },
     "video": {
@@ -733,7 +729,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1540,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "runner_up": {
         "name": "Dreamina Seedance 2.0",
@@ -752,7 +748,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1483,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "Wan 2.2 A14B",
@@ -771,7 +767,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1132,
-        "checked": "2026-11-11"
+        "checked": "2026-11-12"
       }
     },
     "research": {
@@ -790,10 +786,29 @@
         "LMArena Search"
       ],
       "leader": {
+        "name": "Qwen3.8-Max",
+        "provider": "Alibaba",
+        "why": "Leads the public board for models that search the web.",
+        "benchmark_context": "LMArena Search 1260.",
+        "direct_link": "https://chat.qwen.ai",
+        "where_to_get": "Qwen Studio at chat.qwen.ai, and select Qwen3.8-Max with search enabled.",
+        "access": "free_limited",
+        "cost": "Free on the web interface, with paid API pricing per token.",
+        "free_tier": "A free plan is available on the web with usage limits.",
+        "when_not": "Skip it when you require strict enterprise data boundaries under Western jurisdictions.",
+        "starter_prompt": "Research this topic thoroughly and cite each source used.",
+        "source_url": "https://lmarena.ai/leaderboard/search",
+        "pick_if": "Pick this when you want the highest-rated search model on the leaderboard.",
+        "sources_agreeing": 1,
+        "sources_checked": 1,
+        "primary_score": 1260,
+        "checked": "2026-11-12"
+      },
+      "runner_up": {
         "name": "GPT-5.6 Sol",
         "provider": "OpenAI",
-        "why": "Leads the public board for models that search the web.",
-        "benchmark_context": "LMArena Search 1261.",
+        "why": "The second-ranked model on the search board and top option from OpenAI.",
+        "benchmark_context": "LMArena Search 1258.",
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT with search, and select GPT-5.6 Sol.",
         "access": "paid",
@@ -802,36 +817,17 @@
         "when_not": "Skip it when you need a citation you can open and the answer does not show one.",
         "starter_prompt": "Research this question. Name each source you used, and say what it does not answer.",
         "source_url": "https://lmarena.ai/leaderboard/search",
-        "pick_if": "Pick this when the answer has to come from current sources.",
+        "pick_if": "Pick this when you already work in ChatGPT and want top search performance.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1261,
-        "checked": "2026-11-10"
-      },
-      "runner_up": {
-        "name": "Claude Opus 4.6",
-        "provider": "Anthropic",
-        "why": "A top search model from another provider on the same board.",
-        "benchmark_context": "LMArena Search 1251.",
-        "direct_link": "https://claude.ai",
-        "where_to_get": "Claude with web search, and select Opus 4.6.",
-        "access": "paid",
-        "cost": "Uses a Claude plan. Check the plan page for the current price.",
-        "free_tier": "A free plan may include limited search.",
-        "when_not": "Skip it if you need the single highest score on the search board.",
-        "starter_prompt": "Research this question. Separate what the sources say from what is still unknown.",
-        "source_url": "https://lmarena.ai/leaderboard/search",
-        "pick_if": "Pick this when you already work in Claude.",
-        "sources_agreeing": 1,
-        "sources_checked": 1,
-        "primary_score": 1251,
-        "checked": "2026-11-10"
+        "primary_score": 1258,
+        "checked": "2026-11-12"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
         "provider": "Diffbot",
         "why": "The open-weights model with a verified score on the search leaderboard.",
-        "benchmark_context": "LMArena Search 1024. Apache 2.0 weights.",
+        "benchmark_context": "LMArena Search 1062. Apache 2.0 weights.",
         "direct_link": "https://huggingface.co/diffbot/Diffbot-Small-XL-2508",
         "where_to_get": "Diffbot, or the published weights for Diffbot-Small-XL on Hugging Face.",
         "access": "free_limited",
@@ -843,12 +839,8 @@
         "pick_if": "Pick this when the research stack has to use downloadable weights.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1024,
-        "checked": "2026-11-11"
-      },
-      "pending_leader": {
-        "name": "Qwen3.8-Max",
-        "since": "2026-11-11"
+        "primary_score": 1062,
+        "checked": "2026-11-12"
       }
     }
   }

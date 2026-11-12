@@ -86,6 +86,30 @@
       "date": "2026-11-08",
       "type": "change",
       "evidence": "LMArena Creative Writing 1525"
+    },
+    {
+      "category": "reasoning_math",
+      "leader": "Claude Fable 5.2",
+      "previous": "Claude Opus 5.5",
+      "date": "2026-11-12",
+      "type": "change",
+      "evidence": "Humanity's Last Exam 74.3%."
+    },
+    {
+      "category": "general",
+      "leader": "Gemini 4 Carbon",
+      "previous": "Gemini 4 Argon",
+      "date": "2026-11-12",
+      "type": "change",
+      "evidence": "LMArena Text overall 1526"
+    },
+    {
+      "category": "research",
+      "leader": "Qwen3.8-Max",
+      "previous": "GPT-5.6 Sol",
+      "date": "2026-11-12",
+      "type": "change",
+      "evidence": "LMArena Search 1260."
     }
   ]
 }

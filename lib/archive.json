@@ -19,6 +19,16 @@
       "free_tier": "A free plan may not include this model.",
       "direct_link": "https://gemini.google.com",
       "access": "paid"
+    },
+    {
+      "name": "Claude Opus 4.6",
+      "provider": "Anthropic",
+      "slug": "claude-opus-4-6",
+      "where_to_get": "Claude with web search, and select Opus 4.6.",
+      "cost": "Uses a Claude plan. Check the plan page for the current price.",
+      "free_tier": "A free plan may include limited search.",
+      "direct_link": "https://claude.ai",
+      "access": "paid"
     }
   ]
 }
