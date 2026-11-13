@@ -1,6 +1,40 @@
 {
-  "last_checked": "2026-11-12T23:32:30Z",
+  "last_checked": "2026-11-13T06:33:06Z",
   "entries": [
+    {
+      "id": "2026-11-12-anthropic-claude-meetings",
+      "date": "2026-11-12",
+      "added": "2026-11-13",
+      "name": "Claude Meetings",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Claude Meetings is rolling out in beta for Google Meet to take notes, answer questions, and build artifacts during live calls.",
+      "features": [
+        "Google Meet",
+        "Meeting notes",
+        "Artifact creation"
+      ],
+      "evidence": "Claude Meetings is rolling out in beta on Team and Enterprise plans in Claude and Claude Desktop. You can add Claude to a Google Meet call as a visible participant that takes notes, answers questions, and builds artifacts, such as docs, whiteboards, and slides, during the call.",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes"
+    },
+    {
+      "id": "2026-11-12-anthropic-self-hosted-claude-managed-agents",
+      "date": "2026-11-12",
+      "added": "2026-11-13",
+      "name": "Self-hosted Claude Managed Agents",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Anthropic launched self-hosted Claude Managed Agents, enabling organizations to run the complete managed agent service on their own infrastructure.",
+      "features": [
+        "Self-hosted",
+        "Managed Agents",
+        "Infrastructure"
+      ],
+      "evidence": "We've launched self-hosted Claude Managed Agents. You run the whole Managed Agents service, not only self-hosted sandboxes, on your own infrastructure, and you store agents, sessions, and session history there.",
+      "source_url": "https://platform.claude.com/docs/en/release-notes/overview"
+    },
     {
       "id": "2026-11-12-google-gemini-4-hydrogen",
       "date": "2026-11-12",
@@ -17,6 +51,24 @@
       ],
       "evidence": "Gemini 4 Hydrogen is priced flat across its entire 1 million-token context window at $1.50 per million input tokens and $7.50 per million output tokens.",
       "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+    },
+    {
+      "id": "2026-11-11-microsoft-bring-your-own-model-in-visual-studio",
+      "date": "2026-11-11",
+      "added": "2026-11-13",
+      "name": "Bring Your Own Model in Visual Studio",
+      "provider": "Microsoft",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Microsoft released Bring Your Own Model as generally available in Visual Studio 18.12, allowing developers to connect custom or local AI models.",
+      "features": [
+        "Visual Studio",
+        "BYOM",
+        "Custom endpoints",
+        "Local models"
+      ],
+      "evidence": "Bring Your Own Model (BYOM) is now generally available in Visual Studio 18.12. Since the August Preview, your feedback has shaped improvements for team deployments, enterprise networks, and personal projects.",
+      "source_url": "https://devblogs.microsoft.com/visualstudio/bring-your-own-model-is-now-generally-available-in-visual-studio/"
     },
     {
       "id": "2026-11-11-alibaba-cloud-qwen4-max-preview",
