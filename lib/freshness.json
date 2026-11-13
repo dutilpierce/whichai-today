@@ -1,16 +1,16 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-12",
-      "hash": "345d795ecd88e904"
+      "changed": "2026-11-13",
+      "hash": "72fce06241c46e29"
     },
     "/releases": {
       "changed": "2026-11-12",
       "hash": "9e5901644d2d1c23"
     },
     "/coding": {
-      "changed": "2026-11-12",
-      "hash": "9a216c4095b6d1c0"
+      "changed": "2026-11-13",
+      "hash": "6213cf8f3dfc9296"
     },
     "/legal": {
       "changed": "2026-10-24",
@@ -29,8 +29,8 @@
       "hash": "cf53322bb3bddb35"
     },
     "/general": {
-      "changed": "2026-11-12",
-      "hash": "db5f0ff08cabefe5"
+      "changed": "2026-11-13",
+      "hash": "df6c0c15d8595ea7"
     },
     "/images": {
       "changed": "2026-11-11",
@@ -45,8 +45,8 @@
       "hash": "a3adaf78f4e47722"
     },
     "/models/claude-opus-5-5": {
-      "changed": "2026-11-12",
-      "hash": "c96a045b0e4306f9"
+      "changed": "2026-11-13",
+      "hash": "f946fe58df92081c"
     },
     "/models/gpt-6-astra": {
       "changed": "2026-11-12",
@@ -89,8 +89,8 @@
       "hash": "636efaff7e85d902"
     },
     "/models/gemini-4-carbon": {
-      "changed": "2026-11-12",
-      "hash": "cc8ce60080e283e8"
+      "changed": "2026-11-13",
+      "hash": "6e2092e5c5f3a087"
     },
     "/models/gpt-6-1-sol": {
       "changed": "2026-11-10",
@@ -157,20 +157,20 @@
       "hash": "84ec403f134a4913"
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
-      "changed": "2026-11-12",
-      "hash": "6d961929003b1e0b"
+      "changed": "2026-11-13",
+      "hash": "a4b79c8cadf16eac"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
-      "changed": "2026-11-12",
-      "hash": "d44278f55966c5cb"
+      "changed": "2026-11-13",
+      "hash": "1066086e58b457e6"
     },
     "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-2-flash": {
       "changed": "2026-11-11",
       "hash": "d9fb449c89e56ccf"
     },
     "/compare/gemini-4-carbon-vs-gpt-6-1-sol": {
-      "changed": "2026-11-12",
-      "hash": "e71b82f976b2ead2"
+      "changed": "2026-11-13",
+      "hash": "79bebc5780e6f20f"
     },
     "/compare/gpt-5-6-sol-vs-qwen3-8-max": {
       "changed": "2026-11-12",
@@ -661,8 +661,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-12",
-      "hash": "84d4f730bbbca091"
+      "changed": "2026-11-13",
+      "hash": "9df1bbc3b9c5aca7"
     },
     "/privacy": {
       "changed": "2026-11-12",
