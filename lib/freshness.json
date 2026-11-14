@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-13",
-      "hash": "c2d7b68674433222"
+      "changed": "2026-11-14",
+      "hash": "0d62609b76827e89"
     },
     "/releases": {
       "changed": "2026-11-13",
@@ -17,12 +17,12 @@
       "hash": "7f6dbd12f50f9621"
     },
     "/writing": {
-      "changed": "2026-11-09",
-      "hash": "1b29d126ff3e2a63"
+      "changed": "2026-11-14",
+      "hash": "43e202eb67aacb32"
     },
     "/reasoning": {
-      "changed": "2026-11-12",
-      "hash": "e24f024d8ce8a802"
+      "changed": "2026-11-14",
+      "hash": "5c99c663025f2842"
     },
     "/speed": {
       "changed": "2026-10-31",
@@ -61,16 +61,16 @@
       "hash": "615b36f865c87092"
     },
     "/models/gemini-4-argon": {
-      "changed": "2026-11-12",
-      "hash": "0af428b9eb1b4883"
+      "changed": "2026-11-14",
+      "hash": "0f92c254e0f42ca6"
     },
     "/models/mimo-v2-6-pro": {
       "changed": "2026-11-11",
       "hash": "dc4bb33009f9a50b"
     },
     "/models/claude-fable-5-2": {
-      "changed": "2026-11-12",
-      "hash": "0dbeee00751dcdfe"
+      "changed": "2026-11-14",
+      "hash": "1ab69d21deed77a4"
     },
     "/models/kimi-k3-1-pro": {
       "changed": "2026-11-11",
@@ -145,20 +145,20 @@
       "hash": "a392549b86f500c7"
     },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
-      "changed": "2026-11-12",
-      "hash": "e867b0a864179c5a"
+      "changed": "2026-11-14",
+      "hash": "cbfaaba03fed5daf"
     },
     "/compare/claude-fable-5-2-vs-gpt-6-astra": {
-      "changed": "2026-11-12",
-      "hash": "7816ec5d5a9d9480"
+      "changed": "2026-11-14",
+      "hash": "740d0bf949c4c3af"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
       "changed": "2026-10-31",
       "hash": "84ec403f134a4913"
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
-      "changed": "2026-11-13",
-      "hash": "a4b79c8cadf16eac"
+      "changed": "2026-11-14",
+      "hash": "bdfa30bcaabed151"
     },
     "/compare/claude-opus-5-5-vs-gpt-6-astra": {
       "changed": "2026-11-13",
@@ -661,8 +661,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-13",
-      "hash": "9df1bbc3b9c5aca7"
+      "changed": "2026-11-14",
+      "hash": "aac4f208cfeb26d1"
     },
     "/privacy": {
       "changed": "2026-11-12",

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-13T12:00:00Z",
+  "last_updated": "2026-11-14T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -55,7 +55,7 @@
         "sources_agreeing": 3,
         "sources_checked": 4,
         "primary_score": 1813,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -74,7 +74,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": 1764,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -167,7 +167,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +186,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +205,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -266,7 +266,7 @@
         "name": "Gemini 4 Argon",
         "provider": "Google",
         "why": "Leads the writing leaderboard with versatile tone control and strong drafting capability.",
-        "benchmark_context": "LMArena Creative Writing 1526",
+        "benchmark_context": "LMArena Creative Writing 1523",
         "direct_link": "https://gemini.google.com",
         "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
         "access": "paid",
@@ -278,8 +278,8 @@
         "pick_if": "Pick this when you want a strong draft and already use Gemini.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1526,
-        "checked": "2026-11-13"
+        "primary_score": 1523,
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "Claude Opus 5.5",
@@ -298,7 +298,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1517,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +317,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -383,11 +383,11 @@
         "when_not": "Skip it for everyday questions or routine math where standard models are faster and cheaper.",
         "starter_prompt": "Solve this step by step, citing theorems used and highlighting any potential edge cases.",
         "source_url": "https://artificialanalysis.ai/",
-        "pick_if": "Pick this for the most difficult graduate-level reasoning, advanced proofs, and scientific research.",
+        "pick_if": "Pick this when tackling the most difficult graduate-level reasoning, advanced proofs, and scientific research.",
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 74.3,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -406,7 +406,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 57.2,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "Kimi K3.1 Pro",
@@ -425,7 +425,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 52.5,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -477,7 +477,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 412,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "Claude Haiku 5.5",
@@ -496,7 +496,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 237,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "DeepSeek V4.1 Flash",
@@ -515,7 +515,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -568,7 +568,7 @@
         "sources_agreeing": 1,
         "sources_checked": 3,
         "primary_score": 1526,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "GPT-6.1 Sol",
@@ -587,7 +587,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -606,7 +606,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
@@ -652,7 +652,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1429,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
@@ -671,7 +671,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1319,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -690,7 +690,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1223,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       }
     },
     "video": {
@@ -725,7 +725,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1540,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "Dreamina Seedance 2.0",
@@ -744,7 +744,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1483,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "Wan 2.2 A14B",
@@ -763,7 +763,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1132,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       }
     },
     "research": {
@@ -798,7 +798,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1260,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "runner_up": {
         "name": "GPT-5.6 Sol",
@@ -817,7 +817,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1258,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
@@ -836,7 +836,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1062,
-        "checked": "2026-11-13"
+        "checked": "2026-11-14"
       }
     }
   }
