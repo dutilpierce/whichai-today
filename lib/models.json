@@ -102,7 +102,11 @@
         "SWE-bench Pro",
         "LiveCodeBench",
         "Artificial Analysis Coding Index"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Claude Fable 5.2",
+        "since": "2026-11-14"
+      }
     },
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
@@ -658,7 +662,7 @@
         "name": "Grok Imagine Image 2.0",
         "provider": "xAI",
         "why": "The strongest consumer image model from another provider on the board.",
-        "benchmark_context": "LMArena Text-to-Image 1319.",
+        "benchmark_context": "LMArena Text-to-Image 1318.",
         "direct_link": "https://grok.com",
         "where_to_get": "Grok, choose a Premium plan, and select Grok Imagine Image 2.0.",
         "access": "paid",
@@ -670,7 +674,7 @@
         "pick_if": "Pick this when you already use Grok.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1319,
+        "primary_score": 1318,
         "checked": "2026-11-14"
       },
       "open_source_pick": {
