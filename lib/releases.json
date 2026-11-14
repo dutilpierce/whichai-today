@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-13T06:33:06Z",
+  "last_checked": "2026-11-14T06:11:25Z",
   "entries": [
+    {
+      "id": "2026-11-12-salesforce-sov-transcribe-1",
+      "date": "2026-11-12",
+      "added": "2026-11-14",
+      "name": "SOV-Transcribe-1",
+      "provider": "Salesforce",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Salesforce released SOV-Transcribe-1, an open-weight 26.6-billion-parameter speech model for non-streaming transcription with style steering and context biasing.",
+      "features": [
+        "Speech recognition",
+        "Open weights",
+        "26.6B parameters",
+        "Multilingual ASR"
+      ],
+      "evidence": "SOV-Transcribe-1 is Salesforce's open-weight speech-augmented language model built for non-streaming automatic speech recognition (ASR)... Total parameters, 26.6B total (4.6B active)... License, Apache 2.0.",
+      "source_url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+    },
     {
       "id": "2026-11-12-anthropic-claude-meetings",
       "date": "2026-11-12",

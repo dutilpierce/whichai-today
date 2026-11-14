@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-11-14",
-      "hash": "0d62609b76827e89"
+      "hash": "29f83783322dc044"
     },
     "/releases": {
-      "changed": "2026-11-13",
-      "hash": "5bbd28bf64af937b"
+      "changed": "2026-11-14",
+      "hash": "435deb6e2d525ddc"
     },
     "/coding": {
       "changed": "2026-11-13",
@@ -183,6 +183,10 @@
     "/compare": {
       "changed": "2026-11-12",
       "hash": "7c9445913f99ed46"
+    },
+    "/releases/2026-11-12-salesforce-sov-transcribe-1": {
+      "changed": "2026-11-14",
+      "hash": "25a70e39bd132d67"
     },
     "/releases/2026-11-12-google-gemini-4-hydrogen": {
       "changed": "2026-11-12",
