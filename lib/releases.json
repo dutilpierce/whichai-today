@@ -1,6 +1,40 @@
 {
-  "last_checked": "2026-11-14T06:11:25Z",
+  "last_checked": "2026-11-16T14:37:13Z",
   "entries": [
+    {
+      "id": "2026-11-16-openai-computer-use-agents-for-healthcare",
+      "date": "2026-11-16",
+      "added": "2026-11-16",
+      "name": "Computer-use agents for healthcare",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI launched computer-use agents for clinical and administrative healthcare workflows across ChatGPT for Healthcare, ChatGPT for Clinicians, and its API.",
+      "features": [
+        "Computer use",
+        "Healthcare",
+        "Agents"
+      ],
+      "evidence": "Computer-use agents for healthcare are available today in ChatGPT for Healthcare, ChatGPT for Clinicians, and the OpenAI API.",
+      "source_url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams/"
+    },
+    {
+      "id": "2026-11-13-openai-chatgpt-wallet",
+      "date": "2026-11-13",
+      "added": "2026-11-16",
+      "name": "ChatGPT Wallet",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "ChatGPT Wallet enables agents to make purchases on users' behalf using substitute payment credentials authorized through biometric checks.",
+      "features": [
+        "Agent payments",
+        "Biometric auth",
+        "Security"
+      ],
+      "evidence": "ChatGPT Wallet helps your dot go from finding what you need to making a purchase on your behalf... authorize the purchase using biometrics such as Face ID or Touch ID. Wallet provides a substitute payment credential for checkout",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
     {
       "id": "2026-11-12-salesforce-sov-transcribe-1",
       "date": "2026-11-12",
@@ -69,6 +103,23 @@
       ],
       "evidence": "Gemini 4 Hydrogen is priced flat across its entire 1 million-token context window at $1.50 per million input tokens and $7.50 per million output tokens.",
       "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+    },
+    {
+      "id": "2026-11-11-xai-grok-bot-meetings-and-calls",
+      "date": "2026-11-11",
+      "added": "2026-11-16",
+      "name": "Grok Bot Meetings and Calls",
+      "provider": "xAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Grok Bot can now join Google Meet, Zoom, or Microsoft Teams calls to answer live questions and provide summaries.",
+      "features": [
+        "Meeting assistant",
+        "Video calls",
+        "Summarization"
+      ],
+      "evidence": "On Team, Enterprise, and Ultra plans, a Bot can join a Google Meet, Zoom, or Microsoft Teams call from a link, answer in the meeting chat, and send a summary afterward.",
+      "source_url": "https://x.ai/changelog/bot"
     },
     {
       "id": "2026-11-11-microsoft-bring-your-own-model-in-visual-studio",
@@ -153,6 +204,23 @@
       ],
       "evidence": "Trained on more than 100 million individual cell profiles across 68 tissues, AlphaGenome 2 identifies nearly twice as many gene expression-linked variants in specific human cell types as our previous model.",
       "source_url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
+    },
+    {
+      "id": "2026-11-10-google-swarm-in-google-antigravity",
+      "date": "2026-11-10",
+      "added": "2026-11-16",
+      "name": "/swarm in Google Antigravity",
+      "provider": "Google",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Google introduced /swarm in Google Antigravity, orchestrating coordinated teams of specialized agents to plan, code, and verify software in parallel.",
+      "features": [
+        "Multi-agent",
+        "Coding",
+        "Antigravity"
+      ],
+      "evidence": "we're rolling out Gemini 4 Carbon inside Google Antigravity alongside /swarm (in preview), pairing our strongest model... with native multi-agent team orchestration... orchestrating a coordinated system of specialized agents that plan, build, and verify in parallel.",
+      "source_url": "https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity/"
     },
     {
       "id": "2026-11-10-anthropic-claude-sheets-and-whiteboards",
