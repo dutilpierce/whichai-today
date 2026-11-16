@@ -1,5 +1,6 @@
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
+import { after } from "next/server";
 
 const memory = new Map<string, { count: number; reset: number }>();
 const limiters = new Map<string, Ratelimit>();
@@ -70,6 +71,32 @@ export async function cached(key: string, seconds: number, load: () => Promise<s
     console.error("cache write skipped", error);
   }
   return value;
+}
+
+/** A stored value, or null when there is none or storage is off. Never throws. */
+export async function readCache(key: string) {
+  const client = redis();
+  if (!client) return null;
+  try {
+    const hit = await client.get<string>(key);
+    return typeof hit === "string" && hit.trim() ? hit : null;
+  } catch (error) {
+    console.error("cache read skipped", error);
+    return null;
+  }
+}
+
+/** Store a value after the response is sent, so writing it never slows the request. */
+export function writeCacheLater(key: string, value: string, seconds: number) {
+  const client = redis();
+  if (!client) return;
+  after(async () => {
+    try {
+      await client.set(key, value, { ex: seconds });
+    } catch (error) {
+      console.error("cache write skipped", error);
+    }
+  });
 }
 
 export function storageEnabled() {

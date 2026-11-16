@@ -57,10 +57,22 @@ function jobLines(models) {
     .join("\n");
 }
 
-/** Tracked names the apps were not researched against yet. A file with no list counts every name as new. */
-export function newNames(names, previous) {
-  const seen = new Set(previous?.tracked ?? []);
+/**
+ * Tracked names an app was not researched against yet. A file with no list counts every name as new.
+ * With a slug, names that app already finished in an earlier partial run count as seen, so only failed apps run again.
+ */
+export function newNames(names, previous, slug) {
+  const seen = new Set([...(previous?.tracked ?? []), ...(slug ? (previous?.done?.[slug] ?? []) : [])]);
   return [...names].filter((name) => !seen.has(name));
+}
+
+/** What to store after a run: the full list once every app has caught up, otherwise each finished app's progress. */
+export function progress(names, previous, finished) {
+  const all = [...names].sort();
+  const done = { ...(previous?.done ?? {}) };
+  for (const slug of finished) done[slug] = all;
+  const caughtUp = APP_SEEDS.every((seed) => !newNames(names, { ...previous, done }, seed.slug).length);
+  return caughtUp ? { tracked: all } : { tracked: previous?.tracked ?? [], done };
 }
 
 /** Add the mappings a fresh answer found for new names to the stored app, and change nothing else. */
@@ -158,7 +170,7 @@ async function research(today, seed, names, jobs) {
         contents: [{ role: "user", parts: [{ text: prompt(today, seed, names, jobs) }] }],
         tools: [{ google_search: {} }],
       }),
-      signal: AbortSignal.timeout(90_000),
+      signal: AbortSignal.timeout(180_000),
     },
   );
   if (!res.ok) throw new Error(`Gemini returned ${res.status}: ${await res.text()}`);
@@ -263,6 +275,20 @@ function selfCheck() {
 
   assert(newNames(new Set(["Alpha", "Beta"]), { tracked: ["Alpha"] }).join() === "Beta", "only untracked names are new");
   assert(newNames(new Set(["Alpha"]), {}).join() === "Alpha", "a file with no list treats every name as new");
+  assert(
+    newNames(new Set(["Alpha", "Beta"]), { tracked: [], done: { chatgpt: ["Alpha", "Beta"] } }, "chatgpt").length === 0,
+    "an app that finished in an earlier run has nothing new",
+  );
+  assert(
+    newNames(new Set(["Alpha"]), { tracked: [], done: { chatgpt: ["Alpha"] } }, "claude").join() === "Alpha",
+    "another app's progress does not count",
+  );
+  const partial = progress(new Set(["Alpha"]), { tracked: [] }, ["chatgpt"]);
+  assert(partial.tracked.length === 0 && partial.done.chatgpt.join() === "Alpha", "a partial run stores per-app progress");
+  const whole = progress(new Set(["Alpha"]), { tracked: [] }, APP_SEEDS.map((seed) => seed.slug));
+  assert(whole.tracked.join() === "Alpha" && !whole.done, "a complete run stores the full list and clears progress");
+  const later = progress(new Set(["Alpha", "Beta"]), { tracked: ["Alpha"], done: { chatgpt: ["Alpha", "Beta"] } }, ["claude"]);
+  assert(later.done.claude.join() === "Alpha,Beta" && later.done.chatgpt.join() === "Alpha,Beta", "progress adds up across runs");
 
   const stored = { slug: "demo", plans: [{ name: "Plus" }], models: [{ name: "Alpha", plan: "Plus" }], checked: "2026-10-01" };
   const merged = addMappings(
@@ -285,29 +311,35 @@ async function main() {
   const kept = new Map((previous.apps ?? []).map((app) => [app.slug, app]));
   // --missing runs after each rankings refresh: it only adds apps for models that just became tracked.
   const missing = process.argv.includes("--missing");
-  const added = newNames(names, previous);
-  if (missing && !added.length) {
+  const todo = new Map(APP_SEEDS.map((seed) => [seed.slug, newNames(names, previous, seed.slug)]));
+  if (missing && ![...todo.values()].some((list) => list.length)) {
     console.log("apps: every tracked model was already researched");
     return;
   }
-  if (missing) console.log(`apps: looking for ${added.join(", ")}`);
+  if (missing) console.log(`apps: looking for ${newNames(names, previous).join(", ")}`);
   const apps = [];
-  let failed = false;
+  const finished = [];
   for (const seed of APP_SEEDS) {
+    const stored = kept.get(seed.slug);
+    const added = todo.get(seed.slug);
+    // An app that already finished these names in an earlier run is not researched again.
+    if (missing && stored && !added.length) {
+      apps.push(stored);
+      console.log(`apps: ${seed.slug} already checked`);
+      continue;
+    }
     try {
       const fresh = await research(today, seed, names, jobs);
-      const stored = kept.get(seed.slug);
       apps.push(missing && stored ? addMappings(stored, fresh, added) : fresh);
+      finished.push(seed.slug);
       console.log(`apps: ${seed.slug} ${missing ? "checked" : "updated"}`);
     } catch (error) {
-      failed = true;
       console.warn(`apps: ${seed.slug} kept previous (${error instanceof Error ? error.message : error})`);
-      if (kept.has(seed.slug)) apps.push(kept.get(seed.slug));
+      if (stored) apps.push(stored);
     }
   }
-  // A failed app keeps the old list, so the next run looks for the same names again.
-  const tracked = failed ? (previous.tracked ?? []) : [...names].sort();
-  await writeFile(APPS_FILE, `${JSON.stringify({ apps, tracked }, null, 2)}\n`);
+  // A failed app keeps its old progress, so the next run looks for the same names again, for that app only.
+  await writeFile(APPS_FILE, `${JSON.stringify({ apps, ...progress(names, previous, finished) }, null, 2)}\n`);
   if (!missing) await warnGuideLinks();
   console.log(`apps: ${apps.length} written`);
 }

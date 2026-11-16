@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   }
 
   const rules = promptRulesInput(target);
-  const key = promptKey(query, category, tweaks);
+  const key = promptKey(query, category, tweaks, target);
 
   try {
     const prompt = await cached(key, CACHE_SECONDS, async () => {

@@ -3,11 +3,13 @@ import models from "./models.json";
 
 const SLOTS = ["leader", "runner_up", "open_source_pick"] as const;
 
-export function promptKey(query: string, category: string, tweaks: string[]) {
+/** A saved prompt is written for one model, so the model is part of the key. */
+export function promptKey(query: string, category: string, tweaks: string[], target: string) {
   const body = JSON.stringify({
     q: query.toLowerCase().replace(/\s+/g, " ").trim(),
     category,
     tweaks,
+    target,
   });
   return `prompt:${createHash("sha256").update(body).digest("hex")}`;
 }

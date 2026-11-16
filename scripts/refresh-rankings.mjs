@@ -167,7 +167,7 @@ async function research(today, category) {
         contents: [{ role: "user", parts: [{ text: prompt(today, category) }] }],
         tools: [{ google_search: {} }],
       }),
-      signal: AbortSignal.timeout(120_000),
+      signal: AbortSignal.timeout(240_000),
     },
   );
   if (!res.ok) throw new Error(`Gemini returned ${res.status}: ${await res.text()}`);
