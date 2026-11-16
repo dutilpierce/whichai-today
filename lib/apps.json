@@ -82,6 +82,10 @@
         {
           "name": "Claude Opus 4.6",
           "plan": "Pro"
+        },
+        {
+          "name": "Claude Fable 5.2",
+          "plan": "Pro"
         }
       ],
       "plans": [
