@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-16T14:37:13Z",
+  "last_checked": "2026-11-16T21:57:01Z",
   "entries": [
     {
       "id": "2026-11-16-openai-computer-use-agents-for-healthcare",
@@ -17,6 +17,23 @@
       ],
       "evidence": "Computer-use agents for healthcare are available today in ChatGPT for Healthcare, ChatGPT for Clinicians, and the OpenAI API.",
       "source_url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams/"
+    },
+    {
+      "id": "2026-11-13-deepseek-deepseek-app-api",
+      "date": "2026-11-13",
+      "added": "2026-11-16",
+      "name": "DeepSeek App API",
+      "provider": "DeepSeek",
+      "kind": "feature",
+      "status": "available",
+      "summary": "DeepSeek made chat app capabilities available through its API, including web search, URL reading, file input, and voice tools.",
+      "features": [
+        "Web search",
+        "File input",
+        "URL reading"
+      ],
+      "evidence": "The full suite of DeepSeek application APIs is now available: web search, file input, URL reading, model safety, ASR, TTS and more.",
+      "source_url": "https://api-docs.deepseek.com/news/news261113/"
     },
     {
       "id": "2026-11-13-openai-chatgpt-wallet",
@@ -204,6 +221,40 @@
       ],
       "evidence": "Trained on more than 100 million individual cell profiles across 68 tissues, AlphaGenome 2 identifies nearly twice as many gene expression-linked variants in specific human cell types as our previous model.",
       "source_url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
+    },
+    {
+      "id": "2026-11-10-adobe-agentic-workflows-in-creative-cloud",
+      "date": "2026-11-10",
+      "added": "2026-11-16",
+      "name": "Agentic Workflows in Creative Cloud",
+      "provider": "Adobe",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Adobe introduced agentic workflows across Creative Cloud, adding Creative Agent, Relight, Color Mode, and Co-editing tools.",
+      "features": [
+        "Creative Agent",
+        "Agentic workflows",
+        "Co-editing"
+      ],
+      "evidence": "Adobe transforms Creative Cloud into agentic workflows, adding Creative Agent, Relight, Color Mode and Co-editing so pros can work faster with full control.",
+      "source_url": "https://news.adobe.com/news/2026/11/adobe-transforms-creative-cloud-tools"
+    },
+    {
+      "id": "2026-11-10-adobe-firefly-ai-creative-studio",
+      "date": "2026-11-10",
+      "added": "2026-11-16",
+      "name": "Firefly AI Creative Studio",
+      "provider": "Adobe",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Adobe expanded Firefly with Creative Agent, Quick Actions, Firefly Graph, and new tools for video, design, and image editing.",
+      "features": [
+        "Creative Agent",
+        "Firefly Graph",
+        "Video editing"
+      ],
+      "evidence": "At Adobe MAX 2026, Firefly adds Creative Agent, Quick Actions, Firefly Graph and new video, design and image tools to take creators from idea to finished work.",
+      "source_url": "https://news.adobe.com/news/2026/11/adobe-firefly-expands"
     },
     {
       "id": "2026-11-10-google-swarm-in-google-antigravity",
