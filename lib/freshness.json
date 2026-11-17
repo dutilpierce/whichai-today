@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-16",
-      "hash": "f8fa77077827accd"
+      "changed": "2026-11-17",
+      "hash": "f4f03e6002e2c05b"
     },
     "/releases": {
       "changed": "2026-11-16",
@@ -21,16 +21,16 @@
       "hash": "43e202eb67aacb32"
     },
     "/reasoning": {
-      "changed": "2026-11-14",
-      "hash": "5c99c663025f2842"
+      "changed": "2026-11-17",
+      "hash": "3faf17c0a65ca561"
     },
     "/speed": {
       "changed": "2026-10-31",
       "hash": "cf53322bb3bddb35"
     },
     "/general": {
-      "changed": "2026-11-13",
-      "hash": "df6c0c15d8595ea7"
+      "changed": "2026-11-17",
+      "hash": "0b8b5c2007315347"
     },
     "/images": {
       "changed": "2026-11-14",
@@ -69,8 +69,8 @@
       "hash": "dc4bb33009f9a50b"
     },
     "/models/claude-fable-5-2": {
-      "changed": "2026-11-14",
-      "hash": "1ab69d21deed77a4"
+      "changed": "2026-11-17",
+      "hash": "6941be518f61333c"
     },
     "/models/kimi-k3-1-pro": {
       "changed": "2026-11-11",
@@ -89,8 +89,8 @@
       "hash": "636efaff7e85d902"
     },
     "/models/gemini-4-carbon": {
-      "changed": "2026-11-13",
-      "hash": "6e2092e5c5f3a087"
+      "changed": "2026-11-17",
+      "hash": "053d4a9e66aff8ff"
     },
     "/models/gpt-6-1-sol": {
       "changed": "2026-11-10",
@@ -149,8 +149,8 @@
       "hash": "cbfaaba03fed5daf"
     },
     "/compare/claude-fable-5-2-vs-gpt-6-astra": {
-      "changed": "2026-11-14",
-      "hash": "740d0bf949c4c3af"
+      "changed": "2026-11-17",
+      "hash": "8156e90bab341340"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
       "changed": "2026-10-31",
@@ -169,8 +169,8 @@
       "hash": "d9fb449c89e56ccf"
     },
     "/compare/gemini-4-carbon-vs-gpt-6-1-sol": {
-      "changed": "2026-11-13",
-      "hash": "79bebc5780e6f20f"
+      "changed": "2026-11-17",
+      "hash": "b487124ea00bfa71"
     },
     "/compare/gpt-5-6-sol-vs-qwen3-8-max": {
       "changed": "2026-11-12",
@@ -665,8 +665,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-16",
-      "hash": "1d33282fc340d1fe"
+      "changed": "2026-11-17",
+      "hash": "23da602dd7c8c37b"
     },
     "/privacy": {
       "changed": "2026-11-12",
