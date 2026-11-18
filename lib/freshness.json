@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-11-18",
-      "hash": "205d2d897f03a825"
+      "hash": "5872e27d45011706"
     },
     "/releases": {
-      "changed": "2026-11-16",
-      "hash": "8f15ef21c5f21c34"
+      "changed": "2026-11-18",
+      "hash": "81d62a34080fe425"
     },
     "/coding": {
       "changed": "2026-11-13",
@@ -183,6 +183,18 @@
     "/compare": {
       "changed": "2026-11-12",
       "hash": "7c9445913f99ed46"
+    },
+    "/releases/2026-11-17-microsoft-mai-code-2-and-mai-code-2-flash": {
+      "changed": "2026-11-18",
+      "hash": "f7daa06c1613e6e0"
+    },
+    "/releases/2026-11-17-microsoft-microsoft-decision-1-1": {
+      "changed": "2026-11-18",
+      "hash": "acd0ff3079af4c97"
+    },
+    "/releases/2026-11-17-openai-gpt-6-2-astra-and-sol": {
+      "changed": "2026-11-18",
+      "hash": "f046132857a00e73"
     },
     "/releases/2026-11-12-salesforce-sov-transcribe-1": {
       "changed": "2026-11-14",

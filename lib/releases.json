@@ -1,6 +1,77 @@
 {
-  "last_checked": "2026-11-16T21:57:01Z",
+  "last_checked": "2026-11-18T20:25:42Z",
   "entries": [
+    {
+      "id": "2026-11-17-microsoft-mai-code-2-and-mai-code-2-flash",
+      "date": "2026-11-17",
+      "added": "2026-11-18",
+      "name": "MAI Code 2 and MAI Code 2 Flash",
+      "provider": "Microsoft",
+      "kind": "model",
+      "status": "available",
+      "summary": "Microsoft released MAI Code 2 and MAI Code 2 Flash, providing agentic software engineering and lightweight everyday coding models in GitHub Copilot and Foundry.",
+      "features": [
+        "Coding",
+        "Agentic",
+        "GitHub Copilot",
+        "Debugging"
+      ],
+      "evidence": "We are introducing our new flagship family of agentic coding models: Code 2... Code 2 Flash is designed for fast, high-volume work... These models are both generally available today on GitHub Copilot, both in the model picker and as part of Copilot Fusion. They are also available in Foundry.",
+      "source_url": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"
+    },
+    {
+      "id": "2026-11-17-microsoft-microsoft-decision-1-1",
+      "date": "2026-11-17",
+      "added": "2026-11-18",
+      "name": "Microsoft-Decision-1.1",
+      "provider": "Microsoft",
+      "kind": "update",
+      "status": "available",
+      "summary": "Microsoft made Microsoft-Decision-1.1 generally available, adding multimodal support and faster performance for structured decision-making and enterprise routing.",
+      "features": [
+        "Decision model",
+        "Multimodal",
+        "Enterprise routing",
+        "Foundry"
+      ],
+      "evidence": "And today we are thrilled to announce Microsoft-Decision-1.1, which is now generally available and ready for enterprise deployment. We have added multimodal support. And we have improved performance, making decisions more accurate and responses faster.",
+      "source_url": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"
+    },
+    {
+      "id": "2026-11-17-openai-chatgpt-for-sales",
+      "date": "2026-11-17",
+      "added": "2026-11-18",
+      "name": "ChatGPT for Sales",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI launched ChatGPT for Sales, introducing a dedicated Sales plugin alongside over 30 partner connectors to streamline sales workflows and CRM updates.",
+      "features": [
+        "Sales plugin",
+        "CRM connectors",
+        "Workflows"
+      ],
+      "evidence": "It brings together our new Sales plugin and 30+ new and enhanced partner plugins to put your sales tools and customer context to work—so your team can spend less time on busywork and keep deals moving.",
+      "source_url": "https://openai.com/index/introducing-chatgpt-for-sales/"
+    },
+    {
+      "id": "2026-11-17-openai-gpt-6-2-astra-and-sol",
+      "date": "2026-11-17",
+      "added": "2026-11-18",
+      "name": "GPT-6.2 Astra and Sol",
+      "provider": "OpenAI",
+      "kind": "update",
+      "status": "available",
+      "summary": "OpenAI released GPT-6.2 Astra and GPT-6.2 Sol, delivering enhanced coding, computer use, and improved efficiency for complex professional and everyday tasks.",
+      "features": [
+        "Coding",
+        "Computer use",
+        "Professional work",
+        "Efficiency"
+      ],
+      "evidence": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
+      "source_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+    },
     {
       "id": "2026-11-16-openai-computer-use-agents-for-healthcare",
       "date": "2026-11-16",
