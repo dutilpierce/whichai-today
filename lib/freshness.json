@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-17",
-      "hash": "f4f03e6002e2c05b"
+      "changed": "2026-11-18",
+      "hash": "205d2d897f03a825"
     },
     "/releases": {
       "changed": "2026-11-16",
@@ -33,8 +33,8 @@
       "hash": "0b8b5c2007315347"
     },
     "/images": {
-      "changed": "2026-11-14",
-      "hash": "4dd83b3f01a14bb9"
+      "changed": "2026-11-18",
+      "hash": "e4c2df7a51d5244d"
     },
     "/video": {
       "changed": "2026-11-11",
@@ -97,8 +97,8 @@
       "hash": "928fda11311c09f6"
     },
     "/models/gpt-image-2-5-sunburst": {
-      "changed": "2026-11-11",
-      "hash": "de7b44332532dfc0"
+      "changed": "2026-11-18",
+      "hash": "187e7b06187fe5a8"
     },
     "/models/grok-imagine-image-2-0": {
       "changed": "2026-11-14",
@@ -177,8 +177,8 @@
       "hash": "28a4ad2772ef16dd"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
-      "changed": "2026-11-14",
-      "hash": "c9ce3eccd97fb238"
+      "changed": "2026-11-18",
+      "hash": "d40d8108470932bc"
     },
     "/compare": {
       "changed": "2026-11-12",
@@ -665,8 +665,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-17",
-      "hash": "23da602dd7c8c37b"
+      "changed": "2026-11-18",
+      "hash": "274db063d42587c9"
     },
     "/privacy": {
       "changed": "2026-11-12",
