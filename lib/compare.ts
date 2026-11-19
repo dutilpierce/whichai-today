@@ -160,12 +160,26 @@ export function pairsWith(slug: string, except?: string, limit = 6) {
 /** Today's #1 against the alternative in each job, one per pair. */
 export function popularPairs() {
   const seen = new Set<string>();
-  const out: { record: ComparePairRecord; category: string; leader: string }[] = [];
+  const out: {
+    record: ComparePairRecord;
+    category: string;
+    emoji: string;
+    signal: string;
+    leader: { name: string; score: number | null };
+    runnerUp: { name: string; score: number | null };
+  }[] = [];
   for (const [, category] of categoryEntries()) {
     const record = pairBySlug(canonicalSlug(modelSlug(category.leader.name), modelSlug(category.runner_up.name)));
     if (!record || seen.has(record.pair)) continue;
     seen.add(record.pair);
-    out.push({ record, category: category.display_name, leader: category.leader.name });
+    out.push({
+      record,
+      category: category.display_name,
+      emoji: category.emoji,
+      signal: category.primary_signal,
+      leader: { name: category.leader.name, score: category.leader.primary_score ?? null },
+      runnerUp: { name: category.runner_up.name, score: category.runner_up.primary_score ?? null },
+    });
   }
   return out;
 }

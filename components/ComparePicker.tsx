@@ -20,11 +20,11 @@ export function ComparePicker({ models, initial }: { models: Option[]; initial: 
     items: models.filter((model) => model.modality === group),
   }));
   const select =
-    "w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-2.5 text-sm text-white focus:border-emerald-400 focus:outline-none";
+    "w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3.5 py-3 text-base font-medium text-white focus:border-emerald-400 focus:outline-none";
 
   return (
     <form
-      className="grid gap-3 sm:grid-cols-[1fr_auto_1fr_auto] sm:items-end"
+      className="grid gap-3 sm:grid-cols-[1fr_auto_1fr] sm:items-end"
       onSubmit={(event) => {
         event.preventDefault();
         if (!target) return;
@@ -45,7 +45,12 @@ export function ComparePicker({ models, initial }: { models: Option[]; initial: 
           ))}
         </select>
       </label>
-      <span className="hidden pb-2.5 text-sm text-zinc-500 sm:block">vs</span>
+      <span
+        aria-hidden="true"
+        className="mx-auto -my-1 flex h-9 w-9 items-center justify-center rounded-full border border-zinc-700 bg-zinc-900 font-display text-sm italic text-zinc-400 sm:mx-0 sm:my-0 sm:mb-1.5"
+      >
+        vs
+      </span>
       <label className="flex flex-col gap-1.5 text-xs text-zinc-400">
         Second model
         <select className={select} value={target ?? ""} onChange={(event) => setRight(event.target.value)}>
@@ -58,9 +63,9 @@ export function ComparePicker({ models, initial }: { models: Option[]; initial: 
       </label>
       <button
         type="submit"
-        className="rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-zinc-950 hover:bg-zinc-200"
+        className="mt-1 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 sm:col-span-3"
       >
-        Compare
+        Compare these two
       </button>
     </form>
   );
