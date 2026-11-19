@@ -73,7 +73,7 @@ function PathCard({
       href={href}
       className={
         featured
-          ? "group flex h-full flex-col rounded-2xl border-2 border-emerald-500 bg-linear-to-b from-emerald-500/15 to-zinc-900 p-5 shadow-[0_8px_30px_rgba(16,185,129,0.15)] transition hover:border-emerald-400"
+          ? "group flex h-full flex-col rounded-2xl border-2 border-emerald-500 bg-linear-to-b from-emerald-500/15 to-zinc-900 p-5 shadow-[0_8px_30px_rgba(36,59,99,0.15)] transition hover:border-emerald-400"
           : `group ${card}`
       }
     >
@@ -139,7 +139,7 @@ function JobCard({ job }: { job: Job }) {
 function MarkCell({ mark }: { mark: Mark }) {
   if (mark === 1) {
     return (
-      <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-zinc-950 shadow-[0_0_12px_rgba(16,185,129,0.45)]">
+      <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-xs font-bold text-zinc-950 shadow-[0_0_12px_rgba(36,59,99,0.45)]">
         <span aria-hidden>1</span>
         <span className="sr-only">Has today&apos;s #1</span>
       </span>

@@ -9,7 +9,8 @@
  *   zinc-950/900/800 → page (greige), cards (ivory), hairline borders
  *   zinc-50…500      → text, strongest to most muted (now dark warm grays)
  *   white            → strongest text and primary button fill (now near-black)
- *   emerald/amber/…  → accent text, darkened to stay readable on beige
+ *   emerald          → the accent color, now deep navy
+ *   amber/sky/violet → tag text, darkened to stay readable on beige
  * So "bg-zinc-950" means "page surface" and "text-white" means "strongest text".
  */
 @theme {
@@ -27,11 +28,12 @@
   --color-zinc-900: #fcfbf8;
   --color-zinc-950: #ebe6dc;
 
-  --color-emerald-200: #065f46;
-  --color-emerald-300: #047857;
-  --color-emerald-400: #0a7c5c;
-  --color-emerald-500: #066c51;
-  --color-emerald-600: #045a43;
+  /* The accent was green; it is now a deep navy. */
+  --color-emerald-200: #1e2f4f;
+  --color-emerald-300: #27406b;
+  --color-emerald-400: #2f4a78;
+  --color-emerald-500: #243b63;
+  --color-emerald-600: #1b2d4d;
 
   --color-amber-200: #92400e;
   --color-amber-400: #b45309;
@@ -88,7 +90,7 @@ h2 {
 .aurora-blob-emerald {
   top: -20%;
   left: -22%;
-  background: radial-gradient(circle, rgba(16, 185, 129, 1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(70, 100, 150, 1) 0%, transparent 70%);
   opacity: 0.16;
   animation: aurora-drift-a 47s ease-in-out infinite alternate;
 }
@@ -96,7 +98,7 @@ h2 {
 .aurora-blob-teal {
   top: -8%;
   right: -24%;
-  background: radial-gradient(circle, rgba(20, 184, 166, 1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(196, 164, 120, 1) 0%, transparent 70%);
   opacity: 0.12;
   animation: aurora-drift-b 61s ease-in-out infinite alternate;
 }
@@ -106,7 +108,7 @@ h2 {
   left: 12%;
   width: 70vmax;
   height: 70vmax;
-  background: radial-gradient(circle, rgba(34, 211, 238, 1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(120, 140, 175, 1) 0%, transparent 70%);
   opacity: 0.08;
   animation: aurora-drift-c 73s ease-in-out infinite alternate;
 }
@@ -144,11 +146,11 @@ h2 {
 
 @keyframes whichai-pulse {
   0% {
-    box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+    box-shadow: 0 0 0 0 rgba(47, 74, 120, 0.45);
   }
   70%,
   100% {
-    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+    box-shadow: 0 0 0 8px rgba(47, 74, 120, 0);
   }
 }
 

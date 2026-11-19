@@ -41,7 +41,7 @@ const pillRest =
   "rounded-full border border-zinc-700/80 bg-linear-to-b from-zinc-800 to-zinc-900 px-4 py-2 text-sm text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_6px_rgba(60,50,35,0.10)] transition hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_14px_rgba(60,50,35,0.16)] active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_1px_3px_rgba(60,50,35,0.12)]";
 
 const pillSelected =
-  "rounded-full border border-emerald-300/80 bg-linear-to-b from-emerald-400 to-emerald-600 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(16,185,129,0.6),0_6px_20px_rgba(16,185,129,0.25)]";
+  "rounded-full border border-emerald-300/80 bg-linear-to-b from-emerald-400 to-emerald-600 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(36,59,99,0.6),0_6px_20px_rgba(36,59,99,0.25)]";
 
 export type LatestRelease = { id: string; name: string; date: string };
 
