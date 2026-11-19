@@ -38,10 +38,10 @@ const updatedLabel = new Date(models.last_updated).toLocaleDateString("en-US", {
 const categories = Object.entries(models.categories);
 
 const pillRest =
-  "rounded-full border border-zinc-700/80 bg-linear-to-b from-zinc-800 to-zinc-900 px-4 py-2 text-sm text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_4px_12px_rgba(0,0,0,0.45)] transition hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.12),0_8px_18px_rgba(0,0,0,0.55)] active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.06),0_2px_6px_rgba(0,0,0,0.4)]";
+  "rounded-full border border-zinc-700/80 bg-linear-to-b from-zinc-800 to-zinc-900 px-4 py-2 text-sm text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_6px_rgba(60,50,35,0.10)] transition hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_14px_rgba(60,50,35,0.16)] active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_1px_3px_rgba(60,50,35,0.12)]";
 
 const pillSelected =
-  "rounded-full border border-emerald-300/80 bg-linear-to-b from-emerald-400 to-emerald-600 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(16,185,129,0.6),0_6px_20px_rgba(16,185,129,0.25)]";
+  "rounded-full border border-emerald-300/80 bg-linear-to-b from-emerald-400 to-emerald-600 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(36,59,99,0.6),0_6px_20px_rgba(36,59,99,0.25)]";
 
 export type LatestRelease = { id: string; name: string; date: string };
 
@@ -365,7 +365,7 @@ function encodePlan(value: Plan) {
           project and get the right model for each stage.
         </p>
 
-        <div className="mt-8 inline-flex gap-1 self-start rounded-full bg-zinc-900 p-1 shadow-[inset_0_2px_6px_rgba(0,0,0,0.55)]">
+        <div className="mt-8 inline-flex gap-1 self-start rounded-full bg-zinc-900 p-1 shadow-[inset_0_2px_6px_rgba(60,50,35,0.12)]">
           {(
             [
               ["quick", "Quick pick"],
