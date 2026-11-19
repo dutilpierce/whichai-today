@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Fraunces, Geist, Geist_Mono } from "next/font/google";
 import { Aurora } from "@/components/Aurora";
 import { JsonLd } from "@/components/JsonLd";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -19,6 +19,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz"],
 });
 
 const sameAs = [site.bluesky_url, site.telegram_url, site.github_url].filter(Boolean);
@@ -56,11 +62,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable} h-full antialiased`}
     >
       <body
         className="isolate min-h-full flex flex-col bg-zinc-950 font-sans text-zinc-50"
-        style={{ backgroundColor: "#f3efe7", color: "#2a2723" }}
+        style={{ backgroundColor: "#ebe6dc", color: "#2a2723" }}
       >
         <Aurora />
         <JsonLd

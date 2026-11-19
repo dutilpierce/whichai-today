@@ -6,7 +6,7 @@
  * The components were written for a dark theme (bg-zinc-950 page, text-white
  * headings, text-emerald-300 accents). Rather than rewrite every class, the
  * palette is remapped here so each step keeps its *role*:
- *   zinc-950/900/800 → page/card/border surfaces (now beige → soft gray)
+ *   zinc-950/900/800 → page (greige), cards (ivory), hairline borders
  *   zinc-50…500      → text, strongest to most muted (now dark warm grays)
  *   white            → strongest text and primary button fill (now near-black)
  *   emerald/amber/…  → accent text, darkened to stay readable on beige
@@ -21,11 +21,11 @@
   --color-zinc-300: #4a463f;
   --color-zinc-400: #5f5a52;
   --color-zinc-500: #726c63;
-  --color-zinc-600: #aaa398;
-  --color-zinc-700: #c6bfb3;
-  --color-zinc-800: #dad4ca;
-  --color-zinc-900: #e8e3da;
-  --color-zinc-950: #f3efe7;
+  --color-zinc-600: #a9a194;
+  --color-zinc-700: #cdc5b7;
+  --color-zinc-800: #e2dbcf;
+  --color-zinc-900: #fcfbf8;
+  --color-zinc-950: #ebe6dc;
 
   --color-emerald-200: #065f46;
   --color-emerald-300: #047857;
@@ -40,7 +40,7 @@
 }
 
 :root {
-  --background: #f3efe7;
+  --background: #ebe6dc;
   --foreground: #2a2723;
 }
 
@@ -49,12 +49,32 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-fraunces);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Editorial serif for page and section headings; card titles stay sans. */
+h1,
+h2 {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  font-variation-settings: "opsz" 72;
+}
+
+/*
+ * Lift card surfaces (bordered, rounded, bg-zinc-900) off the page with a soft
+ * warm shadow. :where() keeps specificity at zero so any shadow-* class wins.
+ */
+:where(.rounded-xl, .rounded-2xl):where(.border):where([class*="bg-zinc-900"]) {
+  box-shadow:
+    0 1px 2px rgba(60, 50, 35, 0.05),
+    0 10px 28px -14px rgba(60, 50, 35, 0.18);
 }
 
 .aurora-blob {
