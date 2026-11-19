@@ -60,7 +60,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body
         className="isolate min-h-full flex flex-col bg-zinc-950 font-sans text-zinc-50"
-        style={{ backgroundColor: "#09090b", color: "#fafafa" }}
+        style={{ backgroundColor: "#f3efe7", color: "#2a2723" }}
       >
         <Aurora />
         <JsonLd

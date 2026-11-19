@@ -1,8 +1,47 @@
 @import "tailwindcss";
 
+/*
+ * Light beige/gray theme.
+ *
+ * The components were written for a dark theme (bg-zinc-950 page, text-white
+ * headings, text-emerald-300 accents). Rather than rewrite every class, the
+ * palette is remapped here so each step keeps its *role*:
+ *   zinc-950/900/800 → page/card/border surfaces (now beige → soft gray)
+ *   zinc-50…500      → text, strongest to most muted (now dark warm grays)
+ *   white            → strongest text and primary button fill (now near-black)
+ *   emerald/amber/…  → accent text, darkened to stay readable on beige
+ * So "bg-zinc-950" means "page surface" and "text-white" means "strongest text".
+ */
+@theme {
+  --color-white: #24221f;
+
+  --color-zinc-50: #2a2723;
+  --color-zinc-100: #2f2c28;
+  --color-zinc-200: #3a3631;
+  --color-zinc-300: #4a463f;
+  --color-zinc-400: #5f5a52;
+  --color-zinc-500: #726c63;
+  --color-zinc-600: #aaa398;
+  --color-zinc-700: #c6bfb3;
+  --color-zinc-800: #dad4ca;
+  --color-zinc-900: #e8e3da;
+  --color-zinc-950: #f3efe7;
+
+  --color-emerald-200: #065f46;
+  --color-emerald-300: #047857;
+  --color-emerald-400: #0a7c5c;
+  --color-emerald-500: #066c51;
+  --color-emerald-600: #045a43;
+
+  --color-amber-200: #92400e;
+  --color-amber-400: #b45309;
+  --color-sky-300: #0369a1;
+  --color-violet-300: #6d28d9;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3efe7;
+  --foreground: #2a2723;
 }
 
 @theme inline {
@@ -10,13 +49,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
@@ -37,7 +69,7 @@ body {
   top: -20%;
   left: -22%;
   background: radial-gradient(circle, rgba(16, 185, 129, 1) 0%, transparent 70%);
-  opacity: 0.5;
+  opacity: 0.16;
   animation: aurora-drift-a 47s ease-in-out infinite alternate;
 }
 
@@ -45,7 +77,7 @@ body {
   top: -8%;
   right: -24%;
   background: radial-gradient(circle, rgba(20, 184, 166, 1) 0%, transparent 70%);
-  opacity: 0.42;
+  opacity: 0.12;
   animation: aurora-drift-b 61s ease-in-out infinite alternate;
 }
 
@@ -55,7 +87,7 @@ body {
   width: 70vmax;
   height: 70vmax;
   background: radial-gradient(circle, rgba(34, 211, 238, 1) 0%, transparent 70%);
-  opacity: 0.32;
+  opacity: 0.08;
   animation: aurora-drift-c 73s ease-in-out infinite alternate;
 }
 
