@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-18",
-      "hash": "5872e27d45011706"
+      "changed": "2026-11-19",
+      "hash": "76f7f3d6e4a69cda"
     },
     "/releases": {
       "changed": "2026-11-18",
@@ -29,8 +29,8 @@
       "hash": "cf53322bb3bddb35"
     },
     "/general": {
-      "changed": "2026-11-17",
-      "hash": "0b8b5c2007315347"
+      "changed": "2026-11-19",
+      "hash": "80d7cb3e0c7e99d3"
     },
     "/images": {
       "changed": "2026-11-18",
@@ -92,9 +92,9 @@
       "changed": "2026-11-17",
       "hash": "053d4a9e66aff8ff"
     },
-    "/models/gpt-6-1-sol": {
-      "changed": "2026-11-10",
-      "hash": "928fda11311c09f6"
+    "/models/gpt-6-2-sol": {
+      "changed": "2026-11-19",
+      "hash": "fef460bb654e34be"
     },
     "/models/gpt-image-2-5-sunburst": {
       "changed": "2026-11-18",
@@ -144,6 +144,10 @@
       "changed": "2026-11-12",
       "hash": "a392549b86f500c7"
     },
+    "/models/gpt-6-1-sol": {
+      "changed": "2026-11-19",
+      "hash": "1d9477edafd7ae81"
+    },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
       "changed": "2026-11-14",
       "hash": "cbfaaba03fed5daf"
@@ -168,9 +172,9 @@
       "changed": "2026-11-11",
       "hash": "d9fb449c89e56ccf"
     },
-    "/compare/gemini-4-carbon-vs-gpt-6-1-sol": {
-      "changed": "2026-11-17",
-      "hash": "b487124ea00bfa71"
+    "/compare/gemini-4-carbon-vs-gpt-6-2-sol": {
+      "changed": "2026-11-19",
+      "hash": "1df22763079e80fc"
     },
     "/compare/gpt-5-6-sol-vs-qwen3-8-max": {
       "changed": "2026-11-12",
@@ -181,8 +185,8 @@
       "hash": "d40d8108470932bc"
     },
     "/compare": {
-      "changed": "2026-11-12",
-      "hash": "7c9445913f99ed46"
+      "changed": "2026-11-19",
+      "hash": "9642d867c2427a73"
     },
     "/releases/2026-11-17-microsoft-mai-code-2-and-mai-code-2-flash": {
       "changed": "2026-11-18",
@@ -677,8 +681,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-18",
-      "hash": "274db063d42587c9"
+      "changed": "2026-11-19",
+      "hash": "aca003f4d24fd56a"
     },
     "/privacy": {
       "changed": "2026-11-12",

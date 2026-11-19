@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-18T12:00:00Z",
+  "last_updated": "2026-11-19T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -74,7 +74,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": 1764,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -93,7 +93,7 @@
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "slug": "coding",
       "primary_signal": "LMArena Code",
@@ -102,7 +102,11 @@
         "SWE-bench Pro",
         "LiveCodeBench",
         "Artificial Analysis Coding Index"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Claude Fable 5.2",
+        "since": "2026-11-19"
+      }
     },
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
@@ -167,7 +171,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -186,7 +190,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -205,7 +209,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -279,7 +283,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1523,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "runner_up": {
         "name": "Claude Opus 5.5",
@@ -298,7 +302,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1517,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -317,7 +321,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "slug": "writing",
       "primary_signal": "LMArena Creative Writing",
@@ -387,7 +391,7 @@
         "sources_agreeing": 3,
         "sources_checked": 4,
         "primary_score": 74.3,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "runner_up": {
         "name": "GPT-6 Astra",
@@ -406,7 +410,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 57.2,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "Kimi K3.1 Pro",
@@ -425,7 +429,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 52.5,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "slug": "reasoning",
       "primary_signal": "Humanity's Last Exam",
@@ -477,7 +481,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 412,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "runner_up": {
         "name": "Claude Haiku 5.5",
@@ -496,7 +500,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 237,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "DeepSeek V4.1 Flash",
@@ -515,7 +519,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "slug": "speed",
       "primary_signal": "Artificial Analysis output speed",
@@ -568,15 +572,15 @@
         "sources_agreeing": 2,
         "sources_checked": 3,
         "primary_score": 1526,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "runner_up": {
-        "name": "GPT-6.1 Sol",
+        "name": "GPT-6.2 Sol",
         "provider": "OpenAI",
-        "why": "Near-frontier quality at a lower price, with the largest context window of the top models.",
-        "benchmark_context": "BenchLM near-frontier value; 1.05M token context.",
+        "why": "Near-frontier quality at a lower price, with a large context window for everyday work.",
+        "benchmark_context": "Artificial Analysis Intelligence Index 57; 1.1M token context.",
         "direct_link": "https://chatgpt.com",
-        "where_to_get": "ChatGPT Plus ($20/month), in Work or Codex, choose GPT-6.1 Sol.",
+        "where_to_get": "ChatGPT Plus ($20/month), in Work or Codex, choose GPT-6.2 Sol.",
         "access": "paid",
         "cost": "Needs Plus ($20/month) or higher. API is $2 per million input tokens and $10 per million output.",
         "free_tier": "Not on the free plan, and not in regular Chat yet. Plus includes it in Work and Codex.",
@@ -587,7 +591,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "MiMo-V2.6-Pro",
@@ -606,7 +610,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "slug": "general",
       "primary_signal": "LMArena Text overall",
@@ -652,7 +656,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1428,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
@@ -671,7 +675,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1318,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -690,7 +694,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1223,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       }
     },
     "video": {
@@ -798,7 +802,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1260,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "runner_up": {
         "name": "GPT-5.6 Sol",
@@ -817,7 +821,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1258,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
@@ -836,7 +840,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1062,
-        "checked": "2026-11-18"
+        "checked": "2026-11-19"
       }
     }
   }

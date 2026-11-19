@@ -29,6 +29,16 @@
       "free_tier": "A free plan may include limited search.",
       "direct_link": "https://claude.ai",
       "access": "paid"
+    },
+    {
+      "name": "GPT-6.1 Sol",
+      "provider": "OpenAI",
+      "slug": "gpt-6-1-sol",
+      "where_to_get": "ChatGPT Plus ($20/month), in Work or Codex, choose GPT-6.1 Sol.",
+      "cost": "Needs Plus ($20/month) or higher. API is $2 per million input tokens and $10 per million output.",
+      "free_tier": "Not on the free plan, and not in regular Chat yet. Plus includes it in Work and Codex.",
+      "direct_link": "https://chatgpt.com",
+      "access": "paid"
     }
   ]
 }
