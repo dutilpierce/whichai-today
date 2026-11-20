@@ -785,8 +785,8 @@
       "hash": "7611666f1d099546"
     },
     "/apps/chatgpt": {
-      "changed": "2026-11-11",
-      "hash": "6422fb417ad6d530"
+      "changed": "2026-11-20",
+      "hash": "dfd525599559b0dd"
     },
     "/apps/claude": {
       "changed": "2026-11-16",
@@ -817,8 +817,8 @@
       "hash": "46ef7c65ae031803"
     },
     "/apps/codex": {
-      "changed": "2026-11-11",
-      "hash": "54a00f31963bf0f6"
+      "changed": "2026-11-20",
+      "hash": "3676efa3c931266a"
     },
     "/apps/midjourney": {
       "changed": "2026-11-11",

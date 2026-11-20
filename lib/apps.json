@@ -21,6 +21,10 @@
         {
           "name": "GPT-5.6 Sol",
           "plan": "Plus"
+        },
+        {
+          "name": "GPT-6.2 Sol",
+          "plan": "Plus"
         }
       ],
       "plans": [
@@ -614,6 +618,10 @@
         {
           "name": "GPT-5.6 Sol",
           "plan": "Plus"
+        },
+        {
+          "name": "GPT-6.2 Sol",
+          "plan": "Plus"
         }
       ],
       "plans": [
@@ -903,7 +911,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -927,7 +935,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -951,7 +959,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -975,7 +983,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -1023,7 +1031,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -1047,7 +1055,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -1071,7 +1079,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -1095,7 +1103,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -1119,7 +1127,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -1143,7 +1151,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
@@ -1167,7 +1175,7 @@
       "Dreamina Seedance 2.0",
       "GPT-5.6 Sol",
       "GPT-6 Astra",
-      "GPT-6.1 Sol",
+      "GPT-6.2 Sol",
       "GPT-Image-2.5 Sunburst",
       "Gemini 3.5 Flash-Lite",
       "Gemini 4 Argon",
