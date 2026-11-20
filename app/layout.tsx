@@ -41,7 +41,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
     types: {
-      "application/rss+xml": "https://whichai.today/feed.xml",
+      "application/rss+xml": [
+        { url: "https://whichai.today/feed.xml", title: "WhichAI.today leader changes" },
+        { url: "https://whichai.today/blog/feed.xml", title: "WhichAI.today Weekly" },
+      ],
     },
   },
   openGraph: {

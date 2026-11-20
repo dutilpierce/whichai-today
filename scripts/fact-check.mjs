@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import { buildPayloads } from "./freshness.mjs";
 import { checkPrompt } from "../lib/prompt-rules.mjs";
 import { validateEntry } from "./refresh-releases.mjs";
+import { postProblems, storedPostProblems } from "./blog-rules.mjs";
 
 const MODELS = new URL("../lib/models.json", import.meta.url);
 const HISTORY = new URL("../lib/history.json", import.meta.url);
@@ -126,6 +127,22 @@ export function checkGuides(guides, tasks) {
       if (!slugs.has(task)) errors.push(`${slug} links missing task ${task}`);
     }
   }
+  return errors;
+}
+
+/** Weekly roundup posts: shape, writing rules, unique weeks, newest first. */
+export function checkBlog(blog, today) {
+  const errors = [];
+  const posts = blog?.posts ?? [];
+  const weeks = new Set();
+  for (const post of posts) {
+    errors.push(...storedPostProblems(post));
+    errors.push(...postProblems(post).map((problem) => `${post.slug}: ${problem}`));
+    if (weeks.has(post.week)) errors.push(`${post.week} has two posts`);
+    weeks.add(post.week);
+    if ((post.published ?? "") > today) errors.push(`${post.slug} is published in the future`);
+  }
+  if (posts.some((post, index) => index > 0 && post.week > posts[index - 1].week)) errors.push("blog posts are not newest first");
   return errors;
 }
 
@@ -547,6 +564,12 @@ function selfCheck() {
     "an old release stays valid",
   );
 
+  assert(checkBlog({ posts: [] }, today).length === 0, "an empty blog should pass");
+  assert(
+    checkBlog({ posts: [{ week: "2026-W46", slug: "Bad Slug" }] }, today).some((error) => error.includes("bad slug")),
+    "a malformed post should fail",
+  );
+
   const missingHost = new Error("missing");
   missingHost.code = "ENOTFOUND";
   assert(linkFailure(missingHost).fail, "a missing domain should fail");
@@ -584,6 +607,13 @@ try {
   releases = { entries: [] };
 }
 result.errors.push(...checkReleases(releases, today));
+let blog = { posts: [] };
+try {
+  blog = JSON.parse(await readFile(new URL("../lib/blog.json", import.meta.url), "utf8"));
+} catch {
+  blog = { posts: [] };
+}
+result.errors.push(...checkBlog(blog, today));
 
 try {
   const freshness = JSON.parse(await readFile(new URL("../lib/freshness.json", import.meta.url), "utf8"));
@@ -636,6 +666,7 @@ try {
     picker,
     apps,
     releases,
+    blog,
   });
   if (tasks) result.errors.push(...checkPages(audiences, picker, tasks));
   result.errors.push(...checkFreshness(Object.keys(payloads), freshness, today));

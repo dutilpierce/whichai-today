@@ -188,3 +188,61 @@ export function changeArticle(
     dateModified: pageDates(path).changed,
   };
 }
+
+type BlogPostingInput = {
+  slug: string;
+  title: string;
+  description: string;
+  published: string;
+  updated: string;
+  takeaways: string[];
+  companies: { name: string; url: string }[];
+  sources: { name: string; url: string }[];
+};
+
+const PUBLISHER = {
+  "@type": "Organization",
+  name: "WhichAI.today",
+  url: "https://whichai.today",
+  logo: { "@type": "ImageObject", url: "https://whichai.today/icon-512.png", width: 512, height: 512 },
+};
+
+/** A weekly roundup post: who wrote it, what it mentions, and what it cites. */
+export function blogPosting(post: BlogPostingInput, wordCount: number, releaseNames: string[]) {
+  const url = `https://whichai.today/blog/${post.slug}`;
+  return {
+    "@type": "BlogPosting",
+    "@id": `${url}#article`,
+    headline: post.title.slice(0, 110),
+    description: post.description,
+    datePublished: post.published,
+    dateModified: post.updated,
+    url,
+    mainEntityOfPage: url,
+    image: `${url}/opengraph-image`,
+    inLanguage: "en",
+    wordCount,
+    author: { "@type": "Organization", name: "WhichAI.today", url: "https://whichai.today" },
+    publisher: PUBLISHER,
+    isPartOf: { "@type": "Blog", name: "WhichAI.today Weekly", url: "https://whichai.today/blog" },
+    about: [{ "@type": "Thing", name: "Artificial intelligence" }, { "@type": "Thing", name: "AI models" }],
+    abstract: post.takeaways.join(" "),
+    keywords: ["AI news this week", "new AI models", "AI releases", ...releaseNames.slice(0, 12)].join(", "),
+    mentions: post.companies.map((company) => ({ "@type": "Organization", name: company.name, url: company.url })),
+    citation: post.sources.map((source) => ({ "@type": "CreativeWork", name: source.name, url: source.url })),
+  };
+}
+
+/** The week's tracked releases as an ordered list. */
+export function releaseItemList(name: string, releases: { id: string; name: string; provider: string }[]) {
+  return {
+    "@type": "ItemList",
+    name,
+    itemListElement: releases.map((release, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: `${release.provider} ${release.name}`,
+      url: `https://whichai.today/releases/${release.id}`,
+    })),
+  };
+}

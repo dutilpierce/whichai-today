@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { appList } from "@/lib/apps";
+import { blogPosts } from "@/lib/blog";
 import { confirmedChanges, methodologyUpdates, modelRecords, weekRecords } from "@/lib/catalog";
 import { indexedPairs } from "@/lib/compare";
 import { releaseIndexed } from "@/lib/release-rows";
@@ -48,6 +49,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...categoryEntries().map(([, category]) => item(`/${category.slug}`, "daily", 0.7)),
     item("/changes", "daily", 0.6),
     item("/releases", "hourly", 0.8),
+    item("/blog", "weekly", 0.8),
+    ...blogPosts().map((post) => item(`/blog/${post.slug}`, "weekly", 0.7)),
     ...releaseEntries().filter(releaseIndexed).map((entry) => item(`/releases/${entry.id}`, "monthly", 0.5)),
     ...modelRecords().map((model) => item(`/models/${model.slug}`, "daily", 0.6)),
     item("/compare", "daily", 0.8),

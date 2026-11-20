@@ -68,7 +68,7 @@ function visibleRelease(entry) {
   return next;
 }
 
-export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases, site }) {
+export function buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases, site, blog }) {
   const skip = new Set(held?.pages ?? []);
   const pages = {};
   const categories = Object.values(models.categories);
@@ -88,6 +88,13 @@ export function buildPayloads({ models, history, providers, archive, tasks, file
     releases: releaseEntries.slice(0, 8),
   });
   put("/releases", releaseEntries);
+
+  const posts = (blog?.posts ?? []).filter((post) => !skip.has(`/blog/${post.slug}`));
+  for (const post of posts) {
+    const weekReleases = releaseEntries.filter((entry) => entry.date >= post.start && entry.date <= post.end);
+    put(`/blog/${post.slug}`, { post, releases: weekReleases });
+  }
+  put("/blog", posts.map((post) => ({ slug: post.slug, title: post.title, updated: post.updated })));
 
   for (const category of categories) {
     put(`/${category.slug}`, {
@@ -297,9 +304,10 @@ async function main() {
   const apps = (await readJson(new URL("lib/apps.json", ROOT))) ?? { apps: [] };
   const releases = (await readJson(new URL("lib/releases.json", ROOT))) ?? { entries: [] };
   const site = await readJson(new URL("lib/site.json", ROOT));
-  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases, site });
+  const blog = (await readJson(new URL("lib/blog.json", ROOT))) ?? { posts: [] };
+  const payloads = buildPayloads({ models, history, providers, archive, tasks, files, held, guides, audiences, picker, apps, releases, site, blog });
   const existing = (await readJson(FRESHNESS)) ?? { pages: {} };
-  const today = [models.last_updated, releases.last_checked]
+  const today = [models.last_updated, releases.last_checked, blog.posts[0]?.updated]
     .filter(Boolean)
     .map((value) => value.slice(0, 10))
     .sort()

@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 function current(path: string, href: string) {
   if (href === "/prompt-builder") return path === "/prompt-builder" || path.startsWith("/prompts");
-  if (href === "/compare" || href === "/releases") return path === href || path.startsWith(`${href}/`);
+  if (href === "/compare" || href === "/releases" || href === "/blog") return path === href || path.startsWith(`${href}/`);
   return path === href;
 }
 
@@ -15,6 +15,7 @@ export function SiteHeader() {
   const guide = current(path, "/which-ai-should-i-use");
   const compare = current(path, "/compare");
   const releases = current(path, "/releases");
+  const blog = current(path, "/blog");
   const free = current(path, "/free");
 
   return (
@@ -52,6 +53,13 @@ export function SiteHeader() {
           className={releases ? "text-sm font-medium text-white" : "text-sm font-medium text-zinc-400 hover:text-white"}
         >
           Releases
+        </Link>
+        <Link
+          href="/blog"
+          aria-current={blog ? "page" : undefined}
+          className={blog ? "text-sm font-medium text-white" : "text-sm font-medium text-zinc-400 hover:text-white"}
+        >
+          Blog
         </Link>
         <Link
           href="/free"

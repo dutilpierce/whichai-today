@@ -1,4 +1,5 @@
 import { appList } from "@/lib/apps";
+import { blogPosts, plainText } from "@/lib/blog";
 import models from "@/lib/models.json";
 import audiencesFile from "@/lib/audiences.json";
 import pairsFile from "@/lib/pairs.json";
@@ -21,6 +22,8 @@ export function GET() {
   const pages = [
     ...Object.values(models.categories).map((category) => `https://whichai.today/${category.slug}`),
     ...modelRecords().map((model) => `https://whichai.today/models/${model.slug}`),
+    "https://whichai.today/blog",
+    ...blogPosts().map((post) => `https://whichai.today/blog/${post.slug}`),
     "https://whichai.today/compare",
     ...indexedPairs().map((item) => `https://whichai.today/compare/${item.pair}`),
     ...releaseEntries().filter(releaseIndexed).map((entry) => `https://whichai.today/releases/${entry.id}`),
@@ -32,6 +35,18 @@ export function GET() {
     "https://whichai.today/tasks",
     ...tasksFile.tasks.map((task) => `https://whichai.today/tasks/${task.slug}`),
   ].join("\n");
+
+  const latest = blogPosts()[0];
+  const weekly = latest
+    ? [
+        `## This week in AI (${latest.start} to ${latest.end})`,
+        `https://whichai.today/blog/${latest.slug}`,
+        ...latest.takeaways.map((item) => `- ${plainText(item)}`),
+        `Open data: https://whichai.today/data/weekly/${latest.week}.json`,
+        "",
+        "",
+      ].join("\n")
+    : "";
 
   const body = `# WhichAI.today
 
@@ -68,8 +83,10 @@ https://whichai.today/embed
 ${pages}
 
 Leader changes: https://whichai.today/feed.xml
+New releases: https://whichai.today/releases/feed.xml
+Weekly roundup: https://whichai.today/blog/feed.xml
 
-${categories}
+${weekly}${categories}
 `;
 
   return new Response(body, {
