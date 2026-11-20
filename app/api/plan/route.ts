@@ -1,7 +1,7 @@
-import { categoryGuide, categoryKeys, generateJson } from "@/lib/gemini";
+import { PLANNER_MODEL, aiConfigured, categoryGuide, categoryKeys, generateJson } from "@/lib/ai";
 import { allow } from "@/lib/store";
 
-const MODEL = process.env.PLANNER_MODEL ?? "gemini-3.8-flash";
+const MODEL = process.env.PLANNER_MODEL ?? PLANNER_MODEL;
 
 const instructions = [
   "You break a project into practical stages for WhichAI.today.",
@@ -33,7 +33,7 @@ export async function POST(request: Request) {
   if (!description) {
     return Response.json({ error: "Description is required" }, { status: 400 });
   }
-  if (!process.env.GEMINI_API_KEY) {
+  if (!aiConfigured()) {
     return Response.json({ error: "Planner is unavailable" }, { status: 503 });
   }
   if (!(await allow(request, "plan", 10, 60))) {
@@ -51,8 +51,6 @@ export async function POST(request: Request) {
           summary: { type: "string" },
           stages: {
             type: "array",
-            minItems: 3,
-            maxItems: 6,
             items: {
               type: "object",
               properties: {
@@ -62,12 +60,14 @@ export async function POST(request: Request) {
                 category: { type: "string", enum: categoryKeys },
               },
               required: ["name", "goal", "action", "category"],
+              additionalProperties: false,
             },
           },
         },
         required: ["summary", "stages"],
+        additionalProperties: false,
       },
-      timeoutMs: 20_000,
+      timeoutMs: 30_000,
     });
 
     const summary = clean(data.summary);

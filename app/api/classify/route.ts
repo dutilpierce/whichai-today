@@ -1,10 +1,10 @@
 import { createHash } from "node:crypto";
-import { categoryGuide, categoryKeys, generateJson } from "@/lib/gemini";
+import { QUICK_MODEL, aiConfigured, categoryGuide, categoryKeys, generateJson } from "@/lib/ai";
 import { UNRANKED_INTENTS, type UnrankedIntent } from "@/lib/intents";
 import { allow, readCache, writeCacheLater } from "@/lib/store";
 
 const FALLBACK = "general";
-const MODEL = process.env.CLASSIFIER_MODEL ?? "gemini-3.5-flash-lite";
+const MODEL = process.env.CLASSIFIER_MODEL ?? QUICK_MODEL;
 const CACHE_SECONDS = 60 * 60 * 24 * 30;
 
 const instructions = [
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
   const query =
     typeof body?.query === "string" ? body.query.trim().slice(0, 500) : "";
 
-  if (!query || !process.env.GEMINI_API_KEY) {
+  if (!query || !aiConfigured()) {
     return Response.json({ category: FALLBACK, intent: "none" });
   }
   // The cache read runs alongside the rate-limit check, so a first-time question waits no longer than before.
@@ -78,8 +78,10 @@ export async function POST(request: Request) {
           intent: { type: "string", enum: [...UNRANKED_INTENTS, "none"] },
         },
         required: ["category", "intent"],
+        additionalProperties: false,
       },
-      timeoutMs: 4000,
+      maxTokens: 1000,
+      timeoutMs: 6000,
     });
 
     const answer = {

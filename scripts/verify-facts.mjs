@@ -1,11 +1,10 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { API_KEY, research as askClaude } from "./claude.mjs";
 
 const MODELS = new URL("../lib/models.json", import.meta.url);
 const PROVIDERS = new URL("../lib/providers.json", import.meta.url);
 const HELD = new URL("../lib/held.json", import.meta.url);
 const SITE = new URL("../lib/site.json", import.meta.url);
-const MODEL = process.env.REFRESH_MODEL ?? "gemini-3.8-flash";
-const API_KEY = process.env.GEMINI_API_KEY;
 
 export function applyVerification(models, providers, held, results, today) {
   const facts = held.facts.filter((fact) => fact.kind !== "privacy" && fact.kind !== "cost");
@@ -43,21 +42,7 @@ function extractJson(text) {
 }
 
 async function ask(prompt) {
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY },
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: prompt }] }],
-        tools: [{ google_search: {} }],
-      }),
-      signal: AbortSignal.timeout(120_000),
-    },
-  );
-  if (!res.ok) throw new Error(`Gemini returned ${res.status}`);
-  const data = await res.json();
-  const text = (data?.candidates?.[0]?.content?.parts ?? []).map((part) => part.text ?? "").join("");
+  const text = await askClaude(prompt, { timeoutMs: 180_000, maxSearches: 10 });
   const parsed = extractJson(text);
   if (!Array.isArray(parsed.results)) throw new Error("verification response has no results");
   return parsed.results
@@ -107,7 +92,7 @@ if (!site.auto_publish) {
   process.exit(0);
 }
 if (!API_KEY) {
-  console.error("GEMINI_API_KEY is not set.");
+  console.error("ANTHROPIC_API_KEY is not set.");
   process.exit(1);
 }
 
