@@ -56,6 +56,18 @@ export function providerHue(provider: string) {
   return hash;
 }
 
+/**
+ * Provider tile colors for the light theme: a pale opaque tint with a dark
+ * letter of the same hue. Passes WCAG AA (4.5:1) for every hue.
+ */
+export function avatarStyle(hue: number) {
+  return {
+    backgroundColor: `hsl(${hue} 42% 90%)`,
+    color: `hsl(${hue} 55% 25%)`,
+    boxShadow: `inset 0 0 0 1px hsl(${hue} 35% 80%)`,
+  };
+}
+
 export function monogram(provider: string) {
   const words = provider.replace(/[^A-Za-z0-9 ]/g, " ").trim().split(/\s+/);
   if (words.length > 1) return `${words[0][0]}${words[1][0]}`.toUpperCase();

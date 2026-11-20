@@ -10,6 +10,7 @@ import { releaseIndexed } from "@/lib/release-rows";
 import { formatDay, modelSlug } from "@/lib/picks";
 import {
   KIND_LABEL,
+  avatarStyle,
   daysApart,
   monogram,
   providerHue,
@@ -171,7 +172,7 @@ export default async function ReleasePage({
           <span
             aria-hidden
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold"
-            style={{ backgroundColor: `hsl(${hue} 55% 45% / 0.18)`, color: `hsl(${hue} 85% 78%)` }}
+            style={avatarStyle(hue)}
           >
             {monogram(release.provider)}
           </span>

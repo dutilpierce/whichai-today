@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { NewBadge } from "@/components/RelativeDay";
-import { KIND_LABEL, STATUS_LABEL, monogram, providerHue, sourceHost, type Release } from "@/lib/releases";
+import { KIND_LABEL, STATUS_LABEL, avatarStyle, monogram, providerHue, sourceHost, type Release } from "@/lib/releases";
 
 const KIND_STYLE: Record<Release["kind"], string> = {
   model: "bg-emerald-500/15 text-emerald-300",
@@ -24,7 +24,7 @@ export function ReleaseRow({ entry, anchor = false }: { entry: ReleaseRowData; a
       <span
         aria-hidden
         className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl text-sm font-bold"
-        style={{ backgroundColor: `hsl(${hue} 55% 45% / 0.18)`, color: `hsl(${hue} 85% 78%)` }}
+        style={avatarStyle(hue)}
       >
         {monogram(entry.provider)}
       </span>

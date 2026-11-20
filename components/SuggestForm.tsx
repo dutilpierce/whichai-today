@@ -67,7 +67,7 @@ export function SuggestForm() {
         aria-label="What should we look at?"
         className="rounded-2xl border border-zinc-800 bg-zinc-900 px-4 py-3 text-white outline-none focus:border-emerald-500"
       />
-      <button type="submit" className="self-start rounded-full bg-white px-4 py-2 text-sm font-semibold text-zinc-950">
+      <button type="submit" className="self-start rounded-full bg-emerald-500 px-4 py-2 text-sm font-semibold text-zinc-900 hover:bg-emerald-600">
         Send
       </button>
     </form>

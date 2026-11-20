@@ -28,7 +28,7 @@ export function SiteHeader() {
         <Link
           href="/prompt-builder"
           aria-current={prompt ? "page" : undefined}
-          className="rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-zinc-950 hover:bg-zinc-200"
+          className="rounded-full bg-zinc-900 px-3 py-1.5 text-sm font-semibold text-emerald-300 shadow-[0_1px_2px_rgba(60,50,35,0.08)] ring-1 ring-inset ring-zinc-700/60 hover:ring-zinc-600"
         >
           Prompt builder
         </Link>
