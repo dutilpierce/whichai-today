@@ -1,0 +1,87 @@
+name: Weekly AI roundup
+
+on:
+  schedule:
+    # Mondays after the ISO week closes. GitHub often starts scheduled runs a few hours late.
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+    inputs:
+      week:
+        description: "ISO week to write, e.g. 2026-W46 (blank = last week)"
+        required: false
+        default: ""
+      force:
+        description: "Replace an existing post for that week"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+# Shares the lock with the other data jobs so pushes to main never race.
+concurrency:
+  group: refresh-rankings
+  cancel-in-progress: false
+
+jobs:
+  roundup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install packages
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Kill switch
+        id: kill
+        run: node scripts/kill-switch.mjs
+
+      - name: Draft, edit and check the roundup
+        id: draft
+        if: steps.kill.outputs.publish == 'true'
+        run: |
+          args=()
+          if [ -n "$WEEK" ]; then args+=(--week "$WEEK"); fi
+          if [ "$FORCE" = "true" ]; then args+=(--force); fi
+          node scripts/draft-weekly.mjs "${args[@]}"
+        env:
+          WEEK: ${{ inputs.week }}
+          FORCE: ${{ inputs.force }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Freshness
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/freshness.mjs
+
+      - name: Fact check
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/fact-check.mjs
+
+      - name: Publish
+        if: steps.kill.outputs.publish == 'true'
+        run: bash scripts/publish.sh "Publish the weekly AI roundup." lib/blog.json lib/freshness.json
+
+      - name: Tell search engines
+        if: steps.kill.outputs.publish == 'true'
+        run: node scripts/indexnow.mjs
+
+      - name: Tell the owner
+        if: failure()
+        run: node scripts/notify-owner.mjs "The weekly AI roundup was held back. Check the Actions log."
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}
+          GITHUB_TOKEN: ${{ github.token }}

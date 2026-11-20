@@ -28,6 +28,25 @@ async function liveHasRun(lastUpdated) {
   return false;
 }
 
+/** A new blog post has its own URL; wait for it to go live instead of the rankings date. */
+export function pageToWaitFor(urls) {
+  return urls.find((url) => /^https:\/\/whichai\.today\/blog\/[a-z0-9-]+$/.test(url)) ?? null;
+}
+
+async function pageIsLive(url) {
+  const deadline = Date.now() + 8 * 60 * 1000;
+  while (Date.now() < deadline) {
+    try {
+      const res = await fetch(url, { cache: "no-store", redirect: "manual" });
+      if (res.ok) return true;
+    } catch {
+      // The deploy may still be starting.
+    }
+    await new Promise((resolve) => setTimeout(resolve, 20_000));
+  }
+  return false;
+}
+
 async function ping(urls, key) {
   const res = await fetch("https://api.indexnow.org/indexnow", {
     method: "POST",
@@ -54,6 +73,8 @@ function selfCheck() {
   assert(urlsToPing([]).length === 0, "an empty change list sends no ping");
   assert(urlsToPing(null).length === 0, "a missing change list sends no ping");
   assert(urlsToPing(["https://example.com"]).length === 0, "only this site is pinged");
+  assert(pageToWaitFor(["https://whichai.today/blog", "https://whichai.today/blog/ai-news-week-46-2026"]) === "https://whichai.today/blog/ai-news-week-46-2026", "a new post is the page to wait for");
+  assert(pageToWaitFor(["https://whichai.today/coding"]) === null, "rankings runs keep the picks check");
   console.log("indexnow self-check ok");
 }
 
@@ -73,7 +94,7 @@ if (isIndexNow) {
       console.log("indexnow: no changed URLs");
     } else if (!site.indexnow_key) {
       console.warn("indexnow: no key, skipping");
-    } else if (!(await liveHasRun(models.last_updated))) {
+    } else if (!(await (pageToWaitFor(urls) ? pageIsLive(pageToWaitFor(urls)) : liveHasRun(models.last_updated)))) {
       console.warn("indexnow: live data is not ready, skipping");
     } else {
       await ping(urls, site.indexnow_key);
