@@ -183,11 +183,13 @@ export function storedPostProblems(post) {
   return problems;
 }
 
-/** A missing page means the URL was guessed. Hosts that block bots (401, 403, 429) get the benefit of the doubt. */
+/**
+ * A missing page or domain means the URL was guessed. Anything else gets the benefit of the
+ * doubt: big sites answer bots with 400, 403, 429 or a 5xx (meta.com sends 400) and work fine.
+ */
 export function deadLink(status, code) {
   if (code === "ENOTFOUND") return true;
-  if (status === 401 || status === 403 || status === 429) return false;
-  return typeof status === "number" && status >= 400;
+  return status === 404 || status === 410;
 }
 
 const AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36";
@@ -211,6 +213,26 @@ export async function deadUrls(urls) {
     }),
   );
   return dead;
+}
+
+const TRAILING_CITE = /\s*\(\[[^\]]+\]\((https:\/\/[^)\s]+)\)\)\s*$/;
+
+/**
+ * Search-grounded writers tack "([openai.com](https://...))" onto paragraph ends. It reads as
+ * machine output, so drop it when the paragraph still has another link to stand on; the page
+ * stays in the post's source list either way.
+ */
+export function withoutTrailingCites(post) {
+  const tidy = (paragraph) => {
+    const match = String(paragraph).match(TRAILING_CITE);
+    if (!match) return paragraph;
+    const rest = paragraph.slice(0, -match[0].length);
+    return links(rest).length > 0 ? rest : paragraph;
+  };
+  return {
+    ...post,
+    sections: (post.sections ?? []).map((section) => ({ ...section, paragraphs: (section.paragraphs ?? []).map(tidy) })),
+  };
 }
 
 /** Turn dead links back into plain text and drop dead companies and sources. */

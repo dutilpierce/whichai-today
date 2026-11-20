@@ -2,7 +2,15 @@ import { readFile, writeFile } from "node:fs/promises";
 import Anthropic from "@anthropic-ai/sdk";
 import OpenAI from "openai";
 import { research } from "./ai.mjs";
-import { RESERVED_IDS, deadUrls, links, postProblems, proseOf, withoutUrls } from "./blog-rules.mjs";
+import {
+  RESERVED_IDS,
+  deadUrls,
+  links,
+  postProblems,
+  proseOf,
+  withoutTrailingCites,
+  withoutUrls,
+} from "./blog-rules.mjs";
 
 // Drafts the weekly roundup for one ISO week and adds it to lib/blog.json.
 // Writer: OpenAI (web search). Backup writer: Claude (web search), then Gemini.
@@ -176,7 +184,8 @@ Links (lots of them)
 - Link every company's official announcement the first time you mention a release, using the official_announcement URL from the data.
 - Link companies' own sites and any page you cite from search. Aim for 25+ external links across the post.
 - Also link this site's pages where helpful, using only the site_page and leader_page paths given in the data (for example [/coding](/coding) style paths). Never make up a site path.
-- Write links inline as [anchor text](URL). Anchor text should be descriptive (the product or page name), never "here" or "this link".`;
+- Write links inline as [anchor text](URL). Anchor text should be descriptive (the product or page name), never "here" or "this link".
+- Put each link on the words it supports. Never tack a bare source onto the end of a paragraph like "([openai.com](https://...))".`;
 
 const SHAPE = `Return only a JSON object, no prose before or after, with exactly these fields:
 {
@@ -410,11 +419,13 @@ async function run({ week, force, out }) {
   if (brief.counts.releases < 3) throw new Error(`Only ${brief.counts.releases} releases in ${week}; not enough for a roundup.`);
 
   let { draft, writer } = await write(draftPrompt(brief));
+  draft = withoutTrailingCites(draft);
   console.log(`drafted by ${writer}`);
   let problems = check(draft, brief);
   if (problems.length) {
     console.log(`draft needs revision:\n- ${problems.join("\n- ")}`);
     ({ draft, writer } = await write(revisionPrompt(brief, draft, problems)));
+    draft = withoutTrailingCites(draft);
     problems = check(draft, brief);
   }
 
@@ -480,6 +491,18 @@ function selfCheck() {
   assert(previousWeek("2026-11-23") === "2026-W47", "the Monday run covers the week before");
   assert(slugFor("2026-W46") === "ai-news-week-46-2026", "slug format");
   assert(extractJson('Here you go: {"a": {"b": 1}} done').a.b === 1, "extracts JSON from prose");
+  const cited = withoutTrailingCites({
+    sections: [
+      {
+        paragraphs: [
+          "[A](https://a.com/x) shipped. ([a.com](https://a.com/x))",
+          "B shipped. ([b.com](https://b.com/y))",
+        ],
+      },
+    ],
+  }).sections[0].paragraphs;
+  assert(cited[0] === "[A](https://a.com/x) shipped.", "drops a tacked-on cite when another link remains");
+  assert(cited[1].endsWith("([b.com](https://b.com/y))"), "keeps a cite that is the paragraph's only link");
   console.log("draft-weekly self-check ok");
 }
 
