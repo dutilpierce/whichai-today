@@ -239,7 +239,7 @@
       "privacy": {
         "trains_by_default": "Prompts, responses, and your file contents when using the Microsoft Copilot app aren't used to train foundation models.",
         "opt_out": "Profile icon > Settings > Privacy > Model training",
-        "source_url": "https://support.microsoft.com/en-us/topic/microsoft-copilot-privacy-controls-bb7ed57e-3996-412e-9d26-6644bc8939c5"
+        "source_url": "https://support.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-privacy-controls"
       },
       "capabilities": {
         "web_search": true,
