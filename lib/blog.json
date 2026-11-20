@@ -1,3 +1,344 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "week": "2026-W44",
+      "slug": "ai-news-week-44-2026",
+      "start": "2026-10-26",
+      "end": "2026-11-01",
+      "published": "2026-11-20",
+      "updated": "2026-11-20",
+      "title": "AI This Week: GPT-6.1 Terra Halves Standard API Prices (Oct 26–Nov 1, 2026)",
+      "description": "GPT-6.1 Terra launched at half its predecessor’s standard API prices, Google previewed Gemini 4 Carbon, and Mistral released trillion-parameter model weights.",
+      "takeaways": [
+        "OpenAI released [GPT-6.1 Terra](https://openai.com/index/introducing-gpt-6-1-terra/) on Oct 26 at standard API prices 50% below both GPT-5.6 Terra and GPT-6.1 Sol.",
+        "Google announced [Gemini 4 Carbon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/) on Oct 28, with initial access limited to selected cyber defenders rather than a general rollout.",
+        "GitHub made [Copilot Fusion](https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/) generally available on Oct 28, letting developers delegate model selection and coordination for coding tasks.",
+        "Mistral AI released the weights of its improved [Mistral Large 4](https://mistral.ai/news/mistral-large-4-oss/) on Oct 29, following an earlier public preview of the 1-trillion-parameter multimodal model.",
+        "NVIDIA released [Nemotron 3.5 Transcribe](https://huggingface.co/blog/nvidia/nemotron-transcribe-granary) on Oct 28 with transcription in 40 languages, speaker attribution and word-level timestamps.",
+        "Meituan released [LongCat-2.5](https://longcat.ai/blog/longcat-2.5) on Nov 1 with 1.6 trillion total parameters and about 48 billion active per token.",
+        "WhichAI.today tracked [31 releases](/releases) from Oct 26 through Nov 1 but recorded [no ranking changes](/changes) across its nine job categories."
+      ],
+      "sections": [
+        {
+          "id": "gpt-6-1-terra-cuts-the-price-of-working-from-a-screen",
+          "heading": "GPT-6.1 Terra cuts the price of working from a screen",
+          "paragraphs": [
+            "OpenAI released [GPT-6.1 Terra](https://openai.com/index/introducing-gpt-6-1-terra/) on Oct 26 at half the standard API prices of GPT-5.6 Terra and GPT-6.1 Sol. The combination that matters for office work is visual reasoning and computer use: reading an invoice is one step; finding the corresponding fields in accounting software and entering the figures is another. Terra is designed to do both. ([openai.com](https://openai.com/index/introducing-gpt-6-1-terra/))",
+            "OpenAI also published a comparison that goes beyond the price of a token. On Agents’ Last Exam, a test that includes professional tasks such as working from architectural drawings, Terra scored 15 percentage points above GPT-5.6 Terra at medium reasoning effort, at about one-third the cost. That is a result on OpenAI’s reported test, not a forecast that every accounting or design team will cut its bill by two-thirds. ([openai.com](https://openai.com/index/introducing-gpt-6-1-terra/))",
+            "For a team deciding whether to switch, the useful comparison is cost per correctly completed job. Give both models the same set of invoices, including some with missing fields, and count how many records a reviewer can accept without correction. That separates the price reduction, which applies to standard API rates, from the savings a team might actually see after retries and review. ChatGPT Work and Codex users have a different measure: OpenAI says the same usage allowance covers more tasks with Terra. ([openai.com](https://openai.com/index/introducing-gpt-6-1-terra/))",
+            "Google made a related but distinct change on Oct 30: its [Computer Use tool](https://aistudio.google.com/docs/changelog?auto_signin=false) reached general availability in both the Gemini Interactions and GenerateContent APIs. OpenAI’s announcement gives teams a new model and a specific price comparison. Google’s gives developers already building with those two APIs a generally available tool for interacting with computer interfaces."
+          ]
+        },
+        {
+          "id": "gemini-4-carbon-enters-a-limited-preview-as-coding-tools-off",
+          "heading": "Gemini 4 Carbon enters a limited preview as coding tools offer more model choice",
+          "paragraphs": [
+            "Google introduced [Gemini 4 Carbon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/) on Oct 28, emphasizing cybersecurity, coding and work that takes many steps to complete. Google said a subset of cyber defenders would receive access first, with other trusted partners to follow. Carbon’s 1,526 score on the [general-purpose ranking](/general) made it a model to watch, but not one that every team could adopt that week. ([blog.google](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/))",
+            "Developers who wanted a change they could use immediately got one on the same day. [GitHub Copilot Fusion](https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/) became generally available on Oct 28. Rather than asking a developer to pick a model before tackling a coding task, Fusion can choose and coordinate multiple models. The decision shifts from choosing one model for the whole job to deciding whether to delegate that choice.",
+            "Microsoft’s [managed agent execution system for Foundry Agent Service](https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/) entered public preview on Oct 28. It is aimed at developers building agents that use tools and work through long-running tasks across models. The distinction from Fusion is who is doing the building: a developer can select Fusion inside a coding product, while a team using Foundry is building an agent for its own application.",
+            "Particle AI offered a third approach on Oct 28. Its [Particle-1 coding model](https://particle.ai/blog/introducing-particle-1) builds on DeepSeek V4.1 Flash, and the company reported that it used about 45% fewer tokens on average across the tasks it tested. That figure describes token consumption, not a 45% improvement in accuracy or a guaranteed reduction in development time. A useful comparison would count both the tokens spent on a change and whether the resulting code passes review.",
+            "On Nov 1, Meituan released [LongCat-2.5](https://longcat.ai/blog/longcat-2.5), focused on visual coding and tasks that require an agent to keep working across multiple steps. Its 1.6 trillion total parameters describe the full model; about 48 billion are active for each token. For someone evaluating its visual coding, a more revealing test than model size would be to give it a screen design, ask for an implementation and compare the rendered result with the original."
+          ]
+        },
+        {
+          "id": "open-weights-range-from-a-trillion-parameter-flagship-to-mod",
+          "heading": "Open weights range from a trillion-parameter flagship to models for edge devices",
+          "paragraphs": [
+            "Mistral AI released the weights of [Mistral Large 4, also called Le Chonk](https://mistral.ai/news/mistral-large-4-oss/), on Oct 29. The 1-trillion-parameter model had already been in public preview; the week’s news was that teams could obtain the improved weights. Mistral reported a 13-percentage-point gain over its preview on Terminal-Bench 4.0, to 41%, while using 30% fewer output tokens on that test. The comparison is with its own preview, not with the leader on WhichAI.today’s coding board. ([mistral.ai](https://mistral.ai/news/mistral-large-4-oss/))",
+            "At the other end of the size range, Liquid AI released [LFM3](https://www.liquid.ai/blog/lfm3) on Oct 27. Its six open-weight models are all in the 2-billion-parameter class and share a common base, but they do different jobs: text, vision, audio, combined inputs and two forms of decision-making. For a team building a device that needs to make a limited choice rather than sustain a conversation, those last two models deserve a separate evaluation from the text model.",
+            "Long inputs were another reason to look beyond the flagship. InclusionAI released [Ling-3.1-flash-1019](https://huggingface.co/inclusionAI/Ling-3.1-flash-1019) on Oct 27 with a 1-million-token context window, 560 billion total parameters and 25 billion active per token. On Oct 30, NVIDIA published an [NVFP4 version of DeepSeek-V4.1-Flash-1017](https://huggingface.co/nvidia/DeepSeek-V4.1-Flash-1017-NVFP4) with multimodal input and the same maximum context length. NVIDIA’s release is a lower-precision version of an existing model, not a new generation of DeepSeek.",
+            "Two releases shared a 35-billion-parameter headline without offering the same thing. On Oct 28, Apex Intelligence released its first model, [Apex-35B-V1.0](https://www.apexin.com/apex-35b/), a general-purpose model developed through additional training of an existing base. DiffuSpace released [Clover-35B-A3B-Preview](https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview) on Oct 30 with a 128,000-token context window. Clover uses block diffusion to generate text and activates about 3 billion parameters per token; its weights were available despite the word “Preview” in its name.",
+            "Some teams do not need generated text at all. FrontiersMind’s Oct 29 [Lumma-Fev-v2 release](https://huggingface.co/blog/FrontiersMind/lumma-fev-27b-v2) offered 4-billion- and 27-billion-parameter models that score each supplied option in one pass, with room for 8,192 tokens of context. Nace AI’s [Drex Max v1](https://huggingface.co/nace-ai/drex-max-v1), released Nov 1, takes text, JSON or images and returns option probabilities from a 27-billion-parameter model. For a queue that routes documents to named departments, a score for each department is a more direct output than a paragraph someone must interpret."
+          ]
+        },
+        {
+          "id": "speech-releases-split-into-translation-transcription-and-con",
+          "heading": "Speech releases split into translation, transcription and conversation",
+          "paragraphs": [
+            "For a bilingual meeting, the first decision is whether participants need to hear a translation as someone speaks or read a transcript afterward. Tencent released [Hy-SimulMT-30B-A3B](https://huggingface.co/tencent/Hy-SimulMT-30B-A3B) on Oct 26 for the first job: simultaneous speech-to-speech translation from Chinese to English and from English to Chinese. The 30-billion-parameter model has open weights under Apache 2.0 and produces translation-only output rather than acting as a general conversational assistant.",
+            "Microsoft’s Oct 26 [Azure AI Speech LLM 09-2026 update](https://devblogs.microsoft.com/foundry/announcing-azure-ai-speech-llm-09-2026/) addressed transcription. It added 25 languages and, according to Microsoft, processes speech up to twice as fast as version 2607 while improving accuracy. The 25 is the number of languages added, not the service’s total; the speed figure is an upper bound, not a promise that every recording will finish in half the time.",
+            "On Oct 28, NVIDIA released [Nemotron 3.5 Transcribe](https://huggingface.co/blog/nvidia/nemotron-transcribe-granary), an open-weight model that transcribes 40 languages. An instruction can request verbatim speech or a written-form transcript, identify speakers and attach timestamps to words. Those options suit different uses of the same recording: an editor checking a quotation needs the speaker’s actual words and their location, while a colleague reading meeting notes may prefer written form.",
+            "Rime’s [Prism](https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise), released Oct 28, is for spoken exchanges rather than transcripts. Rime reported a response time of about 500 milliseconds and said an application can inspect a text layer before the model speaks. On Oct 29, ServiceNow previewed [Apriel Voice 27B](https://huggingface.co/ServiceNow-AI/Apriel-Voice-27B-preview), which accepts spoken requests but produces text and tool calls. A spoken input does not necessarily mean a spoken reply.",
+            "IBM released [Granite Switch 4.1.1](https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1) on Oct 29. This was a patch, with updated speech-to-text support across 10 languages and a revised decision adapter. For an existing Granite deployment, the useful check is narrow: run recordings from the languages actually used at work, then check the resulting decisions separately rather than treating the patch as an entirely new voice assistant."
+          ]
+        },
+        {
+          "id": "creative-tools-add-live-scene-direction-3d-objects-and-edits",
+          "heading": "Creative tools add live scene direction, 3D objects and edits across a whole deck",
+          "paragraphs": [
+            "Google previewed [Genie 4](https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/) on Oct 27. The research model generates an interactive environment with native audio and lets a person direct events in natural language while the simulation runs. The important distinction from a video generator is timing: instead of specifying the entire scene before rendering, the operator can decide what should happen next after seeing the scene unfold.",
+            "For teams that need a file rather than a live scene, Speridlabs released [Idol](https://huggingface.co/speridlabs/idol) on Oct 28. From one picture of an object, it generates a 3D representation containing up to 1,048,576 elements called Gaussians and saves the result as a standard `.ply` file. Speridlabs reports 7.2 GB of video memory for the model. A generated view of the back of an object should be treated as an estimate, not as evidence of what a single front-facing photo could not show.",
+            "Apple announced [Creator Studio AI features](https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/) on Oct 27, including assistants for Logic Pro, Keynote, Pages and Numbers, plus Generate Fill in Pixelmator Pro. Google’s Oct 30 [Gemini update for Slides](https://www.google.com/sorry/index?continue=https://workspaceupdates.googleblog.com/2026/10/edit-entire-presentations-with-gemini-in-Google-Slides.html&q=EgQEmkwSGIiEr9cGIi1VYeRSIE8ZapdBdC6aQNKW72PTZRp9We9Aq87ftkvyhbrDLnx0cdBiAX_GCdEyAnJSWgFDYLve75OO9IrYaQ) was already available: one prompt in the side panel can change several slides or the entire deck. A presenter can ask for a visual style to match another presentation instead of describing the change slide by slide.",
+            "Baidu tackled the input side of document work on Oct 27 with [Unlimited OCR 2](https://huggingface.co/baidu/Unlimited-OCR-2). Its open-weight parser uses a moving attention window with sparse references to process long documents without a fixed parsing horizon. That is a claim about how far the parser can continue, not a guarantee that every table or caption is correct. A practical test is to inspect a table that crosses a page boundary, not just the first clean page."
+          ]
+        },
+        {
+          "id": "workplace-ai-gets-more-specific-about-the-job-and-the-user",
+          "heading": "Workplace AI gets more specific about the job and the user",
+          "paragraphs": [
+            "Anthropic released its [Claude for Nonprofits plugin](https://claude.com/resources/articles/expanding-claude-for-nonprofits) on Oct 26 for verified nonprofit organizations. Its skills cover fundraising, grant research, marketing and hiring. For a small team comparing it with a general chat assistant, a useful trial would be to take one real funding opportunity and see whether the plugin helps staff produce a usable research brief, not just a plausible fundraising email.",
+            "On Oct 28, Anthropic added [ready-to-use artifacts for legal work](https://claude.com/resources/articles/introducing-artifacts-for-legal-work) to Claude for Legal. These interactive tools cover work such as contract review and regulatory tracking; teams can adapt them with their own data and connectors, then share them. That makes the reusable review tool, rather than one lawyer’s conversation, the unit of work. It is also a different claim from scoring well on a [legal reading benchmark](/legal).",
+            "OpenAI changed how some users reach an agent on Oct 28, when [texting a Dot agent](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) began rolling out in beta to U.S. ChatGPT Pro users through iMessage or RCS. On Oct 29, its [GPT-6 Luna update](https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum) targeted the answers themselves: shorter responses and less overly agreeable language. Luna had launched in ChatGPT on Oct 7; the Oct 29 entry was a behavior update, not its debut.",
+            "On Oct 30, OpenAI previewed [GPT-6 Rosalind Research](https://help.openai.com/en/articles/9624314-model-release-notes) for multistep life sciences research. It combines GPT-6 reasoning with scientific tools and safeguards designed for biological work. Its preview status matters for anyone comparing the week’s workplace products: unlike the nonprofit plugin and legal artifacts, Rosalind was not listed as generally available."
+          ]
+        },
+        {
+          "id": "all-nine-job-rankings-hold-despite-31-releases",
+          "heading": "All nine job rankings hold despite 31 releases",
+          "paragraphs": [
+            "WhichAI.today recorded [no ranking changes](/changes) from Oct 26 through Nov 1. Anthropic’s Claude Fable 5.2 led [coding and software](/coding) at 1,838 on LMArena Code, ahead of GPT-6 Astra at 1,764. It also led [reasoning, math and science](/reasoning) at 74.3 on Humanity’s Last Exam. These scores measure different tasks on different scales; the useful comparison is between models within one category.",
+            "For [legal and long documents](/legal), Claude Fable 5.1 was listed first at 88.5 on Vals LegalBench, tied at the top of that benchmark. Google’s Gemini 4 Argon led [writing and marketing](/writing) at 1,523, six points ahead of Claude Opus 5.5. Neither result measures the convenience of a legal artifact or a deck-wide edit. Those product features can change which tool fits a job even when the underlying leaderboard stays put.",
+            "Gemini 4 Carbon was listed first for [general and everyday work](/general) at 1,526, while Gemini 3.5 Flash-Lite led [speed and high volume](/speed) with an output-speed score of 412. The [image ranking](/images) still favored GPT-Image-2.5 Sunburst at 1,428, and Gemini Omni 1.2 Flash led [video](/video) at 1,540. For [research and web search](/research), Alibaba’s Qwen3.8-Max scored 1,260 against GPT-5.6 Sol’s 1,258. The week changed several practical choices, from API prices to how slides can be edited, without producing a recorded change of leader."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How much cheaper was GPT-6.1 Terra than GPT-5.6 Terra?",
+          "answer": "On Oct 26, OpenAI set GPT-6.1 Terra’s standard API prices 50% below those of both GPT-5.6 Terra and GPT-6.1 Sol. That comparison covers API rates, not the price of a ChatGPT subscription or the total cost of completing any particular job."
+        },
+        {
+          "question": "Was Gemini 4 Carbon available to everyone when Google announced it?",
+          "answer": "No. Google announced Gemini 4 Carbon on Oct 28 with initial access for selected cyber defenders and a planned expansion to trusted partners. Google’s Oct 30 general-availability announcement concerned the separate Computer Use tool in two Gemini APIs."
+        },
+        {
+          "question": "Which open-weight AI models came out from Oct 26 to Nov 1, 2026?",
+          "answer": "Highlights included Liquid AI’s six-model LFM3 family on Oct 27, NVIDIA’s Nemotron 3.5 Transcribe on Oct 28 and the improved Mistral Large 4 weights on Oct 29. Other releases served narrower jobs, including Tencent’s Chinese-English simultaneous translator, Baidu’s long-document parser and Nace AI’s Drex Max v1 decision model."
+        },
+        {
+          "question": "Which speech model could translate a live Chinese-English conversation?",
+          "answer": "Tencent released Hy-SimulMT-30B-A3B on Oct 26 for simultaneous speech-to-speech translation in both directions between Chinese and English. For a written record with speaker labels and timestamps instead, NVIDIA’s Oct 28 Nemotron 3.5 Transcribe release supported transcription in 40 languages."
+        },
+        {
+          "question": "Did any AI model rankings change during the week?",
+          "answer": "WhichAI.today recorded 31 releases and zero ranking changes across nine job categories from Oct 26 through Nov 1. Claude Fable 5.2 remained the coding leader, Gemini 4 Argon led writing, and Gemini 4 Carbon was listed first for general use."
+        }
+      ],
+      "companies": [
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com"
+        },
+        {
+          "name": "Google",
+          "url": "https://about.google"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com"
+        },
+        {
+          "name": "Mistral AI",
+          "url": "https://mistral.ai"
+        },
+        {
+          "name": "NVIDIA",
+          "url": "https://www.nvidia.com"
+        },
+        {
+          "name": "Meituan",
+          "url": "https://www.meituan.com"
+        },
+        {
+          "name": "WhichAI.today",
+          "url": "https://whichai.today"
+        },
+        {
+          "name": "Microsoft",
+          "url": "https://www.microsoft.com"
+        },
+        {
+          "name": "Particle AI",
+          "url": "https://particle.ai"
+        },
+        {
+          "name": "DeepSeek",
+          "url": "https://www.deepseek.com"
+        },
+        {
+          "name": "Liquid AI",
+          "url": "https://www.liquid.ai"
+        },
+        {
+          "name": "InclusionAI",
+          "url": "https://huggingface.co/inclusionAI"
+        },
+        {
+          "name": "Apex Intelligence",
+          "url": "https://www.apexin.com"
+        },
+        {
+          "name": "DiffuSpace",
+          "url": "https://diffuspace.ai"
+        },
+        {
+          "name": "FrontiersMind",
+          "url": "https://frontiersmind.ai"
+        },
+        {
+          "name": "Nace AI",
+          "url": "https://nace.ai"
+        },
+        {
+          "name": "Tencent",
+          "url": "https://www.tencent.com"
+        },
+        {
+          "name": "Rime",
+          "url": "https://www.rime.ai"
+        },
+        {
+          "name": "ServiceNow",
+          "url": "https://www.servicenow.com"
+        },
+        {
+          "name": "Speridlabs",
+          "url": "https://speridlabs.com"
+        },
+        {
+          "name": "Apple",
+          "url": "https://www.apple.com"
+        },
+        {
+          "name": "Baidu",
+          "url": "https://www.baidu.com"
+        },
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        {
+          "name": "Alibaba",
+          "url": "https://www.alibabagroup.com"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Introducing GPT-6.1 Terra",
+          "url": "https://openai.com/index/introducing-gpt-6-1-terra/"
+        },
+        {
+          "name": "Gemini 4 Carbon: our next frontier model",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+        },
+        {
+          "name": "Route and orchestrate models with GitHub Copilot Fusion",
+          "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion/"
+        },
+        {
+          "name": "Mistral Large 4 (Le Chonk) is now open weight",
+          "url": "https://mistral.ai/news/mistral-large-4-oss/"
+        },
+        {
+          "name": "Nemotron 3.5 Transcribe",
+          "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+        },
+        {
+          "name": "Introducing LongCat-2.5",
+          "url": "https://longcat.ai/blog/longcat-2.5"
+        },
+        {
+          "name": "Gemini API changelog: Computer Use",
+          "url": "https://aistudio.google.com/docs/changelog?auto_signin=false"
+        },
+        {
+          "name": "Microsoft Copilot in Foundry Agent Service",
+          "url": "https://devblogs.microsoft.com/foundry/microsoft-copilot-harness-in-foundry/"
+        },
+        {
+          "name": "Introducing Particle-1",
+          "url": "https://particle.ai/blog/introducing-particle-1"
+        },
+        {
+          "name": "LFM3",
+          "url": "https://www.liquid.ai/blog/lfm3"
+        },
+        {
+          "name": "Ling-3.1-flash-1019 model card",
+          "url": "https://huggingface.co/inclusionAI/Ling-3.1-flash-1019"
+        },
+        {
+          "name": "DeepSeek-V4.1-Flash-1017-NVFP4 model card",
+          "url": "https://huggingface.co/nvidia/DeepSeek-V4.1-Flash-1017-NVFP4"
+        },
+        {
+          "name": "Apex-35B-V1.0",
+          "url": "https://www.apexin.com/apex-35b/"
+        },
+        {
+          "name": "Clover-35B-A3B-Preview model card",
+          "url": "https://huggingface.co/Diffuspace/Clover-35B-A3B-Preview"
+        },
+        {
+          "name": "Lumma-Fev-v2 decision models",
+          "url": "https://huggingface.co/blog/FrontiersMind/lumma-fev-27b-v2"
+        },
+        {
+          "name": "Drex Max v1 model card",
+          "url": "https://huggingface.co/nace-ai/drex-max-v1"
+        },
+        {
+          "name": "Hy-SimulMT-30B-A3B model card",
+          "url": "https://huggingface.co/tencent/Hy-SimulMT-30B-A3B"
+        },
+        {
+          "name": "Announcing Azure AI Speech LLM 09-2026",
+          "url": "https://devblogs.microsoft.com/foundry/announcing-azure-ai-speech-llm-09-2026/"
+        },
+        {
+          "name": "Prism: speech-to-speech for enterprise",
+          "url": "https://www.rime.ai/resources/prism-first-speech-to-speech-for-enterprise"
+        },
+        {
+          "name": "Apriel Voice 27B Preview model card",
+          "url": "https://huggingface.co/ServiceNow-AI/Apriel-Voice-27B-preview"
+        },
+        {
+          "name": "Granite Switch 4.1.1",
+          "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1"
+        },
+        {
+          "name": "Introducing Genie 4",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/"
+        },
+        {
+          "name": "Idol model card",
+          "url": "https://huggingface.co/speridlabs/idol"
+        },
+        {
+          "name": "Apple Creator Studio adds powerful new AI features and even more creative tools",
+          "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/"
+        },
+        {
+          "name": "Edit entire presentations with Gemini in Google Slides",
+          "url": "https://www.google.com/sorry/index?continue=https://workspaceupdates.googleblog.com/2026/10/edit-entire-presentations-with-gemini-in-Google-Slides.html&q=EgQEmkwSGIiEr9cGIi1VYeRSIE8ZapdBdC6aQNKW72PTZRp9We9Aq87ftkvyhbrDLnx0cdBiAX_GCdEyAnJSWgFDYLve75OO9IrYaQ"
+        },
+        {
+          "name": "Unlimited OCR 2 model card",
+          "url": "https://huggingface.co/baidu/Unlimited-OCR-2"
+        },
+        {
+          "name": "Expanding Claude for Nonprofits",
+          "url": "https://claude.com/resources/articles/expanding-claude-for-nonprofits"
+        },
+        {
+          "name": "Introducing artifacts for legal work",
+          "url": "https://claude.com/resources/articles/introducing-artifacts-for-legal-work"
+        },
+        {
+          "name": "ChatGPT release notes: Texting your dot",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        },
+        {
+          "name": "GPT-6 Luna deployment safety addendum",
+          "url": "https://deploymentsafety.openai.com/gpt-6-luna-october-28-2026-addendum"
+        },
+        {
+          "name": "Model release notes: GPT-6 Rosalind Research",
+          "url": "https://help.openai.com/en/articles/9624314-model-release-notes"
+        }
+      ],
+      "writer": "openai:gpt-6.2-astra"
+    }
+  ]
 }
