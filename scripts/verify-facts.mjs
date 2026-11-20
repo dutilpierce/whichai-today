@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { API_KEY, research as askClaude } from "./claude.mjs";
+import { AI_READY, research as askAi } from "./ai.mjs";
 
 const MODELS = new URL("../lib/models.json", import.meta.url);
 const PROVIDERS = new URL("../lib/providers.json", import.meta.url);
@@ -42,7 +42,7 @@ function extractJson(text) {
 }
 
 async function ask(prompt) {
-  const text = await askClaude(prompt, { timeoutMs: 180_000, maxSearches: 10 });
+  const text = await askAi(prompt, { timeoutMs: 180_000, maxSearches: 10 });
   const parsed = extractJson(text);
   if (!Array.isArray(parsed.results)) throw new Error("verification response has no results");
   return parsed.results
@@ -91,8 +91,8 @@ if (!site.auto_publish) {
   console.log("Publishing is paused.");
   process.exit(0);
 }
-if (!API_KEY) {
-  console.error("ANTHROPIC_API_KEY is not set.");
+if (!AI_READY) {
+  console.error("Neither ANTHROPIC_API_KEY nor GEMINI_API_KEY is set.");
   process.exit(1);
 }
 

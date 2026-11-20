@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { API_KEY, research as askClaude } from "./claude.mjs";
+import { AI_READY, research as askAi } from "./ai.mjs";
 
 const APPS_FILE = new URL("../lib/apps.json", import.meta.url);
 const MODELS_FILE = new URL("../lib/models.json", import.meta.url);
@@ -160,7 +160,7 @@ price_usd_month is the monthly USD price, 0 for a free plan, or null if it is no
 }
 
 async function research(today, seed, names, jobs) {
-  const text = await askClaude(prompt(today, seed, names, jobs), { timeoutMs: 180_000, maxSearches: 8 });
+  const text = await askAi(prompt(today, seed, names, jobs), { timeoutMs: 180_000, maxSearches: 8 });
   return validateApp(extractJson(text), seed, today, names);
 }
 
@@ -287,7 +287,7 @@ function selfCheck() {
 }
 
 async function main() {
-  if (!API_KEY) throw new Error("ANTHROPIC_API_KEY is not set");
+  if (!AI_READY) throw new Error("Neither ANTHROPIC_API_KEY nor GEMINI_API_KEY is set");
   const today = new Date().toISOString().slice(0, 10);
   const models = JSON.parse(await readFile(MODELS_FILE, "utf8"));
   const names = trackedNames(models);

@@ -1,10 +1,11 @@
 import { createHash } from "node:crypto";
-import { QUICK_MODEL, aiConfigured, categoryGuide, categoryKeys, generateJson } from "@/lib/ai";
+import { aiConfigured, categoryGuide, categoryKeys, generateJson } from "@/lib/ai";
 import { UNRANKED_INTENTS, type UnrankedIntent } from "@/lib/intents";
 import { allow, readCache, writeCacheLater } from "@/lib/store";
 
 const FALLBACK = "general";
-const MODEL = process.env.CLASSIFIER_MODEL ?? QUICK_MODEL;
+// Part of the cache key. Unchanged since the Gemini-only days so answers saved then still hit.
+const CACHE_VERSION = "gemini-3.5-flash-lite";
 const CACHE_SECONDS = 60 * 60 * 24 * 30;
 
 const instructions = [
@@ -27,12 +28,12 @@ function asIntent(value: string | undefined): UnrankedIntent | "none" {
     : "none";
 }
 
-/** The same question gets the same route. The key includes the instructions and model, so changing either starts fresh. */
+/** The same question gets the same route. The key includes the instructions and a version, so changing either starts fresh. */
 function classifyKey(query: string) {
   const body = JSON.stringify({
     q: query.toLowerCase().replace(/\s+/g, " ").trim(),
     instructions,
-    model: MODEL,
+    model: CACHE_VERSION,
   });
   return `classify:${createHash("sha256").update(body).digest("hex")}`;
 }
@@ -68,7 +69,7 @@ export async function POST(request: Request) {
 
   try {
     const data = await generateJson<{ category?: string; intent?: string }>({
-      model: MODEL,
+      tier: "quick",
       system: instructions,
       prompt: query,
       schema: {

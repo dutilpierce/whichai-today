@@ -27,7 +27,7 @@ jobs:
           node-version: 22
           cache: npm
 
-      # The research scripts call Claude through the Anthropic SDK.
+      # The research scripts call Claude through the Anthropic SDK (Gemini is the fallback).
       - name: Install packages
         run: npm ci --ignore-scripts --no-audit --no-fund
 
@@ -45,6 +45,7 @@ jobs:
         run: node scripts/refresh-rankings.mjs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Freshness
         if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'
@@ -78,6 +79,7 @@ jobs:
         run: node scripts/refresh-apps.mjs --missing
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Freshness after apps
         if: steps.kill.outputs.publish == 'true' && steps.due.outputs.due == 'true'

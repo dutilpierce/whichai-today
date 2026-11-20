@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { API_KEY, research as askClaude } from "./claude.mjs";
+import { AI_READY, research as askAi } from "./ai.mjs";
 
 const RELEASES_FILE = new URL("../lib/releases.json", import.meta.url);
 const FIELDS = ["date", "name", "provider", "kind", "status", "summary", "evidence", "source_url"];
@@ -169,7 +169,7 @@ async function resolveSource(url) {
 }
 
 async function research(today, recent, days) {
-  const text = await askClaude(prompt(today, recent, days), { timeoutMs: 180_000, maxSearches: 10 });
+  const text = await askAi(prompt(today, recent, days), { timeoutMs: 180_000, maxSearches: 10 });
   const result = extractJson(text);
   if (!Array.isArray(result?.entries)) throw new Error("entries is not a list");
   return result.entries;
@@ -277,8 +277,8 @@ if (isMain && process.argv.includes("--fix-sources")) {
 }
 
 if (isMain) {
-  if (!API_KEY) {
-    console.error("ANTHROPIC_API_KEY is not set.");
+  if (!AI_READY) {
+    console.error("Neither ANTHROPIC_API_KEY nor GEMINI_API_KEY is set.");
     process.exit(1);
   }
 
