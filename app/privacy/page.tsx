@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "WhichAI.today does not ask for an account. Queries go to Anthropic's Claude API only when keyword matching misses, and email alerts, when offered, are held only by Buttondown.",
+    "WhichAI.today does not ask for an account. Queries go to an AI API (Anthropic's Claude, or Google's Gemini as a backup) only when keyword matching misses, and email alerts, when offered, are held only by Buttondown.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy",
@@ -31,8 +31,9 @@ export default function PrivacyPage() {
             A normal search is matched on this site. The words you type are sent to
             Anthropic&apos;s Claude API only when that match misses, when you use Plan a
             project, and when you open a ready prompt so it can be written for those words.
-            Anthropic does not use API requests to train its models by default, and this site
-            does not use them to train a model either.
+            If Claude is unavailable, the same request goes to Google&apos;s Gemini API on its
+            paid tier instead. Neither Anthropic nor Google uses these paid API requests to
+            train its models, and this site does not use them to train a model either.
           </p>
           <p>
             Email alerts, when the signup is open, go through Buttondown. Buttondown is the

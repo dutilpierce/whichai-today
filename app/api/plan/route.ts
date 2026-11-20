@@ -1,7 +1,5 @@
-import { PLANNER_MODEL, aiConfigured, categoryGuide, categoryKeys, generateJson } from "@/lib/ai";
+import { aiConfigured, categoryGuide, categoryKeys, generateJson } from "@/lib/ai";
 import { allow } from "@/lib/store";
-
-const MODEL = process.env.PLANNER_MODEL ?? PLANNER_MODEL;
 
 const instructions = [
   "You break a project into practical stages for WhichAI.today.",
@@ -42,7 +40,7 @@ export async function POST(request: Request) {
 
   try {
     const data = await generateJson<{ summary?: string; stages?: Stage[] }>({
-      model: MODEL,
+      tier: "planner",
       system: instructions,
       prompt: description,
       schema: {

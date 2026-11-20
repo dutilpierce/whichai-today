@@ -1,5 +1,5 @@
 import { readFile, writeFile } from "node:fs/promises";
-import { API_KEY, research as askClaude } from "./claude.mjs";
+import { AI_READY, research as askAi } from "./ai.mjs";
 
 const ARCHIVE_FILE = new URL("../lib/archive.json", import.meta.url);
 const MODELS_FILE = new URL("../lib/models.json", import.meta.url);
@@ -157,7 +157,7 @@ export function applyResearch(category, history, key, picks, today) {
 }
 
 async function research(today, category) {
-  const text = await askClaude(prompt(today, category), { timeoutMs: 240_000, maxSearches: 8 });
+  const text = await askAi(prompt(today, category), { timeoutMs: 240_000, maxSearches: 8 });
   return validate(extractJson(text), category, today);
 }
 
@@ -291,8 +291,8 @@ if (process.argv.includes("--self-check")) {
   process.exit(0);
 }
 
-if (!API_KEY) {
-  console.error("ANTHROPIC_API_KEY is not set.");
+if (!AI_READY) {
+  console.error("Neither ANTHROPIC_API_KEY nor GEMINI_API_KEY is set.");
   process.exit(1);
 }
 

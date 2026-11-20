@@ -1,11 +1,10 @@
-import { QUICK_MODEL, aiConfigured, generateJson } from "@/lib/ai";
+import { aiConfigured, generateJson } from "@/lib/ai";
 import { checkPrompt } from "@/lib/prompt-rules.mjs";
 import { assemblePrompt, isCategoryKey, isTweak, tweakNotes } from "@/lib/prompt-text";
 import { knownModel, promptKey, promptRulesInput } from "@/lib/prompt";
 import { sensitiveKind } from "@/lib/sensitive";
 import { allow, cached } from "@/lib/store";
 
-const MODEL = process.env.PROMPT_MODEL ?? QUICK_MODEL;
 const CACHE_SECONDS = 60 * 60 * 24 * 30;
 
 type Fields = {
@@ -49,7 +48,7 @@ export async function POST(request: Request) {
   try {
     const prompt = await cached(key, CACHE_SECONDS, async () => {
       const data = await generateJson<Fields>({
-        model: MODEL,
+        tier: "quick",
         system: [
           `Write a prompt the user will paste into ${target}.`,
           "Return instructions only. Do not do the task.",
