@@ -1,6 +1,309 @@
 {
   "posts": [
     {
+      "week": "2026-W46",
+      "slug": "ai-news-week-46-2026",
+      "start": "2026-11-09",
+      "end": "2026-11-15",
+      "published": "2026-11-20",
+      "updated": "2026-11-20",
+      "title": "AI This Week: ChatGPT Wallet Adds Checkout and 22 More Releases (Nov 9-15, 2026)",
+      "description": "ChatGPT Wallet lets agents pay after user approval, Claude Fable 5.2 takes the reasoning lead, and Google prices a million-token model for everyday coding work.",
+      "takeaways": [
+        "OpenAI launched [ChatGPT Wallet](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) on Nov 13, letting an agent complete a purchase after the buyer reviews the order and authorizes payment.",
+        "Anthropic released [Claude Fable 5.2 and Claude Mythos 5.2](https://www.anthropic.com/claude-fable-and-mythos-5-2) on Nov 9 at $8 per million input tokens and $40 per million output tokens.",
+        "Google released [Gemini 4 Hydrogen](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/) on Nov 12 with the same token rates across its full 1 million-token context window.",
+        "Microsoft made [Bring Your Own Model](https://devblogs.microsoft.com/visualstudio/bring-your-own-model-is-now-generally-available-in-visual-studio/) generally available in Visual Studio 18.12 on Nov 11, including support for local models.",
+        "Salesforce released [SOV-Transcribe-1](https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1) on Nov 12, an open-weight transcription model with 26.6 billion total parameters and 4.6 billion active parameters.",
+        "Three WhichAI.today categories changed leaders on Nov 12: [reasoning](/changes/2026-11-12-reasoning), [general use](/changes/2026-11-12-general), and [web research](/changes/2026-11-12-research)."
+      ],
+      "sections": [
+        {
+          "id": "chatgpt-wallet-adds-checkout-with-the-buyer-approving-each-o",
+          "heading": "ChatGPT Wallet adds checkout, with the buyer approving each order",
+          "paragraphs": [
+            "OpenAI released [ChatGPT Wallet](https://help.openai.com/en/articles/6825453-chatgpt-release-notes) on Nov 13. A ChatGPT agent can now do more than find a product: it can complete checkout without seeing the buyer’s actual card details. The initial [Wallet rollout](https://openai.com/index/introducing-chatgpt-wallet/) is narrower than the product name suggests. It starts in dots, OpenAI’s personal agents, for US ChatGPT Pro subscribers aged 18 or older with an eligible US-issued card. ([openai.com](https://openai.com/index/introducing-chatgpt-wallet/))",
+            "The buyer still makes the spending decision. Before an order goes through, the buyer reviews the merchant, the items, the total, and the selected card, then approves the purchase with a security check such as a fingerprint scan. The payment network supplies a substitute credential for checkout; the charge goes to the selected card, but neither the agent nor the merchant gets its actual number. ([openai.com](https://openai.com/index/introducing-chatgpt-wallet/))",
+            "That approval covers a particular order, not an ongoing shopping assignment. Under the [ChatGPT Wallet terms](https://openai.com/policies/chatgpt-wallet-terms/), a material change before submission requires fresh approval. The merchant remains the seller and sets the return policy. For someone delegating a purchase, the practical dividing line is straightforward: the agent can handle checkout, but it cannot treat approval of one price as permission to pay another. ([openai.com](https://openai.com/policies/chatgpt-wallet-terms/?utm_source=openai))",
+            "OpenAI addressed the seller’s side on Nov 10 with [Businesses in ChatGPT](https://openai.com/business/businesses-in-chatgpt/). A business can claim its profile, and eligible US e-commerce and online service businesses can publish an agent that answers questions from the company’s product and policy information. The [business setup guide](https://help.openai.com/en/articles/20001635-setting-up-your-business-on-chatgpt) distinguishes claiming a profile from qualifying for an agent. For a retailer, keeping a return policy accurate and accepting an approved payment are two separate jobs. ([help.openai.com](https://help.openai.com/en/articles/20001635-setting-up-your-business-on-chatgpt?utm_source=openai))"
+          ]
+        },
+        {
+          "id": "claude-gains-speed-while-gemini-and-qwen-offer-million-token",
+          "heading": "Claude gains speed while Gemini and Qwen offer million-token context",
+          "paragraphs": [
+            "Anthropic’s Nov 9 update to [Claude Fable and Claude Mythos](https://www.anthropic.com/claude-fable-and-mythos-5-2) combined lower prices with reported improvements in coding, reasoning, and vision. The company says the 5.2 models generate output up to 30% faster than their respective 5.1 predecessors. That measures how quickly an answer is written, not how quickly an entire assignment finishes: a coding job can also spend time waiting for a tool or running tests.",
+            "Google took a different approach with [Gemini 4 Hydrogen](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/) on Nov 12. Hydrogen is built to carry out steps in coding and other agent workflows. It costs $1.50 per million input tokens and $7.50 per million output tokens, with no price jump as a request approaches the 1 million-token limit. That makes the input bill easier to estimate for jobs that vary from a few files to a large collection.",
+            "The price difference is easiest to see on a sample workload. At the announced rates, 100,000 input tokens and 10,000 output tokens cost $0.225 on Hydrogen versus $1.20 on either Claude 5.2 model, counting token charges alone. That example holds the amount of text constant; it does not assume the models require the same number of attempts. For a repeated job, the more useful figure is the cost of an answer someone can actually use.",
+            "Alibaba Cloud’s [Qwen4-Max-Preview](https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview) also arrived with a 1 million-token window on Nov 11. It combines text generation, image and video understanding, reasoning, and tool calls. The distinction for teams planning a rollout is availability: Qwen4-Max was a preview during the week, while [Hydrogen was available](/releases/2026-11-12-google-gemini-4-hydrogen). Neither model’s context limit, by itself, says how reliably it will find a detail buried in a long file.",
+            "Meta aimed its Nov 9 [Muse Ember](https://dev.meta.ai/resources/blog/build-with-muse-ember) release at smaller tasks performed often. Available in Muse Code and through the Meta Model API, the compact model accepts text, images, audio, and video for work including document analysis and coding subtasks. For a team sorting incoming material, an informative trial would give Ember the same request as a typed note, a photographed page, and a spoken message. That tests the feature Meta emphasized rather than rewarding the longest answer."
+          ]
+        },
+        {
+          "id": "coding-tools-add-parallel-agents-local-models-and-access-to-",
+          "heading": "Coding tools add parallel agents, local models, and access to app features",
+          "paragraphs": [
+            "Google introduced [/swarm in Antigravity](https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity/) in preview on Nov 10 alongside the rollout of Gemini 4 Carbon in the coding environment. The command coordinates specialized agents that can plan, write code, and verify work in parallel. The change is in how an assignment is divided: a developer can give the team a shared objective rather than manually passing one assistant’s plan to another for implementation.",
+            "Microsoft’s Nov 11 release of [Bring Your Own Model in Visual Studio 18.12](https://devblogs.microsoft.com/visualstudio/bring-your-own-model-is-now-generally-available-in-visual-studio/) answers a different question: which model gets to do the work? Developers can connect a custom endpoint or a local model without leaving the editor. The distinction matters for a team that already operates an approved model. It can evaluate the editor integration without also having to evaluate a new model provider.",
+            "For people building applications rather than modifying an existing codebase, Google added [Google Maps Platform to AI Studio](https://developers.googleblog.com/from-prompt-to-app-build-with-google-maps-in-ai-studio/) on Nov 9. Developers can prompt Gemini to build a store locator, route planner, or air-quality display using Maps services. The sandbox has quotas and does not require a credit card. That is a useful distinction for a prototype: a team can test whether the map answers its users’ question before making a production spending decision.",
+            "DeepSeek’s Nov 13 [App API release](https://api-docs.deepseek.com/news/news261113/) brought web search, URL reading, file input, speech recognition, and text-to-speech out of its chat app and into its developer offering. Consider a support application that needs to read an attached manual and a customer-supplied web page. Those are now capabilities its developer can call directly; the customer need not be sent to the DeepSeek chat interface to perform those steps."
+          ]
+        },
+        {
+          "id": "meeting-assistants-live-translation-and-open-weight-transcri",
+          "heading": "Meeting assistants, live translation, and open-weight transcription",
+          "paragraphs": [
+            "On Nov 11, xAI added [meetings and calls to Grok Bot](https://x.ai/changelog/bot). On Team, Enterprise, and Ultra plans, a bot can join from a Google Meet, Zoom, or Microsoft Teams link, answer questions in meeting chat, and send a summary afterward. For an organization whose customers choose the conferencing platform, support for all three is a more useful starting criterion than a comparison of sample summaries from just one.",
+            "Anthropic’s [Claude Meetings](https://support.claude.com/en/articles/12138966-release-notes) entered beta on Nov 12 for Team and Enterprise plans. It joins Google Meet as a visible participant and can create a document, whiteboard, or slide deck during the conversation. That gives the two meeting assistants distinct uses: Grok covers three call platforms, while Claude offers a way for participants on a Meet call to inspect a draft together instead of waiting for the minutes.",
+            "Two days earlier, Anthropic introduced [Sheets and Whiteboards templates](https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them) for collaborative work inside Claude. The beta covers Pro, Max, Ultra, Team, and Enterprise plans, but the administrative defaults differ: the templates are on for Team and off for Enterprise until an owner enables them. A company preparing a workshop should check that setting before promising participants a shared board.",
+            "DeepL’s [Aure](https://www.deepl.com/en/press-release/aure-voice-ai-model), released Nov 11, tackles the conversation itself rather than its written record. The real-time voice translation model covers eight languages and is designed to preserve rhythm, intonation, and tone. For a multilingual presentation, a useful listening test would include a question, a correction, and an emphatic answer: the words matter in all three, but so does the way the speaker delivers them.",
+            "Salesforce’s Nov 12 [SOV-Transcribe-1 model card](https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1) describes a different speech job: turning recorded audio into text, not translating a live exchange. The Apache 2.0 open-weight model supports multilingual transcription, guidance on writing style, and context to favor relevant terms. Its 26.6 billion total parameters include 4.6 billion active parameters. For a team transcribing interviews with unusual names, the terminology feature is a reason to test it; for live captions, its non-streaming design is a reason to look elsewhere."
+          ]
+        },
+        {
+          "id": "enterprise-releases-change-how-companies-buy-host-and-assign",
+          "heading": "Enterprise releases change how companies buy, host, and assign AI work",
+          "paragraphs": [
+            "On Nov 9, OpenAI made [ChatGPT Enterprise available in AWS Marketplace](https://openai.com/index/chatgpt-enterprise-aws-marketplace/). Organizations can purchase and manage seats through their existing Amazon Web Services billing relationship, and eligible spending can count toward AWS commitments. This changes the purchasing route, not the model employees use. The word to check in a budget review is “eligible,” rather than assuming the entire purchase will offset a commitment.",
+            "Anthropic’s Nov 12 [self-hosted Claude Managed Agents release](https://platform.claude.com/docs/en/release-notes/overview) concerns where the service runs after a company adopts it. Organizations can host the whole Managed Agents service on their own infrastructure, including agents, sessions, and session history, rather than hosting only the sandboxes that execute work. It is an agent-service deployment option, not an announcement that Claude model weights can be downloaded.",
+            "Databricks introduced [Always-on Genie](https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex) on Nov 11 as a second-generation agent for work across enterprise data and business systems. The proposed change is from asking a question on demand to assigning work to a persistent agent. A useful pilot would start with a recurring task that has a clear finish line, then check both the result and which steps still needed a person.",
+            "Google Cloud’s Nov 10 [Gemini for healthcare](https://cloud.google.com/blog/products/ai-machine-learning/gemini-for-healthcare) is more specific about the systems involved: clinical, financial, administrative, and insurance workflows, including electronic health records. Its purpose is to coordinate multi-step tasks without asking staff to switch applications at every handoff. For an operations team, the relevant demonstration is a handoff across the systems it actually uses, not a general medical question answered in a chat window."
+          ]
+        },
+        {
+          "id": "creative-tools-robotics-and-genomics-get-task-specific-updat",
+          "heading": "Creative tools, robotics, and genomics get task-specific updates",
+          "paragraphs": [
+            "Adobe made two distinct releases on Nov 10. Its [Creative Cloud update](https://news.adobe.com/news/2026/11/adobe-transforms-creative-cloud-tools) added Creative Agent, Relight, Color Mode, and co-editing tools. For an art director reviewing an existing composition, the useful distinction is between proposing a revision and controlling the result: lighting and color are concrete changes that collaborators can inspect rather than judging an entirely new image.",
+            "The separate [Firefly AI Creative Studio update](https://news.adobe.com/news/2026/11/adobe-firefly-expands) added Quick Actions, Firefly Graph, and tools for video, design, and image editing alongside Creative Agent. Creative Agent appears in both announcements, so its presence alone does not distinguish the products. A team choosing what to trial can start with the deliverable: a jointly edited composition points toward the Creative Cloud update, while a project moving between image, design, and video work gives Firefly a clearer test.",
+            "Google DeepMind released [Gemini Robotics 2.5](https://deepmind.google/models/gemini-robotics/) on Nov 10. It is a vision-language-action model: the intended output is a robot’s action, not a written description of what the robot sees. Google describes support for bodies ranging from paired arms to humanoids. For a robotics team, that breadth makes its own hardware and task the right test; support for a body shape is not a success rate for a particular movement.",
+            "On Nov 11, Google DeepMind released [AlphaGenome 2](https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/), trained on more than 100 million individual cell profiles across 68 tissues. The team reports that it identified nearly twice as many variants linked to gene expression in specific human cell types as the previous model. The unit of comparison matters: the reported gain concerns identifying those links, not doubling the accuracy of every prediction or establishing a diagnosis for a patient."
+          ]
+        },
+        {
+          "id": "fable-carbon-and-qwen-take-three-different-ranking-leads",
+          "heading": "Fable, Carbon, and Qwen take three different ranking leads",
+          "paragraphs": [
+            "Claude Fable 5.2 replaced Claude Opus 5.5 at the top of [Reasoning, Math & Science on Nov 12](/changes/2026-11-12-reasoning), scoring 74.3% on Humanity’s Last Exam. The [benchmark authors](https://www.lastexam.ai/) describe 2,500 closed-ended questions across more than 100 subjects. That is evidence about solving difficult academic problems with checkable answers, not a claim that Fable gets 74.3% of an employee’s daily assignments right. ([lastexam.ai](https://www.lastexam.ai/?utm_source=openai))",
+            "Fable 5.2 also ended the week first in [Coding & Software](/coding), with 1,838 on LMArena Code against 1,764 for GPT-6 Astra. Coding was not one of the three recorded leadership changes. Nor did the new version displace its predecessor everywhere: [Legal & Long Documents](/legal) still listed Fable 5.1 at 88.5 on Vals LegalBench, tied at the top of that benchmark.",
+            "Google’s Gemini 4 Carbon replaced Gemini 4 Argon in [General & Everyday on Nov 12](/changes/2026-11-12-general) with an overall LMArena Text score of 1,526. Argon nevertheless retained the [Writing & Marketing lead](/writing) with 1,523 on the creative-writing board. A team choosing a drafting assistant has a reason to keep testing Argon even if Carbon is its first pick for a mixed set of everyday questions.",
+            "Alibaba’s Qwen3.8-Max took [Research & Web Search on Nov 12](/changes/2026-11-12-research), scoring 1,260 on LMArena Search against 1,258 for the previous leader, GPT-5.6 Sol. The two-point difference establishes the order in this week’s snapshot, not a large practical advantage. It was Qwen3.8-Max that earned the ranking, not the similarly named [Qwen4-Max-Preview released Nov 11](/releases/2026-11-11-alibaba-cloud-qwen4-max-preview)."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Who could use ChatGPT Wallet at its Nov 13 launch?",
+          "answer": "The initial rollout covered US ChatGPT Pro subscribers aged 18 or older using dots with an eligible US-issued card. The buyer had to review and approve each purchase; saving a card did not give the agent permission to spend freely."
+        },
+        {
+          "question": "How much did Gemini 4 Hydrogen and Claude 5.2 cost at launch?",
+          "answer": "Gemini 4 Hydrogen launched at $1.50 per million input tokens and $7.50 per million output tokens across its 1 million-token context window. Claude Fable 5.2 and Claude Mythos 5.2 launched at $8 per million input tokens and $40 per million output tokens."
+        },
+        {
+          "question": "Which AI meeting assistant supported Zoom, Teams, and Google Meet?",
+          "answer": "As of Nov 11, Grok Bot could join all three platforms on xAI’s Team, Enterprise, and Ultra plans. Claude Meetings entered beta on Nov 12 for Google Meet on Team and Enterprise plans, with the ability to make documents, whiteboards, and slides during a call."
+        },
+        {
+          "question": "Which open-weight speech model was released during Nov 9-15?",
+          "answer": "Salesforce released SOV-Transcribe-1 on Nov 12 under Apache 2.0. It is a multilingual, non-streaming transcription model with 26.6 billion total parameters and 4.6 billion active parameters, intended for recorded audio rather than live translation."
+        },
+        {
+          "question": "Which AI models moved into first place on Nov 12?",
+          "answer": "Claude Fable 5.2 took the reasoning lead, Gemini 4 Carbon took the general-use lead, and Qwen3.8-Max took the web-research lead. Their respective scores were 74.3% on Humanity’s Last Exam, 1,526 on LMArena Text overall, and 1,260 on LMArena Search."
+        }
+      ],
+      "companies": [
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com"
+        },
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        {
+          "name": "Google",
+          "url": "https://www.google.com"
+        },
+        {
+          "name": "Microsoft",
+          "url": "https://www.microsoft.com"
+        },
+        {
+          "name": "Salesforce",
+          "url": "https://www.salesforce.com"
+        },
+        {
+          "name": "Alibaba",
+          "url": "https://www.alibabagroup.com"
+        },
+        {
+          "name": "Alibaba Cloud",
+          "url": "https://www.alibabacloud.com"
+        },
+        {
+          "name": "DeepSeek",
+          "url": "https://www.deepseek.com"
+        },
+        {
+          "name": "xAI",
+          "url": "https://x.ai"
+        },
+        {
+          "name": "Zoom",
+          "url": "https://www.zoom.com"
+        },
+        {
+          "name": "DeepL",
+          "url": "https://www.deepl.com"
+        },
+        {
+          "name": "Amazon Web Services",
+          "url": "https://aws.amazon.com"
+        },
+        {
+          "name": "Databricks",
+          "url": "https://www.databricks.com"
+        },
+        {
+          "name": "Google Cloud",
+          "url": "https://cloud.google.com"
+        },
+        {
+          "name": "Adobe",
+          "url": "https://www.adobe.com"
+        },
+        {
+          "name": "Google DeepMind",
+          "url": "https://deepmind.google"
+        }
+      ],
+      "sources": [
+        {
+          "name": "ChatGPT release notes",
+          "url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+        },
+        {
+          "name": "Introducing ChatGPT Wallet",
+          "url": "https://openai.com/index/introducing-chatgpt-wallet/"
+        },
+        {
+          "name": "ChatGPT Wallet terms",
+          "url": "https://openai.com/policies/chatgpt-wallet-terms/"
+        },
+        {
+          "name": "Businesses in ChatGPT",
+          "url": "https://openai.com/business/businesses-in-chatgpt/"
+        },
+        {
+          "name": "Setting up your business on ChatGPT",
+          "url": "https://help.openai.com/en/articles/20001635-setting-up-your-business-on-chatgpt"
+        },
+        {
+          "name": "Claude Fable 5.2 and Claude Mythos 5.2",
+          "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+        },
+        {
+          "name": "Introducing Gemini 4 Hydrogen",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
+        },
+        {
+          "name": "Qwen4-Max-Preview",
+          "url": "https://www.alibabacloud.com/help/en/model-studio/qwen4-max-preview"
+        },
+        {
+          "name": "Build with Muse Ember",
+          "url": "https://dev.meta.ai/resources/blog/build-with-muse-ember"
+        },
+        {
+          "name": "Gemini 4 Carbon in Google Antigravity",
+          "url": "https://antigravity.google/blog/gemini-4-carbon-in-google-antigravity/"
+        },
+        {
+          "name": "Bring Your Own Model is now generally available in Visual Studio",
+          "url": "https://devblogs.microsoft.com/visualstudio/bring-your-own-model-is-now-generally-available-in-visual-studio/"
+        },
+        {
+          "name": "From prompt to app: Build with Google Maps in AI Studio",
+          "url": "https://developers.googleblog.com/from-prompt-to-app-build-with-google-maps-in-ai-studio/"
+        },
+        {
+          "name": "DeepSeek App API",
+          "url": "https://api-docs.deepseek.com/news/news261113/"
+        },
+        {
+          "name": "Grok Bot changelog",
+          "url": "https://x.ai/changelog/bot"
+        },
+        {
+          "name": "Claude release notes",
+          "url": "https://support.claude.com/en/articles/12138966-release-notes"
+        },
+        {
+          "name": "What are artifacts and how do I use them?",
+          "url": "https://support.claude.com/en/articles/17153992-what-are-artifacts-and-how-do-i-use-them"
+        },
+        {
+          "name": "Aure voice AI model",
+          "url": "https://www.deepl.com/en/press-release/aure-voice-ai-model"
+        },
+        {
+          "name": "SOV-Transcribe-1 model card",
+          "url": "https://huggingface.co/salesforce-sovereign-intelligence/SOV-Transcribe-1"
+        },
+        {
+          "name": "ChatGPT Enterprise in AWS Marketplace",
+          "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace/"
+        },
+        {
+          "name": "Claude developer platform release notes",
+          "url": "https://platform.claude.com/docs/en/release-notes/overview"
+        },
+        {
+          "name": "Databricks launches the new always-on Genie",
+          "url": "https://www.databricks.com/company/newsroom/press-releases/databricks-launches-new-always-genie-autonomous-ai-complex"
+        },
+        {
+          "name": "Gemini for healthcare",
+          "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-for-healthcare"
+        },
+        {
+          "name": "Agentic workflows in Creative Cloud",
+          "url": "https://news.adobe.com/news/2026/11/adobe-transforms-creative-cloud-tools"
+        },
+        {
+          "name": "Firefly AI Creative Studio",
+          "url": "https://news.adobe.com/news/2026/11/adobe-firefly-expands"
+        },
+        {
+          "name": "Gemini Robotics",
+          "url": "https://deepmind.google/models/gemini-robotics/"
+        },
+        {
+          "name": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+          "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/"
+        },
+        {
+          "name": "Humanity’s Last Exam",
+          "url": "https://www.lastexam.ai/"
+        },
+        {
+          "name": "openai.com",
+          "url": "https://openai.com/policies/chatgpt-wallet-terms/?utm_source=openai"
+        },
+        {
+          "name": "help.openai.com",
+          "url": "https://help.openai.com/en/articles/20001635-setting-up-your-business-on-chatgpt?utm_source=openai"
+        },
+        {
+          "name": "lastexam.ai",
+          "url": "https://www.lastexam.ai/?utm_source=openai"
+        }
+      ],
+      "writer": "openai:gpt-6.2-astra"
+    },
+    {
       "week": "2026-W45",
       "slug": "ai-news-week-45-2026",
       "start": "2026-11-02",
