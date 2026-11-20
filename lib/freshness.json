@@ -2,15 +2,15 @@
   "pages": {
     "/": {
       "changed": "2026-11-20",
-      "hash": "6fa214aa1539d90d"
+      "hash": "05a0c3d7a8ba4f6f"
     },
     "/releases": {
       "changed": "2026-11-20",
       "hash": "623f51edfd278368"
     },
     "/coding": {
-      "changed": "2026-11-13",
-      "hash": "6213cf8f3dfc9296"
+      "changed": "2026-11-20",
+      "hash": "0825b47328bc878c"
     },
     "/legal": {
       "changed": "2026-10-24",
@@ -44,9 +44,9 @@
       "changed": "2026-11-12",
       "hash": "a3adaf78f4e47722"
     },
-    "/models/claude-opus-5-5": {
-      "changed": "2026-11-13",
-      "hash": "f946fe58df92081c"
+    "/models/claude-fable-5-2": {
+      "changed": "2026-11-20",
+      "hash": "125ef351d004f918"
     },
     "/models/gpt-6-astra": {
       "changed": "2026-11-12",
@@ -64,13 +64,13 @@
       "changed": "2026-11-14",
       "hash": "0f92c254e0f42ca6"
     },
+    "/models/claude-opus-5-5": {
+      "changed": "2026-11-20",
+      "hash": "f759cf2f1f17a2d1"
+    },
     "/models/mimo-v2-6-pro": {
       "changed": "2026-11-11",
       "hash": "dc4bb33009f9a50b"
-    },
-    "/models/claude-fable-5-2": {
-      "changed": "2026-11-17",
-      "hash": "6941be518f61333c"
     },
     "/models/kimi-k3-1-pro": {
       "changed": "2026-11-11",
@@ -153,20 +153,16 @@
       "hash": "cbfaaba03fed5daf"
     },
     "/compare/claude-fable-5-2-vs-gpt-6-astra": {
-      "changed": "2026-11-17",
-      "hash": "8156e90bab341340"
+      "changed": "2026-11-20",
+      "hash": "d149efc8c2afe19c"
     },
     "/compare/claude-haiku-5-5-vs-gemini-3-5-flash-lite": {
       "changed": "2026-10-31",
       "hash": "84ec403f134a4913"
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
-      "changed": "2026-11-14",
-      "hash": "bdfa30bcaabed151"
-    },
-    "/compare/claude-opus-5-5-vs-gpt-6-astra": {
-      "changed": "2026-11-13",
-      "hash": "1066086e58b457e6"
+      "changed": "2026-11-20",
+      "hash": "c41abce0676f452a"
     },
     "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-2-flash": {
       "changed": "2026-11-11",
@@ -185,8 +181,8 @@
       "hash": "d40d8108470932bc"
     },
     "/compare": {
-      "changed": "2026-11-19",
-      "hash": "9642d867c2427a73"
+      "changed": "2026-11-20",
+      "hash": "1a801ef51cf288e5"
     },
     "/releases/2026-11-18-google-gemini-4-neon": {
       "changed": "2026-11-20",
@@ -465,8 +461,8 @@
       "hash": "85928a008e7f5f55"
     },
     "/changes": {
-      "changed": "2026-11-12",
-      "hash": "0d8363ab321ba1b2"
+      "changed": "2026-11-20",
+      "hash": "1d243ac26ecae77e"
     },
     "/changes/2026-10-24-writing": {
       "changed": "2026-10-24",
@@ -492,6 +488,10 @@
       "changed": "2026-11-12",
       "hash": "26f0c0880a7f6574"
     },
+    "/changes/2026-11-20-coding": {
+      "changed": "2026-11-20",
+      "hash": "27a3eeca36f3dc7c"
+    },
     "/changes/week/2026-W45": {
       "changed": "2026-11-08",
       "hash": "cbf94941f11e0b4c"
@@ -499,6 +499,10 @@
     "/changes/week/2026-W46": {
       "changed": "2026-11-12",
       "hash": "e9cc8f1c1a707adb"
+    },
+    "/changes/week/2026-W47": {
+      "changed": "2026-11-20",
+      "hash": "852381c6358ede4f"
     },
     "/tasks/debug-code": {
       "changed": "2026-10-24",
@@ -689,8 +693,8 @@
       "hash": "fd9c66488998f4b9"
     },
     "/faq": {
-      "changed": "2026-11-19",
-      "hash": "aca003f4d24fd56a"
+      "changed": "2026-11-20",
+      "hash": "13f8dbbceba30020"
     },
     "/privacy": {
       "changed": "2026-11-20",

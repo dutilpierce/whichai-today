@@ -110,6 +110,14 @@
       "date": "2026-11-12",
       "type": "change",
       "evidence": "LMArena Search 1260."
+    },
+    {
+      "category": "coding",
+      "leader": "Claude Fable 5.2",
+      "previous": "Claude Opus 5.5",
+      "date": "2026-11-20",
+      "type": "change",
+      "evidence": "LMArena Code 1838; 93.0% on SWE-bench Pro"
     }
   ]
 }
