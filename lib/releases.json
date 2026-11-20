@@ -1,6 +1,23 @@
 {
-  "last_checked": "2026-11-18T20:25:42Z",
+  "last_checked": "2026-11-20T13:28:38Z",
   "entries": [
+    {
+      "id": "2026-11-18-google-gemini-4-neon",
+      "date": "2026-11-18",
+      "added": "2026-11-20",
+      "name": "Gemini 4 Neon",
+      "provider": "Google",
+      "kind": "model",
+      "status": "available",
+      "summary": "Google launched Gemini 4 Neon, a mid-tier model designed for complex coding, agentic workflows, and analytical reasoning.",
+      "features": [
+        "Coding",
+        "Reasoning",
+        "Agentic workflows"
+      ],
+      "evidence": "Google introduces Gemini 4 Neon, delivering frontier-level intelligence for complex coding and analysis at a lower cost.",
+      "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+    },
     {
       "id": "2026-11-17-microsoft-mai-code-2-and-mai-code-2-flash",
       "date": "2026-11-17",
@@ -71,6 +88,24 @@
       ],
       "evidence": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
       "source_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+    },
+    {
+      "id": "2026-11-16-alibaba-cloud-qwen4-max",
+      "date": "2026-11-16",
+      "added": "2026-11-20",
+      "name": "Qwen4-Max",
+      "provider": "Alibaba Cloud",
+      "kind": "model",
+      "status": "available",
+      "summary": "Alibaba Cloud released Qwen4-Max, its flagship multimodal model with 2.4 trillion parameters for complex coding and agentic workflows.",
+      "features": [
+        "Multimodal",
+        "Vision",
+        "Coding",
+        "Agentic tasks"
+      ],
+      "evidence": "Alibaba has released Qwen4-Max, the most capable model in the Qwen family to date. Featuring 2.4 trillion total parameters, native vision capabilities, and a one-million-token context window",
+      "source_url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max?_p_lc=1"
     },
     {
       "id": "2026-11-16-openai-computer-use-agents-for-healthcare",

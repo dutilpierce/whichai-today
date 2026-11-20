@@ -1,12 +1,12 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-19",
-      "hash": "76f7f3d6e4a69cda"
+      "changed": "2026-11-20",
+      "hash": "6fa214aa1539d90d"
     },
     "/releases": {
-      "changed": "2026-11-18",
-      "hash": "81d62a34080fe425"
+      "changed": "2026-11-20",
+      "hash": "623f51edfd278368"
     },
     "/coding": {
       "changed": "2026-11-13",
@@ -188,6 +188,10 @@
       "changed": "2026-11-19",
       "hash": "9642d867c2427a73"
     },
+    "/releases/2026-11-18-google-gemini-4-neon": {
+      "changed": "2026-11-20",
+      "hash": "839be214ecb71f18"
+    },
     "/releases/2026-11-17-microsoft-mai-code-2-and-mai-code-2-flash": {
       "changed": "2026-11-18",
       "hash": "f7daa06c1613e6e0"
@@ -199,6 +203,10 @@
     "/releases/2026-11-17-openai-gpt-6-2-astra-and-sol": {
       "changed": "2026-11-18",
       "hash": "f046132857a00e73"
+    },
+    "/releases/2026-11-16-alibaba-cloud-qwen4-max": {
+      "changed": "2026-11-20",
+      "hash": "e86add70617f3880"
     },
     "/releases/2026-11-12-salesforce-sov-transcribe-1": {
       "changed": "2026-11-14",
@@ -685,8 +693,8 @@
       "hash": "aca003f4d24fd56a"
     },
     "/privacy": {
-      "changed": "2026-11-12",
-      "hash": "23948cd645542aca"
+      "changed": "2026-11-20",
+      "hash": "d598842ac0515aad"
     },
     "/alerts": {
       "changed": "2026-10-25",
@@ -717,8 +725,8 @@
       "hash": "bdff6f75ce638e1f"
     },
     "/which-ai-should-i-use": {
-      "changed": "2026-11-11",
-      "hash": "981a262aeba99747"
+      "changed": "2026-11-20",
+      "hash": "6160d5e0eecce762"
     },
     "/pick": {
       "changed": "2026-10-29",
@@ -785,8 +793,8 @@
       "hash": "91f4e29adc611332"
     },
     "/apps/copilot": {
-      "changed": "2026-11-11",
-      "hash": "a0cc547da32d8db6"
+      "changed": "2026-11-20",
+      "hash": "4bbe39f9756f44f1"
     },
     "/apps/perplexity": {
       "changed": "2026-11-11",
