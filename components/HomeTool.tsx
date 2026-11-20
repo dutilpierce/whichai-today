@@ -41,7 +41,15 @@ const pillRest =
   "rounded-full border border-zinc-700/80 bg-linear-to-b from-zinc-800 to-zinc-900 px-4 py-2 text-sm text-zinc-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_6px_rgba(60,50,35,0.10)] transition hover:-translate-y-0.5 hover:border-zinc-400 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_6px_14px_rgba(60,50,35,0.16)] active:translate-y-0 active:shadow-[inset_0_1px_0_rgba(255,255,255,0.5),0_1px_3px_rgba(60,50,35,0.12)]";
 
 const pillSelected =
-  "rounded-full border border-emerald-300/80 bg-linear-to-b from-emerald-400 to-emerald-600 px-4 py-2 text-sm font-semibold text-zinc-950 shadow-[0_0_0_1px_rgba(36,59,99,0.6),0_6px_20px_rgba(36,59,99,0.25)]";
+  "rounded-full border border-emerald-500 bg-emerald-500 px-4 py-2 text-sm font-semibold text-zinc-900 shadow-[0_1px_2px_rgba(60,50,35,0.10)]";
+
+const toggleSelected =
+  "rounded-full bg-zinc-900 px-4 py-2 text-sm font-semibold text-emerald-300 shadow-[0_1px_2px_rgba(60,50,35,0.10),0_2px_8px_rgba(60,50,35,0.08)] ring-1 ring-zinc-700/60";
+
+const toggleRest = "rounded-full px-4 py-2 text-sm font-medium text-zinc-400 transition hover:text-white";
+
+const primaryButton =
+  "rounded-2xl bg-emerald-500 px-5 py-4 text-sm font-semibold text-zinc-900 hover:bg-emerald-600 disabled:cursor-wait disabled:bg-zinc-600";
 
 export type LatestRelease = { id: string; name: string; date: string };
 
@@ -365,7 +373,7 @@ function encodePlan(value: Plan) {
           project and get the right model for each stage.
         </p>
 
-        <div className="mt-8 inline-flex gap-1 self-start rounded-full bg-zinc-900 p-1 shadow-[inset_0_2px_6px_rgba(60,50,35,0.12)]">
+        <div className="mt-8 inline-flex gap-1 self-start rounded-full bg-zinc-800/70 p-1 ring-1 ring-zinc-700/50 ring-inset">
           {(
             [
               ["quick", "Quick pick"],
@@ -382,7 +390,8 @@ function encodePlan(value: Plan) {
                 setIntent(null);
                 clearQuery();
               }}
-              className={mode === value ? pillSelected : pillRest}
+              aria-pressed={mode === value}
+              className={mode === value ? toggleSelected : toggleRest}
             >
               {label}
             </button>
@@ -405,7 +414,7 @@ function encodePlan(value: Plan) {
           <button
             type="submit"
             disabled={loading}
-            className="rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 disabled:cursor-wait disabled:bg-zinc-300"
+            className={primaryButton}
           >
             {loading ? "Finding…" : "Find"}
           </button>
@@ -435,7 +444,7 @@ function encodePlan(value: Plan) {
           <button
             type="submit"
             disabled={loading}
-            className="self-start rounded-2xl bg-white px-5 py-4 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 disabled:cursor-wait disabled:bg-zinc-300"
+            className={`self-start ${primaryButton}`}
           >
             {loading ? "Planning…" : "Plan it"}
           </button>

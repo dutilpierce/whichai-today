@@ -34,7 +34,7 @@ export function EmailSignup() {
           />
           <button
             type="submit"
-            className="rounded-xl bg-white px-4 py-3 text-sm font-semibold text-zinc-950 hover:bg-zinc-200"
+            className="rounded-xl bg-emerald-500 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-emerald-600"
           >
             Get alerts
           </button>

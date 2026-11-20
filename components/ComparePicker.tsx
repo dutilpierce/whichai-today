@@ -63,7 +63,7 @@ export function ComparePicker({ models, initial }: { models: Option[]; initial: 
       </label>
       <button
         type="submit"
-        className="mt-1 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-zinc-950 hover:bg-zinc-200 sm:col-span-3"
+        className="mt-1 rounded-xl bg-emerald-500 px-4 py-3 text-sm font-semibold text-zinc-900 hover:bg-emerald-600 sm:col-span-3"
       >
         Compare these two
       </button>
