@@ -1,10 +1,9 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { API_KEY, research as askClaude } from "./claude.mjs";
 
 const ARCHIVE_FILE = new URL("../lib/archive.json", import.meta.url);
 const MODELS_FILE = new URL("../lib/models.json", import.meta.url);
 const HISTORY_FILE = new URL("../lib/history.json", import.meta.url);
-const MODEL = process.env.REFRESH_MODEL ?? "gemini-3.8-flash";
-const API_KEY = process.env.GEMINI_API_KEY;
 const SLOTS = ["leader", "runner_up", "open_source_pick"];
 const FIELDS = [
   "name",
@@ -158,21 +157,7 @@ export function applyResearch(category, history, key, picks, today) {
 }
 
 async function research(today, category) {
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY },
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: prompt(today, category) }] }],
-        tools: [{ google_search: {} }],
-      }),
-      signal: AbortSignal.timeout(240_000),
-    },
-  );
-  if (!res.ok) throw new Error(`Gemini returned ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const text = (data?.candidates?.[0]?.content?.parts ?? []).map((part) => part.text ?? "").join("");
+  const text = await askClaude(prompt(today, category), { timeoutMs: 240_000, maxSearches: 8 });
   return validate(extractJson(text), category, today);
 }
 
@@ -307,7 +292,7 @@ if (process.argv.includes("--self-check")) {
 }
 
 if (!API_KEY) {
-  console.error("GEMINI_API_KEY is not set.");
+  console.error("ANTHROPIC_API_KEY is not set.");
   process.exit(1);
 }
 

@@ -30,6 +30,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      # The research scripts call Claude through the Anthropic SDK.
+      - name: Install packages
+        run: npm ci --ignore-scripts --no-audit --no-fund
 
       - name: Kill switch
         id: kill
@@ -39,7 +44,7 @@ jobs:
         if: steps.kill.outputs.publish == 'true'
         run: node scripts/refresh-releases.mjs --since "$SINCE"
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SINCE: ${{ github.event.inputs.since || '7' }}
 
       - name: Freshness

@@ -1,8 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { API_KEY, research as askClaude } from "./claude.mjs";
 
 const RELEASES_FILE = new URL("../lib/releases.json", import.meta.url);
-const MODEL = process.env.REFRESH_MODEL ?? "gemini-3.8-flash";
-const API_KEY = process.env.GEMINI_API_KEY;
 const FIELDS = ["date", "name", "provider", "kind", "status", "summary", "evidence", "source_url"];
 const KINDS = new Set(["model", "update", "feature", "open_weights"]);
 const STATUSES = new Set(["available", "preview", "announced"]);
@@ -170,21 +169,7 @@ async function resolveSource(url) {
 }
 
 async function research(today, recent, days) {
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY },
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: prompt(today, recent, days) }] }],
-        tools: [{ google_search: {} }],
-      }),
-      signal: AbortSignal.timeout(180_000),
-    },
-  );
-  if (!res.ok) throw new Error(`Gemini returned ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const text = (data?.candidates?.[0]?.content?.parts ?? []).map((part) => part.text ?? "").join("");
+  const text = await askClaude(prompt(today, recent, days), { timeoutMs: 180_000, maxSearches: 10 });
   const result = extractJson(text);
   if (!Array.isArray(result?.entries)) throw new Error("entries is not a list");
   return result.entries;
@@ -293,7 +278,7 @@ if (isMain && process.argv.includes("--fix-sources")) {
 
 if (isMain) {
   if (!API_KEY) {
-    console.error("GEMINI_API_KEY is not set.");
+    console.error("ANTHROPIC_API_KEY is not set.");
     process.exit(1);
   }
 

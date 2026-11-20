@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy",
   description:
-    "WhichAI.today does not ask for an account. Queries go to Google only when keyword matching misses, and email alerts, when offered, are held only by Buttondown.",
+    "WhichAI.today does not ask for an account. Queries go to Anthropic's Claude API only when keyword matching misses, and email alerts, when offered, are held only by Buttondown.",
   alternates: { canonical: "/privacy" },
   openGraph: {
     title: "Privacy",
@@ -28,11 +28,11 @@ export default function PrivacyPage() {
             Vercel Analytics counts visits without cookies and without a personal profile.
           </p>
           <p>
-            A normal search is matched on this site. The words you type are sent to Google
-            Gemini only when that match misses, when you use Plan a project, and when you
-            open a ready prompt so it can be written for those words. Those requests use
-            Google&apos;s paid API tier, where Google does not use prompts to improve its
-            products. They are not used to train a model.
+            A normal search is matched on this site. The words you type are sent to
+            Anthropic&apos;s Claude API only when that match misses, when you use Plan a
+            project, and when you open a ready prompt so it can be written for those words.
+            Anthropic does not use API requests to train its models by default, and this site
+            does not use them to train a model either.
           </p>
           <p>
             Email alerts, when the signup is open, go through Buttondown. Buttondown is the

@@ -1,10 +1,9 @@
 import { readFile, writeFile } from "node:fs/promises";
+import { API_KEY, research as askClaude } from "./claude.mjs";
 
 const APPS_FILE = new URL("../lib/apps.json", import.meta.url);
 const MODELS_FILE = new URL("../lib/models.json", import.meta.url);
 const GUIDES_FILE = new URL("../lib/prompt-guides.json", import.meta.url);
-const MODEL = process.env.REFRESH_MODEL ?? "gemini-3.8-flash";
-const API_KEY = process.env.GEMINI_API_KEY;
 const SKILLS = new Set(["Beginner", "Some setup", "Technical"]);
 const CAPABILITIES = [
   "web_search",
@@ -161,21 +160,7 @@ price_usd_month is the monthly USD price, 0 for a free plan, or null if it is no
 }
 
 async function research(today, seed, names, jobs) {
-  const res = await fetch(
-    `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": API_KEY },
-      body: JSON.stringify({
-        contents: [{ role: "user", parts: [{ text: prompt(today, seed, names, jobs) }] }],
-        tools: [{ google_search: {} }],
-      }),
-      signal: AbortSignal.timeout(180_000),
-    },
-  );
-  if (!res.ok) throw new Error(`Gemini returned ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const text = (data?.candidates?.[0]?.content?.parts ?? []).map((part) => part.text ?? "").join("");
+  const text = await askClaude(prompt(today, seed, names, jobs), { timeoutMs: 180_000, maxSearches: 8 });
   return validateApp(extractJson(text), seed, today, names);
 }
 
@@ -302,7 +287,7 @@ function selfCheck() {
 }
 
 async function main() {
-  if (!API_KEY) throw new Error("GEMINI_API_KEY is not set");
+  if (!API_KEY) throw new Error("ANTHROPIC_API_KEY is not set");
   const today = new Date().toISOString().slice(0, 10);
   const models = JSON.parse(await readFile(MODELS_FILE, "utf8"));
   const names = trackedNames(models);

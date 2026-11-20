@@ -1,11 +1,11 @@
-import { generateJson } from "@/lib/gemini";
+import { QUICK_MODEL, aiConfigured, generateJson } from "@/lib/ai";
 import { checkPrompt } from "@/lib/prompt-rules.mjs";
 import { assemblePrompt, isCategoryKey, isTweak, tweakNotes } from "@/lib/prompt-text";
 import { knownModel, promptKey, promptRulesInput } from "@/lib/prompt";
 import { sensitiveKind } from "@/lib/sensitive";
 import { allow, cached } from "@/lib/store";
 
-const MODEL = process.env.PROMPT_MODEL ?? "gemini-3.5-flash-lite";
+const MODEL = process.env.PROMPT_MODEL ?? QUICK_MODEL;
 const CACHE_SECONDS = 60 * 60 * 24 * 30;
 
 type Fields = {
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
   }
   const kind = sensitiveKind(query, category);
   if (kind === "crisis") return Response.json({ prompt: null });
-  if (!process.env.GEMINI_API_KEY) {
+  if (!aiConfigured()) {
     return Response.json({ prompt: null });
   }
 
@@ -73,8 +73,9 @@ export async function POST(request: Request) {
             constraints: { type: "string" },
           },
           required: ["role", "task", "context", "format", "tone", "constraints"],
+          additionalProperties: false,
         },
-        timeoutMs: 12_000,
+        timeoutMs: 15_000,
       });
 
       const text = assemblePrompt({

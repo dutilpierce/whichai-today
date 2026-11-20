@@ -25,6 +25,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      # The research scripts call Claude through the Anthropic SDK.
+      - name: Install packages
+        run: npm ci --ignore-scripts --no-audit --no-fund
 
       - name: Kill switch
         id: kill
@@ -36,7 +41,7 @@ jobs:
         continue-on-error: true
         run: node scripts/verify-facts.mjs
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
 
       - name: Publish verification
         if: steps.kill.outputs.publish == 'true' && (steps.verify.outcome == 'success' || steps.verify.outcome == 'failure')
