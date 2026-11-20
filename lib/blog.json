@@ -1,6 +1,325 @@
 {
   "posts": [
     {
+      "week": "2026-W45",
+      "slug": "ai-news-week-45-2026",
+      "start": "2026-11-02",
+      "end": "2026-11-08",
+      "published": "2026-11-20",
+      "updated": "2026-11-20",
+      "title": "AI This Week: Gemini Omni 1.2 Flash Takes the Video Lead (Nov 2-8, 2026)",
+      "description": "Google took the video and writing leads as OpenAI added GIFs, Cursor shipped live app hosting, and five open-weight releases landed in the week’s 29 AI updates.",
+      "takeaways": [
+        "Google released [Gemini Omni 1.2 Flash](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/) on Nov 5 with 15-second video generation and 30% lower pricing; it took the [video lead](/changes/2026-11-06-video) on Nov 6.",
+        "OpenAI released [Images 2.6](https://openai.com/index/introducing-images-2-6/) on Nov 4 with animated GIF creation and a company-reported 50% increase in image generation speed.",
+        "Cognition released [SWE-2 Flash](https://cognition.com/blog/swe-2-flash) on Nov 4 at one-fifth the price and three times the speed of SWE-2, according to the company.",
+        "Cursor added [live app deployment](https://cursor.com/changelog/build-live-apps) on Nov 5, letting a cloud agent build a web app, configure its database and authentication, and share the hosted result.",
+        "Preferred Networks released [PLaMo 3 Translate](https://www.preferred.jp/en/blog/tech/plamo-3-translate-weight-release) on Nov 5 in four open-weight sizes for offline translation across 53 languages.",
+        "Google’s Gemini 4 Argon displaced Anthropic’s Claude Opus 5.5 in [Writing & Marketing](/changes/2026-11-08-writing) on Nov 8, the second of the week’s two ranking changes."
+      ],
+      "sections": [
+        {
+          "id": "google-s-15-second-video-model-took-first-place-a-day-after-",
+          "heading": "Google’s 15-second video model took first place a day after release",
+          "paragraphs": [
+            "Google’s [Gemini Omni 1.2 Flash](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/) gave video makers three concrete reasons to reconsider their tools on Nov 5: native 15-second clips with audio, the ability to revise them through conversation, and 30% lower pricing. On Nov 6 it replaced Gemini Omni 1.1 Flash at the top of the [Video ranking](/changes/2026-11-06-video). This was an upgrade to the incumbent, not a change of vendor.",
+            "For someone preparing a short product spot, the editing change matters at least as much as the extra room for a scene. The task is rarely finished with the first generation: a reviewer might like the shot but want the action to start sooner. Conversational editing makes that a revision request, while native audio lets the reviewer judge picture and sound together. Google also reports stronger consistency; keeping the approved parts intact through a revision is a useful way to test that claim.",
+            "The ranking supplies a separate piece of evidence. The Nov 6 change was recorded at 1541 on LMArena Text-to-Video; the [Video standings](/video) list the model at 1540. Both figures place it first, but the benchmark is for text-to-video output. It does not establish which tool is cheapest for a finished campaign or which one follows a particular editor’s revision notes most faithfully.",
+            "OpenAI’s Nov 4 [Images 2.6 release](https://openai.com/index/introducing-images-2-6/) serves a different brief. It added animated GIF creation across a rollout spanning ChatGPT, Codex, and the API, and OpenAI says it generates images 50% faster than before. The API versions are GPT-Image-2.6 Flare and Sunburst. For a looping illustration rather than a clip with sound, GIF output is the more relevant addition, even though it did not produce a change atop the [Images ranking](/images)."
+          ]
+        },
+        {
+          "id": "coding-agents-got-cheaper-runs-live-app-hosting-and-voice-ca",
+          "heading": "Coding agents got cheaper runs, live app hosting, and voice calls",
+          "paragraphs": [
+            "Cognition made [SWE-2 Flash](https://cognition.com/blog/swe-2-flash) available in Devin Desktop and CLI on Nov 4. Its comparison is unusually easy to interpret: the company quotes one-fifth the price and three times the speed of its larger SWE-2 model. That is a comparison with one sibling, not with every coding assistant, and it is a reason to try Flash on repeated edits rather than assume the two models solve equally difficult problems.",
+            "Cursor changed what a coding agent can hand back. With [Build Live Apps](https://cursor.com/changelog/build-live-apps), released Nov 5, its cloud agents can build an app, set up a Postgres database, configure authentication, and deploy the result behind a shareable link. A colleague reviewing an internal prototype can try the running app instead of reading a code change or asking the author to demonstrate it. For that handoff, whether the right people can sign in is as important as whether the page renders.",
+            "On Nov 6, Cursor added [two-way voice chat with agents](https://cursor.com/changelog/voice-chat) in its Agents Window, IDE, web interface, and iOS app. It is a live conversation rather than just speech-to-text input: a developer can ask what the agent is doing and hear its response. GitHub’s Nov 4 [Copilot integration with Xcode’s built-in coding assistant](https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/) took another route to reducing interruptions. That integration was a public preview starting with Xcode 27.3 beta, not a feature of every Xcode installation.",
+            "Security teams had a separate model release on Nov 5. OpenAI introduced [GPT-6 Cyber](https://openai.com/index/introducing-gpt-6-cyber/) for finding and fixing software vulnerabilities, reporting better adherence to the scope set by an authorized researcher. Its Nov 4 [Daybreak Red announcement](https://openai.com/index/daybreak-red-aws-govcloud/) concerned a different model and a specific deployment: approved customers could access GPT-5.6 Cyber through Amazon Bedrock in AWS GovCloud (US-East). The distinction matters for procurement: the GovCloud announcement was not a GPT-6 Cyber availability notice."
+          ]
+        },
+        {
+          "id": "five-open-weight-releases-ranged-from-offline-translation-to",
+          "heading": "Five open-weight releases ranged from offline translation to research",
+          "paragraphs": [
+            "Preferred Networks made the most direct pitch to people with a specific job to do. Its Nov 5 [PLaMo 3 Translate release](https://www.preferred.jp/en/blog/tech/plamo-3-translate-weight-release) covers 53 languages and comes in four sizes, from 0.8 billion to 31 billion parameters. The models can translate offline. For a team that needs to keep documents on its own equipment, the useful comparison is how each size handles the team’s language pairs and terminology on the hardware it actually has.",
+            "At the other end of the size range, Deep Principle released [Hydrogen-1.0](https://huggingface.co/deep-principle/Hydrogen-1.0) on Nov 2. Based on GLM-5.3, the scientific research model has approximately 753 billion parameters and a 1-million-token context window. Ricursive Intelligence’s Nov 4 [Ripple-65B Preview](https://huggingface.co/ricursiveAI/Ripple-65B-Preview) also takes long inputs, but targets coding and reasoning with a 65-billion-parameter dense model. Its weights were available despite “Preview” in the name, and its specified limit is exactly 1,048,576 tokens.",
+            "Ripple’s model card reports training on 12 trillion tokens and a score of 80.52 on TerminalBench 2.1. Those numbers answer different questions from the context limit: one describes the amount of training material, one a coding evaluation, and one how much material fits into a request. A team choosing between Ripple and Hydrogen for a long technical project has better evidence in their respective task descriptions than in the fact that both advertise roughly a million tokens.",
+            "Baidu’s Nov 5 [ERNIE 5.5 Flash Base](https://huggingface.co/baidu/ERNIE-5.5-Flash-Base) is a foundation model with 280 billion parameters, of which 14 billion are active per token. Baidu specifies up to 128,000 tokens of context during pretraining and support for 1 million during fine-tuning and inference. Sarvam AI’s Nov 3 [Sarvam Prism](https://www.sarvam.ai/blogs/sarvam-prism), the fifth open-weight entry in the week’s [release log](/releases), has a narrower purpose: making fast decisions. Sarvam built it on Sarvam 105B and released the weights so organizations can train it on their own data."
+          ]
+        },
+        {
+          "id": "decision-models-targeted-milliseconds-while-larger-models-ad",
+          "heading": "Decision models targeted milliseconds while larger models added more input types",
+          "paragraphs": [
+            "Three announcements focused on choosing an answer quickly rather than composing a long one. Sarvam reported a 44-millisecond response for Prism on a B200 GPU on Nov 3. On Nov 4, Celeris released [Celeris-1.1 Decision](https://celeris.ai/), a diffusion-based model that makes categorical choices in about 40 milliseconds; it reported 80.2% on jev-bench and 76.2% on typed-decisions. The two latency figures are vendor measurements, not a common test that establishes a four-millisecond advantage.",
+            "Salesforce previewed [Koa Decisions](https://www.salesforce.com/news/stories/koa-decisions-salesforce-decision-models/?bc=OTH) on Nov 6. Built on Google’s Gemma architecture, it makes single-step routing choices from text, images, or audio in milliseconds. Consider a support queue: deciding which team should receive an incoming item is a different assignment from investigating it and writing a reply. The first task is the one these decision-model announcements address.",
+            "Tencent’s Nov 4 [Hy4 release](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/) paired visual understanding with reasoning and computer-use capabilities. Ant Group’s [Ling-3.2-flash](https://developer.ant-ling.com/en/docs/getting-started/changelog/), released Nov 5, accepts text, images, and video within a 1-million-token context window. It has 560 billion total parameters and uses 25 billion per token. For a job involving recorded footage, Ling’s explicit video support is more informative than the broad label “multimodal.”",
+            "Thinking Machines Lab also released [Inkling 2 Small](https://thinkingmachines.ai/news/inkling-2-small/) on Nov 5, with text and image input, variable effort, and access through Tinker Playground. “Small” is part of its name: the model has 594 billion total parameters and 17 billion active. Flower Labs’ Nov 3 [Endeavor 1.1 preview](https://flower.ai/blog/2026-11-03-introducing-endeavor-1.1) added native image input alongside dedicated EU GPU inference and reported improvements in reasoning and coding. For teams with a regional processing requirement, the location of inference may settle a shortlist before parameter counts enter the discussion."
+          ]
+        },
+        {
+          "id": "workplace-agents-gained-persistent-projects-scoped-access-an",
+          "heading": "Workplace agents gained persistent projects, scoped access, and cited search",
+          "paragraphs": [
+            "Perplexity’s Nov 4 [Teammates preview](https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work) is aimed at work that continues after the initial conversation. Its agents can monitor connected workplace tools, coordinate a project as priorities change, and present results for review. Mistral AI’s Nov 5 [Studio enterprise release](https://mistral.ai/news/build-with-studio/) puts the emphasis on running the process: managed agents, multi-step workflows, monitoring dashboards, organization-scoped memory, and limits on system access. A project owner looking for updates and an administrator deciding what the agent may see have different reasons to care about these releases.",
+            "Anthropic’s Nov 2 [message threads beta](https://platform.claude.com/docs/en/build-with-claude/message-threads) tackles a less visible cost of an extended exchange. The Messages API keeps conversation history on the server, so an application sends only new messages on later requests. Anthropic says the smaller requests can reduce the wait for the first token in long agent loops. OpenAI changed model selection rather than conversation storage on Nov 3, adding [GPT-6.1 Terra to dots](https://openai.com/index/introducing-dots/) so a dot can draw on different models for different parts of its work.",
+            "Adobe brought [CX Enterprise Coworker](https://news.adobe.com/news/2026/11/adobe-integrates-agentic-cx-enterprise-coworker-into-ai-platforms) into other AI products on Nov 4, including ChatGPT, Claude, and Gemini for business. The change gives customer-experience teams another place to start an Adobe workflow rather than a new general-purpose model to evaluate. Amazon’s Nov 5 [Web Answer release for Bedrock AgentCore](https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/) is a tool for the agent itself: one call returns a synthesized answer with citations to current web sources.",
+            "For document readers, Adobe’s Nov 3 [web search in Acrobat AI Assistant](https://blog.adobe.com/en/publish/2026/11/03/web-search-now-available-in-acrobat) offers a related choice without requiring anyone to build an agent. A reader can ask about a document, bring in web sources when wanted, and inspect citations. That distinction is useful when reviewing a dated report: what the report originally said and what has happened since are two separate questions, even when the answers appear in the same conversation."
+          ]
+        },
+        {
+          "id": "classroom-coaching-and-read-only-finance-gave-assistants-nar",
+          "heading": "Classroom coaching and read-only finance gave assistants narrower jobs",
+          "paragraphs": [
+            "Google made [Guided Learning globally available in Google Classroom](https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/) on Nov 3. A teacher assigns the activity, and the assistant uses class material to coach the student step by step instead of simply providing the answer. For a teacher comparing it with an ordinary chat session, the important detail is who sets the task and supplies the material: the activity starts with the lesson, not a blank prompt.",
+            "Anthropic previewed [Personal Finance in Claude](https://claude.com/resources/articles/introducing-personal-finance-in-claude) on Nov 5. People choose which accounts to connect and can ask about spending, balances, and transactions in everyday language. Access is read-only: explaining where money went is within the feature’s scope; moving it is not. That boundary distinguishes this preview from the week’s agents that can take actions such as deploying an app.",
+            "Meta began rolling out [specialized models for Muse and Meta AI](https://research.meta.ai/blog/specialized-models-for-muse-and-metaai) on Nov 6. The company trained versions of existing models using Muse Wonder to deliver Active Memory and Active Focus. Unlike Anthropic’s message threads, which change what developers send to an API, this was an update to the assistants people use. The two announcements should not be read as equivalent claims about how either service stores conversations."
+          ]
+        },
+        {
+          "id": "gemini-4-argon-overtook-claude-opus-5-5-in-writing",
+          "heading": "Gemini 4 Argon overtook Claude Opus 5.5 in writing",
+          "paragraphs": [
+            "The week’s second ranking change came on Nov 8, when [Gemini 4 Argon replaced Claude Opus 5.5](/changes/2026-11-08-writing) in Writing & Marketing. The change record cites 1525 on LMArena Creative Writing. The [writing standings](/writing) list Argon at 1523 and Opus at 1517. The former number documents the lead change; the latter pair is the comparison to use when quoting the standings.",
+            "For a marketing team, the result makes Argon a candidate for drafting and tone work, not an automatic choice for every step in producing a campaign. A useful comparison would give Argon and Opus the same brief, then ask both to shorten the copy without losing the required claims or changing the brand voice. That tests the revision work a team actually buys; the creative-writing score supplies a starting point rather than a verdict on its copy.",
+            "Across the [29 releases](/releases), only [two category leads changed](/changes): Video and Writing & Marketing. Anthropic’s Claude Fable 5.2 remained first in [Coding & Software](/coding) at 1838 on LMArena Code, while OpenAI’s GPT-Image-2.5 Sunburst remained first in [Images](/images) at 1428 on LMArena Text-to-Image. The practical choice this week was sometimes a new feature rather than a new leader: a team needing GIF output had a reason to try Images 2.6 without claiming that it had already won the image benchmark."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Which AI model ranked first for video during Nov 2-8, 2026?",
+          "answer": "Gemini Omni 1.2 Flash replaced Gemini Omni 1.1 Flash on Nov 6, one day after release. The change was recorded at 1541 on LMArena Text-to-Video; the standings list it at 1540."
+        },
+        {
+          "question": "Which open-weight AI models were released that week?",
+          "answer": "Five releases were classified as open weights: Hydrogen-1.0, Sarvam Prism, Ripple-65B Preview, PLaMo 3 Translate, and ERNIE 5.5 Flash Base. Their intended uses range from scientific research and coding to quick decisions and offline translation."
+        },
+        {
+          "question": "What changed for developers using Cursor or Devin?",
+          "answer": "Cursor added hosted web app deployment on Nov 5 and two-way voice calls with agents on Nov 6. Cognition released SWE-2 Flash in Devin Desktop and CLI on Nov 4, reporting three times the speed of SWE-2 at one-fifth the price."
+        },
+        {
+          "question": "Did GPT-6 Cyber launch in AWS GovCloud that week?",
+          "answer": "The Nov 4 GovCloud announcement specified GPT-5.6 Cyber for approved customers in AWS GovCloud (US-East) through Amazon Bedrock. OpenAI’s Nov 5 GPT-6 Cyber model launch was a separate announcement."
+        },
+        {
+          "question": "Which AI model led the writing rankings on Nov 8, 2026?",
+          "answer": "Gemini 4 Argon took first place in Writing & Marketing from Claude Opus 5.5 on Nov 8. The change record gives Argon a creative-writing score of 1525, while the standings list Argon at 1523 and Opus at 1517."
+        }
+      ],
+      "companies": [
+        {
+          "name": "Adobe",
+          "url": "https://www.adobe.com"
+        },
+        {
+          "name": "Amazon",
+          "url": "https://www.amazon.com"
+        },
+        {
+          "name": "Ant Group",
+          "url": "https://www.antgroup.com"
+        },
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com"
+        },
+        {
+          "name": "Baidu",
+          "url": "https://www.baidu.com"
+        },
+        {
+          "name": "Celeris",
+          "url": "https://celeris.ai/"
+        },
+        {
+          "name": "Cognition",
+          "url": "https://cognition.com"
+        },
+        {
+          "name": "Cursor",
+          "url": "https://cursor.com"
+        },
+        {
+          "name": "Deep Principle",
+          "url": "https://www.deepprinciple.com"
+        },
+        {
+          "name": "Flower Labs",
+          "url": "https://flower.ai"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com"
+        },
+        {
+          "name": "Google",
+          "url": "https://www.google.com"
+        },
+        {
+          "name": "LMArena",
+          "url": "https://lmarena.ai"
+        },
+        {
+          "name": "Mistral AI",
+          "url": "https://mistral.ai"
+        },
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com"
+        },
+        {
+          "name": "Perplexity",
+          "url": "https://www.perplexity.ai"
+        },
+        {
+          "name": "Preferred Networks",
+          "url": "https://www.preferred.jp/en/"
+        },
+        {
+          "name": "Ricursive Intelligence",
+          "url": "https://www.ricursive.com/"
+        },
+        {
+          "name": "Salesforce",
+          "url": "https://www.salesforce.com"
+        },
+        {
+          "name": "Sarvam AI",
+          "url": "https://www.sarvam.ai"
+        },
+        {
+          "name": "Tencent",
+          "url": "https://www.tencent.com"
+        },
+        {
+          "name": "Thinking Machines Lab",
+          "url": "https://thinkingmachines.ai"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Introducing Gemini Omni 1.2 Flash",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/"
+        },
+        {
+          "name": "Introducing Images 2.6",
+          "url": "https://openai.com/index/introducing-images-2-6/"
+        },
+        {
+          "name": "SWE-2 Flash",
+          "url": "https://cognition.com/blog/swe-2-flash"
+        },
+        {
+          "name": "Build Live Apps",
+          "url": "https://cursor.com/changelog/build-live-apps"
+        },
+        {
+          "name": "PLaMo 3 Translate open-weight release",
+          "url": "https://www.preferred.jp/en/blog/tech/plamo-3-translate-weight-release"
+        },
+        {
+          "name": "Voice Chat with Agents",
+          "url": "https://cursor.com/changelog/voice-chat"
+        },
+        {
+          "name": "GitHub Copilot is now available in Xcode’s coding assistant",
+          "url": "https://github.blog/changelog/2026-11-04-github-copilot-is-now-available-in-xcodes-coding-assistant/"
+        },
+        {
+          "name": "Introducing GPT-6 Cyber",
+          "url": "https://openai.com/index/introducing-gpt-6-cyber/"
+        },
+        {
+          "name": "Daybreak Red in AWS GovCloud",
+          "url": "https://openai.com/index/daybreak-red-aws-govcloud/"
+        },
+        {
+          "name": "Hydrogen-1.0 model card",
+          "url": "https://huggingface.co/deep-principle/Hydrogen-1.0"
+        },
+        {
+          "name": "Ripple-65B Preview model card",
+          "url": "https://huggingface.co/ricursiveAI/Ripple-65B-Preview"
+        },
+        {
+          "name": "ERNIE 5.5 Flash Base model card",
+          "url": "https://huggingface.co/baidu/ERNIE-5.5-Flash-Base"
+        },
+        {
+          "name": "Sarvam Prism",
+          "url": "https://www.sarvam.ai/blogs/sarvam-prism"
+        },
+        {
+          "name": "Celeris-1.1 Decision",
+          "url": "https://celeris.ai/"
+        },
+        {
+          "name": "Koa Decisions: Salesforce decision models",
+          "url": "https://www.salesforce.com/news/stories/koa-decisions-salesforce-decision-models/?bc=OTH"
+        },
+        {
+          "name": "Tencent launches Hy4",
+          "url": "https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/"
+        },
+        {
+          "name": "Ant Ling developer changelog",
+          "url": "https://developer.ant-ling.com/en/docs/getting-started/changelog/"
+        },
+        {
+          "name": "Inkling 2 Small",
+          "url": "https://thinkingmachines.ai/news/inkling-2-small/"
+        },
+        {
+          "name": "Introducing Endeavor 1.1",
+          "url": "https://flower.ai/blog/2026-11-03-introducing-endeavor-1.1"
+        },
+        {
+          "name": "Teammates are agents for complex, ongoing work",
+          "url": "https://www.perplexity.ai/hub/blog/teammates-are-agents-for-complex-ongoing-work"
+        },
+        {
+          "name": "Build with Studio",
+          "url": "https://mistral.ai/news/build-with-studio/"
+        },
+        {
+          "name": "Message threads",
+          "url": "https://platform.claude.com/docs/en/build-with-claude/message-threads"
+        },
+        {
+          "name": "Introducing dots: Nov 3 update",
+          "url": "https://openai.com/index/introducing-dots/"
+        },
+        {
+          "name": "Adobe integrates CX Enterprise Coworker into AI platforms",
+          "url": "https://news.adobe.com/news/2026/11/adobe-integrates-agentic-cx-enterprise-coworker-into-ai-platforms"
+        },
+        {
+          "name": "Web Answer on Amazon Bedrock AgentCore",
+          "url": "https://aws.amazon.com/about-aws/whats-new/2026/11/web-answer-amazon-bedrock/"
+        },
+        {
+          "name": "Web search now available in Acrobat",
+          "url": "https://blog.adobe.com/en/publish/2026/11/03/web-search-now-available-in-acrobat"
+        },
+        {
+          "name": "Guided Learning in Google Classroom",
+          "url": "https://blog.google/products-and-platforms/products/education/ai-learning-era-updates-2026/"
+        },
+        {
+          "name": "Introducing Personal Finance in Claude",
+          "url": "https://claude.com/resources/articles/introducing-personal-finance-in-claude"
+        },
+        {
+          "name": "Specialized models for Muse and Meta AI",
+          "url": "https://research.meta.ai/blog/specialized-models-for-muse-and-metaai"
+        }
+      ],
+      "writer": "openai:gpt-6.2-astra"
+    },
+    {
       "week": "2026-W44",
       "slug": "ai-news-week-44-2026",
       "start": "2026-10-26",
