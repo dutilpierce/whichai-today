@@ -63,7 +63,7 @@ export default function DataPage() {
       <main>
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Open data</h1>
         <p className="mt-4 text-base leading-7 text-zinc-300">
-          These files are the same rankings the site shows. They update when the daily check changes a page. The license is {DATA_LICENSE}: free to reuse if you credit {DATA_ATTRIBUTION}.
+          These files are the same rankings the site shows. They update when the weekly check changes a page. The license is {DATA_LICENSE}: free to reuse if you credit {DATA_ATTRIBUTION}.
         </p>
         <ul className="mt-6 flex flex-col gap-2 text-base text-zinc-200">
           <li><a className="text-emerald-300 hover:text-emerald-200" href="/data/picks.json">Current picks (JSON)</a></li>

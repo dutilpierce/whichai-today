@@ -145,8 +145,8 @@ export default function AboutPage() {
         AI, SWE-bench, GPQA, and Humanity&apos;s Last Exam.
       </p>
       <p className="mt-4 text-base leading-7 text-zinc-300">
-        A daily job re-checks those sources. A new number one has to show up on
-        two daily checks before it replaces the current leader. When you search, common phrases match a category
+        A weekly job re-checks those sources. A new number one has to show up on
+        two weekly checks in a row before it replaces the current leader. When you search, common phrases match a category
         instantly. Unusual wording goes to a fast classifier, and anything it
         cannot place lands in General, so a search always returns a
         recommendation. Plan a project does the same thing for a whole piece

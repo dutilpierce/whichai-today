@@ -123,7 +123,7 @@ export default async function CategoryPage({
           ))}
         </ul>
         <p className="mt-4 text-sm text-zinc-400">
-          A new number one has to show up on two daily checks before it replaces the current leader.{" "}
+          A new number one has to show up on two weekly checks in a row before it replaces the current leader.{" "}
           <Link href="/alerts" className="text-zinc-200 hover:text-white">
             Get alerts
           </Link>

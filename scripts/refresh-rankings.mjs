@@ -157,7 +157,7 @@ export function applyResearch(category, history, key, picks, today) {
 }
 
 async function research(today, category) {
-  const text = await askAi(prompt(today, category), { timeoutMs: 240_000, maxSearches: 8 });
+  const text = await askAi(prompt(today, category), { timeoutMs: 120_000, maxSearches: 8 });
   return validate(extractJson(text), category, today);
 }
 
@@ -315,13 +315,13 @@ for (const category of Object.values(models.categories)) {
 }
 
 for (const [key, category] of Object.entries(models.categories)) {
+  // One attempt per category. research() already falls through to the next provider; calling it
+  // again would pay a second time for the same searches (a timed-out Gemini call is still billed).
   let picks = null;
-  for (let attempt = 1; attempt <= 2 && !picks; attempt++) {
-    try {
-      picks = await research(today, category);
-    } catch (error) {
-      console.error(`${key} attempt ${attempt} failed: ${error.message}`);
-    }
+  try {
+    picks = await research(today, category);
+  } catch (error) {
+    console.error(`${key} failed: ${error.message}`);
   }
   if (!picks) {
     failures++;

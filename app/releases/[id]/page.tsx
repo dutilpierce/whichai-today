@@ -95,8 +95,8 @@ function releaseFaqs(release: Release, ranked: ReturnType<typeof currentModels>[
       answer: ranked?.roles.length
         ? `${release.name} is today's ${ranked.roles
             .map((role) => `${ROLE_PHRASE[role.role] ?? role.role} for ${role.display_name.toLowerCase()}`)
-            .join(", ")}, based on public leaderboards checked daily.`
-        : `${release.name} is not one of today's top three picks in any job this site ranks. The rankings are checked daily.`,
+            .join(", ")}, based on public leaderboards checked weekly.`
+        : `${release.name} is not one of today's top three picks in any job this site ranks. The rankings are checked weekly.`,
     });
   }
   return faqs;

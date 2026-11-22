@@ -125,7 +125,7 @@ export function faqSections(): FaqSection[] {
         },
         {
           question: "How often does the best AI change?",
-          answer: `A scheduled job checks the public boards every day. A new number one has to come up on two checks in a row before it replaces the current leader, so a one-day blip does not flip the pick.${latest ? ` The latest recorded update is ${formatDay(latest.date)}.` : ""}`,
+          answer: `A scheduled job checks the public boards every week. A new number one has to come up on two weekly checks in a row before it replaces the current leader, so a one-week blip does not flip the pick.${latest ? ` The latest recorded update is ${formatDay(latest.date)}.` : ""}`,
           href: "/changes",
           linkLabel: "Changes",
         },
@@ -216,7 +216,7 @@ export function faqSections(): FaqSection[] {
         {
           question: "How does WhichAI.today pick models?",
           answer:
-            "Public evaluations: LMArena, Artificial Analysis, Vals AI, SWE-bench, GPQA, and Humanity's Last Exam. A daily job rechecks those sources. A new number one has to appear on two checks in a row before it replaces the current leader. The planner does not invent model names.",
+            "Public evaluations: LMArena, Artificial Analysis, Vals AI, SWE-bench, GPQA, and Humanity's Last Exam. A weekly job rechecks those sources. A new number one has to appear on two weekly checks in a row before it replaces the current leader. The planner does not invent model names.",
           href: "/methodology",
           linkLabel: "Methodology",
         },

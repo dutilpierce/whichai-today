@@ -3,9 +3,13 @@ import OpenAI from "openai";
 
 // Research tries each provider whose key is set, in order: Claude (web search), Gemini
 // (Google Search), then OpenAI (web search). One provider running out of credit or going
-// down no longer stops a refresh.
+// down no longer stops a refresh. Each provider is called once per question: SDK retries are
+// off, because a timed-out call is still billed and a retry pays for the same searches again.
 const CLAUDE_MODEL = process.env.CLAUDE_REFRESH_MODEL ?? "claude-sonnet-5-5";
-const GEMINI_MODEL = process.env.GEMINI_REFRESH_MODEL ?? "gemini-3.8-flash";
+// Flash-Lite with low thinking: the research prompts are look-ups, not deep reasoning, and
+// thinking tokens bill as output. Override with GEMINI_REFRESH_MODEL.
+const GEMINI_MODEL = process.env.GEMINI_REFRESH_MODEL ?? "gemini-3.1-flash-lite";
+const GEMINI_MAX_OUTPUT = 8192; // research answers are short JSON; the blog writer raises it
 const OPENAI_MODEL = process.env.OPENAI_REFRESH_MODEL ?? "gpt-6.2-astra";
 const CLAUDE_KEY = process.env.ANTHROPIC_API_KEY;
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
@@ -17,7 +21,7 @@ export const AI_READY = Boolean(CLAUDE_KEY || GEMINI_KEY || OPENAI_KEY);
 const MAX_CONTINUATIONS = 4;
 
 async function askClaude(prompt, { timeoutMs, maxSearches, effort }) {
-  const client = new Anthropic({ apiKey: CLAUDE_KEY, timeout: timeoutMs, maxRetries: 2 });
+  const client = new Anthropic({ apiKey: CLAUDE_KEY, timeout: timeoutMs, maxRetries: 0 });
   const messages = [{ role: "user", content: prompt }];
 
   for (let turn = 0; turn <= MAX_CONTINUATIONS; turn++) {
@@ -54,25 +58,36 @@ async function askClaude(prompt, { timeoutMs, maxSearches, effort }) {
   throw new Error("Claude's research did not finish");
 }
 
-async function askGemini(prompt, { timeoutMs }) {
+async function askGemini(prompt, { timeoutMs, maxOutputTokens = GEMINI_MAX_OUTPUT }) {
   const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`, {
     method: "POST",
     headers: { "Content-Type": "application/json", "x-goog-api-key": GEMINI_KEY },
     body: JSON.stringify({
       contents: [{ role: "user", parts: [{ text: prompt }] }],
+      // Gemini has no per-request cap on search queries, so maxSearches only applies to Claude.
       tools: [{ google_search: {} }],
+      generationConfig: {
+        thinkingConfig: { thinkingLevel: "low" },
+        maxOutputTokens,
+      },
     }),
     signal: AbortSignal.timeout(timeoutMs),
   });
   if (!res.ok) throw new Error(`Gemini returned ${res.status}: ${(await res.text()).slice(0, 300)}`);
   const data = await res.json();
-  const text = (data?.candidates?.[0]?.content?.parts ?? []).map((part) => part.text ?? "").join("");
+  const candidate = data?.candidates?.[0];
+  // Thought parts carry the model's reasoning, not the answer.
+  const text = (candidate?.content?.parts ?? [])
+    .filter((part) => !part.thought)
+    .map((part) => part.text ?? "")
+    .join("");
+  if (candidate?.finishReason === "MAX_TOKENS") throw new Error(`Gemini hit the ${maxOutputTokens}-token cap`);
   if (!text.trim()) throw new Error("Gemini returned no answer text");
   return text;
 }
 
 async function askOpenAI(prompt, { timeoutMs, effort }) {
-  const client = new OpenAI({ apiKey: OPENAI_KEY, timeout: timeoutMs, maxRetries: 1 });
+  const client = new OpenAI({ apiKey: OPENAI_KEY, timeout: timeoutMs, maxRetries: 0 });
   const response = await client.responses.create({
     model: OPENAI_MODEL,
     input: prompt,
@@ -87,11 +102,13 @@ async function askOpenAI(prompt, { timeoutMs, effort }) {
   return response.output_text;
 }
 
+const MODEL_OF = { Claude: CLAUDE_MODEL, Gemini: GEMINI_MODEL, OpenAI: OPENAI_MODEL };
+
 /**
  * Ask a research question with live web search and return the answer text.
  * Callers parse the JSON out of it. Throws only when every configured provider fails.
  */
-export async function research(prompt, { timeoutMs, maxSearches = 8, effort = "medium" }) {
+export async function research(prompt, { timeoutMs, maxSearches = 8, effort = "medium", maxOutputTokens }) {
   const providers = [
     CLAUDE_KEY ? ["Claude", askClaude] : null,
     GEMINI_KEY ? ["Gemini", askGemini] : null,
@@ -101,11 +118,13 @@ export async function research(prompt, { timeoutMs, maxSearches = 8, effort = "m
   const errors = [];
   for (const [name, ask] of providers) {
     try {
-      const text = await ask(prompt, { timeoutMs, maxSearches, effort });
-      console.log(`research answered by ${name}`);
+      const text = await ask(prompt, { timeoutMs, maxSearches, effort, maxOutputTokens });
+      console.log(`research answered by ${name} (${MODEL_OF[name]})`);
       return text;
     } catch (error) {
-      console.error(`${name} research failed: ${error.message}`);
+      // A timeout (TimeoutError / AbortError) lands here like any other failure: log it once and
+      // move on to the next provider. The same provider is never called again for this question.
+      console.error(`${name} (${MODEL_OF[name]}) research failed: ${error.name === "TimeoutError" || error.name === "AbortError" ? "timed out" : error.message}`);
       errors.push(`${name}: ${error.message}`);
     }
   }

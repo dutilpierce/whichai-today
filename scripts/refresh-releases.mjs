@@ -169,7 +169,7 @@ async function resolveSource(url) {
 }
 
 async function research(today, recent, days) {
-  const text = await askAi(prompt(today, recent, days), { timeoutMs: 180_000, maxSearches: 10 });
+  const text = await askAi(prompt(today, recent, days), { timeoutMs: 120_000, maxSearches: 10 });
   const result = extractJson(text);
   if (!Array.isArray(result?.entries)) throw new Error("entries is not a list");
   return result.entries;
@@ -295,13 +295,12 @@ if (isMain) {
   const today = now.toISOString().slice(0, 10);
   const recent = releases.entries.slice(0, Math.max(RECENT_IN_PROMPT, days * 2));
 
+  // One attempt. research() already falls through to the next provider; a retry would pay again.
   let raw = null;
-  for (let attempt = 1; attempt <= 2 && !raw; attempt++) {
-    try {
-      raw = await research(today, recent, days);
-    } catch (error) {
-      console.error(`attempt ${attempt} failed: ${error.message}`);
-    }
+  try {
+    raw = await research(today, recent, days);
+  } catch (error) {
+    console.error(`release research failed: ${error.message}`);
   }
   if (!raw) {
     console.error("Release research failed; nothing was added.");

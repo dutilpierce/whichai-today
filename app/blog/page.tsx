@@ -52,7 +52,7 @@ export default function BlogIndex() {
         <h1 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h1>
         <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300">
           A sourced summary of what changed in AI each week: new models and features, who moved up the rankings,
-          and why it matters. Built from WhichAI.today&apos;s daily tracking.{" "}
+          and why it matters. Built from WhichAI.today&apos;s release and ranking tracking.{" "}
           <a href="/blog/feed.xml" className="text-emerald-300 hover:text-emerald-200">
             RSS feed
           </a>

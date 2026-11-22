@@ -66,7 +66,7 @@ export function ReleaseFeed({ entries }: { entries: ReleaseRowData[] }) {
             Latest AI releases
           </h2>
           <p className="mt-1 text-sm text-zinc-400">
-            What AI companies just shipped, newest first. Checked every 6 hours.
+            What AI companies just shipped, newest first. Checked twice a day.
           </p>
         </div>
         <Link href="/releases" className="text-sm font-medium text-emerald-300 hover:text-emerald-200">

@@ -41,7 +41,7 @@ function describe(record: ComparePairRecord) {
       : a.length > b.length
         ? `${record.a.name} ranks ahead in ${a.length} of ${total} jobs we track`
         : `${record.b.name} ranks ahead in ${b.length} of ${total} jobs we track`;
-  return `${lead}. Benchmarks, price, free tier, and privacy side by side, checked daily.`;
+  return `${lead}. Benchmarks, price, free tier, and privacy side by side, checked weekly.`;
 }
 
 export async function generateMetadata({
