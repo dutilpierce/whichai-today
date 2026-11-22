@@ -92,7 +92,7 @@ if (!site.auto_publish) {
   process.exit(0);
 }
 if (!AI_READY) {
-  console.error("Neither ANTHROPIC_API_KEY nor GEMINI_API_KEY is set.");
+  console.error("No AI key is set (ANTHROPIC_API_KEY, GEMINI_API_KEY or OPENAI_API_KEY).");
   process.exit(1);
 }
 

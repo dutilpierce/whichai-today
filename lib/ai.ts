@@ -1,4 +1,5 @@
 import Anthropic from "@anthropic-ai/sdk";
+import OpenAI from "openai";
 import models from "./models.json";
 
 export const categoryKeys = Object.keys(models.categories);
@@ -6,9 +7,9 @@ export const categoryKeys = Object.keys(models.categories);
 /**
  * Two kinds of call: "quick" for per-visitor calls (Quick pick routing, ready
  * prompts) and "planner" for multi-step reasoning (Plan a project). Each kind
- * has a model on each provider. Claude is tried first when its key is set, and
- * Gemini takes over if Claude is missing or fails, so one provider running out
- * of credit or going down does not take the features offline.
+ * has a model on each provider. Each provider whose key is set is tried in turn
+ * (Claude, then Gemini, then OpenAI), so one provider running out of credit or
+ * going down does not take the features offline.
  */
 export type Tier = "quick" | "planner";
 
@@ -22,8 +23,13 @@ const GEMINI_MODEL: Record<Tier, string> = {
   planner: "gemini-3.8-flash",
 };
 
+const OPENAI_MODEL: Record<Tier, string> = {
+  quick: "gpt-6.1-terra",
+  planner: "gpt-6.2-astra",
+};
+
 export function aiConfigured() {
-  return Boolean(process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY);
+  return Boolean(process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY);
 }
 
 export function categoryGuide() {
@@ -116,8 +122,29 @@ async function askGemini({ tier, system, prompt, schema, timeoutMs }: Request) {
     .join("");
 }
 
+let openaiClient: OpenAI | null = null;
+
+async function askOpenAI({ tier, system, prompt, schema, timeoutMs, maxTokens = 4000 }: Request) {
+  openaiClient ??= new OpenAI();
+  const response = await openaiClient.responses.create(
+    {
+      model: OPENAI_MODEL[tier],
+      instructions: system,
+      input: prompt,
+      reasoning: { effort: "low" },
+      // Reasoning tokens count toward the cap, so leave room beyond the answer itself.
+      max_output_tokens: maxTokens * 2,
+      // Not strict: these schemas leave some fields optional, which strict mode rejects.
+      text: { format: { type: "json_schema", name: "answer", schema, strict: false } },
+    },
+    { timeout: timeoutMs, maxRetries: 0 },
+  );
+  if (response.status === "incomplete") throw new Error("OpenAI's answer was cut off");
+  return response.output_text;
+}
+
 /**
- * Ask for one JSON object matching `schema`, trying Claude then Gemini. Callers
+ * Ask for one JSON object matching `schema`, trying Claude, Gemini, then OpenAI. Callers
  * still validate values. Throws only when every configured provider fails, so
  * each route can fall back the way it already does.
  */
@@ -125,6 +152,7 @@ export async function generateJson<T>(request: Request): Promise<T> {
   const providers = [
     process.env.ANTHROPIC_API_KEY ? { name: "Claude", ask: askClaude } : null,
     process.env.GEMINI_API_KEY ? { name: "Gemini", ask: askGemini } : null,
+    process.env.OPENAI_API_KEY ? { name: "OpenAI", ask: askOpenAI } : null,
   ].filter((provider) => provider !== null);
 
   const errors: string[] = [];

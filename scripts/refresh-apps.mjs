@@ -287,7 +287,7 @@ function selfCheck() {
 }
 
 async function main() {
-  if (!AI_READY) throw new Error("Neither ANTHROPIC_API_KEY nor GEMINI_API_KEY is set");
+  if (!AI_READY) throw new Error("No AI key is set (ANTHROPIC_API_KEY, GEMINI_API_KEY or OPENAI_API_KEY)");
   const today = new Date().toISOString().slice(0, 10);
   const models = JSON.parse(await readFile(MODELS_FILE, "utf8"));
   const names = trackedNames(models);
