@@ -1,24 +1,24 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-20",
-      "hash": "05a0c3d7a8ba4f6f"
+      "changed": "2026-11-22",
+      "hash": "75f060435873fcac"
     },
     "/releases": {
-      "changed": "2026-11-20",
-      "hash": "623f51edfd278368"
+      "changed": "2026-11-22",
+      "hash": "87b2fdd336e46db3"
     },
     "/blog/ai-news-week-46-2026": {
-      "changed": "2026-11-20",
-      "hash": "2d40c2a57c0e0852"
+      "changed": "2026-11-22",
+      "hash": "d8b89c7f56d34338"
     },
     "/blog/ai-news-week-45-2026": {
       "changed": "2026-11-20",
       "hash": "8aa6d7c42b3955f4"
     },
     "/blog/ai-news-week-44-2026": {
-      "changed": "2026-11-20",
-      "hash": "ebf0c25bf5ed37cd"
+      "changed": "2026-11-22",
+      "hash": "45bec1f7516c4c81"
     },
     "/blog": {
       "changed": "2026-11-20",
@@ -200,9 +200,25 @@
       "changed": "2026-11-20",
       "hash": "1a801ef51cf288e5"
     },
+    "/releases/2026-11-20-thinking-machines-lab-inkling-2-mini": {
+      "changed": "2026-11-22",
+      "hash": "1a89eb653229e518"
+    },
+    "/releases/2026-11-18-google-deepmind-genie-4": {
+      "changed": "2026-11-22",
+      "hash": "a7d24dc9be2740b2"
+    },
     "/releases/2026-11-18-google-gemini-4-neon": {
       "changed": "2026-11-20",
       "hash": "839be214ecb71f18"
+    },
+    "/releases/2026-11-17-microsoft-mai-cyber-2-flash": {
+      "changed": "2026-11-22",
+      "hash": "0360c1c0cffce88f"
+    },
+    "/releases/2026-11-17-microsoft-mai-image-2-7": {
+      "changed": "2026-11-22",
+      "hash": "476bc04d5e6a4d54"
     },
     "/releases/2026-11-17-microsoft-mai-code-2-and-mai-code-2-flash": {
       "changed": "2026-11-18",
@@ -215,6 +231,10 @@
     "/releases/2026-11-17-openai-gpt-6-2-astra-and-sol": {
       "changed": "2026-11-18",
       "hash": "f046132857a00e73"
+    },
+    "/releases/2026-11-16-tencent-hy4-flash": {
+      "changed": "2026-11-22",
+      "hash": "09ad2f70380ca4d3"
     },
     "/releases/2026-11-16-alibaba-cloud-qwen4-max": {
       "changed": "2026-11-20",
@@ -713,8 +733,8 @@
       "hash": "13f8dbbceba30020"
     },
     "/privacy": {
-      "changed": "2026-11-20",
-      "hash": "d598842ac0515aad"
+      "changed": "2026-11-22",
+      "hash": "45ec40d085e41b05"
     },
     "/alerts": {
       "changed": "2026-10-25",

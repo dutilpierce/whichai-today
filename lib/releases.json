@@ -1,6 +1,60 @@
 {
-  "last_checked": "2026-11-20T13:28:38Z",
+  "last_checked": "2026-11-22T15:11:16Z",
   "entries": [
+    {
+      "id": "2026-11-20-anthropic-computer-use-for-team-and-enterprise-plans",
+      "date": "2026-11-20",
+      "added": "2026-11-22",
+      "name": "Computer use for Team and Enterprise plans",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Anthropic launched computer use in beta for Team and Enterprise plans, allowing Claude to interact with permitted desktop applications.",
+      "features": [
+        "Computer use",
+        "Team plan",
+        "Enterprise plan",
+        "Beta"
+      ],
+      "evidence": "Computer use (beta) for Team and Enterprise plans. Computer use lets Claude see a user's screen and work in the desktop apps they allow.",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes"
+    },
+    {
+      "id": "2026-11-20-thinking-machines-lab-inkling-2-mini",
+      "date": "2026-11-20",
+      "added": "2026-11-22",
+      "name": "Inkling 2 Mini",
+      "provider": "Thinking Machines Lab",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Thinking Machines Lab released Inkling 2 Mini, an open-weights model small enough to run on laptops using looped layers.",
+      "features": [
+        "Open weights",
+        "Looped transformer",
+        "Laptop inference",
+        "Efficiency"
+      ],
+      "evidence": "Inkling 2 Mini is an open-weights model small enough to run on your laptop. It loops its middle layers to reason more per token and reach answers in fewer tokens.",
+      "source_url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+      "id": "2026-11-18-google-deepmind-genie-4",
+      "date": "2026-11-18",
+      "added": "2026-11-22",
+      "name": "Genie 4",
+      "provider": "Google DeepMind",
+      "kind": "model",
+      "status": "available",
+      "summary": "Google DeepMind launched Genie 4, a real-time world generation model providing interactive simulation with synchronized native audio.",
+      "features": [
+        "World model",
+        "Interactive simulation",
+        "Native audio",
+        "Multimodal"
+      ],
+      "evidence": "Genie 4 is a world generation system, which unlocks unprecedented realism and improves real-time interactive simulation. Genie 4 is multimodal, enabling audio — such as music, ambient noises, and interactive dialogue — to be simultaneously generated with the world.",
+      "source_url": "https://deepmind.google/models/genie/"
+    },
     {
       "id": "2026-11-18-google-gemini-4-neon",
       "date": "2026-11-18",
@@ -17,6 +71,40 @@
       ],
       "evidence": "Google introduces Gemini 4 Neon, delivering frontier-level intelligence for complex coding and analysis at a lower cost.",
       "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+    },
+    {
+      "id": "2026-11-17-microsoft-mai-cyber-2-flash",
+      "date": "2026-11-17",
+      "added": "2026-11-22",
+      "name": "MAI Cyber 2 Flash",
+      "provider": "Microsoft",
+      "kind": "model",
+      "status": "available",
+      "summary": "Microsoft launched MAI Cyber 2 Flash, a low-cost model engineered for vulnerability discovery and automated software patching.",
+      "features": [
+        "Cybersecurity",
+        "Vulnerability discovery",
+        "Low cost"
+      ],
+      "evidence": "On CyberGym‑E2E, a benchmark measuring real-world vulnerability discovery, MAI Cyber 2 Flash (92.3%) beats GPT-6 Astra (91.5%) at less than 2% of the cost per task.",
+      "source_url": "https://microsoft.ai/news/introducing-mai-cyber-2-flash/"
+    },
+    {
+      "id": "2026-11-17-microsoft-mai-image-2-7",
+      "date": "2026-11-17",
+      "added": "2026-11-22",
+      "name": "MAI Image 2.7",
+      "provider": "Microsoft",
+      "kind": "update",
+      "status": "preview",
+      "summary": "Microsoft announced MAI Image 2.7 and the Canvas workspace, providing advanced image generation and controllable editing.",
+      "features": [
+        "Image generation",
+        "Image editing",
+        "Canvas workspace"
+      ],
+      "evidence": "We're also launching Canvas, a new interactive workspace powered by our Flash model to create, edit, and refine images. MAI Image 2.7 takes the #1 spot on Artificial Analysis image editing",
+      "source_url": "https://microsoft.ai/news/introducing-mai-image-2-7/"
     },
     {
       "id": "2026-11-17-microsoft-mai-code-2-and-mai-code-2-flash",
@@ -88,6 +176,24 @@
       ],
       "evidence": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
       "source_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+    },
+    {
+      "id": "2026-11-16-tencent-hy4-flash",
+      "date": "2026-11-16",
+      "added": "2026-11-22",
+      "name": "Hy4 flash",
+      "provider": "Tencent",
+      "kind": "model",
+      "status": "available",
+      "summary": "Tencent released Hy4 flash, a multimodal mixture-of-experts model featuring 224B total parameters and a 1M-token context window.",
+      "features": [
+        "Multimodal",
+        "1M context",
+        "MoE",
+        "224B parameters"
+      ],
+      "evidence": "We're introducing Hy4 flash, our most cost-effective Hy model to date—featuring 224B total parameters (including 64B Engram parameters) with just 12B active parameters per token. Like Hy4, it is natively multimodal with a 1M-token context window, while offering significantly lower API pricing.",
+      "source_url": "https://hy.tencent.ai/research/hy4-flash?ref=sharedsapience.com"
     },
     {
       "id": "2026-11-16-alibaba-cloud-qwen4-max",
