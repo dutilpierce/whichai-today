@@ -25,7 +25,7 @@ export default function AlertsPage() {
           Get alerts
         </h1>
         <p className="mt-4 text-base leading-7 text-zinc-300">
-          A new number one has to show up on two daily checks before it replaces the
+          A new number one has to show up on two weekly checks in a row before it replaces the
           current leader. These are the ways to hear about that change.
         </p>
         <div className="mt-8">

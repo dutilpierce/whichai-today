@@ -160,7 +160,7 @@ price_usd_month is the monthly USD price, 0 for a free plan, or null if it is no
 }
 
 async function research(today, seed, names, jobs) {
-  const text = await askAi(prompt(today, seed, names, jobs), { timeoutMs: 180_000, maxSearches: 8 });
+  const text = await askAi(prompt(today, seed, names, jobs), { timeoutMs: 120_000, maxSearches: 8 });
   return validateApp(extractJson(text), seed, today, names);
 }
 

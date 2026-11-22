@@ -39,7 +39,7 @@ export default function MethodologyPage() {
         </ul>
         <h2 className="mt-12 text-2xl font-semibold text-white">Two checks</h2>
         <p className="mt-4 text-base leading-7 text-zinc-300">
-          A daily job re-reads the boards. A new number one is noted the first day and replaces the leader only if the next run names it again. A one-day blip does not change the pick.
+          A weekly job re-reads the boards. A new number one is noted the first week and replaces the leader only if the next weekly run names it again. A one-week blip does not change the pick.
         </p>
         <h2 className="mt-12 text-2xl font-semibold text-white">How sure the label is</h2>
         <p className="mt-4 text-base leading-7 text-zinc-300">

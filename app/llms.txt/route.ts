@@ -54,7 +54,7 @@ WhichAI.today tells you which AI model to use for a specific task today. It is f
 
 People search or describe a project. The site maps the work to a category and shows three picks: today's leader, a strong alternative, and the best open-weights model. Project plans are split into stages, and each stage uses the same rankings. The planner does not invent model names.
 
-Picks come from public evaluations: LMArena, Artificial Analysis, Vals AI, SWE-bench, GPQA, and Humanity's Last Exam. A daily job rechecks those sources. A new number one has to appear on two checks in a row before it replaces the current leader. Last reviewed: ${reviewed}.
+Picks come from public evaluations: LMArena, Artificial Analysis, Vals AI, SWE-bench, GPQA, and Humanity's Last Exam. A weekly job rechecks those sources. A new number one has to appear on two weekly checks in a row before it replaces the current leader. Last reviewed: ${reviewed}.
 
 Canonical pages:
 https://whichai.today

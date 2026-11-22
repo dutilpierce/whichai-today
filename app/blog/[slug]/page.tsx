@@ -238,7 +238,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
               ))}
             </ol>
             <p className="mt-6 text-sm text-zinc-500">
-              Rankings and release data come from WhichAI.today&apos;s daily tracking. See the{" "}
+              Rankings and release data come from WhichAI.today&apos;s ongoing tracking. See the{" "}
               <Link href="/methodology" className="hover:text-white">
                 methodology
               </Link>

@@ -11,7 +11,7 @@ import { pageGraph } from "@/lib/schema";
 
 const title = "Compare AI models side by side";
 const description =
-  "Pick any two AI models and see who ranks ahead for coding, writing, research, images, and video, plus price, free tier, and privacy. Checked daily.";
+  "Pick any two AI models and see who ranks ahead for coding, writing, research, images, and video, plus price, free tier, and privacy. Checked weekly.";
 
 const metaTitle = `Compare AI Models: Claude vs GPT vs Gemini, Side by Side (${rankingMonth()})`;
 

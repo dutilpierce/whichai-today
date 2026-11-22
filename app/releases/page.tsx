@@ -45,7 +45,7 @@ export default function ReleasesPage() {
         <p className="mt-3 flex flex-wrap items-center gap-2 text-sm text-zinc-400">
           <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
             <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-            Checked every 6 hours
+            Checked twice a day
           </span>
           {checked ? (
             <span>

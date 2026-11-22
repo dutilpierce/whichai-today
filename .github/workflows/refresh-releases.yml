@@ -2,7 +2,8 @@ name: Refresh AI releases
 
 on:
   schedule:
-    - cron: "15 */6 * * *"
+    # Twice a day (11:15 and 23:15 UTC). The 7-day --since window covers the 12-hour gap many times over.
+    - cron: "15 11,23 * * *"
   workflow_dispatch:
     inputs:
       since:
