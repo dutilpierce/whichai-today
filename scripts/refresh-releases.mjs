@@ -70,6 +70,15 @@ function extractJson(text) {
   return JSON.parse(text.slice(start, end + 1));
 }
 
+/**
+ * The URL to store after following redirects. A redirect can land on a URL with long tracking
+ * parameters that fact-check rejects (it caps source_url at MAX_LENGTH), which used to hold back
+ * the whole run. Keep the URL the model gave, which already passed the cap, in that case.
+ */
+export function storedUrl(original, final) {
+  return typeof final === "string" && final.length <= MAX_LENGTH.source_url ? final : original;
+}
+
 export function validateEntry(raw, today, maxAge = MAX_AGE_DAYS) {
   if (!raw || typeof raw !== "object") throw new Error("entry is not an object");
   const next = {};
@@ -211,6 +220,9 @@ function selfCheck() {
   rejects({ kind: "rumor" }, "an unknown kind should fail");
   rejects({ status: "soon" }, "an unknown status should fail");
   rejects({ source_url: "http://example.com" }, "a non-https source should fail");
+  const short = "https://example.com/news";
+  assert(storedUrl(short, `${short}?${"x".repeat(400)}`) === short, "a too-long redirect target keeps the original URL");
+  assert(storedUrl(short, "https://example.com/final") === "https://example.com/final", "a normal redirect target is stored");
   rejects({ summary: "Alpha 2 is 40% faster." }, "a number missing from the evidence should fail");
   rejects({ features: ["3M context"] },"a feature number missing from the evidence should fail");
   rejects({ features: [] }, "an entry needs at least one feature");
@@ -268,7 +280,7 @@ if (isMain && process.argv.includes("--fix-sources")) {
       continue;
     }
     console.log(`resolved: ${entry.id} -> ${source.url}`);
-    entry.source_url = source.url;
+    entry.source_url = storedUrl(entry.source_url, source.url);
     fixed++;
   }
   if (fixed) await writeFile(RELEASES_FILE, `${JSON.stringify(releases, null, 2)}
@@ -321,7 +333,7 @@ if (isMain) {
       console.warn(`skipped: ${checked.provider} ${checked.name} source ${checked.source_url} does not load`);
       continue;
     }
-    valid.push({ ...checked, source_url: source.url });
+    valid.push({ ...checked, source_url: storedUrl(checked.source_url, source.url) });
   }
 
   const merged = mergeReleases(releases, valid, today);
