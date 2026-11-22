@@ -837,16 +837,16 @@
       "hash": "4bbe39f9756f44f1"
     },
     "/apps/perplexity": {
-      "changed": "2026-11-11",
-      "hash": "3e1a2ce7f5a8b5bb"
+      "changed": "2026-11-22",
+      "hash": "eb668bb6d5cded1b"
     },
     "/apps/cursor": {
       "changed": "2026-11-12",
       "hash": "d62dc5b841820da4"
     },
     "/apps/github-copilot": {
-      "changed": "2026-11-11",
-      "hash": "7e51c4c1f32cf70b"
+      "changed": "2026-11-22",
+      "hash": "d0bb6cf41ac6c765"
     },
     "/apps/claude-code": {
       "changed": "2026-11-12",
