@@ -845,16 +845,16 @@
       "hash": "91f4e29adc611332"
     },
     "/apps/copilot": {
-      "changed": "2026-11-20",
-      "hash": "4bbe39f9756f44f1"
+      "changed": "2026-11-23",
+      "hash": "7c6f2477b6b336ef"
     },
     "/apps/perplexity": {
-      "changed": "2026-11-22",
-      "hash": "eb668bb6d5cded1b"
+      "changed": "2026-11-23",
+      "hash": "75f6cdac18654cb0"
     },
     "/apps/cursor": {
-      "changed": "2026-11-12",
-      "hash": "d62dc5b841820da4"
+      "changed": "2026-11-23",
+      "hash": "2d7ef70485fce898"
     },
     "/apps/github-copilot": {
       "changed": "2026-11-22",
@@ -881,8 +881,8 @@
       "hash": "676e20caee5539a0"
     },
     "/apps/ollama": {
-      "changed": "2026-11-11",
-      "hash": "d4620fe84ff44d0b"
+      "changed": "2026-11-23",
+      "hash": "4cb2d7fec0c33358"
     },
     "/vs/chatgpt-vs-claude": {
       "changed": "2026-10-25",
