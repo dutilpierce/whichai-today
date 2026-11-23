@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-23T03:42:57Z",
+  "last_checked": "2026-11-23T22:39:04Z",
   "entries": [
+    {
+      "id": "2026-11-23-openai-and-cisco-shirudo",
+      "date": "2026-11-23",
+      "added": "2026-11-23",
+      "name": "Shirudo",
+      "provider": "OpenAI and Cisco",
+      "kind": "feature",
+      "status": "available",
+      "summary": "An open-source, eBPF-based security project using AI agents to automatically generate and deploy shields for Linux systems.",
+      "features": [
+        "Cybersecurity",
+        "Agents",
+        "eBPF",
+        "Open source"
+      ],
+      "evidence": "Cisco and OpenAI today launched an open source effort to make infrastructure secure by default and able to defend itself against today's sophisticated cyber attacks.",
+      "source_url": "https://blogs.cisco.com/news/expanding-the-defenders-window-with-self-defending-infrastructure"
+    },
     {
       "id": "2026-11-20-anthropic-computer-use-for-team-and-enterprise-plans",
       "date": "2026-11-20",
