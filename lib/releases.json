@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-22T15:11:16Z",
+  "last_checked": "2026-11-23T03:42:57Z",
   "entries": [
     {
       "id": "2026-11-20-anthropic-computer-use-for-team-and-enterprise-plans",
@@ -71,6 +71,24 @@
       ],
       "evidence": "Google introduces Gemini 4 Neon, delivering frontier-level intelligence for complex coding and analysis at a lower cost.",
       "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+    },
+    {
+      "id": "2026-11-17-microsoft-and-salesforce-salesforce-in-copilot",
+      "date": "2026-11-17",
+      "added": "2026-11-23",
+      "name": "Salesforce in Copilot",
+      "provider": "Microsoft and Salesforce",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "A new plugin brings Salesforce customer context and actions directly into Microsoft Copilot, featuring over 38 prebuilt sales skills.",
+      "features": [
+        "Salesforce",
+        "Integration",
+        "Copilot",
+        "CRM"
+      ],
+      "evidence": "including Salesforce in Copilot, a plugin available in public preview with 38+ prebuilt sales skills.",
+      "source_url": "https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/"
     },
     {
       "id": "2026-11-17-microsoft-mai-cyber-2-flash",

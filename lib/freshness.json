@@ -1,12 +1,12 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-22",
-      "hash": "75f060435873fcac"
+      "changed": "2026-11-23",
+      "hash": "0d7180e60bd6909f"
     },
     "/releases": {
-      "changed": "2026-11-22",
-      "hash": "87b2fdd336e46db3"
+      "changed": "2026-11-23",
+      "hash": "563af13a51ebdc72"
     },
     "/blog/ai-news-week-46-2026": {
       "changed": "2026-11-22",
@@ -725,8 +725,8 @@
       "hash": "c603328873606732"
     },
     "/about": {
-      "changed": "2026-11-12",
-      "hash": "fd9c66488998f4b9"
+      "changed": "2026-11-23",
+      "hash": "074b148b0d749da0"
     },
     "/faq": {
       "changed": "2026-11-22",
@@ -737,20 +737,20 @@
       "hash": "45ec40d085e41b05"
     },
     "/alerts": {
-      "changed": "2026-10-25",
-      "hash": "80525339aced29d3"
+      "changed": "2026-11-23",
+      "hash": "ab2a60db2e31baa6"
     },
     "/methodology": {
-      "changed": "2026-10-29",
-      "hash": "1cebb6afc801c908"
+      "changed": "2026-11-23",
+      "hash": "2fa835eac229cfbd"
     },
     "/embed": {
       "changed": "2026-10-25",
       "hash": "359f9b66b254eb98"
     },
     "/data": {
-      "changed": "2026-10-25",
-      "hash": "428c9f9be242f936"
+      "changed": "2026-11-23",
+      "hash": "0982c98dfcd6d7dc"
     },
     "/free": {
       "changed": "2026-10-29",
