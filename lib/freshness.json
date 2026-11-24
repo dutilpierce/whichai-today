@@ -8,6 +8,10 @@
       "changed": "2026-11-23",
       "hash": "7d1bf5b1314cade4"
     },
+    "/blog/ai-news-week-47-2026": {
+      "changed": "2026-11-24",
+      "hash": "cb95f792b8940299"
+    },
     "/blog/ai-news-week-46-2026": {
       "changed": "2026-11-22",
       "hash": "d8b89c7f56d34338"
@@ -21,8 +25,8 @@
       "hash": "45bec1f7516c4c81"
     },
     "/blog": {
-      "changed": "2026-11-20",
-      "hash": "b512680db08ad725"
+      "changed": "2026-11-24",
+      "hash": "444cc715f49c088e"
     },
     "/coding": {
       "changed": "2026-11-23",

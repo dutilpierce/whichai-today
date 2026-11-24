@@ -1,6 +1,293 @@
 {
   "posts": [
     {
+      "week": "2026-W47",
+      "slug": "ai-news-week-47-2026",
+      "start": "2026-11-16",
+      "end": "2026-11-22",
+      "published": "2026-11-24",
+      "updated": "2026-11-24",
+      "title": "AI This Week: GPT-6.2 Astra and Sol Lead 14 Releases (Nov 16–22, 2026)",
+      "description": "OpenAI released GPT-6.2 Astra and Sol, Claude Fable 5.2 took the coding lead, and Inkling 2 Mini brought open weights to laptops in the week of Nov 16–22.",
+      "takeaways": [
+        "OpenAI released [GPT-6.2 Astra and Sol](https://openai.com/index/introducing-gpt-6-2-astra-sol/) on Nov 17, positioning Astra for demanding professional projects and Sol for everyday work.",
+        "Alibaba Cloud’s [Qwen4-Max](https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max?_p_lc=1) and Tencent’s [Hy4 flash](https://hy.tencent.ai/research/hy4-flash?ref=sharedsapience.com) both arrived on Nov 16 with native multimodal input and a 1 million-token context window.",
+        "On Nov 17, [Salesforce in Copilot](https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/) entered public preview with 38-plus sales skills, while [ChatGPT for Sales](https://openai.com/index/introducing-chatgpt-for-sales/) launched with more than 30 new or enhanced partner plugins.",
+        "Google priced [Gemini 4 Neon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/) at $3 per million uncached input tokens and $15 per million output tokens at its Nov 18 release.",
+        "Thinking Machines Lab released [Inkling 2 Mini](https://thinkingmachines.ai/news/inkling-2-mini/) on Nov 20 with open weights, a roughly 20 GB memory footprint and a demonstration of the model running offline.",
+        "Claude Fable 5.2 replaced Claude Opus 5.5 atop [WhichAI.today’s Coding & Software ranking](/changes/2026-11-20-coding) on Nov 20, the only tracked change of category leader during the week."
+      ],
+      "sections": [
+        {
+          "id": "openai-splits-gpt-6-2-between-demanding-projects-and-everyda",
+          "heading": "OpenAI splits GPT-6.2 between demanding projects and everyday work",
+          "paragraphs": [
+            "OpenAI released [GPT-6.2 Astra and GPT-6.2 Sol](https://openai.com/index/introducing-gpt-6-2-astra-sol/) on Nov 17 across ChatGPT Work, Codex and the API. The choice is about the assignment: OpenAI recommends Astra for difficult projects, including coding and producing finished professional documents, and Sol for everyday work. For an office team, the distinction is as concrete as drafting the notes from a budget meeting versus building the spreadsheet and presentation that go to the board.",
+            "OpenAI singled out an improvement that is easy to check without a benchmark: Astra’s ability to follow a supplied template. A financial summary can contain the right numbers and still take an hour to repair if it renames columns, changes the order of the slides or ignores the house format. Give Astra a completed example and a fresh set of inputs; judge the result by what an editor still has to fix. ([openai.com](https://openai.com/index/introducing-gpt-6-2-astra-sol/))",
+            "The strongest numerical comparison in the announcement concerns a particular kind of work. On Agents’ Last Exam, which tests assignments that take multiple steps to finish, OpenAI reported that GPT-6.2 Astra beat GPT-6 Astra by 5.2 points at less than one-third of the cost. That is a result for the benchmark as run, not a promise that an existing API bill will fall by two-thirds. Both the quality of the finished work and the cost of getting it accepted matter. ([openai.com](https://openai.com/index/introducing-gpt-6-2-astra-sol/))",
+            "Neither release automatically became the top pick for its intended audience. WhichAI.today’s [general-use ranking](/general) lists Sol as an alternative to Gemini 4 Carbon, while the [coding ranking](/coding) lists Astra behind Claude Fable 5.2. The week’s 14 [release entries](/releases) included 11 marked available and three in preview or beta. Astra and Sol count as one update, not two releases."
+          ]
+        },
+        {
+          "id": "qwen4-max-hy4-flash-and-gemini-4-neon-offer-a-million-tokens",
+          "heading": "Qwen4-Max, Hy4 flash and Gemini 4 Neon offer a million tokens of context",
+          "paragraphs": [
+            "On Nov 16, Alibaba Cloud released [Qwen4-Max](https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max?_p_lc=1), a flagship with native vision and a 1 million-token context window. Its 2.4 trillion parameters describe the size of the whole model; only 71 billion participate in processing any given token. The practical appeal is the combination of room for a large collection of material and the ability to interpret images in it, rather than requiring someone to transcribe every chart before asking a question.",
+            "Alibaba Cloud also published a comparison against its own Qwen3.8-Max. On Work360, the company’s proprietary test of industry tasks, it reported that the new model used 35% fewer tokens at the high reasoning setting and reduced average cost per task by about 60%. The comparison is useful for teams already paying for the predecessor. It is not a head-to-head price comparison with another provider’s million-token model. ([alibabacloud.com](https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max?_p_lc=1))",
+            "Tencent took a smaller route to the same context limit on Nov 16. Its [Hy4 flash announcement](https://hy.tencent.ai/research/hy4-flash?ref=sharedsapience.com) describes a multimodal mixture-of-experts model with 224 billion total parameters, including 64 billion Engram parameters, and 12 billion active per token. Tencent positions it as a lower-priced API option than Hy4. For a team comparing [Hy4 flash](/releases/2026-11-16-tencent-hy4-flash) with Qwen4-Max, the shared context limit settles how much material can fit, not how accurately each will use it.",
+            "Google added [Gemini 4 Neon](https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/) on Nov 18 as a mid-tier choice for coding, analysis and work that requires several actions. Neon also has a 1 million-token window. Google quoted $3 per million ordinary input tokens, $0.15 per million cached input tokens and $15 per million output tokens. The distinction matters for a recurring report: the cost of reusing eligible input is different from the cost of generating a new report every time.",
+            "A useful comparison for all three is a packet containing a chart, an earlier draft and a correction buried in the final appendix. Ask for the corrected figure, the page that supports it and a short explanation of what changed. That tests whether the model can resolve conflicting evidence across a long file, rather than merely confirming the already published fact that the file fits."
+          ]
+        },
+        {
+          "id": "microsoft-adds-coding-specialists-as-claude-fable-5-2-takes-",
+          "heading": "Microsoft adds coding specialists as Claude Fable 5.2 takes the coding lead",
+          "paragraphs": [
+            "Microsoft made [MAI Code 2 and MAI Code 2 Flash](https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/) generally available on Nov 17 in GitHub Copilot and Foundry. Code 2 is intended for work that crosses files, such as tracing a bug to its source and updating the parts of an application that depend on the fix. Flash is for smaller, frequent jobs: explaining a function, making a targeted edit or handling a routine repair.",
+            "Both models are in the Copilot model picker and in Copilot Fusion. That gives a software lead two different ways to try them: select the same model for every task in a comparison, or let Fusion select models as work comes in. [GitHub’s model-selection guide](https://docs.github.com/en/copilot/how-tos/github-copilot-app/choose-a-model) explains how to tell which model handled a response. It also notes that the choices visible to an individual depend on the plan and organization settings.",
+            "Microsoft’s other Nov 17 specialist, [MAI Cyber 2 Flash](https://microsoft.ai/news/introducing-mai-cyber-2-flash/), is designed for defensive software review and patching. Microsoft reported 92.3% on the CyberGym-E2E vulnerability-discovery benchmark, compared with 91.5% for GPT-6 Astra, at less than 2% of that model’s cost per task. The comparison was against **GPT-6 Astra**, not the GPT-6.2 Astra released that day. It measures discovery on that test, not whether a proposed patch is ready to ship.",
+            "The week’s [Nov 20 coding ranking change](/changes/2026-11-20-coding) went to Anthropic’s Claude Fable 5.2, which displaced Claude Opus 5.5. The change record cites 1,838 on LMArena Code and 93.0% on SWE-bench Pro. The separate [coding table](/coding) lists Fable 5.2 at 1,895 on LMArena Code and GPT-6.2 Astra at 1,842. Use 1,838 when citing the evidence recorded at the change, and 1,895 when citing the table; neither Arena number is a percentage.",
+            "For developers, the releases and the ranking answer different questions. The Nov 17 announcements say which new models can be used inside an existing tool. The Nov 20 change identifies the leader across the models WhichAI.today tracks for software work. A team choosing a default for quick edits has a reason to try Flash even if it keeps [Claude Fable 5.2](/models/claude-fable-5-2) on the shortlist for its hardest repository-wide debugging jobs."
+          ]
+        },
+        {
+          "id": "sales-assistants-connect-customer-records-with-meetings-and-",
+          "heading": "Sales assistants connect customer records with meetings and follow-up",
+          "paragraphs": [
+            "On Nov 17, Microsoft and Salesforce put [Salesforce in Copilot](https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/) into public preview with 38-plus prebuilt sales skills. A seller can bring the customer record together with what happened in a meeting or an email thread. One concrete example is a renewal that looks on track in the sales database even though the customer raised an unresolved concern in a message.",
+            "Reading a record and changing it are separate operations. Microsoft and Salesforce say that Salesforce still governs access to its data and that supported changes written back to the customer record require explicit user confirmation. The Call Follow-Up skill, for example, can turn a conversation into a draft message and proposed activities. The seller gets to review the commitments before they become somebody else’s assigned work. ([news.microsoft.com](https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/))",
+            "OpenAI released [ChatGPT for Sales](https://openai.com/index/introducing-chatgpt-for-sales/) the same day. Its own Sales plugin supplies workflows such as preparing for calls and drafting follow-up messages. More than 30 new or enhanced partner plugins bring in information from the tools a sales team already uses. The two vendors’ numbers are not comparable: 38-plus counts skills in the Copilot plugin, while more than 30 counts partner plugins in ChatGPT.",
+            "For a buying decision, start with one account rather than either catalog. Take a past call where the buyer changed a deadline, then check whether the assistant finds that change, attributes it to the right person and proposes the right update without touching another account. The [Copilot preview](/releases/2026-11-17-microsoft-and-salesforce-salesforce-in-copilot) and the available [ChatGPT sales product](/releases/2026-11-17-openai-chatgpt-for-sales) approach the same handoff from different starting points: one starts in Copilot with Salesforce access, the other in ChatGPT with the selected partner tools."
+          ]
+        },
+        {
+          "id": "healthcare-agents-claude-desktop-access-and-enterprise-routi",
+          "heading": "Healthcare agents, Claude desktop access and enterprise routing",
+          "paragraphs": [
+            "OpenAI made [computer-use agents for healthcare](https://openai.com/index/advancing-computer-use-for-healthcare-teams/) available on Nov 16 in ChatGPT for Healthcare, ChatGPT for Clinicians and the API. Its demonstration used synthetic patient data to show a familiar administrative problem: the evidence for an MRI authorization is in a medical record, but the request has to be prepared in an insurer’s portal. The agent gathered the relevant material and prepared drafts for a clinician and an authorization specialist to review.",
+            "That review step defines what the demonstration showed. The agent moved information between applications and prepared a request; it did not independently decide that a patient should receive an MRI or that an insurer would cover it. OpenAI says organizations can configure approvals and agent access and keep audit logs. Those controls give a procurement team specific points to examine alongside the time taken to prepare the paperwork. ([openai.com](https://openai.com/index/advancing-computer-use-for-healthcare-teams/))",
+            "Anthropic began a gradual rollout of [computer use for Claude Team and Enterprise](https://support.claude.com/en/articles/12138966-release-notes) on Nov 20. This was a beta for workplace plans, not a healthcare-specific product: Claude can see the user’s screen and work in desktop applications the user permits. Anthropic’s [organization setup guide](https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans) is the relevant starting point for administrators; the beta announcement did not mean that every employee had access that Friday.",
+            "Not every workflow needs an assistant that can operate a screen. Microsoft made [Microsoft-Decision-1.1](https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/) generally available on Nov 17, adding multimodal input and reporting faster, more accurate responses for structured decisions. Microsoft cites routing and data labeling among its own uses. If the job is to decide which queue should receive an incoming item, test whether the model picks the correct queue; desktop navigation is beside the point."
+          ]
+        },
+        {
+          "id": "genie-4-generates-interactive-sound-while-mai-image-2-7-targ",
+          "heading": "Genie 4 generates interactive sound while MAI Image 2.7 targets precise edits",
+          "paragraphs": [
+            "Google DeepMind’s [Genie 4](https://deepmind.google/models/genie/) was the Nov 18 world-model entry. It generates an interactive environment and its sound together, including ambient noise, music and dialogue. The difference from a finished video clip is what happens after the first scene appears: a user can move the camera, change the weather or introduce a character, and the system generates a response as the scene unfolds.",
+            "For a creative team, that suggests a different test from judging a showreel. Start with a quiet setting, introduce an event outside the camera’s view, then turn toward it. Look for agreement between what can be heard, where the action appears and how the scene responds to the next direction. The [Genie 4 model card](https://deepmind.google/models/model-cards/genie-4/) covers the simulation system; WhichAI.today’s [video ranking](/video) measures text-to-video output, not this kind of live interaction.",
+            "Microsoft’s [MAI Image 2.7](https://microsoft.ai/news/introducing-mai-image-2-7/) entered public preview on Nov 17 with a more immediate use for production designers: changing one part of a still image while preserving the rest. The accompanying [Canvas workspace](https://labs.microsoft.ai/?model=canvas) uses the Flash model for iterative edits. Microsoft quoted preview pricing in Foundry of about $35 per 1,000 images for MAI Image 2.7 and about $10 per 1,000 for Flash.",
+            "Microsoft reported first place on the Artificial Analysis **image-editing** benchmark. That does not conflict with GPT-Image-2.5 Sunburst retaining the lead in WhichAI.today’s [image ranking](/images), which uses LMArena **text-to-image** scores. Changing the color of a product without disturbing its label is a different assignment from producing a new product photograph from a description. The better comparison is the one that matches the designer’s brief."
+          ]
+        },
+        {
+          "id": "inkling-2-mini-puts-open-weights-on-a-laptop",
+          "heading": "Inkling 2 Mini puts open weights on a laptop",
+          "paragraphs": [
+            "Thinking Machines Lab released [Inkling 2 Mini](https://thinkingmachines.ai/news/inkling-2-mini/) on Nov 20. Its weights are available to run locally, and the lab puts the model’s memory footprint at roughly 20 GB. To demonstrate what local use means, researchers ran it offline on a 48 GB laptop during a flight and had it build a playable flight simulator. That establishes a working example on specified hardware, not a minimum specification for every laptop.",
+            "The model does more work with the same weights by running its middle layers three times for each token. In plain English, it revisits an intermediate calculation before writing the next piece of its answer. The [Inkling 2 Mini model card](https://thinkingmachines.ai/model-card/inkling-2-mini/) and launch report distinguish the 26.4 billion parameters in the model from the 3.4 billion active ones. Repeating layers increases computation without requiring three separate copies of those layers.",
+            "The lab also identified a limit: more passes helped on some reasoning tests but did not give the model a larger store of facts. That distinction matters offline, where a model cannot turn to a web search for missing information. A fair first assignment is one with the necessary evidence on the machine, such as explaining a supplied code change, rather than asking for the latest figure from a source it cannot reach. ([thinkingmachines.ai](https://thinkingmachines.ai/news/inkling-2-mini/))",
+            "Among the week’s [14 tracked releases](/releases), Inkling 2 Mini was the only one classified as an open-weights release. Its case for a workplace trial does not depend on beating the hosted coding leader. For a developer who needs to keep working without a connection, the first question is whether the model can finish the assignment on the available machine. The [Nov 20 release](/releases/2026-11-20-thinking-machines-lab-inkling-2-mini) gives that developer something concrete to test."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What was the difference between GPT-6.2 Astra and GPT-6.2 Sol at launch?",
+          "answer": "On Nov 17, OpenAI positioned Astra for its hardest professional projects, including coding and producing documents, spreadsheets and slides that follow supplied templates. Sol was the more efficient option for everyday work; the update covered ChatGPT Work, Codex and the API."
+        },
+        {
+          "question": "Which AI model took first place for coding during Nov 16–22, 2026?",
+          "answer": "Claude Fable 5.2 replaced Claude Opus 5.5 in WhichAI.today’s Coding & Software ranking on Nov 20. The change record cites 1,838 on LMArena Code and 93.0% on SWE-bench Pro, while the separate coding table lists an Arena score of 1,895."
+        },
+        {
+          "question": "Which new AI models offered a 1 million-token context window?",
+          "answer": "Qwen4-Max and Hy4 flash both launched with a 1 million-token window on Nov 16, followed by Gemini 4 Neon on Nov 18. Microsoft also specified a 1 million-token window for its specialist security model, MAI Cyber 2 Flash, on Nov 17."
+        },
+        {
+          "question": "Which AI tools were still in preview or beta that week?",
+          "answer": "Salesforce in Copilot and Microsoft’s MAI Image 2.7 were public previews on Nov 17. Anthropic began gradually rolling out computer use in beta for Claude Team and Enterprise plans on Nov 20."
+        },
+        {
+          "question": "Can Inkling 2 Mini run on a laptop without an internet connection?",
+          "answer": "Yes. Thinking Machines Lab’s Nov 20 demonstration ran Inkling 2 Mini offline on a laptop with 48 GB of memory. The lab reports a model memory footprint of about 20 GB, so the demonstration should not be read as a guarantee for laptops with less available memory."
+        }
+      ],
+      "companies": [
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com/"
+        },
+        {
+          "name": "Alibaba Cloud",
+          "url": "https://www.alibabacloud.com/"
+        },
+        {
+          "name": "Tencent",
+          "url": "https://www.tencent.com/"
+        },
+        {
+          "name": "Microsoft",
+          "url": "https://www.microsoft.com/"
+        },
+        {
+          "name": "Salesforce",
+          "url": "https://www.salesforce.com/"
+        },
+        {
+          "name": "Google",
+          "url": "https://www.google.com/"
+        },
+        {
+          "name": "Thinking Machines Lab",
+          "url": "https://thinkingmachines.ai/"
+        },
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com/"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com/"
+        },
+        {
+          "name": "Google DeepMind",
+          "url": "https://deepmind.google/"
+        },
+        {
+          "name": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/"
+        },
+        {
+          "name": "Arena (LMArena)",
+          "url": "https://arena.ai/"
+        }
+      ],
+      "sources": [
+        {
+          "name": "Introducing GPT-6.2 Astra and Sol",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+        },
+        {
+          "name": "Alibaba Unveils Qwen4-Max: New AI Teammate for Work, Creativity, and Discovery",
+          "url": "https://www.alibabacloud.com/en/press-room/alibaba-unveils-qwen4-max?_p_lc=1"
+        },
+        {
+          "name": "Tencent Hy: Hy4 flash",
+          "url": "https://hy.tencent.ai/research/hy4-flash?ref=sharedsapience.com"
+        },
+        {
+          "name": "Microsoft and Salesforce Announce Copilotforce, Bringing Trusted Customer Context and Action into Microsoft AI Experiences",
+          "url": "https://news.microsoft.com/source/2026/11/17/microsoft-and-salesforce-announce-copilotforce-bringing-trusted-customer-context-and-action-into-microsoft-ai-experiences/"
+        },
+        {
+          "name": "Introducing ChatGPT for Sales",
+          "url": "https://openai.com/index/introducing-chatgpt-for-sales/"
+        },
+        {
+          "name": "Introducing Gemini 4 Neon",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+        },
+        {
+          "name": "Introducing Inkling 2 Mini",
+          "url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+        },
+        {
+          "name": "Ignite 2026: Building the frontier ecosystem",
+          "url": "https://blogs.microsoft.com/blog/2026/11/17/ignite-2026-building-the-frontier-ecosystem/"
+        },
+        {
+          "name": "Choosing a model in the Copilot app",
+          "url": "https://docs.github.com/en/copilot/how-tos/github-copilot-app/choose-a-model"
+        },
+        {
+          "name": "MAI Cyber 2 Flash: Leading security. Lower cost",
+          "url": "https://microsoft.ai/news/introducing-mai-cyber-2-flash/"
+        },
+        {
+          "name": "Advancing computer-use agents for healthcare teams",
+          "url": "https://openai.com/index/advancing-computer-use-for-healthcare-teams/"
+        },
+        {
+          "name": "Release notes | Claude Help Center",
+          "url": "https://support.claude.com/en/articles/12138966-release-notes"
+        },
+        {
+          "name": "Set up computer use for Team and Enterprise plans",
+          "url": "https://support.claude.com/en/articles/18483812-set-up-computer-use-for-team-and-enterprise-plans"
+        },
+        {
+          "name": "Genie 4 | Google DeepMind",
+          "url": "https://deepmind.google/models/genie/"
+        },
+        {
+          "name": "Genie 4 Model Card",
+          "url": "https://deepmind.google/models/model-cards/genie-4/"
+        },
+        {
+          "name": "MAI Image 2.7: Frontier quality at a fraction of the cost",
+          "url": "https://microsoft.ai/news/introducing-mai-image-2-7/"
+        },
+        {
+          "name": "MAI Labs: Canvas",
+          "url": "https://labs.microsoft.ai/?model=canvas"
+        },
+        {
+          "name": "Inkling 2 Mini Model Card",
+          "url": "https://thinkingmachines.ai/model-card/inkling-2-mini/"
+        },
+        {
+          "name": "OpenAI",
+          "url": "https://openai.com/"
+        },
+        {
+          "name": "Alibaba Cloud",
+          "url": "https://www.alibabacloud.com/"
+        },
+        {
+          "name": "Tencent",
+          "url": "https://www.tencent.com/"
+        },
+        {
+          "name": "Microsoft",
+          "url": "https://www.microsoft.com/"
+        },
+        {
+          "name": "Salesforce",
+          "url": "https://www.salesforce.com/"
+        },
+        {
+          "name": "Google",
+          "url": "https://www.google.com/"
+        },
+        {
+          "name": "Thinking Machines Lab",
+          "url": "https://thinkingmachines.ai/"
+        },
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com/"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com/"
+        },
+        {
+          "name": "Google DeepMind",
+          "url": "https://deepmind.google/"
+        },
+        {
+          "name": "Artificial Analysis",
+          "url": "https://artificialanalysis.ai/"
+        },
+        {
+          "name": "Arena",
+          "url": "https://arena.ai/"
+        }
+      ],
+      "writer": "openai:gpt-6.2-astra"
+    },
+    {
       "week": "2026-W46",
       "slug": "ai-news-week-46-2026",
       "start": "2026-11-09",
