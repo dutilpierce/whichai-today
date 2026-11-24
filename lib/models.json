@@ -78,10 +78,10 @@
       },
       "open_source_pick": {
         "name": "GLM-5.3",
-        "provider": "Alibaba Cloud / Qwen Team",
+        "provider": "Z.ai",
         "why": "Provides near-frontier performance with fully downloadable weights for private, self-hosted coding environments.",
         "benchmark_context": "Strong performance on coding-specific benchmarks like LiveCodeBench and internal engineering evaluations.",
-        "direct_link": "https://huggingface.co/glm-5.3",
+        "direct_link": "https://huggingface.co/zai-org/GLM-5.3",
         "where_to_get": "Download weights via Hugging Face or deploy using local inference engines.",
         "access": "free_limited",
         "cost": "Free to host; usage cost depends on your local or cloud infrastructure.",

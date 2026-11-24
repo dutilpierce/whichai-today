@@ -38,7 +38,8 @@ jobs:
         run: node scripts/fact-check.mjs --links --hold
 
       - name: Publish holds
-        if: steps.kill.outputs.publish == 'true' && (steps.audit.outcome == 'success' || steps.audit.outcome == 'failure')
+        # !cancelled(): without a status function this step was skipped whenever the audit failed.
+        if: ${{ !cancelled() && steps.kill.outputs.publish == 'true' && (steps.audit.outcome == 'success' || steps.audit.outcome == 'failure') }}
         run: |
           if git diff --quiet -- lib/held.json; then
             echo "Holds unchanged."
