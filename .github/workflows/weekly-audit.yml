@@ -22,6 +22,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      # fact-check.mjs imports the releases checker, which loads the Anthropic SDK.
+      - name: Install packages
+        run: npm ci --ignore-scripts --no-audit --no-fund
 
       - name: Kill switch
         id: kill
