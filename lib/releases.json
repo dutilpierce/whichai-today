@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-23T22:39:04Z",
+  "last_checked": "2026-11-24T21:10:57Z",
   "entries": [
     {
       "id": "2026-11-23-openai-and-cisco-shirudo",
@@ -89,6 +89,22 @@
       ],
       "evidence": "Google introduces Gemini 4 Neon, delivering frontier-level intelligence for complex coding and analysis at a lower cost.",
       "source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/"
+    },
+    {
+      "id": "2026-11-17-microsoft-aion-1-0-instruct",
+      "date": "2026-11-17",
+      "added": "2026-11-24",
+      "name": "Aion 1.0 Instruct",
+      "provider": "Microsoft",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Microsoft released Aion 1.0 Instruct, a new open-weights model designed for instructional tasks.",
+      "features": [
+        "Open weights",
+        "Instruction"
+      ],
+      "evidence": "Microsoft announced Aion 1.0 Instruct as an open-weights model in its November release update.",
+      "source_url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/"
     },
     {
       "id": "2026-11-17-microsoft-and-salesforce-salesforce-in-copilot",

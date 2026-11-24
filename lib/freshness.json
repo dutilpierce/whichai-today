@@ -2,15 +2,15 @@
   "pages": {
     "/": {
       "changed": "2026-11-24",
-      "hash": "0f175592ced4b34e"
+      "hash": "28d8c5ae3cea94e0"
     },
     "/releases": {
-      "changed": "2026-11-23",
-      "hash": "7d1bf5b1314cade4"
+      "changed": "2026-11-24",
+      "hash": "dbb46181718cb2b0"
     },
     "/blog/ai-news-week-47-2026": {
       "changed": "2026-11-24",
-      "hash": "cb95f792b8940299"
+      "hash": "5bcb2b2b3dd21a31"
     },
     "/blog/ai-news-week-46-2026": {
       "changed": "2026-11-22",
@@ -227,6 +227,10 @@
     "/releases/2026-11-18-google-gemini-4-neon": {
       "changed": "2026-11-20",
       "hash": "839be214ecb71f18"
+    },
+    "/releases/2026-11-17-microsoft-aion-1-0-instruct": {
+      "changed": "2026-11-24",
+      "hash": "c81e537a54345d51"
     },
     "/releases/2026-11-17-microsoft-mai-cyber-2-flash": {
       "changed": "2026-11-22",
@@ -742,51 +746,51 @@
     },
     "/about": {
       "changed": "2026-11-24",
-      "hash": "cca41de81c685c35"
+      "hash": "074b148b0d749da0"
     },
     "/faq": {
       "changed": "2026-11-24",
-      "hash": "37b561cc3f09520c"
+      "hash": "a9890ce4b42411b8"
     },
     "/privacy": {
       "changed": "2026-11-24",
-      "hash": "d60d952cc0bde6cc"
+      "hash": "45ec40d085e41b05"
     },
     "/alerts": {
       "changed": "2026-11-24",
-      "hash": "102baa9a33fcad3d"
+      "hash": "ab2a60db2e31baa6"
     },
     "/methodology": {
       "changed": "2026-11-24",
-      "hash": "d9cfa3700280c71c"
+      "hash": "2fa835eac229cfbd"
     },
     "/embed": {
       "changed": "2026-11-24",
-      "hash": "dcacf1ebd949c6d0"
+      "hash": "359f9b66b254eb98"
     },
     "/data": {
       "changed": "2026-11-24",
-      "hash": "7c6fcb5a0502d8ce"
+      "hash": "0982c98dfcd6d7dc"
     },
     "/free": {
       "changed": "2026-11-24",
-      "hash": "996e3019fdfd7066"
+      "hash": "0e7ed2c14aca2863"
     },
     "/prompt-builder": {
       "changed": "2026-11-24",
-      "hash": "513f842af30ab966"
+      "hash": "a3e874ecdba05b3f"
     },
     "/suggest": {
       "changed": "2026-11-24",
-      "hash": "4bd59326ca9f695f"
+      "hash": "bdff6f75ce638e1f"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-11-24",
-      "hash": "49de5d4658b91416"
+      "hash": "6160d5e0eecce762"
     },
     "/pick": {
       "changed": "2026-11-24",
-      "hash": "10b7e1c31e695f43"
+      "hash": "be5d73cab7f9c12d"
     },
     "/for/students": {
       "changed": "2026-11-11",
