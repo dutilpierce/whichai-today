@@ -1,8 +1,8 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-23",
-      "hash": "fa030b8a84e18fee"
+      "changed": "2026-11-24",
+      "hash": "0f175592ced4b34e"
     },
     "/releases": {
       "changed": "2026-11-23",
@@ -29,8 +29,8 @@
       "hash": "444cc715f49c088e"
     },
     "/coding": {
-      "changed": "2026-11-23",
-      "hash": "40e935d7eda76869"
+      "changed": "2026-11-24",
+      "hash": "b426f9941301d120"
     },
     "/legal": {
       "changed": "2026-11-23",
@@ -73,8 +73,8 @@
       "hash": "a93c282521ee83e1"
     },
     "/models/glm-5-3": {
-      "changed": "2026-11-23",
-      "hash": "0344e9ca6ae2190a"
+      "changed": "2026-11-24",
+      "hash": "f44f0701f364fe4a"
     },
     "/models/claude-fable-5-1": {
       "changed": "2026-11-23",
@@ -741,52 +741,52 @@
       "hash": "c603328873606732"
     },
     "/about": {
-      "changed": "2026-11-23",
-      "hash": "074b148b0d749da0"
+      "changed": "2026-11-24",
+      "hash": "cca41de81c685c35"
     },
     "/faq": {
-      "changed": "2026-11-23",
-      "hash": "a9890ce4b42411b8"
+      "changed": "2026-11-24",
+      "hash": "37b561cc3f09520c"
     },
     "/privacy": {
-      "changed": "2026-11-22",
-      "hash": "45ec40d085e41b05"
+      "changed": "2026-11-24",
+      "hash": "d60d952cc0bde6cc"
     },
     "/alerts": {
-      "changed": "2026-11-23",
-      "hash": "ab2a60db2e31baa6"
+      "changed": "2026-11-24",
+      "hash": "102baa9a33fcad3d"
     },
     "/methodology": {
-      "changed": "2026-11-23",
-      "hash": "2fa835eac229cfbd"
+      "changed": "2026-11-24",
+      "hash": "d9cfa3700280c71c"
     },
     "/embed": {
-      "changed": "2026-10-25",
-      "hash": "359f9b66b254eb98"
+      "changed": "2026-11-24",
+      "hash": "dcacf1ebd949c6d0"
     },
     "/data": {
-      "changed": "2026-11-23",
-      "hash": "0982c98dfcd6d7dc"
+      "changed": "2026-11-24",
+      "hash": "7c6fcb5a0502d8ce"
     },
     "/free": {
-      "changed": "2026-10-29",
-      "hash": "0e7ed2c14aca2863"
+      "changed": "2026-11-24",
+      "hash": "996e3019fdfd7066"
     },
     "/prompt-builder": {
-      "changed": "2026-11-12",
-      "hash": "a3e874ecdba05b3f"
+      "changed": "2026-11-24",
+      "hash": "513f842af30ab966"
     },
     "/suggest": {
-      "changed": "2026-11-12",
-      "hash": "bdff6f75ce638e1f"
+      "changed": "2026-11-24",
+      "hash": "4bd59326ca9f695f"
     },
     "/which-ai-should-i-use": {
-      "changed": "2026-11-20",
-      "hash": "6160d5e0eecce762"
+      "changed": "2026-11-24",
+      "hash": "49de5d4658b91416"
     },
     "/pick": {
-      "changed": "2026-10-29",
-      "hash": "be5d73cab7f9c12d"
+      "changed": "2026-11-24",
+      "hash": "10b7e1c31e695f43"
     },
     "/for/students": {
       "changed": "2026-11-11",
