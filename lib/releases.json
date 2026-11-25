@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-24T21:10:57Z",
+  "last_checked": "2026-11-25T20:28:31Z",
   "entries": [
     {
       "id": "2026-11-23-openai-and-cisco-shirudo",
@@ -54,6 +54,24 @@
       ],
       "evidence": "Inkling 2 Mini is an open-weights model small enough to run on your laptop. It loops its middle layers to reason more per token and reach answers in fewer tokens.",
       "source_url": "https://thinkingmachines.ai/news/inkling-2-mini/"
+    },
+    {
+      "id": "2026-11-18-adobe-premiere-pro-27-0",
+      "date": "2026-11-18",
+      "added": "2026-11-25",
+      "name": "Premiere Pro 27.0",
+      "provider": "Adobe",
+      "kind": "update",
+      "status": "available",
+      "summary": "Premiere Pro 27.0 adds an AI Assistant panel and three new generative media tools for generating images, music, and soundscapes.",
+      "features": [
+        "AI Assistant",
+        "Generative Image",
+        "Generate Music",
+        "Soundscape"
+      ],
+      "evidence": "Premiere Pro 27.0 (November 2026; Adobe now calls the app Adobe Premiere) adds the AI Assistant panel, three new Generative Media Tool modes (Generate Image, Generate Music, Generate Soundscape)",
+      "source_url": "https://www.adobe.com/products/premiere/features.html"
     },
     {
       "id": "2026-11-18-google-deepmind-genie-4",

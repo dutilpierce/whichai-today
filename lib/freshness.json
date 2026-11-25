@@ -1,16 +1,16 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-24",
-      "hash": "28d8c5ae3cea94e0"
+      "changed": "2026-11-25",
+      "hash": "a297eeab051eebf9"
     },
     "/releases": {
-      "changed": "2026-11-24",
-      "hash": "dbb46181718cb2b0"
+      "changed": "2026-11-25",
+      "hash": "e6526a531b158265"
     },
     "/blog/ai-news-week-47-2026": {
-      "changed": "2026-11-24",
-      "hash": "5bcb2b2b3dd21a31"
+      "changed": "2026-11-25",
+      "hash": "46e15e1f61bfd194"
     },
     "/blog/ai-news-week-46-2026": {
       "changed": "2026-11-22",
@@ -219,6 +219,10 @@
     "/releases/2026-11-20-thinking-machines-lab-inkling-2-mini": {
       "changed": "2026-11-22",
       "hash": "1a89eb653229e518"
+    },
+    "/releases/2026-11-18-adobe-premiere-pro-27-0": {
+      "changed": "2026-11-25",
+      "hash": "21a08549e7df081d"
     },
     "/releases/2026-11-18-google-deepmind-genie-4": {
       "changed": "2026-11-22",
