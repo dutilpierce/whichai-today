@@ -104,7 +104,12 @@ async function askOpenAI(prompt, { timeoutMs, effort }) {
   return response.output_text;
 }
 
-const MODEL_OF = { Claude: CLAUDE_MODEL, Gemini: GEMINI_MODEL, OpenAI: OPENAI_MODEL };
+export const MODEL_OF = { Claude: CLAUDE_MODEL, Gemini: GEMINI_MODEL, OpenAI: OPENAI_MODEL };
+
+/** Providers with a key, in the order research() tries them. */
+export function configuredProviders() {
+  return [CLAUDE_KEY ? "Claude" : null, GEMINI_KEY ? "Gemini" : null, OPENAI_KEY ? "OpenAI" : null].filter(Boolean);
+}
 
 /**
  * `accept` turns the answer text into the caller's result and throws if it is unusable (no JSON,
@@ -113,13 +118,17 @@ const MODEL_OF = { Claude: CLAUDE_MODEL, Gemini: GEMINI_MODEL, OpenAI: OPENAI_MO
  *
  * Ask a research question with live web search and return the answer text.
  * Callers parse the JSON out of it. Throws only when every configured provider fails.
+ * `only` limits the run to the named providers (the health check tests each one alone).
  */
-export async function research(prompt, { timeoutMs, maxSearches = 8, effort = "medium", maxOutputTokens, accept = (text) => text }) {
+export async function research(
+  prompt,
+  { timeoutMs, maxSearches = 8, effort = "medium", maxOutputTokens, accept = (text) => text, only = null },
+) {
   const providers = [
     CLAUDE_KEY ? ["Claude", askClaude] : null,
     GEMINI_KEY ? ["Gemini", askGemini] : null,
     OPENAI_KEY ? ["OpenAI", askOpenAI] : null,
-  ].filter(Boolean);
+  ].filter((provider) => provider && (!only || only.includes(provider[0])));
 
   const errors = [];
   for (const [name, ask] of providers) {

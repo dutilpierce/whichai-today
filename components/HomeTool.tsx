@@ -28,12 +28,9 @@ type Plan = {
   stages: PlanStage[];
 };
 
-const updatedLabel = new Date(models.last_updated).toLocaleDateString("en-US", {
-  month: "short",
-  day: "numeric",
-  year: "numeric",
-  timeZone: "UTC",
-});
+function dayLabel(iso: string) {
+  return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+}
 
 const categories = Object.entries(models.categories);
 
@@ -53,7 +50,15 @@ const primaryButton =
 
 export type LatestRelease = { id: string; name: string; date: string };
 
-export function HomeTool({ latest, children }: { latest: LatestRelease | null; children?: ReactNode }) {
+export function HomeTool({
+  latest,
+  updated,
+  children,
+}: {
+  latest: LatestRelease | null;
+  updated: string;
+  children?: ReactNode;
+}) {
   const [mode, setMode] = useState<"quick" | "plan">("quick");
   const [query, setQuery] = useState("");
   const [description, setDescription] = useState("");
@@ -354,7 +359,7 @@ function encodePlan(value: Plan) {
         )}
         <span className="inline-flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-xs text-emerald-300">
           <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
-          Updated {updatedLabel}
+          Updated {dayLabel(updated)}
         </span>
       </p>
 

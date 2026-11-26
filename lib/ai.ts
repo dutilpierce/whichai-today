@@ -1,5 +1,6 @@
 import Anthropic from "@anthropic-ai/sdk";
 import OpenAI from "openai";
+import aiModels from "./ai-models.json";
 import models from "./models.json";
 
 export const categoryKeys = Object.keys(models.categories);
@@ -13,20 +14,10 @@ export const categoryKeys = Object.keys(models.categories);
  */
 export type Tier = "quick" | "planner";
 
-const CLAUDE_MODEL: Record<Tier, string> = {
-  quick: "claude-haiku-5-5",
-  planner: "claude-sonnet-5-5",
-};
-
-const GEMINI_MODEL: Record<Tier, string> = {
-  quick: "gemini-3.5-flash-lite",
-  planner: "gemini-3.8-flash",
-};
-
-const OPENAI_MODEL: Record<Tier, string> = {
-  quick: "gpt-6.1-terra",
-  planner: "gpt-6.2-astra",
-};
+// Model ids live in ai-models.json so scripts/provider-check.mjs tests exactly what the site uses.
+const CLAUDE_MODEL: Record<Tier, string> = { quick: aiModels.quick.Claude, planner: aiModels.planner.Claude };
+const GEMINI_MODEL: Record<Tier, string> = { quick: aiModels.quick.Gemini, planner: aiModels.planner.Gemini };
+const OPENAI_MODEL: Record<Tier, string> = { quick: aiModels.quick.OpenAI, planner: aiModels.planner.OpenAI };
 
 export function aiConfigured() {
   return Boolean(process.env.ANTHROPIC_API_KEY || process.env.GEMINI_API_KEY || process.env.OPENAI_API_KEY);
@@ -160,7 +151,11 @@ export async function generateJson<T>(request: Request): Promise<T> {
     try {
       return JSON.parse(await provider.ask(request)) as T;
     } catch (error) {
-      errors.push(`${provider.name}: ${error instanceof Error ? error.message : String(error)}`);
+      const message = error instanceof Error ? error.message : String(error);
+      // Logged so a provider failing in production (credits, outage) shows up in the Vercel logs
+      // even while the fallback keeps the feature working.
+      console.warn(`AI ${request.tier} call: ${provider.name} failed, trying the next provider: ${message}`);
+      errors.push(`${provider.name}: ${message}`);
     }
   }
   throw new Error(errors.length ? errors.join("; ") : "No AI provider is configured");

@@ -1,0 +1,44 @@
+name: AI provider check
+
+# Weekly, and on demand: calls every configured AI provider on its own (data-job research path
+# and the site's JSON path) so a broken fallback is found before it is needed. A few tiny calls.
+on:
+  schedule:
+    - cron: "0 9 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install packages
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
+      - name: Check every provider
+        run: node scripts/provider-check.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+
+      - name: Tell the owner
+        if: failure()
+        run: node scripts/notify-owner.mjs "An AI provider check failed, so a fallback may not work. Check the Actions log."
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}
+          GITHUB_TOKEN: ${{ github.token }}

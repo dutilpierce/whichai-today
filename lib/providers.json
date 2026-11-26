@@ -12,10 +12,10 @@
     "checked": "2026-11-26"
   },
   "Google": {
-    "trains_by_default": "Yes for adults. Gemini Apps Activity is on by default, and those chats can be used to improve Google AI.",
-    "opt_out": "Gemini Apps Activity, turn off Keep Activity. Safety review can still apply.",
+    "trains_by_default": "Can be. Gemini History saves your chats, and Google lets you choose there whether they train its generative AI. Human reviewers may still read chats.",
+    "opt_out": "In Gemini History (myactivity.google.com/product/gemini), turn off training or History. Chats are still kept about 2 months; reviewed chats up to 3 years.",
     "source_url": "https://support.google.com/gemini/answer/13594961",
-    "checked": "2026-10-24"
+    "checked": "2026-11-26"
   },
   "Moonshot AI": {
     "trains_by_default": "Yes. The Kimi consumer policy says prompts and files can be used to improve models.",
@@ -24,10 +24,10 @@
     "checked": "2026-11-26"
   },
   "Xiaomi": {
-    "trains_by_default": "No, if you download the weights and run them yourself. Hosted Xiaomi apps may differ.",
+    "trains_by_default": "No, if you download the open weights and run them yourself. Xiaomi publishes no training terms for its hosted MiMo Studio and API that we could find.",
     "opt_out": "Run the open weights on your own machine when chats must stay private.",
     "source_url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
-    "checked": "2026-10-24"
+    "checked": "2026-11-26"
   },
   "DeepSeek": {
     "trains_by_default": "Possibly. DeepSeek says some optimization data can come from user input, after de-identification.",
