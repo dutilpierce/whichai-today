@@ -68,7 +68,7 @@ jobs:
 
       - name: Fact check
         if: steps.kill.outputs.publish == 'true'
-        run: node scripts/fact-check.mjs
+        run: node scripts/fact-check.mjs --scope blog
 
       - name: Publish
         if: steps.kill.outputs.publish == 'true'

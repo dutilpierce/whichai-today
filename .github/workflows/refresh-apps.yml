@@ -2,7 +2,8 @@ name: Refresh app facts
 
 on:
   schedule:
-    - cron: "0 11 1 * *"
+    # 15:00, clear of the Monday 11:00 rankings run when the 1st is a Monday.
+    - cron: "0 15 1 * *"
   workflow_dispatch:
 
 permissions:
@@ -50,7 +51,7 @@ jobs:
 
       - name: Fact-check
         if: steps.kill.outputs.publish == 'true'
-        run: node scripts/fact-check.mjs
+        run: node scripts/fact-check.mjs --scope apps
 
       - name: Publish if anything changed
         if: steps.kill.outputs.publish == 'true'

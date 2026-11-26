@@ -257,8 +257,13 @@ async function writeWithOpenAI(prompt) {
 
 async function writeWithClaude(prompt) {
   // Claude with web search, falling back to Gemini, via the shared research helper.
-  const text = await research(`${STYLE}\n\n${prompt}`, { timeoutMs: 15 * 60 * 1000, maxSearches: 15, effort: "high", maxOutputTokens: 32000 });
-  return extractJson(text);
+  return research(`${STYLE}\n\n${prompt}`, {
+    timeoutMs: 15 * 60 * 1000,
+    maxSearches: 15,
+    effort: "high",
+    maxOutputTokens: 32000,
+    accept: extractJson,
+  });
 }
 
 /** Try OpenAI, then Claude/Gemini. Returns the draft and which writer produced it. */

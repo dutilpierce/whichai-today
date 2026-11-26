@@ -109,6 +109,12 @@ function validate(result, category, today) {
     if (next.sources_checked > listed) {
       throw new Error(`${slot}.sources_checked exceeds the category source list`);
     }
+    // fact-check rejects a number in `why` that the stored evidence does not contain; reject it here
+    // so one category's slip falls through to the next provider instead of holding the whole run.
+    const evidence = `${next.benchmark_context} ${next.cost}`;
+    for (const number of next.why.match(/\d+(?:\.\d+)?/g) ?? []) {
+      if (!evidence.includes(number)) throw new Error(`${slot}.why cites ${number}, which is not in its evidence`);
+    }
     next.primary_score = score;
     next.checked = today;
     picks[slot] = next;
@@ -157,8 +163,11 @@ export function applyResearch(category, history, key, picks, today) {
 }
 
 async function research(today, category) {
-  const text = await askAi(prompt(today, category), { timeoutMs: 120_000, maxSearches: 8 });
-  return validate(extractJson(text), category, today);
+  return askAi(prompt(today, category), {
+    timeoutMs: 180_000,
+    maxSearches: 8,
+    accept: (text) => validate(extractJson(text), category, today),
+  });
 }
 
 function assert(condition, message) {
