@@ -2,7 +2,8 @@ name: Monthly fact verify
 
 on:
   schedule:
-    - cron: "0 12 1 * *"
+    # The 2nd, so it never queues behind the monthly apps refresh.
+    - cron: "0 12 2 * *"
   workflow_dispatch:
 
 permissions:

@@ -2,8 +2,10 @@ name: Refresh AI releases
 
 on:
   schedule:
-    # Twice a day (11:15 and 23:15 UTC). The 7-day --since window covers the 12-hour gap many times over.
-    - cron: "15 11,23 * * *"
+    # Twice a day (10:15 and 22:15 UTC), before the 11:00 rankings and 12:00 jobs, so they rarely
+    # queue behind each other: a second pending run in the shared group cancels the first.
+    # The 7-day --since window covers the 12-hour gap many times over.
+    - cron: "15 10,22 * * *"
   workflow_dispatch:
     inputs:
       since:
@@ -57,7 +59,7 @@ jobs:
 
       - name: Fact-check
         if: steps.kill.outputs.publish == 'true'
-        run: node scripts/fact-check.mjs
+        run: node scripts/fact-check.mjs --scope releases
 
       - name: Publish if a release was added
         if: steps.kill.outputs.publish == 'true'

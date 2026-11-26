@@ -13,6 +13,30 @@ const HELD = new URL("../lib/held.json", import.meta.url);
 const SLOTS = ["leader", "runner_up", "open_source_pick"];
 const FRESH_DAYS = 45;
 
+// A job's check (--scope) blocks only on its own data and on site-wide rules. Age limits never
+// block a scoped job: stale privacy or app data must not stop fresh releases or rankings from
+// publishing. The unscoped weekly audit still fails on all of it, which opens an alert.
+const SCOPE_AREAS = {
+  rankings: ["rankings"],
+  releases: ["releases"],
+  apps: ["apps"],
+  blog: ["blog"],
+};
+const AGE_ERROR = /older than \d+ days|last checked more than \d+ days/;
+
+export function splitByScope(tagged, scope) {
+  if (!scope) return { errors: tagged.map((item) => item.message), warnings: [] };
+  const areas = SCOPE_AREAS[scope];
+  if (!areas) throw new Error(`unknown --scope ${scope}; use ${Object.keys(SCOPE_AREAS).join(", ")}`);
+  const errors = [];
+  const warnings = [];
+  for (const { area, message } of tagged) {
+    const owned = area === "site" || areas.includes(area);
+    (owned && !AGE_ERROR.test(message) ? errors : warnings).push(message);
+  }
+  return { errors, warnings };
+}
+
 export function numbersIn(value) {
   return value.match(/\d+(?:\.\d+)?/g) ?? [];
 }
@@ -574,6 +598,20 @@ function selfCheck() {
   missingHost.code = "ENOTFOUND";
   assert(linkFailure(missingHost).fail, "a missing domain should fail");
 
+  const tagged = [
+    { area: "apps", message: "chatgpt was last checked more than 45 days ago" },
+    { area: "rankings", message: "Anthropic privacy is older than 45 days" },
+    { area: "apps", message: "chatgpt skill is invalid" },
+    { area: "releases", message: "x: source_url is too long" },
+    { area: "site", message: "/faq has no freshness date" },
+  ];
+  const forReleases = splitByScope(tagged, "releases");
+  assert(forReleases.errors.length === 2, "a releases run blocks only on releases and site errors");
+  assert(forReleases.warnings.length === 3, "other areas and stale data only warn in a releases run");
+  assert(splitByScope(tagged, "apps").errors.includes("chatgpt skill is invalid"), "an apps run blocks on a bad app");
+  assert(!splitByScope(tagged, "apps").errors.some((e) => e.includes("45 days")), "stale data never blocks a scoped run");
+  assert(splitByScope(tagged, null).errors.length === 5, "the unscoped audit blocks on everything");
+
   console.log("fact-check self-check ok");
 }
 
@@ -587,6 +625,8 @@ const models = JSON.parse(await readFile(MODELS, "utf8"));
 const history = JSON.parse(await readFile(HISTORY, "utf8"));
 const providers = JSON.parse(await readFile(PROVIDERS, "utf8"));
 const result = checkData(models, history, providers, today);
+const tagged = result.errors.map((message) => ({ area: "rankings", message }));
+const add = (area, messages) => tagged.push(...messages.map((message) => ({ area, message })));
 let apps = { apps: [] };
 try {
   apps = JSON.parse(await readFile(new URL("../lib/apps.json", import.meta.url), "utf8"));
@@ -599,21 +639,21 @@ try {
 } catch {
   archive = { models: [] };
 }
-result.errors.push(...checkApps(apps, models, today, archive));
+add("apps", checkApps(apps, models, today, archive));
 let releases = { entries: [] };
 try {
   releases = JSON.parse(await readFile(new URL("../lib/releases.json", import.meta.url), "utf8"));
 } catch {
   releases = { entries: [] };
 }
-result.errors.push(...checkReleases(releases, today));
+add("releases", checkReleases(releases, today));
 let blog = { posts: [] };
 try {
   blog = JSON.parse(await readFile(new URL("../lib/blog.json", import.meta.url), "utf8"));
 } catch {
   blog = { posts: [] };
 }
-result.errors.push(...checkBlog(blog, today));
+add("blog", checkBlog(blog, today));
 
 try {
   const freshness = JSON.parse(await readFile(new URL("../lib/freshness.json", import.meta.url), "utf8"));
@@ -668,28 +708,28 @@ try {
     releases,
     blog,
   });
-  if (tasks) result.errors.push(...checkPages(audiences, picker, tasks));
-  result.errors.push(...checkFreshness(Object.keys(payloads), freshness, today));
-  if (tasks) result.errors.push(...checkTasks(tasks, models, providers));
-  if (guides) result.errors.push(...checkGuides(guides, tasks));
+  if (tasks) add("site", checkPages(audiences, picker, tasks));
+  add("site", checkFreshness(Object.keys(payloads), freshness, today));
+  if (tasks) add("site", checkTasks(tasks, models, providers));
+  if (guides) add("site", checkGuides(guides, tasks));
 } catch (error) {
-  result.errors.push(error instanceof Error ? error.message : "freshness.json is missing");
+  add("site", [error instanceof Error ? error.message : "freshness.json is missing"]);
 }
 
 try {
   const posted = JSON.parse(await readFile(new URL("../changes-this-run.json", import.meta.url), "utf8"));
   if (Array.isArray(posted) && posted.some((entry) => !alertable(entry))) {
-    result.errors.push("changes-this-run.json contains an entry that is not a confirmed change");
+    add("rankings", ["changes-this-run.json contains an entry that is not a confirmed change"]);
   }
 } catch {
   // The file exists only after a refresh that confirmed a switch.
 }
 
-result.errors.push(...(await titleProblems()));
+add("site", await titleProblems());
 
 if (process.argv.includes("--links")) {
   const links = await checkLinks(models, providers, apps, releases);
-  result.errors.push(...links.errors);
+  add("site", links.errors);
   for (const warning of links.warnings) console.warn(`warning: ${warning}`);
 }
 
@@ -697,9 +737,14 @@ if (process.argv.includes("--hold")) {
   await writeFile(HELD, `${JSON.stringify({ pages: result.pages, facts: result.facts }, null, 2)}\n`);
 }
 
-if (result.errors.length) {
-  for (const error of result.errors) console.error(error);
+const scopeIndex = process.argv.indexOf("--scope");
+const scope = scopeIndex === -1 ? null : process.argv[scopeIndex + 1];
+const { errors, warnings } = splitByScope(tagged, scope);
+for (const warning of warnings) console.warn(`warning (not blocking ${scope}): ${warning}`);
+
+if (errors.length) {
+  for (const error of errors) console.error(error);
   process.exit(1);
 }
 
-console.log("fact-check ok");
+console.log(scope ? `fact-check ok (${scope})` : "fact-check ok");

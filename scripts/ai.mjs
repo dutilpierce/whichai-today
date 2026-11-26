@@ -107,10 +107,14 @@ async function askOpenAI(prompt, { timeoutMs, effort }) {
 const MODEL_OF = { Claude: CLAUDE_MODEL, Gemini: GEMINI_MODEL, OpenAI: OPENAI_MODEL };
 
 /**
+ * `accept` turns the answer text into the caller's result and throws if it is unusable (no JSON,
+ * failed validation). An unusable answer counts as that provider failing, so the question moves
+ * on to the next provider instead of the job keeping stale data.
+ *
  * Ask a research question with live web search and return the answer text.
  * Callers parse the JSON out of it. Throws only when every configured provider fails.
  */
-export async function research(prompt, { timeoutMs, maxSearches = 8, effort = "medium", maxOutputTokens }) {
+export async function research(prompt, { timeoutMs, maxSearches = 8, effort = "medium", maxOutputTokens, accept = (text) => text }) {
   const providers = [
     CLAUDE_KEY ? ["Claude", askClaude] : null,
     GEMINI_KEY ? ["Gemini", askGemini] : null,
@@ -121,8 +125,14 @@ export async function research(prompt, { timeoutMs, maxSearches = 8, effort = "m
   for (const [name, ask] of providers) {
     try {
       const text = await ask(prompt, { timeoutMs, maxSearches, effort, maxOutputTokens });
+      let result;
+      try {
+        result = accept(text);
+      } catch (error) {
+        throw new Error(`unusable answer: ${error.message}`);
+      }
       console.log(`research answered by ${name} (${MODEL_OF[name]})`);
-      return text;
+      return result;
     } catch (error) {
       // A timeout (TimeoutError / AbortError) lands here like any other failure: log it once and
       // move on to the next provider. The same provider is never called again for this question.

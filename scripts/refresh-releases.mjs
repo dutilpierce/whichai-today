@@ -178,10 +178,28 @@ async function resolveSource(url) {
 }
 
 async function research(today, recent, days) {
-  const text = await askAi(prompt(today, recent, days), { timeoutMs: 120_000, maxSearches: 10 });
-  const result = extractJson(text);
-  if (!Array.isArray(result?.entries)) throw new Error("entries is not a list");
-  return result.entries;
+  return askAi(prompt(today, recent, days), {
+    timeoutMs: 180_000,
+    maxSearches: 10,
+    accept: (text) => {
+      const result = extractJson(text);
+      if (!Array.isArray(result?.entries)) throw new Error("entries is not a list");
+      // Leads that all fail validation mean a weak answer; let the next provider try.
+      const maxAge = Math.max(MAX_AGE_DAYS, days);
+      const usable = result.entries.filter((entry) => {
+        try {
+          validateEntry(entry, today, maxAge);
+          return true;
+        } catch {
+          return false;
+        }
+      });
+      if (result.entries.length && !usable.length) {
+        throw new Error(`none of the ${result.entries.length} leads passed validation`);
+      }
+      return result.entries;
+    },
+  });
 }
 
 function assert(condition, message) {

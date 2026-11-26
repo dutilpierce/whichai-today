@@ -42,9 +42,15 @@ function extractJson(text) {
 }
 
 async function ask(prompt) {
-  const text = await askAi(prompt, { timeoutMs: 180_000, maxSearches: 10 });
-  const parsed = extractJson(text);
-  if (!Array.isArray(parsed.results)) throw new Error("verification response has no results");
+  const parsed = await askAi(prompt, {
+    timeoutMs: 180_000,
+    maxSearches: 10,
+    accept: (text) => {
+      const json = extractJson(text);
+      if (!Array.isArray(json.results)) throw new Error("verification response has no results");
+      return json;
+    },
+  });
   return parsed.results
     .filter((item) => item && typeof item.id === "string" && ["match", "mismatch", "unsure"].includes(item.status))
     .map((item) => ({

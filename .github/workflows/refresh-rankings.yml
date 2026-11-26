@@ -51,7 +51,7 @@ jobs:
 
       - name: Fact-check
         if: steps.kill.outputs.publish == 'true'
-        run: node scripts/fact-check.mjs
+        run: node scripts/fact-check.mjs --scope rankings
 
       - name: Publish rankings
         id: published
@@ -88,7 +88,7 @@ jobs:
         id: apps-check
         if: steps.kill.outputs.publish == 'true'
         continue-on-error: true
-        run: node scripts/fact-check.mjs
+        run: node scripts/fact-check.mjs --scope apps
 
       - name: Publish app updates
         if: steps.kill.outputs.publish == 'true' && steps.apps-check.outcome == 'success'
