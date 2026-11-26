@@ -130,7 +130,9 @@ for (const [key, category] of Object.entries(models.categories)) {
     free_tier: category[slot].free_tier,
     direct_link: category[slot].direct_link,
   }));
-  const prompt = `Today is ${today}. For each model, check cost and free_tier against the provider page at direct_link. Do not rewrite them. status is match, mismatch, or unsure. Return ONLY JSON: {"results":[{"kind":"cost","id":"model name","status":"match","note":"short"}]}
+  // direct_link is the chat app, which never lists API prices; checking against it alone marked
+  // correct API prices as mismatches (Nov 26). Search the provider's own pricing pages instead.
+  const prompt = `Today is ${today}. For each model, use web search to find the provider's current official pricing and plan pages (for example its pricing page and API pricing docs; direct_link is only the app). Check cost and free_tier against those pages. Do not rewrite them. status is mismatch only if a stated price, plan or limit is wrong or no longer offered; a page simply not showing a figure is not a mismatch (use unsure). status is match, mismatch, or unsure. Return ONLY JSON: {"results":[{"kind":"cost","id":"model name","status":"match","note":"short"}]}
 ${JSON.stringify(picks, null, 2)}`;
   const found = await askOrSkip(key, prompt);
   results.push(...found.map((item) => ({ ...item, kind: "cost" })));

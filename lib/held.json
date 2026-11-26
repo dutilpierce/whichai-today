@@ -2,16 +2,6 @@
   "pages": [],
   "facts": [
     {
-      "kind": "privacy",
-      "provider": "Google",
-      "reason": "Setting renamed to Gemini History; AI training now has a separate toggle rather than turning off 'Keep Activity'."
-    },
-    {
-      "kind": "privacy",
-      "provider": "Xiaomi",
-      "reason": "Source URL is a Hugging Face model technical card, containing no privacy policy or hosted service data terms."
-    },
-    {
       "kind": "cost",
       "model": "Claude Fable 5.2",
       "reason": "Fable 5.2 is not included in the standard $20/month Pro plan allowance (requires separate usage credits), and claude.ai does not host API pricing."
