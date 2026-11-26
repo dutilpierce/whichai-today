@@ -155,7 +155,12 @@ export function applyResearch(category, history, key, picks, today) {
     switched = true;
   } else {
     category.pending_leader = { name: picks.leader.name, since: today };
-    if (!sameName(picks.runner_up.name, keptName)) category.runner_up = picks.runner_up;
+    // The kept leader stays until the challenger is confirmed, so a new runner-up that outscores
+    // it would put the runner-up above #1 (fact-check rejects that). Keep the old one then.
+    const keptScore = category.leader.primary_score;
+    const newScore = picks.runner_up.primary_score;
+    const outscores = keptScore !== null && newScore !== null && newScore > keptScore;
+    if (!sameName(picks.runner_up.name, keptName) && !outscores) category.runner_up = picks.runner_up;
     category.open_source_pick = picks.open_source_pick;
   }
 
@@ -233,6 +238,15 @@ function selfCheck() {
   applyResearch(third, { entries: [] }, "coding", { ...base(), leader: blank("Epsilon") }, "2026-10-26");
   assert(third.leader.name === "Alpha", "a different challenger should not switch yet");
   assert(third.pending_leader.name === "Epsilon", "a different challenger should replace pending");
+
+  const scored = (name, score) => ({ ...blank(name), primary_score: score });
+  const fast = { ...base(), leader: scored("Alpha", 100), runner_up: scored("Beta", 90) };
+  applyResearch(fast, { entries: [] }, "low_latency", { ...base(), leader: scored("Delta", 140), runner_up: scored("Zeta", 120) }, "2026-10-26");
+  assert(fast.leader.name === "Alpha" && fast.pending_leader.name === "Delta", "the challenger waits for a second sighting");
+  assert(fast.runner_up.name === "Beta", "a runner-up that outscores the kept leader is not swapped in while pending");
+  const slow = { ...base(), leader: scored("Alpha", 100), runner_up: scored("Beta", 90) };
+  applyResearch(slow, { entries: [] }, "low_latency", { ...base(), leader: scored("Delta", 140), runner_up: scored("Zeta", 95) }, "2026-10-26");
+  assert(slow.runner_up.name === "Zeta", "a runner-up below the kept leader is still refreshed while pending");
 
   let rejected = false;
   try {

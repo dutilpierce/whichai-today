@@ -12,7 +12,7 @@
     "checked": "2026-11-26"
   },
   "Google": {
-    "trains_by_default": "Can be. Gemini History saves your chats, and Google lets you choose there whether they train its generative AI. Human reviewers may still read chats.",
+    "trains_by_default": "Yes for adults. Gemini History is on by default, and those chats can be used to train Google's generative AI. Human reviewers may read some chats.",
     "opt_out": "In Gemini History (myactivity.google.com/product/gemini), turn off training or History. Chats are still kept about 2 months; reviewed chats up to 3 years.",
     "source_url": "https://support.google.com/gemini/answer/13594961",
     "checked": "2026-11-26"
