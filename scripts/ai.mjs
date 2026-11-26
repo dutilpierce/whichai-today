@@ -6,9 +6,11 @@ import OpenAI from "openai";
 // down no longer stops a refresh. Each provider is called once per question: SDK retries are
 // off, because a timed-out call is still billed and a retry pays for the same searches again.
 const CLAUDE_MODEL = process.env.CLAUDE_REFRESH_MODEL ?? "claude-sonnet-5-5";
-// Flash-Lite with low thinking: the research prompts are look-ups, not deep reasoning, and
-// thinking tokens bill as output. Override with GEMINI_REFRESH_MODEL.
-const GEMINI_MODEL = process.env.GEMINI_REFRESH_MODEL ?? "gemini-3.1-flash-lite";
+// Flash (not Flash-Lite) with low thinking. Flash-Lite cut token cost but found 0-2 releases a
+// run instead of ~6 and misattributed a ranked model (Nov 22-26, 2026); at ~23 calls a week the
+// token difference is cents. Thinking stays low because thinking tokens bill as output.
+// Override with GEMINI_REFRESH_MODEL.
+const GEMINI_MODEL = process.env.GEMINI_REFRESH_MODEL ?? "gemini-3.8-flash";
 const GEMINI_MAX_OUTPUT = 8192; // research answers are short JSON; the blog writer raises it
 const OPENAI_MODEL = process.env.OPENAI_REFRESH_MODEL ?? "gpt-6.2-astra";
 const CLAUDE_KEY = process.env.ANTHROPIC_API_KEY;
