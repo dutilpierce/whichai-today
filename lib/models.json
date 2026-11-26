@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-11-23T12:00:00Z",
+  "last_updated": "2026-11-26T12:00:00Z",
   "categories": {
     "coding": {
       "display_name": "Coding & Software",
@@ -79,17 +79,17 @@
       "open_source_pick": {
         "name": "GLM-5.3",
         "provider": "Z.ai",
-        "why": "Provides near-frontier performance with fully downloadable weights for private, self-hosted coding environments.",
-        "benchmark_context": "Strong performance on coding-specific benchmarks like LiveCodeBench and internal engineering evaluations.",
+        "why": "Offers powerful open-weight coding capability for secure self-hosting without sending private code to external cloud providers.",
+        "benchmark_context": "62.5% on Humanity's Last Exam with tools; top-ranked open-weights model on self-hosted software engineering benchmarks",
         "direct_link": "https://huggingface.co/zai-org/GLM-5.3",
-        "where_to_get": "Download weights via Hugging Face or deploy using local inference engines.",
+        "where_to_get": "Download model weights from Hugging Face and deploy via vLLM or Ollama.",
         "access": "free_limited",
-        "cost": "Free to host; usage cost depends on your local or cloud infrastructure.",
-        "free_tier": "Yes, fully free if self-hosted on your own hardware.",
-        "when_not": "Skip if you lack the GPU resources to serve large parameter models.",
-        "starter_prompt": "Refactor this legacy module and generate corresponding unit tests.",
-        "source_url": "https://huggingface.co/",
-        "pick_if": "Pick this when security and full data sovereignty over your codebase are required.",
+        "cost": "Free to download; hosting costs depend entirely on your GPU infrastructure.",
+        "free_tier": "Yes, fully free and open for local execution on your own hardware.",
+        "when_not": "Skip if you do not have multi-GPU hardware capable of hosting a large model.",
+        "starter_prompt": "Review this Python module for race conditions and generate asynchronous unit tests.",
+        "source_url": "https://huggingface.co/zai-org",
+        "pick_if": "Pick this when codebase privacy, on-premise compliance, and self-hosted control are mandatory.",
         "sources_agreeing": 1,
         "sources_checked": 4,
         "primary_score": null,
@@ -102,7 +102,11 @@
         "SWE-bench Pro",
         "LiveCodeBench",
         "Artificial Analysis Coding Index"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Gemini 4 Carbon",
+        "since": "2026-11-26"
+      }
     },
     "legal_analysis": {
       "display_name": "Legal & Long Documents",
@@ -167,7 +171,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.5,
-        "checked": "2026-11-23"
+        "checked": "2026-11-26"
       },
       "runner_up": {
         "name": "Gemini 4 Argon",
@@ -205,7 +209,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 86.2,
-        "checked": "2026-11-23"
+        "checked": "2026-11-26"
       },
       "slug": "legal",
       "primary_signal": "Vals LegalBench",
@@ -304,16 +308,16 @@
         "name": "MiMo-V2.6-Pro",
         "provider": "Xiaomi",
         "why": "The best open-weights model for high-quality creative generation that you can run locally.",
-        "benchmark_context": "Top-ranked open model on Artificial Analysis Intelligence Index.",
+        "benchmark_context": "Top-ranked open-weights model on the Artificial Analysis Intelligence Index.",
         "direct_link": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL",
         "where_to_get": "Download model weights via Hugging Face or use Xiaomi AI Studio.",
         "access": "free_limited",
         "cost": "Weights are free; hosted API usage varies by platform.",
         "free_tier": "Free to download and run locally on your own hardware.",
-        "when_not": "Skip if you lack the hardware to run large models locally.",
+        "when_not": "Skip if you lack the hardware infrastructure to run massive models locally.",
         "starter_prompt": "Draft three headline options and one short paragraph for this announcement.",
         "source_url": "https://artificialanalysis.ai/",
-        "pick_if": "Pick this when data privacy requires local execution of your writing tasks.",
+        "pick_if": "Pick this when data privacy requires local execution of your creative writing tasks.",
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": null,
@@ -325,7 +329,11 @@
         "LMArena Creative Writing",
         "LMArena Text overall",
         "EQ-Bench Creative Writing"
-      ]
+      ],
+      "pending_leader": {
+        "name": "Claude Fable 5.2",
+        "since": "2026-11-26"
+      }
     },
     "reasoning_math": {
       "display_name": "Reasoning, Math & Science",
@@ -466,7 +474,7 @@
         "why": "Unmatched output speed makes it the clear choice for high-volume pipelines requiring immediate responses.",
         "benchmark_context": "Artificial Analysis output speed 412 tokens/sec (Oct 2026).",
         "direct_link": "https://aistudio.google.com",
-        "where_to_get": "Google AI Studio, select the Gemini 3.5 Flash-Lite model.",
+        "where_to_get": "Google AI Studio on the free or pay-as-you-go plan, select Gemini 3.5 Flash-Lite.",
         "access": "free_limited",
         "cost": "Free API tier available; paid tier is $0.30 per million input tokens and $2.50 per million output.",
         "free_tier": "Yes. Free API tier includes rate limits and data usage for Google improvements.",
@@ -485,7 +493,7 @@
         "why": "Combines impressive speed with a level of reasoning capability that exceeds most other budget-friendly models.",
         "benchmark_context": "Artificial Analysis output speed 237 tokens/sec.",
         "direct_link": "https://claude.ai",
-        "where_to_get": "Claude web interface, available on the free tier.",
+        "where_to_get": "Claude web app on the free plan, select Claude Haiku 5.5.",
         "access": "free_limited",
         "cost": "Free for personal use with limits; API costs $0.10 per million input tokens.",
         "free_tier": "Yes, standard free plan usage limits apply.",
@@ -504,7 +512,7 @@
         "why": "The top-performing open-weights model for efficiency, offering excellent performance for developers needing local or private deployment.",
         "benchmark_context": "Artificial Analysis Intelligence Index 45 for speed and capability balance.",
         "direct_link": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash",
-        "where_to_get": "Download weights from Hugging Face or use the free DeepSeek chat interface.",
+        "where_to_get": "Hugging Face model hub for weights download, or the DeepSeek chat app on the free plan.",
         "access": "free_limited",
         "cost": "Free to host privately; API available at a fraction of a dollar per million tokens.",
         "free_tier": "Yes. The chat site is free, and the weights are open for local use.",
@@ -652,7 +660,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1428,
-        "checked": "2026-11-23"
+        "checked": "2026-11-26"
       },
       "runner_up": {
         "name": "Grok Imagine Image 2.0",
@@ -671,7 +679,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1318,
-        "checked": "2026-11-23"
+        "checked": "2026-11-26"
       },
       "open_source_pick": {
         "name": "Qwen-Image-2.1",
@@ -784,55 +792,55 @@
       "leader": {
         "name": "Qwen3.8-Max",
         "provider": "Alibaba",
-        "why": "It consistently outperforms other models in complex search and synthesis tasks on the latest rankings.",
-        "benchmark_context": "LMArena Search 1260.",
+        "why": "It consistently delivers top-tier synthesis and web-grounded research on the public search leaderboard.",
+        "benchmark_context": "LMArena Search 1261.",
         "direct_link": "https://chat.qwen.ai",
-        "where_to_get": "Qwen Studio at chat.qwen.ai, using the model selector.",
+        "where_to_get": "Qwen Studio at chat.qwen.ai on the free or paid tier, selecting Qwen3.8-Max.",
         "access": "free_limited",
-        "cost": "Free on the web interface, with paid API pricing per token.",
-        "free_tier": "A free plan is available on the web with usage limits.",
-        "when_not": "Skip it when you require strict enterprise data boundaries under Western jurisdictions.",
-        "starter_prompt": "Research this topic thoroughly and cite each source used.",
-        "source_url": "https://lmarena.ai/leaderboard/search",
-        "pick_if": "Pick this when you want the highest-rated search model on the leaderboard.",
+        "cost": "Free on the web interface, or $2 per million input and $6 per million output tokens via API.",
+        "free_tier": "A free tier is available on the web with standard rate limits.",
+        "when_not": "Skip it when you require strict enterprise data handling under Western regulatory jurisdictions.",
+        "starter_prompt": "Research the latest developments in quantum computing and summarize the top three breakthroughs with sources.",
+        "source_url": "https://arena.ai/leaderboard/chat/search",
+        "pick_if": "Pick this when you want the highest-rated publicly available search model on the leaderboard.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1260,
+        "primary_score": 1261,
         "checked": "2026-11-26"
       },
       "runner_up": {
         "name": "GPT-5.6 Sol",
         "provider": "OpenAI",
-        "why": "This is a reliable secondary choice that provides excellent integration with search and reasoning workflows.",
-        "benchmark_context": "LMArena Search 1258.",
+        "why": "It provides reliable web search and reasoning integration backed by a strong score on the leaderboard.",
+        "benchmark_context": "LMArena Search 1256.",
         "direct_link": "https://chatgpt.com",
-        "where_to_get": "ChatGPT with search, and select GPT-5.6 Sol.",
+        "where_to_get": "ChatGPT on a Plus or Pro subscription, selecting GPT-5.6 Sol.",
         "access": "paid",
-        "cost": "Uses a ChatGPT subscription plan.",
-        "free_tier": "A free plan may include limited search.",
-        "when_not": "Skip it when you need a citation you can open and the answer does not show one.",
-        "starter_prompt": "Research this question. Name each source you used, and say what it does not answer.",
-        "source_url": "https://lmarena.ai/leaderboard/search",
-        "pick_if": "Pick this when you already work in ChatGPT and want top search performance.",
+        "cost": "$20/month for ChatGPT Plus, or $5 per million input and $30 per million output tokens via API.",
+        "free_tier": "Free ChatGPT access is limited and may not include full access to GPT-5.6 Sol search.",
+        "when_not": "Skip it when you need verifiable open weights or want an entirely free web search tier.",
+        "starter_prompt": "Research this topic thoroughly, citing each source used and noting any conflicting findings.",
+        "source_url": "https://arena.ai/leaderboard/chat/search",
+        "pick_if": "Pick this when you work within the OpenAI ecosystem and need top search and reasoning capabilities.",
         "sources_agreeing": 1,
         "sources_checked": 1,
-        "primary_score": 1258,
+        "primary_score": 1256,
         "checked": "2026-11-26"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
         "provider": "Diffbot",
-        "why": "It is the premier open-weights model for users prioritizing transparency and self-hosting for research.",
+        "why": "It is the leading open-weights model evaluated on web search and retrieval benchmarks.",
         "benchmark_context": "LMArena Search 1062.",
         "direct_link": "https://huggingface.co/diffbot/Diffbot-Small-XL-2508",
-        "where_to_get": "Download from the official Diffbot page on Hugging Face.",
+        "where_to_get": "Hugging Face model repository diffbot/Diffbot-Small-XL-2508 to download weights.",
         "access": "free_limited",
-        "cost": "The weights are open-source; hosted API services are paid.",
-        "free_tier": "The weights are free to download and use locally.",
-        "when_not": "Skip it when you need the top of the search board.",
-        "starter_prompt": "Find sources for this question and list what each one says.",
-        "source_url": "https://lmarena.ai/leaderboard/search",
-        "pick_if": "Pick this when the research stack has to use downloadable weights.",
+        "cost": "Free to download weights; self-hosting compute or third-party inference costs vary.",
+        "free_tier": "Weights are free to download and run locally without usage restrictions.",
+        "when_not": "Skip it when you need frontier-level web search accuracy without managing your own infrastructure.",
+        "starter_prompt": "Find sources answering this research question and summarize what each source concludes.",
+        "source_url": "https://arena.ai/leaderboard/chat/search",
+        "pick_if": "Pick this when your research workflow requires downloadable open weights for local hosting.",
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1062,
