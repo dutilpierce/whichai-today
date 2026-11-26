@@ -1,6 +1,23 @@
 {
-  "last_checked": "2026-11-26T20:10:40Z",
+  "last_checked": "2026-11-26T22:20:26Z",
   "entries": [
+    {
+      "id": "2026-11-24-anthropic-install-artifacts-as-apps",
+      "date": "2026-11-24",
+      "added": "2026-11-26",
+      "name": "Install artifacts as apps",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Users can now install artifacts created by Claude as standalone applications on Mac or Windows computers.",
+      "features": [
+        "Desktop apps",
+        "Artifacts",
+        "Mac and Windows"
+      ],
+      "evidence": "You can now install an artifact that Claude makes for you as an app on your Mac or Windows computer. It gets its own window and icon, opens like any other app, and can even interact with the operating system the way any other app might. This feature is currently in beta.",
+      "source_url": "https://support.claude.com/en/articles/12138966-release-notes"
+    },
     {
       "id": "2026-11-24-openai-healthcare-model-configurations",
       "date": "2026-11-24",
