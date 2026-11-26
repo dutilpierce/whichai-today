@@ -1,15 +1,15 @@
 {
   "Anthropic": {
-      "trains_by_default": "Anthropic says Free, Pro, and Max chats are used for training only if you allow it, and you choose at signup. The toggle has been reported as on by default, so check it.",
+    "trains_by_default": "Anthropic says Free, Pro, and Max chats are used for training only if you allow it, and you choose at signup. The toggle has been reported as on by default, so check it.",
     "opt_out": "Settings, then Privacy. Turn off Help improve Claude.",
     "source_url": "https://privacy.claude.com/en/articles/10023580-is-my-data-used-for-model-training",
-    "checked": "2026-10-24"
+    "checked": "2026-11-26"
   },
   "OpenAI": {
     "trains_by_default": "Yes on personal Free, Plus, and Pro. Improve the model for everyone is on by default.",
     "opt_out": "Settings, Data controls, turn off Improve the model for everyone.",
     "source_url": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
-    "checked": "2026-10-24"
+    "checked": "2026-11-26"
   },
   "Google": {
     "trains_by_default": "Yes for adults. Gemini Apps Activity is on by default, and those chats can be used to improve Google AI.",
@@ -21,7 +21,7 @@
     "trains_by_default": "Yes. The Kimi consumer policy says prompts and files can be used to improve models.",
     "opt_out": "Ask Kimi support to stop training use if the app has no toggle.",
     "source_url": "https://www.kimi.com/user/agreement/userPrivacy",
-    "checked": "2026-10-24"
+    "checked": "2026-11-26"
   },
   "Xiaomi": {
     "trains_by_default": "No, if you download the weights and run them yourself. Hosted Xiaomi apps may differ.",
@@ -33,6 +33,6 @@
     "trains_by_default": "Possibly. DeepSeek says some optimization data can come from user input, after de-identification.",
     "opt_out": "Use the opt-out described in the DeepSeek privacy policy.",
     "source_url": "https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html",
-    "checked": "2026-10-24"
+    "checked": "2026-11-26"
   }
 }
