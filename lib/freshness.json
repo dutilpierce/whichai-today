@@ -1,16 +1,16 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-25",
-      "hash": "a297eeab051eebf9"
+      "changed": "2026-11-26",
+      "hash": "5fffbf6c9b11c6ca"
     },
     "/releases": {
-      "changed": "2026-11-25",
-      "hash": "e6526a531b158265"
+      "changed": "2026-11-26",
+      "hash": "1b6a43cfc47cebf0"
     },
     "/blog/ai-news-week-47-2026": {
-      "changed": "2026-11-25",
-      "hash": "46e15e1f61bfd194"
+      "changed": "2026-11-26",
+      "hash": "2d7ee004932b0d3b"
     },
     "/blog/ai-news-week-46-2026": {
       "changed": "2026-11-22",
@@ -215,6 +215,10 @@
     "/compare": {
       "changed": "2026-11-23",
       "hash": "0ccfdd0085d279d5"
+    },
+    "/releases/2026-11-22-openai-gpt-live-1-1": {
+      "changed": "2026-11-26",
+      "hash": "2833ac9406fa2c7a"
     },
     "/releases/2026-11-20-thinking-machines-lab-inkling-2-mini": {
       "changed": "2026-11-22",

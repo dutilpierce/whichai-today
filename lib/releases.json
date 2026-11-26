@@ -1,6 +1,22 @@
 {
-  "last_checked": "2026-11-25T20:28:31Z",
+  "last_checked": "2026-11-26T20:10:40Z",
   "entries": [
+    {
+      "id": "2026-11-24-openai-healthcare-model-configurations",
+      "date": "2026-11-24",
+      "added": "2026-11-26",
+      "name": "Healthcare model configurations",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI introduced specialized healthcare model configurations in its API to support medical and healthcare industry workflows.",
+      "features": [
+        "Healthcare",
+        "Enterprise"
+      ],
+      "evidence": "Healthcare model configurations in the OpenAI API (November 24, 2026)",
+      "source_url": "https://developers.openai.com/api/docs/changelog"
+    },
     {
       "id": "2026-11-23-openai-and-cisco-shirudo",
       "date": "2026-11-23",
@@ -18,6 +34,22 @@
       ],
       "evidence": "Cisco and OpenAI today launched an open source effort to make infrastructure secure by default and able to defend itself against today's sophisticated cyber attacks.",
       "source_url": "https://blogs.cisco.com/news/expanding-the-defenders-window-with-self-defending-infrastructure"
+    },
+    {
+      "id": "2026-11-22-openai-gpt-live-1-1",
+      "date": "2026-11-22",
+      "added": "2026-11-26",
+      "name": "GPT-Live-1.1",
+      "provider": "OpenAI",
+      "kind": "model",
+      "status": "available",
+      "summary": "OpenAI released GPT-Live-1.1, a new model update with improved voice capabilities and accented speech support in the API.",
+      "features": [
+        "Voice",
+        "Speech synthesis"
+      ],
+      "evidence": "GPT-Live-1.1 is rolling out with new voices and better accents",
+      "source_url": "https://developers.openai.com/api/docs/changelog"
     },
     {
       "id": "2026-11-20-anthropic-computer-use-for-team-and-enterprise-plans",
