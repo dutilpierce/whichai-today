@@ -45,6 +45,7 @@ async function ask(prompt) {
   const parsed = await askAi(prompt, {
     timeoutMs: 180_000,
     maxSearches: 10,
+    maxOutputTokens: 16384, // six picks with notes outgrew the default 8,192 on Nov 26
     accept: (text) => {
       const json = extractJson(text);
       if (!Array.isArray(json.results)) throw new Error("verification response has no results");
@@ -141,8 +142,15 @@ await writeFile(MODELS, `${JSON.stringify(models, null, 2)}\n`);
 await writeFile(PROVIDERS, `${JSON.stringify(providers, null, 2)}\n`);
 await writeFile(HELD, `${JSON.stringify(held, null, 2)}\n`);
 
-if (mismatch) {
-  console.error("At least one fact no longer matches its source. The text was not rewritten.");
+if (!results.length) {
+  // Every request failed: nothing was verified, so this run must count as failed and be retried.
+  console.error("No check came back; nothing was verified.");
   process.exit(1);
+}
+if (mismatch) {
+  // Exit 2, not 1: the job did its work (it held the line and published the hold). The workflow
+  // tells the owner but still succeeds, so the watchdog does not re-run a finished check.
+  console.error("At least one fact no longer matches its source. The text was not rewritten.");
+  process.exit(2);
 }
 console.log("verify-facts ok");

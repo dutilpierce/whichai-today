@@ -32,9 +32,12 @@ jobs:
         id: kill
         run: node scripts/kill-switch.mjs
 
+      # A failed audit holds the bad lines and tells the owner, but the run still succeeds: it did
+      # its job, and the hourly watchdog would otherwise re-run it (and re-alert) every hour.
       - name: Audit live data
         id: audit
         if: steps.kill.outputs.publish == 'true'
+        continue-on-error: true
         run: node scripts/fact-check.mjs --links --hold
 
       - name: Publish holds
@@ -48,7 +51,7 @@ jobs:
           fi
 
       - name: Tell the owner
-        if: failure()
+        if: ${{ !cancelled() && (failure() || steps.audit.outcome == 'failure') }}
         run: node scripts/notify-owner.mjs "The weekly fact-check held something back."
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

@@ -37,18 +37,24 @@ jobs:
         id: kill
         run: node scripts/kill-switch.mjs
 
+      # Exit 0: all facts match. Exit 2: a fact was held (the job worked; the owner is told).
+      # Exit 1: nothing could be verified, which fails the run so the watchdog retries it.
       - name: Re-check privacy, prices, and free tiers
         id: verify
         if: steps.kill.outputs.publish == 'true'
-        continue-on-error: true
-        run: node scripts/verify-facts.mjs
+        run: |
+          set +e
+          node scripts/verify-facts.mjs
+          code=$?
+          echo "code=$code" >> "$GITHUB_OUTPUT"
+          [ "$code" -eq 0 ] || [ "$code" -eq 2 ]
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
 
       - name: Publish verification
-        if: steps.kill.outputs.publish == 'true' && (steps.verify.outcome == 'success' || steps.verify.outcome == 'failure')
+        if: steps.kill.outputs.publish == 'true' && steps.verify.outcome == 'success'
         run: |
           if git diff --quiet -- lib/models.json lib/providers.json lib/held.json; then
             echo "Facts unchanged."
@@ -56,13 +62,17 @@ jobs:
             bash scripts/publish.sh "Re-check privacy, prices, and free tiers." lib/models.json lib/providers.json lib/held.json
           fi
 
-      - name: Fail if a fact was held
-        if: steps.verify.outcome == 'failure'
-        run: exit 1
+      - name: Tell the owner about held facts
+        if: steps.verify.outputs.code == '2'
+        run: node scripts/notify-owner.mjs "The monthly fact check held a price or privacy line back. See lib/held.json for the reasons."
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Tell the owner
         if: failure()
-        run: node scripts/notify-owner.mjs "The monthly fact check held a price or privacy line back."
+        run: node scripts/notify-owner.mjs "The monthly fact check could not run. Check the Actions log."
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}
