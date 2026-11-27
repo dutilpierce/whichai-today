@@ -3,43 +3,28 @@
   "facts": [
     {
       "kind": "cost",
-      "model": "Claude Fable 5.2",
-      "reason": "Fable 5.2 is not included in the standard $20/month Pro plan allowance (requires separate usage credits), and claude.ai does not host API pricing."
-    },
-    {
-      "kind": "cost",
       "model": "GPT-6.2 Astra",
-      "reason": "ChatGPT Plus is $20/month, but API token rates are fixed rather than varying by usage tier, and chatgpt.com does not provide API pricing."
-    },
-    {
-      "kind": "cost",
-      "model": "Claude Fable 5.1",
-      "reason": "Fable 5.1 is not included in the $20/month Pro plan, and claude.ai does not list API token pricing."
-    },
-    {
-      "kind": "cost",
-      "model": "Claude Fable 5.1",
-      "reason": "Fable 5.1 is not available on standard Pro or Team plans, requiring higher tiers (Max/Ultra) or usage credits."
+      "reason": "ChatGPT Plus is $20/month, but official API pricing is fixed at $8/M input and $40/M output tokens rather than varying by usage tier (usage tiers only govern rate limits)."
     },
     {
       "kind": "cost",
       "model": "Gemini 4 Argon",
-      "reason": "Argon requires a Google AI Pro or Ultra plan rather than AI Premium, and API pricing is not on gemini.google.com."
+      "reason": "Google AI Premium was renamed to Google AI Plus ($4.99/mo); the $19.99/mo tier providing Argon access is Google AI Pro."
     },
     {
       "kind": "cost",
       "model": "Gemini 4 Argon",
-      "reason": "Argon requires Google AI Pro or Ultra subscription access, not Google AI Premium."
-    },
-    {
-      "kind": "cost",
-      "model": "Grok Imagine Image 2.0",
-      "reason": "The linked page returned 403. xAI’s API pricing lists $0.04 only for 1K low-quality output; other settings cost more. ([]())"
+      "reason": "Access requires Google AI Pro, Google AI Ultra, or Enterprise plans, not AI Premium."
     },
     {
       "kind": "cost",
       "model": "GPT-5.6 Sol",
-      "reason": "GPT-5.6 Sol is not available on ChatGPT's free tier."
+      "reason": "Current official API pricing is $4.00 per million input and $20.00 per million output tokens, not $5/$30."
+    },
+    {
+      "kind": "cost",
+      "model": "GPT-5.6 Sol",
+      "reason": "GPT-5.6 Sol is not offered on the Free ChatGPT tier; it requires a paid subscription."
     }
   ]
 }
