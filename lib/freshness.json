@@ -1,12 +1,12 @@
 {
   "pages": {
     "/": {
-      "changed": "2026-11-26",
-      "hash": "354680138a08c90f"
+      "changed": "2026-11-27",
+      "hash": "ab1aa15612d41a5c"
     },
     "/releases": {
-      "changed": "2026-11-26",
-      "hash": "0c5aa72ab9fb86cc"
+      "changed": "2026-11-27",
+      "hash": "40720daf4fbcc098"
     },
     "/blog/ai-news-week-47-2026": {
       "changed": "2026-11-26",
@@ -753,48 +753,48 @@
       "hash": "c603328873606732"
     },
     "/about": {
-      "changed": "2026-11-26",
-      "hash": "cca41de81c685c35"
+      "changed": "2026-11-27",
+      "hash": "074b148b0d749da0"
     },
     "/faq": {
-      "changed": "2026-11-26",
-      "hash": "790b83eeb5291f07"
+      "changed": "2026-11-27",
+      "hash": "65bc082fc1cb15f4"
     },
     "/privacy": {
-      "changed": "2026-11-26",
-      "hash": "d60d952cc0bde6cc"
+      "changed": "2026-11-27",
+      "hash": "45ec40d085e41b05"
     },
     "/alerts": {
-      "changed": "2026-11-26",
-      "hash": "102baa9a33fcad3d"
+      "changed": "2026-11-27",
+      "hash": "ab2a60db2e31baa6"
     },
     "/methodology": {
-      "changed": "2026-11-26",
-      "hash": "d9cfa3700280c71c"
+      "changed": "2026-11-27",
+      "hash": "2fa835eac229cfbd"
     },
     "/embed": {
       "changed": "2026-11-24",
       "hash": "359f9b66b254eb98"
     },
     "/data": {
-      "changed": "2026-11-26",
-      "hash": "7c6fcb5a0502d8ce"
+      "changed": "2026-11-27",
+      "hash": "0982c98dfcd6d7dc"
     },
     "/free": {
       "changed": "2026-11-24",
       "hash": "0e7ed2c14aca2863"
     },
     "/prompt-builder": {
-      "changed": "2026-11-26",
-      "hash": "513f842af30ab966"
+      "changed": "2026-11-27",
+      "hash": "a3e874ecdba05b3f"
     },
     "/suggest": {
-      "changed": "2026-11-26",
-      "hash": "4bd59326ca9f695f"
+      "changed": "2026-11-27",
+      "hash": "bdff6f75ce638e1f"
     },
     "/which-ai-should-i-use": {
-      "changed": "2026-11-26",
-      "hash": "49de5d4658b91416"
+      "changed": "2026-11-27",
+      "hash": "6160d5e0eecce762"
     },
     "/pick": {
       "changed": "2026-11-24",

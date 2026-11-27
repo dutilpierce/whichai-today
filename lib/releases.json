@@ -1,6 +1,24 @@
 {
-  "last_checked": "2026-11-26T22:20:26Z",
+  "last_checked": "2026-11-27T00:02:42Z",
   "entries": [
+    {
+      "id": "2026-11-24-anthropic-skills-over-mcp",
+      "date": "2026-11-24",
+      "added": "2026-11-27",
+      "name": "Skills over MCP",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Anthropic launched Skills over MCP in public beta, letting servers supply workflow guidance, and released background Tasks and interactive Elicitation.",
+      "features": [
+        "MCP",
+        "Agent skills",
+        "Background tasks",
+        "Interactive elicitation"
+      ],
+      "evidence": "Skills over MCP is in public beta, in Claude and Claude Code. MCP servers can now ship skills alongside their tools... Tasks and Elicitation are now generally available.",
+      "source_url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+    },
     {
       "id": "2026-11-24-anthropic-install-artifacts-as-apps",
       "date": "2026-11-24",
@@ -33,6 +51,40 @@
       ],
       "evidence": "Healthcare model configurations in the OpenAI API (November 24, 2026)",
       "source_url": "https://developers.openai.com/api/docs/changelog"
+    },
+    {
+      "id": "2026-11-23-anthropic-claude-ship",
+      "date": "2026-11-23",
+      "added": "2026-11-27",
+      "name": "Claude Ship",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Claude Ship introduces AI agents that review pull requests, fix failing checks, and approve code changes following team policies.",
+      "features": [
+        "Code review",
+        "PR automation",
+        "Coding agents"
+      ],
+      "evidence": "Claude can now review pull requests, fix them, and approve the ones that a team's policy allows. That's why we built Claude Ship, available today in beta.",
+      "source_url": "https://claude.com/resources/articles/introducing-claude-ship"
+    },
+    {
+      "id": "2026-11-23-anthropic-enterprise-frontier-safeguards",
+      "date": "2026-11-23",
+      "added": "2026-11-27",
+      "name": "Enterprise Frontier Safeguards",
+      "provider": "Anthropic",
+      "kind": "feature",
+      "status": "preview",
+      "summary": "Enterprise Frontier Safeguards brings automated misuse monitoring across requests while keeping customer data in customer-controlled storage under zero data retention.",
+      "features": [
+        "Zero data retention",
+        "Safety monitoring",
+        "Enterprise"
+      ],
+      "evidence": "Claude opens Enterprise Frontier Safeguards to public beta, bringing automated monitoring for misuse across requests while keeping customer data in customer-controlled storage under zero data retention.",
+      "source_url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"
     },
     {
       "id": "2026-11-23-openai-and-cisco-shirudo",
