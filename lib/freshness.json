@@ -2,15 +2,15 @@
   "pages": {
     "/": {
       "changed": "2026-11-27",
-      "hash": "ab1aa15612d41a5c"
+      "hash": "c182b2157aab1b52"
     },
     "/releases": {
       "changed": "2026-11-27",
-      "hash": "40720daf4fbcc098"
+      "hash": "4dd17e627f00b379"
     },
     "/blog/ai-news-week-47-2026": {
-      "changed": "2026-11-26",
-      "hash": "2d7ee004932b0d3b"
+      "changed": "2026-11-27",
+      "hash": "c89624553b8f698d"
     },
     "/blog/ai-news-week-46-2026": {
       "changed": "2026-11-22",
@@ -215,6 +215,14 @@
     "/compare": {
       "changed": "2026-11-23",
       "hash": "0ccfdd0085d279d5"
+    },
+    "/releases/2026-11-23-openai-gpt-6-2-in-chatgpt-chat": {
+      "changed": "2026-11-27",
+      "hash": "b3277cdbe8fa2438"
+    },
+    "/releases/2026-11-22-sarvam-ai-sarvam-105b-1711": {
+      "changed": "2026-11-27",
+      "hash": "534299bd718ecfe2"
     },
     "/releases/2026-11-22-openai-gpt-live-1-1": {
       "changed": "2026-11-26",

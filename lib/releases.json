@@ -1,5 +1,5 @@
 {
-  "last_checked": "2026-11-27T00:02:42Z",
+  "last_checked": "2026-11-27T14:03:18Z",
   "entries": [
     {
       "id": "2026-11-24-anthropic-skills-over-mcp",
@@ -18,6 +18,24 @@
       ],
       "evidence": "Skills over MCP is in public beta, in Claude and Claude Code. MCP servers can now ship skills alongside their tools... Tasks and Elicitation are now generally available.",
       "source_url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
+    },
+    {
+      "id": "2026-11-24-google-google-workspace-mcp-servers-and-cli",
+      "date": "2026-11-24",
+      "added": "2026-11-27",
+      "name": "Google Workspace MCP servers and CLI",
+      "provider": "Google",
+      "kind": "feature",
+      "status": "available",
+      "summary": "Google made Workspace Model Context Protocol servers and the official Workspace CLI generally available for AI agent workflows.",
+      "features": [
+        "MCP servers",
+        "Workspace CLI",
+        "Agent access",
+        "Generally available"
+      ],
+      "evidence": "We are making Workspace Model Context Protocol (MCP) servers and the official Workspace CLI generally available... AI agents or similar access tools must use Workspace MCP servers or the Workspace CLI to access Workspace data",
+      "source_url": "https://www.google.com/sorry/index?continue=https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html&q=EgSsznZUGJ6cptgGIi0W3AHC9SHCNTu2RYEvwlhBxV7TeoR2M1XUqCXJd7TBp7hoAX4KDGaM9M_N7WUyAnJSWgFDYKK-jK7NosWEMQ"
     },
     {
       "id": "2026-11-24-anthropic-install-artifacts-as-apps",
@@ -87,6 +105,24 @@
       "source_url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"
     },
     {
+      "id": "2026-11-23-openai-gpt-6-2-in-chatgpt-chat",
+      "date": "2026-11-23",
+      "added": "2026-11-27",
+      "name": "GPT-6.2 in ChatGPT Chat",
+      "provider": "OpenAI",
+      "kind": "update",
+      "status": "available",
+      "summary": "OpenAI rolled out a version of GPT-6.2 tuned for everyday conversation into the ChatGPT Chat tab for paid plans.",
+      "features": [
+        "Chat tab rollout",
+        "Everyday conversation",
+        "Image understanding",
+        "Instruction following"
+      ],
+      "evidence": "GPT‑6.2 starts rolling out globally to ChatGPT Plus, Pro, Business and Enterprise tiers today in the Chat tab... GPT‑6.2 in ChatGPT is powered by a version of GPT‑6.2 Sol for Plus, Pro, Business, and Enterprise tiers, and is tuned for everyday conversation.",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
+    },
+    {
       "id": "2026-11-23-openai-and-cisco-shirudo",
       "date": "2026-11-23",
       "added": "2026-11-23",
@@ -105,6 +141,24 @@
       "source_url": "https://blogs.cisco.com/news/expanding-the-defenders-window-with-self-defending-infrastructure"
     },
     {
+      "id": "2026-11-22-sarvam-ai-sarvam-105b-1711",
+      "date": "2026-11-22",
+      "added": "2026-11-27",
+      "name": "Sarvam-105B-1711",
+      "provider": "Sarvam AI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "Sarvam AI released Sarvam-105B-1711, an open-weight 105-billion parameter checkpoint optimized for conversational agents, tool calling, and Indian languages.",
+      "features": [
+        "Open weights",
+        "105B parameters",
+        "Mixture of experts",
+        "Tool calling"
+      ],
+      "evidence": "Sarvam-105B-1711 leads its class on IFEval (96.5) and IFBench (82.5)... For anyone who wants to fine-tune or post-train the model, we've also released the BF16 weights at sarvamai/sarvam-105b-1711-bf16.",
+      "source_url": "https://www.sarvam.ai/blogs/sarvam-105b-1711"
+    },
+    {
       "id": "2026-11-22-openai-gpt-live-1-1",
       "date": "2026-11-22",
       "added": "2026-11-26",
@@ -119,6 +173,24 @@
       ],
       "evidence": "GPT-Live-1.1 is rolling out with new voices and better accents",
       "source_url": "https://developers.openai.com/api/docs/changelog"
+    },
+    {
+      "id": "2026-11-20-openai-chatgpt-space-for-plus",
+      "date": "2026-11-20",
+      "added": "2026-11-27",
+      "name": "ChatGPT Space for Plus",
+      "provider": "OpenAI",
+      "kind": "feature",
+      "status": "available",
+      "summary": "OpenAI rolled out ChatGPT Space globally to Plus subscribers aged 18 and older, replacing the Library tab.",
+      "features": [
+        "Interactive pages",
+        "Presentations",
+        "Collaboration",
+        "Plus rollout"
+      ],
+      "evidence": "Starting today, ChatGPT Space is rolling out globally to Plus users ages 18 and older. In Space, you can create interactive pages and presentations with ChatGPT, then invite other people with Space access to build on them with you.",
+      "source_url": "https://help.openai.com/en/articles/6825453-chatgpt-release-notes"
     },
     {
       "id": "2026-11-20-anthropic-computer-use-for-team-and-enterprise-plans",
