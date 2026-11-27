@@ -1,30 +1,4 @@
 {
   "pages": [],
-  "facts": [
-    {
-      "kind": "cost",
-      "model": "GPT-6.2 Astra",
-      "reason": "ChatGPT Plus is $20/month, but official API pricing is fixed at $8/M input and $40/M output tokens rather than varying by usage tier (usage tiers only govern rate limits)."
-    },
-    {
-      "kind": "cost",
-      "model": "Gemini 4 Argon",
-      "reason": "Google AI Premium was renamed to Google AI Plus ($4.99/mo); the $19.99/mo tier providing Argon access is Google AI Pro."
-    },
-    {
-      "kind": "cost",
-      "model": "Gemini 4 Argon",
-      "reason": "Access requires Google AI Pro, Google AI Ultra, or Enterprise plans, not AI Premium."
-    },
-    {
-      "kind": "cost",
-      "model": "GPT-5.6 Sol",
-      "reason": "Current official API pricing is $4.00 per million input and $20.00 per million output tokens, not $5/$30."
-    },
-    {
-      "kind": "cost",
-      "model": "GPT-5.6 Sol",
-      "reason": "GPT-5.6 Sol is not offered on the Free ChatGPT tier; it requires a paid subscription."
-    }
-  ]
+  "facts": []
 }
