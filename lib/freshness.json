@@ -2,7 +2,7 @@
   "pages": {
     "/": {
       "changed": "2026-11-26",
-      "hash": "52fe474adbc92cd0"
+      "hash": "354680138a08c90f"
     },
     "/releases": {
       "changed": "2026-11-26",
@@ -30,11 +30,11 @@
     },
     "/coding": {
       "changed": "2026-11-26",
-      "hash": "4b38ee2ef449a5f5"
+      "hash": "0394d8bfb9ae295d"
     },
     "/legal": {
-      "changed": "2026-11-23",
-      "hash": "16abefe455e087bc"
+      "changed": "2026-11-26",
+      "hash": "9ed9735202a0be32"
     },
     "/writing": {
       "changed": "2026-11-26",
@@ -62,7 +62,7 @@
     },
     "/research": {
       "changed": "2026-11-26",
-      "hash": "dc67948ddd286aba"
+      "hash": "79d5901544cc9bb1"
     },
     "/models/claude-fable-5-2": {
       "changed": "2026-11-26",
@@ -70,7 +70,7 @@
     },
     "/models/gpt-6-2-astra": {
       "changed": "2026-11-26",
-      "hash": "e734a077597fca32"
+      "hash": "ee1e60c0fe5b3d72"
     },
     "/models/glm-5-3": {
       "changed": "2026-11-26",
@@ -82,7 +82,7 @@
     },
     "/models/gemini-4-argon": {
       "changed": "2026-11-26",
-      "hash": "b5489743dea6cbd9"
+      "hash": "e9dba67c41ca2407"
     },
     "/models/kimi-k3": {
       "changed": "2026-11-26",
@@ -154,7 +154,7 @@
     },
     "/models/gpt-5-6-sol": {
       "changed": "2026-11-26",
-      "hash": "5a78c4a708508d92"
+      "hash": "13812d88d170b8a1"
     },
     "/models/diffbot-small-xl": {
       "changed": "2026-11-26",
@@ -178,11 +178,11 @@
     },
     "/compare/claude-fable-5-1-vs-gemini-4-argon": {
       "changed": "2026-11-26",
-      "hash": "a7c919780775afe6"
+      "hash": "a724d9614281bd75"
     },
     "/compare/claude-fable-5-2-vs-gpt-6-2-astra": {
       "changed": "2026-11-26",
-      "hash": "d5d010bc2642696d"
+      "hash": "6803f7ee638434a9"
     },
     "/compare/claude-fable-5-2-vs-gpt-6-astra": {
       "changed": "2026-11-26",
@@ -194,7 +194,7 @@
     },
     "/compare/claude-opus-5-5-vs-gemini-4-argon": {
       "changed": "2026-11-26",
-      "hash": "76e155c5692e6949"
+      "hash": "753bb027af6ea818"
     },
     "/compare/dreamina-seedance-2-0-vs-gemini-omni-1-2-flash": {
       "changed": "2026-11-26",
@@ -206,7 +206,7 @@
     },
     "/compare/gpt-5-6-sol-vs-qwen3-8-max": {
       "changed": "2026-11-26",
-      "hash": "0cdeb5a721bbb39d"
+      "hash": "a212d60b2eb099ee"
     },
     "/compare/gpt-image-2-5-sunburst-vs-grok-imagine-image-2-0": {
       "changed": "2026-11-26",
@@ -754,23 +754,23 @@
     },
     "/about": {
       "changed": "2026-11-26",
-      "hash": "074b148b0d749da0"
+      "hash": "cca41de81c685c35"
     },
     "/faq": {
       "changed": "2026-11-26",
-      "hash": "65bc082fc1cb15f4"
+      "hash": "790b83eeb5291f07"
     },
     "/privacy": {
       "changed": "2026-11-26",
-      "hash": "45ec40d085e41b05"
+      "hash": "d60d952cc0bde6cc"
     },
     "/alerts": {
       "changed": "2026-11-26",
-      "hash": "ab2a60db2e31baa6"
+      "hash": "102baa9a33fcad3d"
     },
     "/methodology": {
       "changed": "2026-11-26",
-      "hash": "2fa835eac229cfbd"
+      "hash": "d9cfa3700280c71c"
     },
     "/embed": {
       "changed": "2026-11-24",
@@ -778,7 +778,7 @@
     },
     "/data": {
       "changed": "2026-11-26",
-      "hash": "0982c98dfcd6d7dc"
+      "hash": "7c6fcb5a0502d8ce"
     },
     "/free": {
       "changed": "2026-11-24",
@@ -786,15 +786,15 @@
     },
     "/prompt-builder": {
       "changed": "2026-11-26",
-      "hash": "a3e874ecdba05b3f"
+      "hash": "513f842af30ab966"
     },
     "/suggest": {
       "changed": "2026-11-26",
-      "hash": "bdff6f75ce638e1f"
+      "hash": "4bd59326ca9f695f"
     },
     "/which-ai-should-i-use": {
       "changed": "2026-11-26",
-      "hash": "6160d5e0eecce762"
+      "hash": "49de5d4658b91416"
     },
     "/pick": {
       "changed": "2026-11-24",

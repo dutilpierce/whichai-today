@@ -65,8 +65,8 @@
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT Plus ($20/month), select GPT-6.2 Astra.",
         "access": "paid",
-        "cost": "Plus is $20/month; API rates vary by usage tier.",
-        "free_tier": "Not available on free tier; requires Plus subscription.",
+        "cost": "Plus is $20/month. API is $8 per million input and $40 per million output tokens (up to 272K context).",
+        "free_tier": "Not on the free plan; needs ChatGPT Plus or Pro.",
         "when_not": "Skip if you require the absolute maximum reasoning depth found in Claude's flagship models.",
         "starter_prompt": "Debug the logic in this component and suggest optimizations for production performance.",
         "source_url": "https://lmarena.ai/",
@@ -74,7 +74,7 @@
         "sources_agreeing": 2,
         "sources_checked": 4,
         "primary_score": 1842,
-        "checked": "2026-11-26"
+        "checked": "2026-11-27"
       },
       "open_source_pick": {
         "name": "GLM-5.3",
@@ -179,10 +179,10 @@
         "why": "Excellent legal reasoning and long-horizon agentic capability at a highly competitive price point.",
         "benchmark_context": "Vals LegalBench 88.3% (consistently near-top performance in multi-step legal research)",
         "direct_link": "https://gemini.google.com",
-        "where_to_get": "Gemini app, Google AI Premium ($19.99/month), choose Gemini 4 Argon.",
+        "where_to_get": "Gemini app, Google AI Pro ($19.99/month), choose Gemini 4 Argon.",
         "access": "paid",
-        "cost": "Google AI Premium is $19.99/month. API is $2 per million input and $10 per million output tokens.",
-        "free_tier": "Not on the free Gemini plan. Requires AI Premium or Enterprise access.",
+        "cost": "Google AI Pro is $19.99/month. API is $2 per million input and $10 per million output tokens through Nov 30, 2026, then $4 and $20.",
+        "free_tier": "Not on the free Gemini plan. Requires Google AI Pro, Ultra or Enterprise.",
         "when_not": "Avoid for privileged or highly sensitive files unless your enterprise account terms explicitly cover it.",
         "starter_prompt": "Review this filing and identify the key risks, regulatory changes, and specific compliance requirements.",
         "source_url": "https://www.vals.ai/benchmarks/legal_bench",
@@ -190,7 +190,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 88.3,
-        "checked": "2026-11-26"
+        "checked": "2026-11-27"
       },
       "open_source_pick": {
         "name": "Kimi K3",
@@ -816,8 +816,8 @@
         "direct_link": "https://chatgpt.com",
         "where_to_get": "ChatGPT on a Plus or Pro subscription, selecting GPT-5.6 Sol.",
         "access": "paid",
-        "cost": "$20/month for ChatGPT Plus, or $5 per million input and $30 per million output tokens via API.",
-        "free_tier": "Free ChatGPT access is limited and may not include full access to GPT-5.6 Sol search.",
+        "cost": "$20/month for ChatGPT Plus, or $4 per million input and $20 per million output tokens via API (promotional pricing through Nov 30, 2026).",
+        "free_tier": "Not on the free ChatGPT plan; needs Plus or Pro.",
         "when_not": "Skip it when you need verifiable open weights or want an entirely free web search tier.",
         "starter_prompt": "Research this topic thoroughly, citing each source used and noting any conflicting findings.",
         "source_url": "https://arena.ai/leaderboard/chat/search",
@@ -825,7 +825,7 @@
         "sources_agreeing": 1,
         "sources_checked": 1,
         "primary_score": 1256,
-        "checked": "2026-11-26"
+        "checked": "2026-11-27"
       },
       "open_source_pick": {
         "name": "Diffbot-Small-XL",
