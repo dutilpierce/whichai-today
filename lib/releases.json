@@ -1,6 +1,42 @@
 {
-  "last_checked": "2026-11-27T14:03:18Z",
+  "last_checked": "2026-11-27T19:30:50Z",
   "entries": [
+    {
+      "id": "2026-11-25-inclusionai-ming-image-0-2-design",
+      "date": "2026-11-25",
+      "added": "2026-11-27",
+      "name": "Ming-Image-0.2-Design",
+      "provider": "inclusionAI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "inclusionAI open-sourced Ming-Image-0.2-Design, an upgraded 6B parameter visual design model for UI drafts and e-commerce images.",
+      "features": [
+        "Open weights",
+        "6B parameters",
+        "Visual design",
+        "Text-to-image"
+      ],
+      "evidence": "This release upgrades and open-sources Ming-Image-0.2-Design. The new version improves complex composition, lighting, and text rendering... Visual-design generation | 6B",
+      "source_url": "https://huggingface.co/inclusionAI/Ming-Image-0.2-Design"
+    },
+    {
+      "id": "2026-11-25-sakana-ai-sakana-namazu-small",
+      "date": "2026-11-25",
+      "added": "2026-11-27",
+      "name": "Sakana Namazu Small",
+      "provider": "Sakana AI",
+      "kind": "model",
+      "status": "announced",
+      "summary": "Sakana AI announced Sakana Namazu Small, a 30-billion-parameter reasoning model designed for web research and long-document understanding.",
+      "features": [
+        "Reasoning",
+        "30B parameters",
+        "Web research",
+        "Document analysis"
+      ],
+      "evidence": "Sakana AI announced Sakana Namazu Small, a 30-billion-parameter reasoning model built on NVIDIA's open Nemotron 3 Nano base model and trained further in-house for web research and long documents.",
+      "source_url": "https://sakana.ai/namazu-small/"
+    },
     {
       "id": "2026-11-24-anthropic-skills-over-mcp",
       "date": "2026-11-24",
@@ -20,6 +56,24 @@
       "source_url": "https://claude.com/resources/articles/skills-over-mcp-tasks-and-more"
     },
     {
+      "id": "2026-11-24-cognition-swe-2-1",
+      "date": "2026-11-24",
+      "added": "2026-11-27",
+      "name": "SWE-2.1",
+      "provider": "Cognition",
+      "kind": "update",
+      "status": "available",
+      "summary": "Cognition released SWE-2.1, an upgraded Devin coding model trained via reinforcement learning on Kimi K3 with enhanced cybersecurity capabilities.",
+      "features": [
+        "Coding agent",
+        "Reinforcement learning",
+        "Cybersecurity",
+        "Long-horizon tasks"
+      ],
+      "evidence": "We're releasing SWE-2.1, a major upgrade over SWE-2. Like its predecessor, it is trained with pure reinforcement learning on Kimi K3.",
+      "source_url": "https://cognition.com/blog/swe-2-1"
+    },
+    {
       "id": "2026-11-24-google-google-workspace-mcp-servers-and-cli",
       "date": "2026-11-24",
       "added": "2026-11-27",
@@ -36,6 +90,24 @@
       ],
       "evidence": "We are making Workspace Model Context Protocol (MCP) servers and the official Workspace CLI generally available... AI agents or similar access tools must use Workspace MCP servers or the Workspace CLI to access Workspace data",
       "source_url": "https://www.google.com/sorry/index?continue=https://workspaceupdates.googleblog.com/2026/11/mcp-servers-cli-standardized-usage-tiers-now-available.html&q=EgSsznZUGJ6cptgGIi0W3AHC9SHCNTu2RYEvwlhBxV7TeoR2M1XUqCXJd7TBp7hoAX4KDGaM9M_N7WUyAnJSWgFDYKK-jK7NosWEMQ"
+    },
+    {
+      "id": "2026-11-24-prismml-ternary-bonsai-2-5-27b",
+      "date": "2026-11-24",
+      "added": "2026-11-27",
+      "name": "Ternary Bonsai 2.5 27B",
+      "provider": "PrismML",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "PrismML released Ternary Bonsai 2.5 27B, a compressed open coding model that compresses 27B parameters into 5.93 GB.",
+      "features": [
+        "Open weights",
+        "27B parameters",
+        "Ternary format",
+        "5.93 GB footprint"
+      ],
+      "evidence": "Ternary Bonsai 2.5 27B is the agentic release of the Ternary Bonsai 27B line... puts the whole model in 5.93 GB at 1.76 bits per weight, against 53.8 GB at FP16.",
+      "source_url": "https://huggingface.co/prism-ml/Ternary-Bonsai-2.5-27B-GGUF"
     },
     {
       "id": "2026-11-24-anthropic-install-artifacts-as-apps",
@@ -103,6 +175,24 @@
       ],
       "evidence": "Claude opens Enterprise Frontier Safeguards to public beta, bringing automated monitoring for misuse across requests while keeping customer data in customer-controlled storage under zero data retention.",
       "source_url": "https://claude.com/resources/articles/zero-data-retention-with-enterprise-frontier-safeguards"
+    },
+    {
+      "id": "2026-11-23-inclusionai-ling-3-2-air",
+      "date": "2026-11-23",
+      "added": "2026-11-27",
+      "name": "Ling-3.2-air",
+      "provider": "inclusionAI",
+      "kind": "open_weights",
+      "status": "available",
+      "summary": "inclusionAI released open weights for Ling-3.2-air, a 124B multimodal mixture-of-experts model that activates 5.5B parameters per token.",
+      "features": [
+        "Open weights",
+        "124B parameters",
+        "Multimodal",
+        "MoE"
+      ],
+      "evidence": "Ling-3.2-air, an open-weight model that shares the same native multimodal architecture as Ling-3.0-flash-VL... Total 124B, Activated 5.5B.",
+      "source_url": "https://huggingface.co/inclusionAI/Ling-3.2-air"
     },
     {
       "id": "2026-11-23-openai-gpt-6-2-in-chatgpt-chat",

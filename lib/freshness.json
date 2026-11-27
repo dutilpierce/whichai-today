@@ -2,11 +2,11 @@
   "pages": {
     "/": {
       "changed": "2026-11-27",
-      "hash": "c182b2157aab1b52"
+      "hash": "437054d31a6d0587"
     },
     "/releases": {
       "changed": "2026-11-27",
-      "hash": "4dd17e627f00b379"
+      "hash": "bf89c0ba53480aa7"
     },
     "/blog/ai-news-week-47-2026": {
       "changed": "2026-11-27",
@@ -215,6 +215,26 @@
     "/compare": {
       "changed": "2026-11-23",
       "hash": "0ccfdd0085d279d5"
+    },
+    "/releases/2026-11-25-inclusionai-ming-image-0-2-design": {
+      "changed": "2026-11-27",
+      "hash": "4702d292a9b8c8c6"
+    },
+    "/releases/2026-11-25-sakana-ai-sakana-namazu-small": {
+      "changed": "2026-11-27",
+      "hash": "38d44f97948aa643"
+    },
+    "/releases/2026-11-24-cognition-swe-2-1": {
+      "changed": "2026-11-27",
+      "hash": "cc07dc2ee26f4546"
+    },
+    "/releases/2026-11-24-prismml-ternary-bonsai-2-5-27b": {
+      "changed": "2026-11-27",
+      "hash": "f77f72158edb334d"
+    },
+    "/releases/2026-11-23-inclusionai-ling-3-2-air": {
+      "changed": "2026-11-27",
+      "hash": "0990c8d6be838c82"
     },
     "/releases/2026-11-23-openai-gpt-6-2-in-chatgpt-chat": {
       "changed": "2026-11-27",
