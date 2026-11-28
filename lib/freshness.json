@@ -5,8 +5,8 @@
       "hash": "437054d31a6d0587"
     },
     "/releases": {
-      "changed": "2026-11-27",
-      "hash": "bf89c0ba53480aa7"
+      "changed": "2026-11-28",
+      "hash": "00e54bef39223918"
     },
     "/blog/ai-news-week-47-2026": {
       "changed": "2026-11-27",
@@ -231,6 +231,10 @@
     "/releases/2026-11-24-prismml-ternary-bonsai-2-5-27b": {
       "changed": "2026-11-27",
       "hash": "f77f72158edb334d"
+    },
+    "/releases/2026-11-23-memtensor-memt-1-0-pro": {
+      "changed": "2026-11-28",
+      "hash": "efc89821fff3854d"
     },
     "/releases/2026-11-23-inclusionai-ling-3-2-air": {
       "changed": "2026-11-27",
